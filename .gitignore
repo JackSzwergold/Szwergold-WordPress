@@ -1,0 +1,20 @@
+# Ignore OS specific cruft.
+.DS_Store
+Thumbs.db
+
+# Ignore the cache directory.
+/cache/*/*/*
+/cache/*/*
+/cache/*
+/cache/
+
+# Ignore the logs directory.
+/logs/*/*/*
+/logs/*/*
+/logs/*
+/logs/
+
+# Ignore the projects directory.
+/projects_base/*
+/projects/*
+
