@@ -12,10 +12,7 @@
 // Set the items in the footer array.
 $footer_items_array = array();
 $footer_items_array[] = '<a href="/about" title="About" class="text-white m-0 p-0">About</a>';
-$footer_items_array[] = '<a href="/what" title="What’s this?" class="text-white m-0 p-0">What’s this?</a>';
-$footer_items_array[] = '<a href="/feed" title="RSS feed" class="text-white m-0 p-0">RSS feed</a>';
 $footer_items_array[] = '<a href="#" title="top of page" class="text-white m-0 p-0">Top of Page</a>';
-$footer_items_array[] = '<span class="text-white m-0 p-0">All Materials &copy; ' . date('Y') . ' MrBellersNeighborhood</span>';
 
 // Set the footer string.
 $footer_items_string = implode('<span class="text-white m-0 p-0 px-1">&bull;</span>', $footer_items_array);
