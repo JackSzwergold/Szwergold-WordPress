@@ -39,7 +39,7 @@
 	    echo '</a>';
 	    echo '</div>';
 	    // <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
-	    echo '<hr class="border border-dark border-1 opacity-100">';
+	    // echo '<hr class="border border-dark border-1 opacity-100">';
 	    echo '</header>';
 
 	    echo '<main class="col col-12 p-0 m-0">';
