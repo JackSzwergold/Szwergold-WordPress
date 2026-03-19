@@ -13,6 +13,7 @@ ob_start();
 add_action('shutdown', function () {
     $content = ob_get_clean();
 	$content = str_replace(' />', '>', $content);
+	$content = str_replace('/>', '>', $content);
     echo $content;
     exit();
 }, 0);
