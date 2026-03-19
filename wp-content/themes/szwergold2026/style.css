@@ -13,103 +13,310 @@
  Use it to make something cool, have fun, and share what you've learned with others.
  */
 
-.nav-tabs .nav-link {
-  background-color: revert;
+body {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif;
+/*  background: transparent;*/
+  background-image: linear-gradient(-45deg, #ff5858 0%, #f09819 100%);
 }
 
-* {
-  font-family: Georgia, Times New Roman, Verdana, Tahoma, serif;
-  color: #000000;
-  margin: 0px;
-  padding: 0px;
+/******************************************************************************/
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
   text-decoration: none;
-  outline: 0;
+  color: #000000;
+  transition: all 600ms ease;
 }
 
-/* Setting body text size. */
-/*.mbn_body_text {
-  font-size: 1rem;
-  line-height: 1.250rem;
-}*/
-.mbn_body_text {
-  font-size: 0.875em
-  /*line-height: 1.375rem;*/
+/******************************************************************************/
+pre {
+  background: #212529;
+  color: #00ff00;
+  padding: 1rem;
+  font-size: 0.75rem;
 }
 
-/* Setting columns for the category sidebar. */
-ul.categories_sidebar,
-ul.archives_sidebar {
-  column-count: 2;
-  column-width: auto;
+code {
+  background: #dddddd !important;
+  color: #000000 !important;
+  font-size: 0.75rem !important;
+  padding: 0.125rem 0.25rem !important;
 }
 
-/* Setting Bootstrap breakpoints mainly for the columns for the category sidebar. */
+/******************************************************************************/
+/* The background code stuff.
+/******************************************************************************/
 
-/* X-Small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
+.bg-code {
+  background: #212529 !important;
+}
 
-/* Small devices (landscape phones, 576px and up) */
+.bg-szwergold {
+  background: #efe0cd !important;
+}
+
+/******************************************************************************/
+/*
+/*  _____           _
+/* |  ___|__  _ __ | |_ ___
+/* | |_ / _ \| '_ \| __/ __|
+/* |  _| (_) | | | | |_\__ \
+/* |_|  \___/|_| |_|\__|___/
+/*
+/******************************************************************************/
+@font-face {
+    font-family: 'WindsorProBold';
+    src: url('../fonts/WindsorPro/WindsorProBold.woff2') format('woff2'),
+         url('../fonts/WindsorPro/WindsorProBold.woff') format('woff'),
+         url('../fonts/WindsorPro/WindsorProBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WindsorProElongated';
+    src: url('../fonts/WindsorPro/WindsorProElongated.woff2') format('woff2'),
+         url('../fonts/WindsorPro/WindsorProElongated.woff') format('woff'),
+         url('../fonts/WindsorPro/WindsorProElongated.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WindsorProRegular';
+    src: url('../fonts/WindsorPro/WindsorProRg.woff2') format('woff2'),
+         url('../fonts/WindsorPro/WindsorProRg.woff') format('woff'),
+         url('../fonts/WindsorPro/WindsorProRg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WindsorProUltraHeavy';
+    src: url('../fonts/WindsorPro/WindsorProUltHv.woff2') format('woff2'),
+         url('../fonts/WindsorPro/WindsorProUltHv.woff') format('woff'),
+         url('../fonts/WindsorPro/WindsorProUltHv.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WindsorProXBoldCn';
+    src: url('../fonts/WindsorPro/WindsorProXBoldCn.woff2') format('woff2'),
+         url('../fonts/WindsorPro/WindsorProXBoldCn.woff') format('woff'),
+         url('../fonts/WindsorPro/WindsorProXBoldCn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/******************************************************************************/
+/* Setting WindsorPro tags.
+/******************************************************************************/
+.text-windsorpro-regular {
+  font-family: "WindsorProRegular", Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+}
+
+.text-windsorpro-bold {
+  font-family: "WindsorProBold", Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 700 !important;
+}
+
+/******************************************************************************/
+/* Setting Arial tags.
+/******************************************************************************/
+.text-arial-light {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 100 !important;
+}
+
+.text-arial-regular {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.text-arial-bold {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.text-arial-black {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 900 !important;
+}
+
+.text-arial-light {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 100 !important;
+}
+
+.text-arial-regular {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.text-arial-bold {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.text-arial-black {
+  font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif !important;
+  font-weight: 900 !important;
+}
+
+/******************************************************************************/
+/* Setting Georgia tags.
+/******************************************************************************/
+.text-georgia-light {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 100 !important;
+}
+
+.text-georgia-regular {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+}
+
+.text-georgia-bold {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 700 !important;
+}
+
+.text-georgia-black {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 900 !important;
+}
+
+.text-georgia-light {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 100 !important;
+}
+
+.text-georgia-regular {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+}
+
+.text-georgia-bold {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 700 !important;
+}
+
+.text-georgia-black {
+  font-family: Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 900 !important;
+}
+
+/******************************************************************************/
+/* Article column list breaks.
+/******************************************************************************/
+
+main > article div.column_list ul,
+main > article div.column_list ol {
+  margin: 0;
+  padding: 0 1rem 0 1rem;
+  clear: both;
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+/******************************************************************************/
+/* Article list style none.
+/******************************************************************************/
+
+main > article div.list_style_none ul,
+main > article div.list_style_none ol {
+  margin: 0;
+  padding: 0 1rem 0 1rem;
+  list-style: none;
+}
+
+/******************************************************************************/
+
+main article h1,
+main article h2,
+main article h3,
+main article h4,
+main article h5,
+main article h6 {
+  font-family: "WindsorProRegular", Georgia, "New York", "Times New Roman", Times, serif;
+  color: #333333;
+}
+
+main article h1 a,
+main article h1 a:link,
+main article h1 a:visited,
+main article h1 a:hover,
+main article h1 a:active,
+main article h2 a,
+main article h2 a:link,
+main article h2 a:visited,
+main article h2 a:hover,
+main article h2 a:active,
+main article h3 a,
+main article h3 a:link,
+main article h3 a:visited,
+main article h3 a:hover,
+main article h3 a:active,
+main article h4 a,
+main article h4 a:link,
+main article h4 a:visited,
+main article h4 a:hover,
+main article h4 a:active {
+  color: #333333;
+}
+
+/******************************************************************************/
+
+main article a,
+main article a:link,
+main article a:visited,
+main article a:hover,
+main article a:active {
+  color: #333333;
+  background-image: linear-gradient(#333333 50%, #333333 50%);
+  background-repeat: repeat-x;
+  background-position: 0 90%;
+  background-size: 1px 1px;
+}
+
+/******************************************************************************/
+/*
+/*  __  __          _ _          ___                  _
+/* |  \/  | ___  __| (_) __ _   / _ \ _   _  ___ _ __(_) ___  ___
+/* | |\/| |/ _ \/ _` | |/ _` | | | | | | | |/ _ \ '__| |/ _ \/ __|
+/* | |  | |  __/ (_| | | (_| | | |_| | |_| |  __/ |  | |  __/\__ \
+/* |_|  |_|\___|\__,_|_|\__,_|  \__\_\\__,_|\___|_|  |_|\___||___/
+/*
+/******************************************************************************/
 @media (min-width: 576px) {
-
-  .mbn_body_text {
-    font-size: 1.125em;
-    /*line-height: 1.625em;*/
-  }
-
-  ul.categories_sidebar,
-  ul.archives_sidebar {
-    column-count: 2;
-    column-width: auto;
-  }
-
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
-  ul.categories_sidebar,
-  ul.archives_sidebar {
-    column-count: 3;
-    column-width: auto;
-  }
-
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
-  ul.categories_sidebar,
-  ul.archives_sidebar {
+  main > article div.column_list ul,
+  main > article div.column_list ol {
     column-count: 1;
-    column-width: auto;
   }
-
 }
 
-/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 768px) {
+  main > article div.column_list ul,
+  main > article div.column_list ol {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 992px) {
+  main > article div.column_list ul,
+  main > article div.column_list ol {
+    column-count: 3;
+  }
+}
+
 @media (min-width: 1200px) {
-
-
-  ul.categories_sidebar,
-  ul.archives_sidebar {
-    column-count: 2;
-    column-width: auto;
+  main > article div.column_list ul,
+  main > article div.column_list ol {
+    column-count: 4;
   }
-
-}
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-
-  .mbn_body_text {
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-  }
-
-  ul.categories_sidebar,
-  ul.archives_sidebar {
-    column-count: 2;
-    column-width: auto;
-  }
-
 }
