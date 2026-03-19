@@ -1,0 +1,115 @@
+/*
+ Theme Name: Szwergold (2026)
+ Theme URI: https://szwergold.com
+ Author: Jack Szwergold
+ Author URI: https://szwergold.com
+ Description: Szwergold (2026)
+ Version: 1.0
+ License: GNU General Public License v2 or later
+ License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain: szwergold2026
+
+ This theme, like WordPress, is licensed under the GPL.
+ Use it to make something cool, have fun, and share what you've learned with others.
+ */
+
+.nav-tabs .nav-link {
+  background-color: revert;
+}
+
+* {
+  font-family: Georgia, Times New Roman, Verdana, Tahoma, serif;
+  color: #000000;
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  outline: 0;
+}
+
+/* Setting body text size. */
+/*.mbn_body_text {
+  font-size: 1rem;
+  line-height: 1.250rem;
+}*/
+.mbn_body_text {
+  font-size: 0.875em
+  /*line-height: 1.375rem;*/
+}
+
+/* Setting columns for the category sidebar. */
+ul.categories_sidebar,
+ul.archives_sidebar {
+  column-count: 2;
+  column-width: auto;
+}
+
+/* Setting Bootstrap breakpoints mainly for the columns for the category sidebar. */
+
+/* X-Small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+  .mbn_body_text {
+    font-size: 1.125em;
+    /*line-height: 1.625em;*/
+  }
+
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 2;
+    column-width: auto;
+  }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 3;
+    column-width: auto;
+  }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 1;
+    column-width: auto;
+  }
+
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 2;
+    column-width: auto;
+  }
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+  .mbn_body_text {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+  }
+
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 2;
+    column-width: auto;
+  }
+
+}
