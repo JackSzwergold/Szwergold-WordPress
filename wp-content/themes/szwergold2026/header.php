@@ -5,6 +5,7 @@
 	$template_directory = get_bloginfo('template_directory');
 	$stylesheet_url = get_bloginfo('stylesheet_url');
 	$name = get_bloginfo('name');
+	$tagline = get_bloginfo('tagline');
 	$atom_url = get_bloginfo('atom_url');
 	$rss2_url = get_bloginfo('rss2_url');
 	$url = get_bloginfo('url');
@@ -13,25 +14,25 @@
 
 	/****************************************************************************************/
 	// Set the title.
-	$title = '';
-	if (is_home()) {
-		$title = $name;
-	} // if
-	else if (is_404()) {
-		$title = '404 Not Found';
-	} // else if
-	else if (is_category()) {
-		$title = 'Category: ' . wp_title('', FALSE) . ' - ' . $name;
-	} // else if
-	else if (is_search()) {
-		$title = $name . ' - Search Results';
-	} // else if
-	else if (is_day() || is_month() || is_year()) {
-		$title = $name . ' - Archives: ' . wp_title('', FALSE);
-	} // else if
-	else {
-		$title = wp_title('', FALSE) . ' - ' . $name;
-	} // else
+	// $title = '';
+	// if (is_home()) {
+	// 	$title = $name;
+	// } // if
+	// else if (is_404()) {
+	// 	$title = '404 Not Found';
+	// } // else if
+	// else if (is_category()) {
+	// 	$title = 'Category: ' . wp_title('', FALSE) . ' - ' . $name;
+	// } // else if
+	// else if (is_search()) {
+	// 	$title = $name . ' - Search Results';
+	// } // else if
+	// else if (is_day() || is_month() || is_year()) {
+	// 	$title = $name . ' - Archives: ' . wp_title('', FALSE);
+	// } // else if
+	// else {
+	// 	$title = wp_title('', FALSE) . ' - ' . $name;
+	// } // else
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -81,8 +82,8 @@
 
 	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-dark border-bottom border-dark">
 		<div class="col col-12 p-0 m-0 px-2 py-1">
-		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="{{ home_url|e }}"><span class="text-white">{{ site.title|e }}</span></a></h1>
-		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="{{ home_url|e }}"><span class="text-white">{{ config.site.metadata.description|e }}</span></a></h2>
+		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $name; ?></span></a></h1>
+		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $tagline; ?></span></a></h2>
 		</div>
 	</nav>
 
