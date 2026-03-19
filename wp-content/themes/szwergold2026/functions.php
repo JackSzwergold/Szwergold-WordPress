@@ -589,12 +589,4 @@ function load_fontawesome_files() {
 }
 add_action('wp_enqueue_scripts', 'load_fontawesome_files', 10);
 
-/********************************************************************************/
-// 2025-12-09: Properly setting the theme specific 'functions.js' JavaScript.
-function load_functions_javascript() {
-	wp_register_script('functions', get_template_directory_uri() . '/js/functions.js', array('jquery'));
-	wp_enqueue_script('functions');
-}
-add_action('wp_enqueue_scripts', 'load_functions_javascript', 999);
-
 ?>
