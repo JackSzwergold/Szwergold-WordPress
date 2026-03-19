@@ -12,8 +12,7 @@ add_action('after_setup_theme', 'register_html_support');
 ob_start();
 add_action('shutdown', function () {
     $content = ob_get_clean();
-	$content = str_replace(' />', '>', $content);
-	$content = str_replace('/>', '>', $content);
+	// $content = str_replace(array(' />', '/>'), array('>', '>'), $content);
     echo $content;
     exit();
 }, 0);
