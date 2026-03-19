@@ -58,12 +58,6 @@
 		echo '<link rel="shortcut icon" href="' . $url . '/favicon.ico">';
 
 		/****************************************************************************************/
-		// NOTE: No idea what this is for.
-		if (is_singular()) {
-			wp_enqueue_script('comment-reply');
-		} // if
-
-		/****************************************************************************************/
 		// Grab the 'wp_head' into a variable.
 		ob_start();
 		wp_head();
