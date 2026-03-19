@@ -101,8 +101,8 @@
 					<div class="col col-12 col-lg-6 m-0 p-0 pt-md-3 pb-lg-2 pe-lg-2 text-center text-lg-start overflow-hidden">
 					<?php
 						echo '<a href="/" title="Mr. Beller’s Neighborhood">';
-						echo '<img src="' . $template_directory . '/images/MrBeller_Text.png" class="d-md-none img-fluid user-select-none m-0 p-0 mt-2" width="930" height="102" alt="Mr. Beller’s Neighborhood">';
-						echo '<img src="' . $template_directory . '/images/MrBeller_TextandSilhouette.png" class="d-none d-md-inline-block img-fluid user-select-none m-0 p-0" width="1064" height="126" alt="Mr. Beller’s Neighborhood">';
+						echo '<img src="' . $template_directory . '/images/Szwergold_Text.png" class="d-md-none img-fluid user-select-none m-0 p-0 mt-2" width="930" height="102" alt="Mr. Beller’s Neighborhood">';
+						echo '<img src="' . $template_directory . '/images/Szwergold_TextandSilhouette.png" class="d-none d-md-inline-block img-fluid user-select-none m-0 p-0" width="1064" height="126" alt="Mr. Beller’s Neighborhood">';
 						echo '</a>';
 					?>
 					</div>
@@ -113,7 +113,7 @@
 								<div class="row text-center text-md-start">
 									<?php
 										echo '<a href="/tell-mr-beller-a-story" title="Tell a story">';
-										echo '<img src="' . $template_directory . '/images/MrBeller_TellaStory.png" class="user-select-none img-fluid m-0 p-0" width="236" height="15" alt="Tell Mr. Beller a Story">';
+										echo '<img src="' . $template_directory . '/images/Szwergold_TellaStory.png" class="user-select-none img-fluid m-0 p-0" width="236" height="15" alt="Tell Mr. Beller a Story">';
 										echo '</a>';
 									?>
 								</div>
