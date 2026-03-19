@@ -10,29 +10,6 @@
 	$rss2_url = get_bloginfo('rss2_url');
 	$url = get_bloginfo('url');
 	$pingback_url = get_bloginfo('pingback_url');
-	$search_query = get_search_query(false);
-
-	/****************************************************************************************/
-	// Set the title.
-	// $title = '';
-	// if (is_home()) {
-	// 	$title = $name;
-	// } // if
-	// else if (is_404()) {
-	// 	$title = '404 Not Found';
-	// } // else if
-	// else if (is_category()) {
-	// 	$title = 'Category: ' . wp_title('', FALSE) . ' - ' . $name;
-	// } // else if
-	// else if (is_search()) {
-	// 	$title = $name . ' - Search Results';
-	// } // else if
-	// else if (is_day() || is_month() || is_year()) {
-	// 	$title = $name . ' - Archives: ' . wp_title('', FALSE);
-	// } // else if
-	// else {
-	// 	$title = wp_title('', FALSE) . ' - ' . $name;
-	// } // else
 
 ?><!DOCTYPE html>
 <html lang="en">
