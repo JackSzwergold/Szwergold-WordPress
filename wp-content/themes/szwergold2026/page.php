@@ -1,14 +1,9 @@
 <?php
+
   get_header();
+
 ?>
-<header class="col col-12 p-0 m-0 pb-2">
-  <div class="h1 p-0 m-0 text-windsorpro-bold">{% if header.title %}{{ header.title|e }}{% endif %}</div>
-  <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
-  <hr class="border border-dark border-1 opacity-100">
-</header>
-<main class="col col-12 p-0 m-0">
-  <article class="col col-12 p-0 m-0">
-    <div class="text-georgia-regular">
+
 
       <?php
         if (have_posts()) {
@@ -29,7 +24,7 @@
 
             /********************************************************************************/
             // Set the blog post info valiables.
-            $story_author_id = $post->post_author;  //  important for sidebar!
+            $story_author_id = $post->post_author;
             $permalink = get_the_permalink();
             $title = get_the_title();
             $title_attribute = the_title_attribute(array('echo' => false));
@@ -37,21 +32,19 @@
             $the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
             $display_date = get_the_time('F j, Y');
 
-            echo '<header class="p-0 m-0">';
-            echo '<div class="p-0 m-0 mx-3">';
-            echo '<div class="container m-0 p-0 pb-2 mb-2 border-bottom border-dark">';
-            echo '<div class="h4 p-0 m-0 fw-bold">';
+            echo '<header class="col col-12 p-0 m-0 pb-2">';
+            echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
             echo '<a href="' . $permalink . '" rel="bookmark" title="Permanent Link to ' . $title . '" class="text-dark text-decoration-none">';
             echo $title;
             echo '</a>';
             echo '</div>';
-            echo '</div>';
-            echo '</div>';
+            // <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
+            echo '<hr class="border border-dark border-1 opacity-100">';
             echo '</header>';
 
-            echo '<div class="p-0 m-0">';
-            echo '<div class="p-0 m-0 mx-3">';
-            echo '<div class="container m-0 p-0">';
+            echo '<main class="col col-12 p-0 m-0">';
+            echo '<article class="col col-12 p-0 m-0">';
+            echo '<div class="text-georgia-regular">';
 
             /********************************************************************/
             // Grab the content into a variable.
@@ -65,8 +58,8 @@
             echo $the_content;
 
             echo '</div>';
-            echo '</div>';
-            echo '</div>';
+            echo '</article>';
+            echo '</main>';
 
             /********************************************************************/
             // Grab the content into a variable.
@@ -109,10 +102,6 @@
         } // else
       ?>
 
-
-    </div>
-  </article>
-</main>
 <?php
   // get_sidebar();
   get_footer();
