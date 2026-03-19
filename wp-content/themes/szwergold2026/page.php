@@ -68,15 +68,6 @@
 	    $edit_post_link = ob_get_contents();
 	    ob_end_clean();
 
-	    /********************************************************************/
-	    // Display the edit post link if it exists.
-	    if (!empty($edit_post_link)) {
-	      $edit_post_link = str_replace('<a class="post-edit-link" href="', '<a class="post-edit-link text-white text-decoration-none m-0 p-0 px-3 py-2" href="', $edit_post_link);
-	      echo '<div class="float-end bg-dark m-0 p-0 rounded">';
-	      echo $edit_post_link;
-	      echo '</div>';              
-	    } // if
-
 	  } // while
 
 	  // echo '<div class="navigation">';
@@ -107,6 +98,6 @@
 
 	/**********************************************************************/
 	// Set the footer.
-	// get_footer();
+	get_footer();
 
 ?>
