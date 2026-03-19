@@ -53,30 +53,12 @@
             echo '<div class="p-0 m-0 mx-3">';
             echo '<div class="container m-0 p-0">';
 
-            if (function_exists('fv_image_uploader_get_img')) {
-              fv_image_uploader_get_img($post->ID);
-            } // if
-
             /********************************************************************/
             // Grab the content into a variable.
             ob_start();
             the_content('Read the rest of this entry &raquo;');
             $the_content = ob_get_contents();
             ob_end_clean();
-
-            /********************************************************************/
-            // Filter the content.
-            $the_content = str_replace('<h3 class="wp-block-heading">', '<div class="h5 p-0 m-0 fw-bold mb-1">', $the_content);
-            $the_content = str_replace('</h3>', '</div>', $the_content);
-            $the_content = str_replace('class="button button-primary button-large"', 'class="btn btn-outline-dark bg-white text-dark col col-12 col-sm-6"', $the_content);
-            $the_content = str_replace('<input type="submit"', '<input type="submit" class="btn btn-outline-dark bg-white text-dark col col-12 col-sm-6"', $the_content);
-            $the_content = str_replace('type="text"', 'type="text" class="form-control border border-dark"', $the_content);
-            $the_content = str_replace('type="password"', 'type="password" class="form-control border border-dark"', $the_content);
-            $the_content = str_replace('class="input"', 'class="input form-control border border-dark"', $the_content);
-            $the_content = str_replace('class="usp-input"', 'class="usp-input form-control border border-dark"', $the_content);
-            $the_content = str_replace('class="usp-textarea"', 'class="usp-textarea form-control w-100 border border-dark"', $the_content);
-            $the_content = str_replace('rows="5"', 'rows="10"', $the_content);
-            $the_content = str_replace('<a href="', '<a class="text-dark" href="', $the_content);
 
             /********************************************************************/
             // Output the content.
@@ -101,7 +83,6 @@
               echo $edit_post_link;
               echo '</div>';              
             } // if
-
 
           } // while
 
