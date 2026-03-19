@@ -70,25 +70,12 @@
 
 	  } // while
 
-	  // echo '<div class="navigation">';
-	  // echo '<div class="alignleft">';
-	  // next_posts_link('&laquo; Older Entries');
-	  // echo '</div>';
-	  // echo '<div class="alignright">';
-	  // previous_posts_link('Newer Entries &raquo;');
-	  // echo '</div>';
-	  // echo '</div>';
-
 	} // if
 	else {
 
-		// echo '<div>';
-		// echo '<p></p>';
-		// echo '<p class="error">???????????????????</p>';
-		// echo '<p class="error">???????????????????</p>';
-		// echo '<p class="error">???????????????????</p>';
-		// echo "<p>Looks like what you were looking for isn't here. You might want to give it another try, perhaps the server hiccuped, or perhaps you spelled something wrong (or maybe I did).</p>";
-		// echo '</div>';
+		echo '<div>';
+		echo "<p>Nothing.</p>";
+		echo '</div>';
 
 	} // else
 
