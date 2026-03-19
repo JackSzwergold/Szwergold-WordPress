@@ -83,121 +83,20 @@
 		}
 	?>
 </head>
-<?php
-	$body_onload = '';
-	if (isset($is_map)) {
-		$body_onload = 'onload="FVLoadGoogleMap();" onunload="GUnload();"';
-	} // if
-	echo '<body ' . $body_onload . '>'
-?>
+<body id="top" class="{{ page.header.body_classes|e }}">
 
-<div class="container-fluid m-0 p-0">
-    <div class="row m-0 p-0">
-        <div class="col col-12 m-0 p-0 bg-black">
+	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-dark border-bottom border-dark">
+	<div class="col col-12 p-0 m-0 px-2 py-1">
+	  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="{{ home_url|e }}"><span class="text-white">{{ site.title|e }}</span></a></h1>
+	  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="{{ home_url|e }}"><span class="text-white">{{ config.site.metadata.description|e }}</span></a></h2>
+	</div>
+	</nav>
 
-			<!-- Site Header BEGIN -->
-			<div class="container">
-				<div class="row m-0 p-0">
-					<div class="col col-12 col-lg-6 m-0 p-0 pt-md-3 pb-lg-2 pe-lg-2 text-center text-lg-start overflow-hidden">
+	<!-- Content Core BEGIN -->
+	<div class="container">
+		<div class="row">
+			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-white shadow-lg border border-dark">
 
-					</div>
-
-					<div class="col col-12 col-lg-6 m-0 p-0 px-3 px-md-0 pt-md-4 pb-2">
-						<div class="row">
-							<div class="col col-12 col-sm-6 pt-1 ps-sm-4 pt-sm-2 pt-md-2 pb-2">
-								<div class="row text-center text-md-start">
-
-								</div>
-							</div>
-							<div class="col col-12 col-sm-6 ms-auto mb-2">
-								<div class="row text-center text-md-start">
-
-								</div>
-							</div>
-
-							<div class="col col-12 text-end">
-								<div class="row">
-									<div class="col col-12 text-end">
-										<span class="small user-select-none text-white">
-
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                </div>
-            </div>
-			<!-- Site Header END -->
-
-            <div class="container">
-                <div class="row m-0 p-0 mx-3">
-                    <div class="col col-12 m-0 p-0 overflow-hidden">
-
-                    	<?php
-	                    	if (FALSE) {
-                		?>
-						<!-- Site Header BEGIN -->
-						<header class="headerWrapper mx-auto">
-
-							<div class="loginInfo">
-								<?php
-
-									global $current_user;
-
-									wp_get_current_user();
-
-									if ($current_user->ID != 0) {
-										global $stories_pending;
-
-										get_user_pending_stories($current_user->ID);
-
-										/****************************************************************************************/
-										// Handle the messaging for the user bio.
-										if (!$current_user->description && ($current_user->wp_user_level > 0 || count($stories_pending) > 0 )) {
-											echo '<a href="/profile">' . $current_user->display_name . '</a>, <span class="text-danger">you have not entered a bio. <a href="/wp-admin/profile.php">Add it here!</a></span> |';
-										} // if
-										else {
-											echo 'Logged in as <a href="/profile">' . $current_user->display_name . '</a> | ';
-										} // if
-
-										/****************************************************************************************/
-										// Set the WordPress logout URL.
-										if (is_single()) {
-										    $wp_logout_url = wp_logout_url(get_permalink());
-										} // if
-										else {
-										    $wp_logout_url = wp_logout_url('/');
-										} // else
-
-										echo '<a href="' . $wp_logout_url . '">Logout</a>';
-									} // if
-									else {
-									    echo '<a href="/login">Login</a> or <a href="/register">Register</a>';
-									} // else
-
-								?>
-							</div><!-- loginInfo -->
-
-						</header>
-						<!-- Site Header END -->
-                    	<?php
-							} // if
-                		?>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- Core Wrapper BEGIN -->
-<div class="container-fluid bg-white">
-    <div class="row">
-        <div class="col col-12">
-
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col col-12 m-0 p-0 py-2 bg-white">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col py-3 py-md-4 text-left">

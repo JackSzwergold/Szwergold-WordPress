@@ -1,21 +1,15 @@
-                    </div>
-                </div>
             </div>
-
+          </div>
         </div>
+
+      </div>
     </div>
-</div>
-<!-- Core Wrapper END -->
+  </div>
+
+</body>
+<!-- Content Core END -->
 
 <?php
-
-// Set the items in the footer array.
-$footer_items_array = array();
-$footer_items_array[] = '<a href="/about" title="About" class="text-white m-0 p-0">About</a>';
-$footer_items_array[] = '<a href="#" title="top of page" class="text-white m-0 p-0">Top of Page</a>';
-
-// Set the footer string.
-$footer_items_string = implode('<span class="text-white m-0 p-0 px-1">&bull;</span>', $footer_items_array);
 
 ?>
 
@@ -30,18 +24,11 @@ $footer_items_string = implode('<span class="text-white m-0 p-0 px-1">&bull;</sp
             <!-- Footer BEGIN -->
             <footer class="user-select-none">
 
-              <span><?php echo $footer_items_string; ?></span>
+              <span class="text-white">123</span>
               <span>&nbsp;</span>
-
-              <!-- Performance benchmarking. -->
-              <?php
-              if (TRUE && is_user_logged_in() && current_user_can('edit_pages') ){
-                global $wpdb;
-                echo '<div class="clsQueries text-white">' . $wpdb->num_queries . ' queries. ';
-                timer_stop(1);
-                echo ' seconds.</div>';
-              }
-              ?>
+              <span class="text-white">456</span>
+              <span>&nbsp;</span>
+              <span class="text-white">789</span>
 
             </footer>
             <!-- Footer END -->
@@ -53,19 +40,6 @@ $footer_items_string = implode('<span class="text-white m-0 p-0 px-1">&bull;</sp
     </div>
   </div>
 </div>
-
-<!-- Disabling this stuff since it looks like it is no longer being used. -->
-<!-- <script type="text/javascript">
-  var sc_project=5412846; 
-  var sc_invisible=1; 
-  var sc_partition=53; 
-  var sc_click_stat=1; 
-  var sc_security="7e77eada"; 
-</script>
-
-<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
-<noscript><div class="statcounter"><a title="joomla stats" href="https://www.statcounter.com/joomla/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/5412846/0/7e77eada/1/" alt="joomla stats" ></a></div></noscript> -->
-
 <?php
 
   /****************************************************************************************/
@@ -73,6 +47,5 @@ $footer_items_string = implode('<span class="text-white m-0 p-0 px-1">&bull;</sp
   wp_footer();
 
 ?>
-
 </body>
 </html>
