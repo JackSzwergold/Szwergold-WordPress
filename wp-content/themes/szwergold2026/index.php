@@ -2,6 +2,61 @@
   get_header();
 ?>
 <!-- Content Core BEGIN -->
+<body id="top" class="{{ page.header.body_classes|e }}">
+
+  <nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-dark border-bottom border-dark">
+    <div class="col col-12 p-0 m-0 px-2 py-1">
+      <h1 class="p-0 m-0 text-windsorpro-bold"><a href="{{ home_url|e }}"><span class="text-white">{{ site.title|e }}</span></a></h1>
+      <h2 class="p-0 m-0 text-windsorpro-regular"><a href="{{ home_url|e }}"><span class="text-white">{{ config.site.metadata.description|e }}</span></a></h2>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-white shadow-lg border border-dark">
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col py-3 py-md-4 text-left">
+
+            {% block header %}
+                <header class="col col-12 p-0 m-0 pb-2">
+                    <div class="h1 p-0 m-0 text-windsorpro-bold">{% if header.title %}{{ header.title|e }}{% endif %}</div>
+                    <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
+                    <hr class="border border-dark border-1 opacity-100">
+                </header>
+            {% endblock %}
+
+            <!-- {% block header_navigation %}
+                {% include 'partials/navigation.html.twig' %}
+            {% endblock %} -->
+
+            {% block body %}
+              <main class="col col-12 p-0 m-0">
+                <article class="col col-12 p-0 m-0">
+                  <div class="text-georgia-regular">
+                    {% block content %}{% endblock %}
+                  </div>
+                </article>
+              </main>
+            {% endblock %}
+
+            {% block bottom %}
+                {{ assets.js('bottom')|raw }}
+            {% endblock %}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+<!-- Content Core END -->
+
+<!-- Content Core BEGIN -->
 <div class="container m-0 p-0">
   <div class="row m-0 p-0">
     <div class="col col-12 col-xl-10 m-0 p-0">
