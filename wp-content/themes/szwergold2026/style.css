@@ -68,36 +68,36 @@ code {
 /******************************************************************************/
 @font-face {
     font-family: 'WindsorProBold';
-    src: url('../fonts/WindsorPro/WindsorProBold.woff2') format('woff2'),
-         url('../fonts/WindsorPro/WindsorProBold.woff') format('woff'),
-         url('../fonts/WindsorPro/WindsorProBold.ttf') format('truetype');
+    src: url('fonts/WindsorPro/WindsorProBold.woff2') format('woff2'),
+         url('fonts/WindsorPro/WindsorProBold.woff') format('woff'),
+         url('fonts/WindsorPro/WindsorProBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'WindsorProElongated';
-    src: url('../fonts/WindsorPro/WindsorProElongated.woff2') format('woff2'),
-         url('../fonts/WindsorPro/WindsorProElongated.woff') format('woff'),
-         url('../fonts/WindsorPro/WindsorProElongated.ttf') format('truetype');
+    src: url('fonts/WindsorPro/WindsorProElongated.woff2') format('woff2'),
+         url('fonts/WindsorPro/WindsorProElongated.woff') format('woff'),
+         url('fonts/WindsorPro/WindsorProElongated.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'WindsorProRegular';
-    src: url('../fonts/WindsorPro/WindsorProRg.woff2') format('woff2'),
-         url('../fonts/WindsorPro/WindsorProRg.woff') format('woff'),
-         url('../fonts/WindsorPro/WindsorProRg.ttf') format('truetype');
+    src: url('fonts/WindsorPro/WindsorProRg.woff2') format('woff2'),
+         url('fonts/WindsorPro/WindsorProRg.woff') format('woff'),
+         url('fonts/WindsorPro/WindsorProRg.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'WindsorProUltraHeavy';
-    src: url('../fonts/WindsorPro/WindsorProUltHv.woff2') format('woff2'),
-         url('../fonts/WindsorPro/WindsorProUltHv.woff') format('woff'),
-         url('../fonts/WindsorPro/WindsorProUltHv.ttf') format('truetype');
+    src: url('fonts/WindsorPro/WindsorProUltHv.woff2') format('woff2'),
+         url('fonts/WindsorPro/WindsorProUltHv.woff') format('woff'),
+         url('fonts/WindsorPro/WindsorProUltHv.ttf') format('truetype');
 
     font-weight: normal;
     font-style: normal;
@@ -105,9 +105,9 @@ code {
 
 @font-face {
     font-family: 'WindsorProXBoldCn';
-    src: url('../fonts/WindsorPro/WindsorProXBoldCn.woff2') format('woff2'),
-         url('../fonts/WindsorPro/WindsorProXBoldCn.woff') format('woff'),
-         url('../fonts/WindsorPro/WindsorProXBoldCn.ttf') format('truetype');
+    src: url('fonts/WindsorPro/WindsorProXBoldCn.woff2') format('woff2'),
+         url('fonts/WindsorPro/WindsorProXBoldCn.woff') format('woff'),
+         url('fonts/WindsorPro/WindsorProXBoldCn.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
