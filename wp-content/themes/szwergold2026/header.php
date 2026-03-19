@@ -99,40 +99,19 @@
             <div class="container">
 				<div class="row m-0 p-0">
 					<div class="col col-12 col-lg-6 m-0 p-0 pt-md-3 pb-lg-2 pe-lg-2 text-center text-lg-start overflow-hidden">
-					<?php
-						echo '<a href="/" title="Mr. Beller’s Neighborhood">';
-						echo '<img src="' . $template_directory . '/images/Szwergold_Text.png" class="d-md-none img-fluid user-select-none m-0 p-0 mt-2" width="930" height="102" alt="Mr. Beller’s Neighborhood">';
-						echo '<img src="' . $template_directory . '/images/Szwergold_TextandSilhouette.png" class="d-none d-md-inline-block img-fluid user-select-none m-0 p-0" width="1064" height="126" alt="Mr. Beller’s Neighborhood">';
-						echo '</a>';
-					?>
+
 					</div>
 
 					<div class="col col-12 col-lg-6 m-0 p-0 px-3 px-md-0 pt-md-4 pb-2">
 						<div class="row">
 							<div class="col col-12 col-sm-6 pt-1 ps-sm-4 pt-sm-2 pt-md-2 pb-2">
 								<div class="row text-center text-md-start">
-									<?php
-										echo '<a href="/tell-mr-beller-a-story" title="Tell a story">';
-										echo '<img src="' . $template_directory . '/images/Szwergold_TellaStory.png" class="user-select-none img-fluid m-0 p-0" width="236" height="15" alt="Tell Mr. Beller a Story">';
-										echo '</a>';
-									?>
+
 								</div>
 							</div>
 							<div class="col col-12 col-sm-6 ms-auto mb-2">
 								<div class="row text-center text-md-start">
-									<!-- Search Stuff BEGIN -->
-									<form action="/" method="get">
-										<div class="input-group">
-											<input type="text" class="form-control border-0" name="s" id="s" value="<?php echo $search_query; ?>">
-											<div class="input-group-append">
-										      <button class="input-group-text user-select-none btn btn-secondary btn-md rounded-start-0" type="submit" title="Search">
-										        <em class="fa fa-search text-white"></em>
-										      </button>
-										    </div>
-										</div>
-										<input type="submit" class="d-none" value="" id="search">
-									</form>
-									<!-- Search Stuff END -->
+
 								</div>
 							</div>
 
@@ -140,42 +119,7 @@
 								<div class="row">
 									<div class="col col-12 text-end">
 										<span class="small user-select-none text-white">
-										<?php
 
-											global $current_user;
-
-											wp_get_current_user();
-
-											if ($current_user->ID != 0) {
-												global $stories_pending;
-
-												get_user_pending_stories($current_user->ID);
-
-												/****************************************************************************************/
-												// Handle the messaging for the user bio.
-												if (!$current_user->description && ($current_user->wp_user_level > 0 || count($stories_pending) > 0 )) {
-													echo '<a href="/profile" class="fw-bold text-white">' . $current_user->display_name . '</a>, <span class="text-danger">you have not entered a bio. <a href="/wp-admin/profile.php" class="fw-bold text-white">Add it here!</a></span> |';
-												} // if
-												else {
-													echo 'Logged in as <a href="/profile" class="fw-bold text-white">' . $current_user->display_name . '</a> | ';
-												} // if
-
-												/****************************************************************************************/
-												// Set the WordPress logout URL.
-												if (is_single()) {
-												    $wp_logout_url = wp_logout_url(get_permalink());
-												} // if
-												else {
-												    $wp_logout_url = wp_logout_url('/');
-												} // else
-
-												echo '<a href="' . $wp_logout_url . '" class="fw-bold text-white">Logout</a>';
-											} // if
-											else {
-											    echo '<a href="/login" class="fw-bold text-white">Login</a> or <a href="/register" class="fw-bold text-white">Register</a>';
-											} // else
-
-										?>
 										</span>
 									</div>
 								</div>
@@ -195,17 +139,6 @@
                 		?>
 						<!-- Site Header BEGIN -->
 						<header class="headerWrapper mx-auto">
-
-							<a href="/" title="Home" class="titleWrapper"></a>
-
-							<a href="/tell-mr-beller-a-story" title="Tell a story" class="tellStoryWrapper"></a>
-
-							<div class="searchFormWrapper">
-								<form action="/" method="get">
-									<input type="text" name="s" id="s" class="searchInput">
-									<input type="submit" value="" id="search" class="submitInput">
-								</form>
-							</div><!-- searchFormWrapper -->
 
 							<div class="loginInfo">
 								<?php
