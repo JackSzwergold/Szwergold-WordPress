@@ -75,21 +75,15 @@
 		echo $wp_head;
 		echo '<!-- WordPress HEADER STUFF END -->';
 
-		/****************************************************************************************/
-		// Remnant logic for the map.
-		global $post;
-		if ((isset($post->ID) && !is_null($post->ID)) && $post->ID == 2405) {
-			$is_map = true;
-		}
 	?>
 </head>
-<body id="top" class="{{ page.header.body_classes|e }}">
+<body id="top" class="p-0 m-0">
 
 	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-dark border-bottom border-dark">
-	<div class="col col-12 p-0 m-0 px-2 py-1">
-	  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="{{ home_url|e }}"><span class="text-white">{{ site.title|e }}</span></a></h1>
-	  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="{{ home_url|e }}"><span class="text-white">{{ config.site.metadata.description|e }}</span></a></h2>
-	</div>
+		<div class="col col-12 p-0 m-0 px-2 py-1">
+		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="{{ home_url|e }}"><span class="text-white">{{ site.title|e }}</span></a></h1>
+		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="{{ home_url|e }}"><span class="text-white">{{ config.site.metadata.description|e }}</span></a></h2>
+		</div>
 	</nav>
 
 	<!-- Content Core BEGIN -->

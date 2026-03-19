@@ -1,108 +1,112 @@
 <?php
 
-  get_header();
+	/**********************************************************************/
+	// Set the header.
+	get_header();
 
-?>
+	/**********************************************************************/
+	// Set the post content if we have post content.
+	if (have_posts()) {
+	  while (have_posts()) {
 
+	    /********************************************************************/
+	    // Get the post.
+	    the_post();
 
-      <?php
-        if (have_posts()) {
-          while (have_posts()) {
+	    global $post;
+	    global $authordata;
 
-            /********************************************************************/
-            // Get the post.
-            the_post();
+	    /********************************************************************/
+	    // Set the variables.
+	    // $the_title_attribute = get_the_title_attribute();
+	    $permalink = get_the_permalink();
+	    $title = get_the_title();
 
-            global $post;
-            global $authordata;
+	    /********************************************************************************/
+	    // Set the blog post info valiables.
+	    $story_author_id = $post->post_author;
+	    $permalink = get_the_permalink();
+	    $title = get_the_title();
+	    $title_attribute = the_title_attribute(array('echo' => false));
+	    $the_author = get_the_author();
+	    $the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
+	    $display_date = get_the_time('F j, Y');
 
-            /********************************************************************/
-            // Set the variables.
-            // $the_title_attribute = get_the_title_attribute();
-            $permalink = get_the_permalink();
-            $title = get_the_title();
+	    echo '<header class="col col-12 p-0 m-0 pb-2">';
+	    echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
+	    echo '<a href="' . $permalink . '" rel="bookmark" title="Permanent Link to ' . $title . '" class="text-dark text-decoration-none">';
+	    echo $title;
+	    echo '</a>';
+	    echo '</div>';
+	    // <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
+	    echo '<hr class="border border-dark border-1 opacity-100">';
+	    echo '</header>';
 
-            /********************************************************************************/
-            // Set the blog post info valiables.
-            $story_author_id = $post->post_author;
-            $permalink = get_the_permalink();
-            $title = get_the_title();
-            $title_attribute = the_title_attribute(array('echo' => false));
-            $the_author = get_the_author();
-            $the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
-            $display_date = get_the_time('F j, Y');
+	    echo '<main class="col col-12 p-0 m-0">';
+	    echo '<article class="col col-12 p-0 m-0">';
+	    echo '<div class="text-georgia-regular">';
 
-            echo '<header class="col col-12 p-0 m-0 pb-2">';
-            echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
-            echo '<a href="' . $permalink . '" rel="bookmark" title="Permanent Link to ' . $title . '" class="text-dark text-decoration-none">';
-            echo $title;
-            echo '</a>';
-            echo '</div>';
-            // <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
-            echo '<hr class="border border-dark border-1 opacity-100">';
-            echo '</header>';
+	    /********************************************************************/
+	    // Grab the content into a variable.
+	    ob_start();
+	    the_content('Read the rest of this entry &raquo;');
+	    $the_content = ob_get_contents();
+	    ob_end_clean();
 
-            echo '<main class="col col-12 p-0 m-0">';
-            echo '<article class="col col-12 p-0 m-0">';
-            echo '<div class="text-georgia-regular">';
+	    /********************************************************************/
+	    // Output the content.
+	    echo $the_content;
 
-            /********************************************************************/
-            // Grab the content into a variable.
-            ob_start();
-            the_content('Read the rest of this entry &raquo;');
-            $the_content = ob_get_contents();
-            ob_end_clean();
+	    echo '</div>';
+	    echo '</article>';
+	    echo '</main>';
 
-            /********************************************************************/
-            // Output the content.
-            echo $the_content;
+	    /********************************************************************/
+	    // Grab the content into a variable.
+	    ob_start();
+	    edit_post_link();
+	    $edit_post_link = ob_get_contents();
+	    ob_end_clean();
 
-            echo '</div>';
-            echo '</article>';
-            echo '</main>';
+	    /********************************************************************/
+	    // Display the edit post link if it exists.
+	    if (!empty($edit_post_link)) {
+	      $edit_post_link = str_replace('<a class="post-edit-link" href="', '<a class="post-edit-link text-white text-decoration-none m-0 p-0 px-3 py-2" href="', $edit_post_link);
+	      echo '<div class="float-end bg-dark m-0 p-0 rounded">';
+	      echo $edit_post_link;
+	      echo '</div>';              
+	    } // if
 
-            /********************************************************************/
-            // Grab the content into a variable.
-            ob_start();
-            edit_post_link();
-            $edit_post_link = ob_get_contents();
-            ob_end_clean();
+	  } // while
 
-            /********************************************************************/
-            // Display the edit post link if it exists.
-            if (!empty($edit_post_link)) {
-              $edit_post_link = str_replace('<a class="post-edit-link" href="', '<a class="post-edit-link text-white text-decoration-none m-0 p-0 px-3 py-2" href="', $edit_post_link);
-              echo '<div class="float-end bg-dark m-0 p-0 rounded">';
-              echo $edit_post_link;
-              echo '</div>';              
-            } // if
+	  // echo '<div class="navigation">';
+	  // echo '<div class="alignleft">';
+	  // next_posts_link('&laquo; Older Entries');
+	  // echo '</div>';
+	  // echo '<div class="alignright">';
+	  // previous_posts_link('Newer Entries &raquo;');
+	  // echo '</div>';
+	  // echo '</div>';
 
-          } // while
+	} // if
+	else {
 
-          echo '<div class="navigation">';
-          echo '<div class="alignleft">';
-          next_posts_link('&laquo; Older Entries');
-          echo '</div>';
-          echo '<div class="alignright">';
-          previous_posts_link('Newer Entries &raquo;');
-          echo '</div>';
-          echo '</div>';
+		// echo '<div>';
+		// echo '<p></p>';
+		// echo '<p class="error">???????????????????</p>';
+		// echo '<p class="error">???????????????????</p>';
+		// echo '<p class="error">???????????????????</p>';
+		// echo "<p>Looks like what you were looking for isn't here. You might want to give it another try, perhaps the server hiccuped, or perhaps you spelled something wrong (or maybe I did).</p>";
+		// echo '</div>';
 
-        } // if
-        else {
+	} // else
 
-          echo '<div class="entry">';
-          echo '<p></p>';
-          echo '<p class="error">???????????????????</p>';
-          echo '<p class="error">???????????????????</p>';
-          echo '<p class="error">???????????????????</p>';
-          echo "<p>Looks like what you were looking for isn't here. You might want to give it another try, perhaps the server hiccuped, or perhaps you spelled something wrong (or maybe I did).</p>";
-          echo '</div>';
+	/**********************************************************************/
+	// Set the sidebar.
+	// get_sidebar();
 
-        } // else
-      ?>
+	/**********************************************************************/
+	// Set the footer.
+	// get_footer();
 
-<?php
-  // get_sidebar();
-  get_footer();
 ?>
