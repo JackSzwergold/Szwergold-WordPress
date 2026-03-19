@@ -9,13 +9,19 @@ add_action('after_setup_theme', 'register_html_support');
 
 /********************************************************************************/
 // 2025-11-20: An attempt to remove trailing slashes from '<link rel' tags and such.
-ob_start();
-add_action('shutdown', function () {
-    $content = ob_get_clean();
-	// $content = str_replace(array(' />', '/>'), array('>', '>'), $content);
-    echo $content;
-    exit();
-}, 0);
+if (!is_admin()) {
+	ob_start();
+	add_action('shutdown', function () {
+		$content = ob_get_clean();
+		// $find_array = array(' />', '/>');
+		// $replace_array = array('>', '>');
+		$find_array = array(' />');
+		$replace_array = array('>');
+		$content = str_replace($find_array, $replace_array, $content);
+		echo $content;
+		exit();
+	}, 0);
+}
 
 /********************************************************************************/
 // 2025-11-21: To disable the 'contain-intrinsic-size' kludge that WordPress has implemented in newer versions.
