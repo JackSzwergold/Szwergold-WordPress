@@ -7,26 +7,7 @@
 ?>
 <div class="row p-0 m-0 mx-3">
 	<?php
-		if (is_single()) {
-			echo '<div class="post_nav">';
-			echo '<p>You are currently reading <strong>';
-			the_title();
-			echo '</strong> at ';
-			echo '<a href="' . get_bloginfo('url') . '">';
-			bloginfo('name');
-			echo '</a>.</p>';
-			echo '<h3>meta</h3>';
-			echo '<ul class="single_post_meta">';
-			echo '<li><strong>Comments: </strong>';
-			comments_number('No Comments', '1 Comment', '% Comments' );
-			echo '</li>';
-			echo '<li><strong>Categories:</strong> ';
-			the_category(', ');
-			echo '</li>';
-			echo '</ul>';
-			echo '</div>';
-		} // else if
-		else if (is_category()) {
+		if (is_category()) {
 			echo '<div class="post_nav col col-12 p-0 m-0">';
 			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
 			echo 'Posts for &ldquo;';
@@ -50,55 +31,7 @@
 			echo '<div class="spacer"></div>';
 			echo '</div>';
 		} // else if
-		else if (is_year()) {
-			echo '<div class="post_nav col col-12 p-0 m-0">';
-			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-			echo 'Posts for ';
-			the_time('Y');
-			echo '</div>';
-			echo '<p>You are currently viewing the stories for the year <strong>&ldquo;';
-			echo the_time('Y');
-			echo '.&rdquo;</strong></p>';
-			echo '<div class="spacer"></div>';
-			echo '</div>';
-		} // else if
-		else if (is_month()) {
-			echo '<div class="post_nav col col-12 p-0 m-0">';
-			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-			echo 'Posts for ';
-			the_time('F Y');
-			echo '</div>';
-			echo '<p>You are currently viewing the stories for <strong>&ldquo;';
-			the_time('F Y');
-			echo '.&rdquo;</strong></p>';
-			echo '<div class="spacer"></div>';
-			echo '</div>';
-		} // else if
-		else if (is_day()) {
-			echo '<div class="post_nav col col-12 p-0 m-0">';
-			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-			echo 'Posts for ';
-			the_time('l, F j, Y');
-			echo '</div>';
-			echo '<p>You are currently viewing the stories for the date <strong>&ldquo;';
-			the_time('l, F j, Y');
-			echo '.&rdquo;</strong></p>';
-			echo '<div class="spacer"></div>';
-			echo '</div>';
-		} // else if
-		else if (is_search()) {
-			echo '<div class="post_nav col col-12 p-0 m-0">';
-			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-			echo 'Search Results for &ldquo;';
-			the_search_query();
-			echo '.&rdquo;';
-			echo '</div>';
-			echo '<p>You are currently viewing the search results for <strong>&ldquo;';
-			the_search_query();
-			echo '.&rdquo;</strong></p>';
-			echo '<div class="spacer"></div>';
-			echo '</div>';
-		} // else if
+
 		else if (is_page('contact')) {
 		} // else if
 
