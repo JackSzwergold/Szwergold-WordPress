@@ -24,7 +24,6 @@
 
 			/********************************************************************************/
 			// Set the blog post info valiables.
-			$story_author_id = $post->post_author;
 			$permalink = get_the_permalink();
 			$title = get_the_title();
 			$excerpt = get_the_excerpt();
@@ -38,9 +37,11 @@
 			echo $title;
 			echo '</a>';
 			echo '</div>';
-			echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
-			echo $excerpt;
-			echo '</div>';
+			if (!empty($excerpt)) {
+				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
+				echo $excerpt;
+				echo '</div>';				
+			} // if
 			echo '<hr class="border border-dark border-1 opacity-100">';
 			echo '</header>';
 
