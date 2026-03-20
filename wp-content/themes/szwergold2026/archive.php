@@ -20,7 +20,11 @@
 			echo single_tag_title();
 		} // else if
 		echo '.&rdquo;</div>';
-		echo '<p class="text-windsorpro-regular">You are currently browsing posts about <strong>&ldquo;';
+		echo '<p class="text-windsorpro-regular">';
+		$category_description = category_description();
+		$category_description = strip_tags($category_description);
+		echo $category_description;
+		echo 'You are currently browsing posts about <strong>&ldquo;';
 		if (is_category()) {
 			single_cat_title();
 		} // if
