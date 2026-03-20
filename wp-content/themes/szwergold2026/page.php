@@ -28,6 +28,7 @@
 	    $permalink = get_the_permalink();
 	    $title = get_the_title();
 	    $title_attribute = the_title_attribute(array('echo' => false));
+	    $excerpt = get_the_excerpt();
 	    $the_author = get_the_author();
 	    $the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 	    $display_date = get_the_time('F j, Y');
@@ -38,8 +39,10 @@
 	    echo $title;
 	    echo '</a>';
 	    echo '</div>';
-	    // <div class="h2 p-0 m-0 text-windsorpro-regular">{% if header.description %}{{ header.description }}{% endif %}</div>
-	    // echo '<hr class="border border-dark border-1 opacity-100">';
+	    echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
+	    echo $excerpt;
+	    echo '</div>';
+	    echo '<hr class="border border-dark border-1 opacity-100">';
 	    echo '</header>';
 
 	    echo '<main class="col col-12 p-0 m-0">';
