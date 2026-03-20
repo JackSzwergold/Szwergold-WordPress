@@ -33,17 +33,28 @@
 			$update_date = get_the_time('F j, Y');
 			$update_time = get_the_time('g:i:sa');
 
+			/********************************************************************************/
+			// Begin the header.
 			echo '<header class="col col-12 p-0 m-0 pb-2">';
+
+			/********************************************************************************/
+			// Show the title.
 			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
 			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
+
+			/********************************************************************************/
+			// Show the excerpt.		
 			if (!empty($excerpt)) {
 				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
 				echo $excerpt;
 				echo '</div>';				
 			} // if
+
+			/********************************************************************************/
+			// Show the author, date and time.
 			if (!empty($the_author)) {
 				echo '<div class="h5 p-0 m-0 text-windsorpro-regular">';
 				echo 'By ' . $the_author;
@@ -56,24 +67,25 @@
 				echo '.';
 				echo '</div>';				
 			} // if
+
 			echo '<hr class="border border-dark border-1 opacity-100">';
+
+			/********************************************************************************/
+			// End the header.
 			echo '</header>';
 
+			/********************************************************************************/
+			// Show the main area.
 			echo '<main class="col col-12 p-0 m-0">';
 			echo '<article class="col col-12 p-0 m-0">';
 			echo '<div class="text-georgia-regular">';
 
 			/********************************************************************/
-			// Grab the content into a variable.
-			ob_start();
+			// Show the content.
 			the_content('Read the rest of this entry &raquo;');
-			$the_content = ob_get_contents();
-			ob_end_clean();
 
-			/********************************************************************/
-			// Output the content.
-			echo $the_content;
-
+			/********************************************************************************/
+			// End the header.
 			echo '</div>';
 			echo '</article>';
 			echo '</main>';
