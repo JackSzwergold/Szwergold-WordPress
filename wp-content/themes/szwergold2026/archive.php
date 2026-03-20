@@ -20,7 +20,7 @@
 			echo single_tag_title();
 		} // else if
 		echo '.&rdquo;</div>';
-		echo '<p class=" text-windsorpro-regular">You are currently browsing posts about <strong>&ldquo;';
+		echo '<p class="text-windsorpro-regular">You are currently browsing posts about <strong>&ldquo;';
 		if (is_category()) {
 			single_cat_title();
 		} // if
@@ -28,7 +28,6 @@
 			echo single_tag_title();
 		} // else if
 		echo '.&rdquo;</strong></p>';
-		echo '<div class="spacer"></div>';
 		echo '</div>';
 
 		if (have_posts()) {
