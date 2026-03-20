@@ -72,7 +72,9 @@
 								/**********************************************************************************/
 								// Show widget header 1 if it is set.
 								if (is_active_sidebar('widget-header-1')) {
-								  dynamic_sidebar('widget-header-1');
+									echo '<div class="p-0 m-0 mb-1 text-windsorpro-regular">';
+									dynamic_sidebar('widget-header-1');
+									echo '</div>';
 								} // if
 
 							?>
