@@ -66,3 +66,14 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col py-3 py-md-4 text-left">
+
+
+							<?php
+
+								/**********************************************************************************/
+								// Post sidebar 1 stuff.
+								if (is_active_sidebar('widget-header-1')) {
+								  dynamic_sidebar('widget-header-1');
+								} // if
+
+							?>
