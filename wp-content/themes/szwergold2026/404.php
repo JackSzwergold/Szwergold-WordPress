@@ -1,54 +1,38 @@
 <?php
+
+	/**********************************************************************/
+	// Set the header.
 	get_header();
+
 ?>
-<!-- Content Core BEGIN -->
-<div class="container m-0 p-0">
-	<div class="row m-0 p-0">
-		<div class="col col-12 col-lg-9 m-0 p-0 mb-3">
+<header class="col col-12 p-0 m-0 pb-2">
+	<div class="h1 p-0 m-0 text-windsorpro-bold">404: Not Found</div>
+		<div class="h2 p-0 m-0 text-windsorpro-regular">
+			Something was not found. You sure you go the right URL?
+		</div>
+	<hr class="border border-dark border-1 opacity-100">
+</header>
 
-			<header class="p-0 m-0">
-				<div class="p-0 m-0 mx-3">
-					<div class="container m-0 p-0 pb-2 mb-2 border-bottom border-dark">	
-						<div class="h1 p-0 m-0 fw-bold">404: Not Found</div>
-					</div>
-				</div>
-			</header>
 
-			<main class="p-0 m-0">
-				<div class="p-0 m-0 mx-3">
+<main class="col col-12 p-0 m-0">
+	<article class="col col-12 p-0 m-0">
+		<div class="text-georgia-regular">
 
-					<p>I'm sorry. You've come to the wrong page by accident or there is a misconfigured link on the site.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo, dolor vel viverra convallis, velit velit consectetur leo, sit amet semper nisl nunc vel nibh. Nulla ullamcorper tincidunt tempor. Nunc pulvinar risus a tellus gravida tincidunt. Vivamus ante neque, fermentum id luctus ac, scelerisque eu tellus. Duis convallis mollis arcu, et faucibus diam facilisis sit amet. Sed hendrerit neque ac ante interdum, sit amet luctus ante sollicitudin. Aenean ultrices odio nec justo semper ornare.</p> 
 
-					<p>Check the address bar for an typo. If there isn't one, please come in <a href="/" class="text-dark">the front door</a>.</p>
-
-					<p>Or you can try using the search function:</p> 
-
-					<!-- Search Stuff BEGIN -->
-					<form action="/" method="get" class="col col-12 col-lg-6 mb-3">
-						<div class="input-group">
-							<div class="input-group-append">
-								<button class="input-group-text user-select-none btn btn-dark btn-md rounded-end-0" type="submit" title="Search">
-									<em class="fa fa-search text-white"></em>
-								</button>
-							</div>
-							<input type="text" class="form-control border-dark" name="s" id="s" value="">
-						</div>
-						<input type="submit" class="d-none" value="" id="search">
-					</form>
-					<!-- Search Stuff END -->
-
-				</div>
-			</main>
+			<p>Maecenas auctor tortor posuere elit venenatis, ut pulvinar felis ullamcorper. Curabitur a ante vel ex dapibus commodo. Cras scelerisque et quam ut cursus. Vestibulum luctus tincidunt vestibulum. Pellentesque ac convallis est. Sed semper urna felis, eu cursus erat malesuada at. Praesent fringilla velit at tortor ornare, vel lacinia massa finibus. Praesent dignissim in nunc ut feugiat. Integer id elementum risus, quis posuere ligula. Quisque aliquam purus turpis, non iaculis mi mattis consequat. Morbi vitae posuere dui. Nullam egestas pretium ex, eget fringilla dolor condimentum at.</p> 
 
 		</div>
-		<div class="col col-12 col-lg-3 ms-auto m-0 p-0">
-			<?php
-				get_sidebar();
-			?>
-		</div>
-	</div>
-</div>
-<!-- Content Core END -->
+	</article>
+</main>
 <?php
+
+	/**********************************************************************/
+	// Set the sidebar.
+	// get_sidebar();
+
+	/**********************************************************************/
+	// Set the footer.
 	get_footer();
+
 ?>
