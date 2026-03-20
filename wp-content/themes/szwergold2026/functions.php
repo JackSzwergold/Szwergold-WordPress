@@ -57,4 +57,73 @@ add_action('wp_enqueue_scripts', 'load_fontawesome_files', 10);
 // 2026-03-19: Enabling excerpts on all pages.
 add_post_type_support('page', 'excerpt');
 
+/********************************************************************************/
+// 2026-03-20: Adding widgets.
+function szwergold_widgets_init() {
+	register_sidebar( array(
+		'name'          => __('Home Latest'),
+		'id'            => 'home-latest',
+		'description'   => __('Widget placed here will display the latest items on the homepage.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => __('Home Featured Main'),
+		'id'            => 'home-featured-main',
+		'description'   => __('Widget placed here will display the main featured item on the homepage.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => __('Home Featured 1'),
+		'id'            => 'home-featured-1',
+		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s m-0 p-0 col col-12 col-md-6 col-xl-12 pe-md-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => __('Home Featured 2'),
+		'id'            => 'home-featured-2',
+		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s m-0 p-0 col col-12 col-md-6 pe-md-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => __('Post Footer 1'),
+		'id'            => 'post-footer-1',
+		'description'   => __('Add widgets here to appear in your post footer.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => __('Post Footer 2'),
+		'id'            => 'post-footer-2',
+		'description'   => __('Add widgets here to appear in your post footer.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => __('Post Sidebar 1'),
+		'id'            => 'post-sidebar-1',
+		'description'   => __('Add widgets here to appear in your post sidebar.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	) );
+}
+add_action( 'widgets_init', 'szwergold_widgets_init' );
+
 ?>
