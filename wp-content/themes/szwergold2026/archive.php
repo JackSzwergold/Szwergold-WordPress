@@ -22,16 +22,21 @@
 		echo '.&rdquo;</div>';
 		echo '<p class="text-windsorpro-regular">';
 		$category_description = category_description();
-		$category_description = strip_tags($category_description);
-		echo $category_description;
-		echo 'You are currently browsing posts about <strong>&ldquo;';
-		if (is_category()) {
-			single_cat_title();
+		if (!empty($category_description)) {
+			$category_description = strip_tags($category_description);
+			echo $category_description;
 		} // if
-		else if (is_tag()) {
-			echo single_tag_title();
-		} // else if
-		echo '.&rdquo;</strong></p>';
+		else {
+			echo 'You are currently browsing posts about <strong>&ldquo;';
+			if (is_category()) {
+				single_cat_title();
+			} // if
+			else if (is_tag()) {
+				echo single_tag_title();
+			} // else if
+			echo '.&rdquo;</strong>';
+		} // else
+		echo '</p>';
 		echo '</div>';
 
 		if (have_posts()) {
