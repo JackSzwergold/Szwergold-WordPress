@@ -28,9 +28,11 @@
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
 			$excerpt = get_the_excerpt();
-			$the_author = get_the_author();
+			// $the_author = get_the_author();
+			$the_author = $authordata->user_nicename;
 			$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 			$update_date = get_the_time('F j, Y');
+			$update_time = get_the_time('h:i:s');
 
 			echo '<header class="col col-12 p-0 m-0 pb-2">';
 			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
@@ -41,6 +43,19 @@
 			if (!empty($excerpt)) {
 				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
 				echo $excerpt;
+				echo '</div>';				
+			} // if
+			if (!empty($the_author)) {
+				echo '<div class="p-0 m-0 text-windsorpro-regular">';
+				echo 'By ' . $the_author;
+				echo '</div>';				
+			} // if
+			if (!empty($update_date)) {
+				echo '<div class="p-0 m-0 text-windsorpro-regular">';
+				echo 'On ' . $update_date;
+				if (!empty($update_time)) {
+					echo ' at ' . $update_time;
+				} // if
 				echo '</div>';				
 			} // if
 			echo '<hr class="border border-dark border-1 opacity-100">';
