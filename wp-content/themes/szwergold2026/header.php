@@ -35,16 +35,9 @@
 		echo '<link rel="shortcut icon" href="' . $url . '/favicon.ico">';
 
 		/****************************************************************************************/
-		// Grab the 'wp_head' into a variable.
-		ob_start();
-		wp_head();
-		$wp_head = ob_get_contents();
-		ob_end_clean();
-
-		/****************************************************************************************/
 		// This 'wp_head' call sets all of the JavaScript and metadata that WordPress needs to insert in the page.
 		echo '<!-- WordPress HEADER STUFF BEGIN -->';
-		echo $wp_head;
+		wp_head();
 		echo '<!-- WordPress HEADER STUFF END -->';
 
 	?>
