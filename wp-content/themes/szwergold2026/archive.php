@@ -7,30 +7,29 @@
 ?>
 <div class="row p-0 m-0 mx-3">
 	<?php
+
+		/********************************************************************************/
+		// Show the archive info.
+		echo '<div class="post_nav col col-12 p-0 m-0">';
+		echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+		echo 'Posts for &ldquo;';
 		if (is_category()) {
-			echo '<div class="post_nav col col-12 p-0 m-0">';
-			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-			echo 'Posts for &ldquo;';
-			single_cat_title('');
-			echo '.&rdquo;</div>';
-			echo '<p>You are currently browsing the stories about the <strong>&ldquo;';
-			single_cat_title('');
-			echo '&rdquo;</strong> neighborhood.</p>';
-			echo '<div class="spacer"></div>';
-			echo '</div>';
-		} // else if
+			single_cat_title();
+		} // if
 		else if (is_tag()) {
-			echo '<div class="post_nav col col-12 p-0 m-0">';
-			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-			echo 'Posts for &ldquo;';
-			echo single_tag_title('');
-			echo '&rdquo;</div>';
-			echo '<p>You are currently browsing stories tagged with <strong>&ldquo;';
 			echo single_tag_title();
-			echo '.&rdquo;</strong></p>';
-			echo '<div class="spacer"></div>';
-			echo '</div>';
 		} // else if
+		echo '.&rdquo;</div>';
+		echo '<p>You are currently browsing posts about <strong>&ldquo;';
+		if (is_category()) {
+			single_cat_title();
+		} // if
+		else if (is_tag()) {
+			echo single_tag_title();
+		} // else if
+		echo '.&rdquo;</strong></p>';
+		echo '<div class="spacer"></div>';
+		echo '</div>';
 
 		if (have_posts()) {
 
