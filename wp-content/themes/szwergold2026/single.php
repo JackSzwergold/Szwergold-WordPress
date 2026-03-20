@@ -90,13 +90,6 @@
 			echo '</article>';
 			echo '</main>';
 
-			/********************************************************************/
-			// Grab the content into a variable.
-			ob_start();
-			edit_post_link();
-			$edit_post_link = ob_get_contents();
-			ob_end_clean();
-
 		} // while
 
 	} // if
