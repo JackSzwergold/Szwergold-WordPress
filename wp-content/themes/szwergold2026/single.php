@@ -32,7 +32,7 @@
 			$the_author = $authordata->user_nicename;
 			$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 			$update_date = get_the_time('F j, Y');
-			$update_time = get_the_time('h:i:s');
+			$update_time = get_the_time('g:i:sa');
 
 			echo '<header class="col col-12 p-0 m-0 pb-2">';
 			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
@@ -54,6 +54,7 @@
 						echo ' at ' . $update_time;
 					} // if
 				} // if
+				echo '.';
 				echo '</div>';				
 			} // if
 			echo '<hr class="border border-dark border-1 opacity-100">';
