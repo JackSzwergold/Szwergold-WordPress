@@ -97,8 +97,8 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Post Header 1'),
-		'id'            => 'post-header-1',
+		'name'          => __('Widget Header 1'),
+		'id'            => 'widget-header-1',
 		'description'   => __('Add widgets here to appear in your post header.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
@@ -106,8 +106,8 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Post Header 2'),
-		'id'            => 'post-header-2',
+		'name'          => __('Widget Header 2'),
+		'id'            => 'widget-header-2',
 		'description'   => __('Add widgets here to appear in your post header.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
@@ -115,8 +115,8 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Post Footer 1'),
-		'id'            => 'post-footer-1',
+		'name'          => __('Widget Footer 1'),
+		'id'            => 'widget-footer-1',
 		'description'   => __('Add widgets here to appear in your post footer.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
@@ -124,8 +124,8 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Post Footer 2'),
-		'id'            => 'post-footer-2',
+		'name'          => __('Widget Footer 2'),
+		'id'            => 'widget-footer-2',
 		'description'   => __('Add widgets here to appear in your post footer.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
@@ -133,8 +133,8 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Post Sidebar 1'),
-		'id'            => 'post-sidebar-1',
+		'name'          => __('Widget Sidebar 1'),
+		'id'            => 'widget-sidebar-1',
 		'description'   => __('Add widgets here to appear in your post sidebar.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12">',
 		'after_widget'  => '</div>',
@@ -142,8 +142,8 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Post Sidebar 2'),
-		'id'            => 'post-sidebar-2',
+		'name'          => __('Widget Sidebar 2'),
+		'id'            => 'widget-sidebar-2',
 		'description'   => __('Add widgets here to appear in your post sidebar.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12">',
 		'after_widget'  => '</div>',
