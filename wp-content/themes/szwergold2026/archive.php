@@ -41,17 +41,20 @@
 				// Get the post.
 				the_post();
 
-				/********************************************************************/
-				// Set the variables.
-				$title = get_the_title();
-				$display_date = get_the_time('F j, Y');
-				// $excerpt = get_the_excerpt();
-	            $excerpt = wp_trim_words(get_the_content(), 60, ' [...]');
-				$permalink = get_the_permalink();
+				/********************************************************************************/
+				// Set the item info variables.
 				$the_ID = get_the_ID();
-				// $author = get_beller_author();
-				$the_author = get_the_author();
+				$permalink = get_the_permalink();
+				$title = get_the_title();
+				$title_attribute = the_title_attribute(array('echo' => false));
+				$excerpt = get_the_excerpt();
+				$the_author = $authordata->user_nicename;
 				$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
+				$update_date = get_the_time('F j, Y');
+				$update_time = get_the_time('g:i:sa');
+// echo '<pre>';
+// print_r($authordata);
+// echo '</pre>';
 
 				echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
 				echo '<div class="h4 p-0 m-0 fw-bold" id="post_' . $the_ID . '">';
@@ -61,12 +64,12 @@
 				echo '</div>';
 				echo '<div class="small">';
 				echo 'By ';
-				echo '<a href="' . $the_author_url . '" title="Posts by ' . $the_author . '" class="text-decoration-none text-dark">';
+				echo '<a href="' . $the_author_url . '" title="All post by ' . $the_author . '." class="text-decoration-none text-dark">';
 				echo $the_author;
 				echo '</a>';
 				echo '</div>';
 				echo '<div class="small text-secondary">';
-				echo $display_date;
+				echo $update_date;
 				echo '</div>';
 				echo '<p class="small p-0 m-0 mt-1">';
 				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';

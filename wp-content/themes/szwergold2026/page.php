@@ -16,14 +16,9 @@
 			global $post;
 			global $authordata;
 
-			/********************************************************************/
-			// Set the variables.
-			// $the_title_attribute = get_the_title_attribute();
-			$permalink = get_the_permalink();
-			$title = get_the_title();
-
 			/********************************************************************************/
 			// Set the item info variables.
+			$the_ID = get_the_ID();
 			$permalink = get_the_permalink();
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
