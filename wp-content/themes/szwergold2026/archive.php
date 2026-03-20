@@ -53,6 +53,8 @@
 				$update_date = get_the_time('F j, Y');
 				$update_time = get_the_time('g:i:sa');
 
+				/********************************************************************************/
+				// Begin the container.
 				echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
 
 				/********************************************************************************/
@@ -66,14 +68,6 @@
 				echo $title;
 				echo '</a>';
 				echo '</div>';
-
-				/********************************************************************************/
-				// Show the excerpt.		
-				if (!empty($excerpt)) {
-					echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
-					echo $excerpt;
-					echo '</div>';				
-				} // if
 
 				/********************************************************************************/
 				// Show the author, date and time.
@@ -98,8 +92,8 @@
 
 				/********************************************************************************/
 				// Show the main area.
-				echo '<main class="col col-12 p-0 m-0">';
-				echo '<article class="col col-12 p-0 m-0">';
+				// echo '<main class="col col-12 p-0 m-0">';
+				// echo '<article class="col col-12 p-0 m-0">';
 				echo '<div class="text-georgia-regular">';
 
 				/********************************************************************/
@@ -109,8 +103,8 @@
 				/********************************************************************************/
 				// End the header.
 				echo '</div>';
-				echo '</article>';
-				echo '</main>';
+				// echo '</article>';
+				// echo '</main>';
 
 				echo '<div class="h4 p-0 m-0 fw-bold" id="post_' . $the_ID . '">';
 				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
