@@ -84,8 +84,6 @@
 					echo '</div>';				
 				} // if
 
-				echo '<hr class="border border-dark border-1 opacity-100">';
-
 				/********************************************************************************/
 				// End the header.
 				echo '</header>';
@@ -105,26 +103,6 @@
 				echo '</div>';
 				// echo '</article>';
 				// echo '</main>';
-
-				echo '<div class="h4 p-0 m-0 fw-bold" id="post_' . $the_ID . '">';
-				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
-				echo $title;
-				echo '</a>';
-				echo '</div>';
-				echo '<div class="small">';
-				echo 'By ';
-				echo '<a href="' . $the_author_url . '" title="All post by ' . $the_author . '." class="text-decoration-none text-dark">';
-				echo $the_author;
-				echo '</a>';
-				echo '</div>';
-				echo '<div class="small text-secondary">';
-				echo $update_date;
-				echo '</div>';
-				echo '<p class="small p-0 m-0 mt-1">';
-				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
-				echo $excerpt;
-				echo '</a>';
-				echo '</p>';
 
 				echo '</div>';
 
