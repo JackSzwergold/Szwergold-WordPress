@@ -11,7 +11,7 @@
 		/********************************************************************************/
 		// Show the archive info.
 		echo '<div class="post_nav col col-12 p-0 m-0">';
-		echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+		echo '<div class="h2 text-windsorpro-bold p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
 		echo 'Posts for &ldquo;';
 		if (is_category()) {
 			single_cat_title();
@@ -20,7 +20,7 @@
 			echo single_tag_title();
 		} // else if
 		echo '.&rdquo;</div>';
-		echo '<p>You are currently browsing posts about <strong>&ldquo;';
+		echo '<p class=" text-windsorpro-regular">You are currently browsing posts about <strong>&ldquo;';
 		if (is_category()) {
 			single_cat_title();
 		} // if
@@ -63,7 +63,7 @@
 
 				/********************************************************************************/
 				// Show the title.
-				echo '<div class="h3 p-0 m-0 text-windsorpro-bold">';
+				echo '<div class="h2 p-0 m-0 text-windsorpro-bold">';
 				echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
 				echo $title;
 				echo '</a>';
