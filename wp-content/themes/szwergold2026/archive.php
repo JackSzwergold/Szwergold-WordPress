@@ -93,13 +93,17 @@
 				// echo '<main class="col col-12 p-0 m-0">';
 				// echo '<article class="col col-12 p-0 m-0">';
 				echo '<div class="text-georgia-regular">';
+				echo '<span class="small">';
 
 				/********************************************************************/
 				// Show the excerpt.
+				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
 				echo $excerpt;
+				echo '</a>';
 
 				/********************************************************************************/
 				// End the header.
+				echo '</span>';
 				echo '</div>';
 				// echo '</article>';
 				// echo '</main>';
