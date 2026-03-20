@@ -46,15 +46,13 @@
 				echo '</div>';				
 			} // if
 			if (!empty($the_author)) {
-				echo '<div class="p-0 m-0 text-windsorpro-regular">';
+				echo '<div class="h5 p-0 m-0 text-windsorpro-regular">';
 				echo 'By ' . $the_author;
-				echo '</div>';				
-			} // if
-			if (!empty($update_date)) {
-				echo '<div class="p-0 m-0 text-windsorpro-regular">';
-				echo 'On ' . $update_date;
-				if (!empty($update_time)) {
-					echo ' at ' . $update_time;
+				if (!empty($update_date)) {
+					echo ' on ' . $update_date;
+					if (!empty($update_time)) {
+						echo ' at ' . $update_time;
+					} // if
 				} // if
 				echo '</div>';				
 			} // if
