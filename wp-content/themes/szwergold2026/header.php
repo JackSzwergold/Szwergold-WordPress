@@ -70,7 +70,7 @@
 							<?php
 
 								/**********************************************************************************/
-								// Post sidebar 1 stuff.
+								// Show widget header 1 if it is set.
 								if (is_active_sidebar('widget-header-1')) {
 								  dynamic_sidebar('widget-header-1');
 								} // if
