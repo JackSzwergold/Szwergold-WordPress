@@ -82,7 +82,7 @@
 
 			/********************************************************************/
 			// Show the content.
-			the_content('Read the rest of this entry &raquo;');
+			the_content('Read more &raquo;');
 
 			/********************************************************************************/
 			// End the header.

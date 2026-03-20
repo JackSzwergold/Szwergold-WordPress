@@ -1,235 +1,232 @@
 <?php
+
+	/**********************************************************************/
+	// Set the header.
 	get_header();
+
 ?>
-<!-- Content Core BEGIN -->
-<div class="container m-0 p-0">
-	<div class="row m-0 p-0">
-	    <div class="col col-12 col-lg-9 m-0 p-0 mb-3">
+<div class="row p-0 m-0 mx-3">
+	<?php
+		if (is_single()) {
+			echo '<div class="post_nav">';
+			echo '<p>You are currently reading <strong>';
+			the_title();
+			echo '</strong> at ';
+			echo '<a href="' . get_bloginfo('url') . '">';
+			bloginfo('name');
+			echo '</a>.</p>';
+			echo '<h3>meta</h3>';
+			echo '<ul class="single_post_meta">';
+			echo '<li><strong>Comments: </strong>';
+			comments_number('No Comments', '1 Comment', '% Comments' );
+			echo '</li>';
+			echo '<li><strong>Categories:</strong> ';
+			the_category(', ');
+			echo '</li>';
+			echo '</ul>';
+			echo '</div>';
+		} // else if
+		else if (is_category()) {
+			echo '<div class="post_nav col col-12 p-0 m-0">';
+			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+			echo 'Posts for &ldquo;';
+			single_cat_title('');
+			echo '.&rdquo;</div>';
+			echo '<p>You are currently browsing the stories about the <strong>&ldquo;';
+			single_cat_title('');
+			echo '&rdquo;</strong> neighborhood.</p>';
+			echo '<div class="spacer"></div>';
+			echo '</div>';
+		} // else if
+		else if (is_tag()) {
+			echo '<div class="post_nav col col-12 p-0 m-0">';
+			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+			echo 'Posts for &ldquo;';
+			echo single_tag_title('');
+			echo '&rdquo;</div>';
+			echo '<p>You are currently browsing stories tagged with <strong>&ldquo;';
+			echo single_tag_title();
+			echo '.&rdquo;</strong></p>';
+			echo '<div class="spacer"></div>';
+			echo '</div>';
+		} // else if
+		else if (is_year()) {
+			echo '<div class="post_nav col col-12 p-0 m-0">';
+			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+			echo 'Posts for ';
+			the_time('Y');
+			echo '</div>';
+			echo '<p>You are currently viewing the stories for the year <strong>&ldquo;';
+			echo the_time('Y');
+			echo '.&rdquo;</strong></p>';
+			echo '<div class="spacer"></div>';
+			echo '</div>';
+		} // else if
+		else if (is_month()) {
+			echo '<div class="post_nav col col-12 p-0 m-0">';
+			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+			echo 'Posts for ';
+			the_time('F Y');
+			echo '</div>';
+			echo '<p>You are currently viewing the stories for <strong>&ldquo;';
+			the_time('F Y');
+			echo '.&rdquo;</strong></p>';
+			echo '<div class="spacer"></div>';
+			echo '</div>';
+		} // else if
+		else if (is_day()) {
+			echo '<div class="post_nav col col-12 p-0 m-0">';
+			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+			echo 'Posts for ';
+			the_time('l, F j, Y');
+			echo '</div>';
+			echo '<p>You are currently viewing the stories for the date <strong>&ldquo;';
+			the_time('l, F j, Y');
+			echo '.&rdquo;</strong></p>';
+			echo '<div class="spacer"></div>';
+			echo '</div>';
+		} // else if
+		else if (is_search()) {
+			echo '<div class="post_nav col col-12 p-0 m-0">';
+			echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+			echo 'Search Results for &ldquo;';
+			the_search_query();
+			echo '.&rdquo;';
+			echo '</div>';
+			echo '<p>You are currently viewing the search results for <strong>&ldquo;';
+			the_search_query();
+			echo '.&rdquo;</strong></p>';
+			echo '<div class="spacer"></div>';
+			echo '</div>';
+		} // else if
+		else if (is_page('contact')) {
+		} // else if
 
-			<div class="row p-0 m-0 mx-3">
-				<?php
-					if (is_single()) {
-						echo '<div class="post_nav">';
-						echo '<p>You are currently reading <strong>';
-						the_title();
-						echo '</strong> at ';
-						echo '<a href="' . get_bloginfo('url') . '">';
-						bloginfo('name');
-						echo '</a>.</p>';
-						echo '<h3>meta</h3>';
-						echo '<ul class="single_post_meta">';
-						echo '<li><strong>Comments: </strong>';
-						comments_number('No Comments', '1 Comment', '% Comments' );
-						echo '</li>';
-						echo '<li><strong>Categories:</strong> ';
-						the_category(', ');
-						echo '</li>';
-						echo '</ul>';
-						echo '</div>';
-					} // else if
-					else if (is_category()) {
-						echo '<div class="post_nav col col-12 p-0 m-0">';
-						echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-						echo 'Posts for &ldquo;';
-						single_cat_title('');
-						echo '.&rdquo;</div>';
-						echo '<p>You are currently browsing the stories about the <strong>&ldquo;';
-						single_cat_title('');
-						echo '&rdquo;</strong> neighborhood.</p>';
-						echo '<div class="spacer"></div>';
-						echo '</div>';
-					} // else if
-					else if (is_tag()) {
-						echo '<div class="post_nav col col-12 p-0 m-0">';
-						echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-						echo 'Posts for &ldquo;';
-						echo single_tag_title('');
-						echo '&rdquo;</div>';
-						echo '<p>You are currently browsing stories tagged with <strong>&ldquo;';
-						echo single_tag_title();
-						echo '.&rdquo;</strong></p>';
-						echo '<div class="spacer"></div>';
-						echo '</div>';
-					} // else if
-					else if (is_year()) {
-						echo '<div class="post_nav col col-12 p-0 m-0">';
-						echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-						echo 'Posts for ';
-						the_time('Y');
-						echo '</div>';
-						echo '<p>You are currently viewing the stories for the year <strong>&ldquo;';
-						echo the_time('Y');
-						echo '.&rdquo;</strong></p>';
-						echo '<div class="spacer"></div>';
-						echo '</div>';
-					} // else if
-					else if (is_month()) {
-						echo '<div class="post_nav col col-12 p-0 m-0">';
-						echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-						echo 'Posts for ';
-						the_time('F Y');
-						echo '</div>';
-						echo '<p>You are currently viewing the stories for <strong>&ldquo;';
-						the_time('F Y');
-						echo '.&rdquo;</strong></p>';
-						echo '<div class="spacer"></div>';
-						echo '</div>';
-					} // else if
-					else if (is_day()) {
-						echo '<div class="post_nav col col-12 p-0 m-0">';
-						echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-						echo 'Posts for ';
-						the_time('l, F j, Y');
-						echo '</div>';
-						echo '<p>You are currently viewing the stories for the date <strong>&ldquo;';
-						the_time('l, F j, Y');
-						echo '.&rdquo;</strong></p>';
-						echo '<div class="spacer"></div>';
-						echo '</div>';
-					} // else if
-					else if (is_search()) {
-						echo '<div class="post_nav col col-12 p-0 m-0">';
-						echo '<div class="h4 p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-						echo 'Search Results for &ldquo;';
-						the_search_query();
-						echo '.&rdquo;';
-						echo '</div>';
-						echo '<p>You are currently viewing the search results for <strong>&ldquo;';
-						the_search_query();
-						echo '.&rdquo;</strong></p>';
-						echo '<div class="spacer"></div>';
-						echo '</div>';
-					} // else if
-					else if (is_page('contact')) {
-					} // else if
+		if (have_posts()) {
 
-					if (have_posts()) {
+			while (have_posts()) {
 
-						while (have_posts()) {
+				global $authordata;
 
-							global $authordata;
+				/********************************************************************/
+				// Get the post.
+				the_post();
 
-							/********************************************************************/
-							// Get the post.
-							the_post();
+				/********************************************************************/
+				// Set the variables.
+				$title = get_the_title();
+				$display_date = get_the_time('F j, Y');
+				// $excerpt = get_the_excerpt();
+	            $excerpt = wp_trim_words(get_the_content(), 60, ' [...]');
+				$permalink = get_the_permalink();
+				$the_ID = get_the_ID();
+				// $author = get_beller_author();
+				$the_author = get_the_author();
+				$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 
-							/********************************************************************/
-							// Set the variables.
-							$title = get_the_title();
-							$display_date = get_the_time('F j, Y');
-							// $excerpt = get_the_excerpt();
-				            $excerpt = wp_trim_words(get_the_content(), 60, ' [...]');
-							$permalink = get_the_permalink();
-							$the_ID = get_the_ID();
-							// $author = get_beller_author();
-							$the_author = get_the_author();
-							$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
+				echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
+				echo '<div class="h4 p-0 m-0 fw-bold" id="post_' . $the_ID . '">';
+				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
+				echo $title;
+				echo '</a>';
+				echo '</div>';
+				echo '<div class="small">';
+				echo 'By ';
+				echo '<a href="' . $the_author_url . '" title="Posts by ' . $the_author . '" class="text-decoration-none text-dark">';
+				echo $the_author;
+				echo '</a>';
+				echo '</div>';
+				echo '<div class="small text-secondary">';
+				echo $display_date;
+				echo '</div>';
+				echo '<p class="small p-0 m-0 mt-1">';
+				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
+				echo $excerpt;
+				echo '</a>';
+				echo '</p>';
+				echo '</div>';
 
-							echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
-							echo '<div class="h4 p-0 m-0 fw-bold" id="post_' . $the_ID . '">';
-							echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
-							echo $title;
-							echo '</a>';
-							echo '</div>';
-							echo '<div class="small">';
-							echo 'By ';
-							echo '<a href="' . $the_author_url . '" title="Posts by ' . $the_author . '" class="text-decoration-none text-dark">';
-							echo $the_author;
-							echo '</a>';
-							echo '</div>';
-							echo '<div class="small text-secondary">';
-							echo $display_date;
-							echo '</div>';
-							echo '<p class="small p-0 m-0 mt-1">';
-							echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
-							echo $excerpt;
+			} // while
+
+
+			/************************************************************************/
+			// Allow these globals to be accessed.
+			global $wp_query;
+			global $wp;
+
+			/************************************************************************/
+			// Get the next and previous links.
+			$next_posts_link = get_next_posts_page_link();
+			$previous_posts_link = get_previous_posts_page_link();
+
+			/************************************************************************/
+			// Get the current page URL and the current page.
+			$current_url = home_url($wp->request);
+			$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+			/************************************************************************/
+			// Compare them to the current URL value.
+			if (strstr($next_posts_link, '?', true) == $current_url) {
+				$next_posts_link = null;
+			} // if
+			if (strstr($previous_posts_link, '?', true) == $current_url) {
+				$previous_posts_link = null;
+			} // if
+
+			/************************************************************************/
+			// Check to display the next and previous links.
+			if ($wp_query->found_posts > $wp_query->post_count) {
+				if (!empty($next_posts_link) || !empty($previous_posts_link)) {
+					echo '<div class="navigation col col-12 p-0 m-0 py-1 mt-2 border-top border-bottom border-dark">';
+					if (!empty($next_posts_link)) {
+						if ($current_page != $wp_query->max_num_pages) {
+							echo '<p class="float-start p-0 m-0">';
+							echo '<a href="' . $next_posts_link . '" title="&laquo; Older Entries" class="text-dark">';
+							echo '&laquo; Older Entries';
 							echo '</a>';
 							echo '</p>';
-							echo '</div>';
-
-						} // while
-
-
-						/************************************************************************/
-						// Allow these globals to be accessed.
-						global $wp_query;
-						global $wp;
-
-						/************************************************************************/
-						// Get the next and previous links.
-						$next_posts_link = get_next_posts_page_link();
-						$previous_posts_link = get_previous_posts_page_link();
-
-						/************************************************************************/
-						// Get the current page URL and the current page.
-						$current_url = home_url($wp->request);
-						$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-						/************************************************************************/
-						// Compare them to the current URL value.
-						if (strstr($next_posts_link, '?', true) == $current_url) {
-							$next_posts_link = null;
 						} // if
-						if (strstr($previous_posts_link, '?', true) == $current_url) {
-							$previous_posts_link = null;
-						} // if
-
-						/************************************************************************/
-						// Check to display the next and previous links.
-						if ($wp_query->found_posts > $wp_query->post_count) {
-							if (!empty($next_posts_link) || !empty($previous_posts_link)) {
-								echo '<div class="navigation col col-12 p-0 m-0 py-1 mt-2 border-top border-bottom border-dark">';
-								if (!empty($next_posts_link)) {
-									if ($current_page != $wp_query->max_num_pages) {
-										echo '<p class="float-start p-0 m-0">';
-										echo '<a href="' . $next_posts_link . '" title="&laquo; Older Entries" class="text-dark">';
-										echo '&laquo; Older Entries';
-										echo '</a>';
-										echo '</p>';
-									} // if
-								} // if
-								if (!empty($previous_posts_link)) {
-									if ($current_page != 1) {
-										echo '<p class="float-end p-0 m-0">';
-										echo '<a href="' . $previous_posts_link . '" title="Newer Entries &raquo;" class="text-dark">';
-										echo 'Newer Entries &raquo;';
-										echo '</a>';
-										echo '</p>';
-									} // if
-								} // if
-								echo '</div>';
-							} // if
-						} // if
-
 					} // if
-					else {
+					if (!empty($previous_posts_link)) {
+						if ($current_page != 1) {
+							echo '<p class="float-end p-0 m-0">';
+							echo '<a href="' . $previous_posts_link . '" title="Newer Entries &raquo;" class="text-dark">';
+							echo 'Newer Entries &raquo;';
+							echo '</a>';
+							echo '</p>';
+						} // if
+					} // if
+					echo '</div>';
+				} // if
+			} // if
 
-						/**********************************************************************/
-						// Set the variables.
-						$template_directory = get_bloginfo('template_directory');
+		} // if
+		else {
 
-						echo '<div class="entry">';
-						echo '<span class="error">';
-						echo '<img src="' . $template_directory. '/images/mal.png" alt="error duck">';
-						echo '</span>';
-						echo '<p>';
-						echo "Hmmm, seems like what you were looking for isn't here. You might want to give it another try - the server might have hiccuped - or maybe you even spelled something wrong (though it's more likely <strong>I</strong> did).";
-						echo '</p>';
-						echo '</div>';
+			/**********************************************************************/
+			// Set the variables.
+			$template_directory = get_bloginfo('template_directory');
 
-					} // else
-				?>
-			</div>
+			echo '<div class="entry">';
+			echo '<span class="error">';
+			echo '<img src="' . $template_directory. '/images/mal.png" alt="error duck">';
+			echo '</span>';
+			echo '<p>';
+			echo "Hmmm, seems like what you were looking for isn't here. You might want to give it another try - the server might have hiccuped - or maybe you even spelled something wrong (though it's more likely <strong>I</strong> did).";
+			echo '</p>';
+			echo '</div>';
 
-		</div>
-	    <div class="col col-12 col-lg-3 ms-auto m-0 p-0">
-			<?php
-				get_sidebar();
-			?>
-		</div>
-	</div>
+		} // else
+	?>
 </div>
-<!-- Content Core END -->
 <?php
+
+	/**********************************************************************/
+	// Set the sidebar.
+	// get_sidebar();
+
+	/**********************************************************************/
+	// Set the footer.
 	get_footer();
+
 ?>
