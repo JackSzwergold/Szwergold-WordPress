@@ -32,9 +32,6 @@
 			echo '</div>';
 		} // else if
 
-		else if (is_page('contact')) {
-		} // else if
-
 		if (have_posts()) {
 
 			while (have_posts()) {
