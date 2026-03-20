@@ -32,7 +32,7 @@
 
 			echo '<header class="col col-12 p-0 m-0 pb-2">';
 			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
-			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to ' . $title . '" class="text-dark text-decoration-none">';
+			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title . '.&rdquo;" class="text-dark text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
