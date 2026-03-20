@@ -23,12 +23,11 @@
 			$title = get_the_title();
 
 			/********************************************************************************/
-			// Set the blog post info valiables.
+			// Set the item info variables.
 			$permalink = get_the_permalink();
 			$title = get_the_title();
 			$excerpt = get_the_excerpt();
-			// $the_author = get_the_author();
-			// $the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
+			$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 			$update_date = get_the_time('F j, Y');
 
 			echo '<header class="col col-12 p-0 m-0 pb-2">';
