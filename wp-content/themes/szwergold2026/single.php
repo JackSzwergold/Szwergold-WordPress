@@ -100,7 +100,7 @@
 
 				/************************************************************************************/
 				// Display the main entry.
-				echo '<div class="container m-0 p-0 mb-2 border-bottom border-dark">';
+				echo '<div class="container m-0 p-0 mb-2 ">';
 				echo '<div class="row m-0 p-0">';
 				echo '<div class="col col-12 col-lg-8 m-0 p-0 mbn_body_text">';
 				the_content('&raquo; Read the rest of the story &laquo;');
@@ -151,9 +151,8 @@
 
 	<?php
 
-		echo '<span class="error"><img src="' . $template_directory . '/images/mal.png" alt="error duck"></span>';
 		echo '<p>';
-		echo "Hmmm, seems like what you were looking for isn't here. You might want to give it another try - the server might have hiccuped - or maybe you even spelled something wrong (though it's more likely <strong>I</strong> did).";
+		echo "Something wrong.";
 		echo '</p>';
 
 	} // else
