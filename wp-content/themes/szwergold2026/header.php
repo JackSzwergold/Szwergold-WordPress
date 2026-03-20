@@ -64,17 +64,26 @@
 
 								/**********************************************************************************/
 								// Show widget header 1 if it is set.
-								if (is_active_sidebar('widget-header-1')) {
+								ob_start();
+								dynamic_sidebar('widget-header-1');
+								$widget_header_1 = ob_get_contents();
+								ob_end_clean();
+								if (!empty($widget_header_1) && is_active_sidebar('widget-header-1')) {
 									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
-									dynamic_sidebar('widget-header-1');
+									echo $widget_header_1;
 									echo '</div>';
 								} // if
 
 								/**********************************************************************************/
 								// Show widget header 2 if it is set.
+								ob_start();
+								dynamic_sidebar('widget-header-2');
+								$widget_header_2 = ob_get_contents();
+								ob_end_clean();
+
 								if (is_active_sidebar('widget-header-2')) {
 									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
-									dynamic_sidebar('widget-header-2');
+									echo $widget_header_2;
 									echo '</div>';
 								} // if
 
