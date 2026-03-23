@@ -42,7 +42,8 @@
 
 			/********************************************************************************/
 			// Show the excerpt.		
-			if (is_front_page() && !empty($excerpt)) {
+			// if (is_front_page() && !empty($excerpt)) {
+			if (!empty($excerpt)) {
 				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
 				echo $excerpt;
 				echo '</div>';				
