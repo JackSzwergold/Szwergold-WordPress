@@ -49,7 +49,7 @@
 				// Get the post.
 				the_post();
 
-				/********************************************************************************/
+				/********************************************************************/
 				// Set the item info variables.
 				$the_ID = get_the_ID();
 				$permalink = get_the_permalink();
@@ -61,15 +61,15 @@
 				$update_date = get_the_time('F j, Y');
 				$update_time = get_the_time('g:i:sa');
 
-				/********************************************************************************/
+				/********************************************************************/
 				// Begin the container.
 				echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
 
-				/********************************************************************************/
+				/********************************************************************/
 				// Begin the header.
 				echo '<header class="col col-12 p-0 m-0 pb-2">';
 
-				/********************************************************************************/
+				/********************************************************************/
 				// Show the title.
 				echo '<div class="h2 p-0 m-0 text-windsorpro-bold">';
 				echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
@@ -77,7 +77,7 @@
 				echo '</a>';
 				echo '</div>';
 
-				/********************************************************************************/
+				/********************************************************************/
 				// Show the author, date and time.
 				if (!empty($the_author)) {
 					echo '<div class="p-0 m-0 text-windsorpro-regular">';
@@ -92,11 +92,11 @@
 					echo '</div>';				
 				} // if
 
-				/********************************************************************************/
+				/********************************************************************/
 				// End the header.
 				echo '</header>';
 
-				/********************************************************************************/
+				/********************************************************************/
 				// Show the main area.
 				// echo '<main class="col col-12 p-0 m-0">';
 				// echo '<article class="col col-12 p-0 m-0">';
@@ -109,17 +109,18 @@
 				echo $excerpt;
 				echo '</a>';
 
-				/********************************************************************************/
+				/********************************************************************/
 				// End the header.
 				echo '</span>';
 				echo '</div>';
 				// echo '</article>';
 				// echo '</main>';
 
+				/********************************************************************/
+				// End the container.
 				echo '</div>';
 
 			} // while
-
 
 			/************************************************************************/
 			// Allow these globals to be accessed.
@@ -175,17 +176,34 @@
 		} // if
 		else {
 
-			/**********************************************************************/
+			/********************************************************************/
 			// Set the variables.
 			$template_directory = get_bloginfo('template_directory');
 
-			echo '<div class="entry">';
-			echo '<span class="error">';
-			echo '<img src="' . $template_directory. '/images/mal.png" alt="error duck">';
+			/********************************************************************/
+			// Begin the container.
+			echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
+
+			/********************************************************************/
+			// Show the main area.
+			// echo '<main class="col col-12 p-0 m-0">';
+			// echo '<article class="col col-12 p-0 m-0">';
+			echo '<div class="text-georgia-regular">';
+			echo '<span class="small">';
+
+			/********************************************************************/
+			// Show the excerpt.
+			echo "Nothing found.";
+
+			/********************************************************************/
+			// End the header.
 			echo '</span>';
-			echo '<p>';
-			echo "Hmmm, seems like what you were looking for isn't here. You might want to give it another try - the server might have hiccuped - or maybe you even spelled something wrong (though it's more likely <strong>I</strong> did).";
-			echo '</p>';
+			echo '</div>';
+			// echo '</article>';
+			// echo '</main>';
+
+			/********************************************************************/
+			// End the container.
 			echo '</div>';
 
 		} // else
