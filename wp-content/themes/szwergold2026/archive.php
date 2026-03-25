@@ -130,24 +130,20 @@
 			} // if
 
 			/********************************************************************/
-			// Begin the main area.
-			echo '<div class="text-georgia-regular small">';
-
-			/********************************************************************/
 			// Show the excerpt.
-			if (!empty($value['permalink'])) {
-				echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
+				echo '<div class="text-georgia-regular small">';
+				if (!empty($value['permalink'])) {
+					echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+				} // if
+				if (!empty($value['excerpt'])) {
+					echo $value['excerpt'];
+				} // if
+				if (!empty($value['permalink'])) {
+					echo '</a>';
+				} // if
+				echo '</div>';
 			} // if
-			if (!empty($value['excerpt'])) {
-				echo $value['excerpt'];
-			} // if
-			if (!empty($value['permalink'])) {
-				echo '</a>';
-			} // if
-
-			/********************************************************************/
-			// End the main area.
-			echo '</div>';
 
 			/********************************************************************/
 			// End the container.
