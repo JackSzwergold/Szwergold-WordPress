@@ -98,8 +98,6 @@
 
 				/********************************************************************/
 				// Show the main area.
-				// echo '<main class="col col-12 p-0 m-0">';
-				// echo '<article class="col col-12 p-0 m-0">';
 				echo '<div class="text-georgia-regular">';
 				echo '<span class="small">';
 
@@ -113,8 +111,6 @@
 				// End the header.
 				echo '</span>';
 				echo '</div>';
-				// echo '</article>';
-				// echo '</main>';
 
 				/********************************************************************/
 				// End the container.
@@ -213,7 +209,7 @@
 
 	/**********************************************************************/
 	// Set the sidebar.
-	// get_sidebar();
+	get_sidebar();
 
 	/**********************************************************************/
 	// Set the footer.
