@@ -133,19 +133,17 @@
 			/********************************************************************/
 			// Show the title.
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
-				echo '<header class="col col-12 p-0 m-0">';
-				echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
+				echo '<span class="p-0 m-0 me-1 text-windsorpro-bold">';
 				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
 				echo $value['title'];
 				echo '</a>';
-				echo '</div>';
-				echo '</header>';
+				echo '</span>';
 			} // if
 
 			/********************************************************************/
 			// Show the excerpt.
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
-				echo '<div class="text-georgia-regular small">';
+				echo '<span class="text-georgia-regular small">';
 				if (!empty($value['permalink'])) {
 					echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
 				} // if
@@ -155,7 +153,7 @@
 				if (!empty($value['permalink'])) {
 					echo '</a>';
 				} // if
-				echo '</div>';
+				echo '</span>';
 			} // if
 
 			/********************************************************************/
