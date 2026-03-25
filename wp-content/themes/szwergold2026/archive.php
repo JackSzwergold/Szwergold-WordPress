@@ -53,6 +53,8 @@
 		// Init variables.
 		$content = array();
 
+		/****************************************************************************/
+		// If there are posts, do something with them.
 		if (have_posts()) {
 			while (have_posts()) {
 
@@ -106,7 +108,6 @@
 				echo '</div>';
 
 			} // while
-
 		} // if
 		else {
 
