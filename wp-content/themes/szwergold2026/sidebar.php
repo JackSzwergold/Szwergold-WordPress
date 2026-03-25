@@ -23,12 +23,10 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 
 ?>
 <!-- Sidebar BEGIN -->
-<div class="p-0 m-0 mx-3 rounded-0">
-<?php
+<div class="p-0 m-0 mx-0"><?php
 	echo $post_sidebar_1;
-?>
-</div>
-<div class="p-0 m-0 mx-3 rounded-0">
+?></div>
+<div class="p-0 m-0 mx-0 rounded-0">
 	<div class="categories list-group-item col col-12 m-0 p-0 mb-3 border-0">
 		<nav class="h5 p-0 m-0 mb-2 border-bottom border-dark">
 			<div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
