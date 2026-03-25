@@ -128,7 +128,7 @@
 
 			/********************************************************************/
 			// Begin the container.
-			echo '<div class="col col-12 p-0 m-0 mb-1 bg-info">';
+			echo '<div class="col col-12 p-0 m-0 mb-1">';
 
 			/********************************************************************/
 			// Show the title.
@@ -143,7 +143,7 @@
 			/********************************************************************/
 			// Show the excerpt.
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
-				echo '<span class="text-georgia-regular small bg-warning">';
+				echo '<span class="text-georgia-regular small">';
 				if (!empty($value['permalink'])) {
 					echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
 				} // if
