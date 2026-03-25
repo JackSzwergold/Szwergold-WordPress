@@ -130,7 +130,7 @@
 			} // if
 
 			/********************************************************************/
-			// Show the main area.
+			// Begin the main area.
 			echo '<div class="text-georgia-regular small">';
 
 			/********************************************************************/
@@ -138,13 +138,15 @@
 			if (!empty($value['permalink'])) {
 				echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
 			} // if
-			echo $value['excerpt'];
+			if (!empty($value['excerpt'])) {
+				echo $value['excerpt'];
+			} // if
 			if (!empty($value['permalink'])) {
 				echo '</a>';
 			} // if
 
 			/********************************************************************/
-			// End the header.
+			// End the main area.
 			echo '</div>';
 
 			/********************************************************************/
