@@ -173,7 +173,7 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 					else {
 						$parent_stuff .= isset($parent['name']) ? $parent['name'] : null;
 					} // else
-					if (FALSE && (isset($parent['count']) && $parent['count'] > 0)) {
+					if (TRUE && (isset($parent['count']) && $parent['count'] > 0)) {
 						$parent_stuff .= ' ';
 						$parent_stuff .= '(' . $parent['count'] . ')';												
 					} // if
@@ -198,7 +198,7 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 						else {
 							$child_stuff .= isset($parent['name']) ? $parent['name'] : null;
 						} // else
-						if (FALSE && (isset($parent['count']) && $parent['count'] > 0)) {
+						if (TRUE && (isset($parent['count']) && $parent['count'] > 0)) {
 							$child_stuff .= ' ';
 							$child_stuff .= '(' . $parent['count'] . ')';												
 						} // if
