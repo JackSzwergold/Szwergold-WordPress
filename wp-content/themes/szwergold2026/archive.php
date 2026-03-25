@@ -118,10 +118,14 @@
 
 			/********************************************************************/
 			// Show the excerpt.
-			echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+			if (!empty($value['permalink'])) {
+				echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+			} // if
 			echo $value['excerpt'];
-			echo '</a>';
-
+			if (!empty($value['permalink'])) {
+				echo '</a>';
+			} // if
+			
 			/********************************************************************/
 			// End the header.
 			echo '</div>';
