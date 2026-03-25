@@ -49,7 +49,7 @@
 		// Arhcive info ends.
 		echo '</div>';
 
-		if (have_posts()) {
+		if (TRUE && have_posts()) {
 
 			while (have_posts()) {
 
@@ -128,63 +128,8 @@
 
 			} // while
 
-			/************************************************************************/
-			// Allow these globals to be accessed.
-			global $wp_query;
-			global $wp;
-
-			/************************************************************************/
-			// Get the next and previous links.
-			$next_posts_link = get_next_posts_page_link();
-			$previous_posts_link = get_previous_posts_page_link();
-
-			/************************************************************************/
-			// Get the current page URL and the current page.
-			$current_url = home_url($wp->request);
-			$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-			/************************************************************************/
-			// Compare them to the current URL value.
-			if (strstr($next_posts_link, '?', true) == $current_url) {
-				$next_posts_link = null;
-			} // if
-			if (strstr($previous_posts_link, '?', true) == $current_url) {
-				$previous_posts_link = null;
-			} // if
-
-			/************************************************************************/
-			// Check to display the next and previous links.
-			if ($wp_query->found_posts > $wp_query->post_count) {
-				if (!empty($next_posts_link) || !empty($previous_posts_link)) {
-					echo '<div class="navigation col col-12 p-0 m-0 py-1 mt-2 border-top border-bottom border-dark">';
-					if (!empty($next_posts_link)) {
-						if ($current_page != $wp_query->max_num_pages) {
-							echo '<p class="float-start p-0 m-0">';
-							echo '<a href="' . $next_posts_link . '" title="&laquo; Older Entries" class="text-dark">';
-							echo '&laquo; Older Entries';
-							echo '</a>';
-							echo '</p>';
-						} // if
-					} // if
-					if (!empty($previous_posts_link)) {
-						if ($current_page != 1) {
-							echo '<p class="float-end p-0 m-0">';
-							echo '<a href="' . $previous_posts_link . '" title="Newer Entries &raquo;" class="text-dark">';
-							echo 'Newer Entries &raquo;';
-							echo '</a>';
-							echo '</p>';
-						} // if
-					} // if
-					echo '</div>';
-				} // if
-			} // if
-
 		} // if
 		else {
-
-			/********************************************************************/
-			// Set the variables.
-			$template_directory = get_bloginfo('template_directory');
 
 			/********************************************************************/
 			// Begin the container.
@@ -192,8 +137,6 @@
 
 			/********************************************************************/
 			// Show the main area.
-			// echo '<main class="col col-12 p-0 m-0">';
-			// echo '<article class="col col-12 p-0 m-0">';
 			echo '<div class="text-georgia-regular">';
 			echo '<span class="small">';
 
@@ -205,8 +148,6 @@
 			// End the header.
 			echo '</span>';
 			echo '</div>';
-			// echo '</article>';
-			// echo '</main>';
 
 			/********************************************************************/
 			// End the container.
