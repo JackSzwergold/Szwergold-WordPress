@@ -89,7 +89,7 @@
 
 		/****************************************************************************/
 		// If there are posts, do something with them.
-		if (TRUE && have_posts()) {
+		if (TRUE && is_archive() && have_posts()) {
 			while (have_posts()) {
 
 				/********************************************************************/
