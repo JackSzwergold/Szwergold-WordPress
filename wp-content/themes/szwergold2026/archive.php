@@ -64,56 +64,13 @@
 
 				/********************************************************************/
 				// Set the item info variables.
-				$permalink = get_the_permalink();
-				$title = get_the_title();
-				$title_attribute = the_title_attribute(array('echo' => false));
-				$excerpt = get_the_excerpt();
-
 				$temp = array();
-				$temp['permalink'] = $permalink;
-				$temp['title'] = $title;
-				$temp['title_attribute'] = $title_attribute;
-				$temp['excerpt'] = $excerpt;
+				$temp['permalink'] = get_the_permalink();
+				$temp['title'] = get_the_title();
+				$temp['title_attribute'] = the_title_attribute(array('echo' => false));
+				$temp['excerpt'] = get_the_excerpt();
 
 				$content[] = $temp;
-
-				/********************************************************************/
-				// Begin the container.
-				echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
-
-				/********************************************************************/
-				// Begin the header.
-				echo '<header class="col col-12 p-0 m-0">';
-
-				/********************************************************************/
-				// Show the title.
-				echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
-				echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
-				echo $title;
-				echo '</a>';
-				echo '</div>';
-
-				/********************************************************************/
-				// End the header.
-				echo '</header>';
-
-				/********************************************************************/
-				// Show the main area.
-				echo '<div class="text-georgia-regular small">';
-
-				/********************************************************************/
-				// Show the excerpt.
-				echo '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">';
-				echo $excerpt;
-				echo '</a>';
-
-				/********************************************************************/
-				// End the header.
-				echo '</div>';
-
-				/********************************************************************/
-				// End the container.
-				echo '</div>';
 
 			} // while
 		} // if
@@ -141,9 +98,47 @@
 
 		} // else
 
-		echo '<pre>';
-		print_r($content);
-		echo '</pre>';
+		foreach ($content as $value) {
+
+			/********************************************************************/
+			// Begin the container.
+			echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
+
+			/********************************************************************/
+			// Begin the header.
+			echo '<header class="col col-12 p-0 m-0">';
+
+			/********************************************************************/
+			// Show the title.
+			echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
+			echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
+			echo $value['title'];
+			echo '</a>';
+			echo '</div>';
+
+			/********************************************************************/
+			// End the header.
+			echo '</header>';
+
+			/********************************************************************/
+			// Show the main area.
+			echo '<div class="text-georgia-regular small">';
+
+			/********************************************************************/
+			// Show the excerpt.
+			echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+			echo $value['excerpt'];
+			echo '</a>';
+
+			/********************************************************************/
+			// End the header.
+			echo '</div>';
+
+			/********************************************************************/
+			// End the container.
+			echo '</div>';
+
+		} // foreach
 
 	?>
 </div>
