@@ -59,7 +59,8 @@ add_post_type_support('page', 'excerpt');
 
 /********************************************************************************/
 // 2026-03-25: Attempting to sort posts by title instead of date.
-// add_action('pre_get_posts', 'category_sort_order'); 
+// Abandoning in favor of setting this directly in the 'archive.php' code.
+// add_action('pre_get_posts', 'category_sort_order');
 // function category_sort_order($query){
 // 	if (is_archive()) {
 // 		$query->set('order', 'ASC');
