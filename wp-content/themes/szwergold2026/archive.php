@@ -39,8 +39,7 @@
 		echo '<p class="text-windsorpro-regular">';
 		$category_description = category_description();
 		if (!empty($category_description)) {
-			$category_description = strip_tags($category_description);
-			echo $category_description;
+			echo strip_tags($category_description);
 		} // if
 		else {
 			echo 'You are currently browsing posts about <strong>&ldquo;';
