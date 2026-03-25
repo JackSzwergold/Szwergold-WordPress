@@ -69,6 +69,14 @@
 				$title_attribute = the_title_attribute(array('echo' => false));
 				$excerpt = get_the_excerpt();
 
+				$temp = array();
+				$temp['permalink'] = $permalink;
+				$temp['title'] = $title;
+				$temp['title_attribute'] = $title_attribute;
+				$temp['excerpt'] = $excerpt;
+
+				$content[] = $temp;
+
 				/********************************************************************/
 				// Begin the container.
 				echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
@@ -132,6 +140,10 @@
 			echo '</div>';
 
 		} // else
+
+		echo '<pre>';
+		print_r($content);
+		echo '</pre>';
 
 	?>
 </div>
