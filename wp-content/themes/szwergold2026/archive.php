@@ -154,15 +154,19 @@
 			// Show the excerpt.
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
 				$excerpt = null;
-				if (!empty($value['permalink'])) {
-					$excerpt .= '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
-				} // if
+
 				if (!empty($value['excerpt'])) {
 					$excerpt .= $value['excerpt'];
 				} // if
+
 				if (!empty($value['permalink'])) {
-					$excerpt .= '</a>';
+					$excerpt =
+					  '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
+					. $excerpt
+					. '</a>'
+					;
 				} // if
+
 				$row .=
 					  '<span class="text-georgia-regular small">'
 					. $excerpt
