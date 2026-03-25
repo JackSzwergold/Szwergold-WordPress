@@ -89,18 +89,18 @@
 
 				/********************************************************************/
 				// Show the author, date and time.
-				if (!empty($the_author)) {
-					echo '<div class="p-0 m-0 text-windsorpro-regular">';
-					echo 'By ' . $the_author;
-					if (!empty($update_date)) {
-						echo ' on ' . $update_date;
-						if (!empty($update_time)) {
-							echo ' at ' . $update_time;
-						} // if
-					} // if
-					echo '.';
-					echo '</div>';				
-				} // if
+				// if (!empty($the_author)) {
+				// 	echo '<div class="p-0 m-0 text-windsorpro-regular">';
+				// 	echo 'By ' . $the_author;
+				// 	if (!empty($update_date)) {
+				// 		echo ' on ' . $update_date;
+				// 		if (!empty($update_time)) {
+				// 			echo ' at ' . $update_time;
+				// 		} // if
+				// 	} // if
+				// 	echo '.';
+				// 	echo '</div>';				
+				// } // if
 
 				/********************************************************************/
 				// End the header.
