@@ -61,15 +61,10 @@
 
 				/********************************************************************/
 				// Set the item info variables.
-				// $the_ID = get_the_ID();
 				$permalink = get_the_permalink();
 				$title = get_the_title();
 				$title_attribute = the_title_attribute(array('echo' => false));
 				$excerpt = get_the_excerpt();
-				// $the_author = $authordata->user_nicename;
-				// $the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
-				// $update_date = get_the_time('F j, Y');
-				// $update_time = get_the_time('g:i:sa');
 
 				/********************************************************************/
 				// Begin the container.
@@ -86,21 +81,6 @@
 				echo $title;
 				echo '</a>';
 				echo '</div>';
-
-				/********************************************************************/
-				// Show the author, date and time.
-				// if (!empty($the_author)) {
-				// 	echo '<div class="p-0 m-0 text-windsorpro-regular">';
-				// 	echo 'By ' . $the_author;
-				// 	if (!empty($update_date)) {
-				// 		echo ' on ' . $update_date;
-				// 		if (!empty($update_time)) {
-				// 			echo ' at ' . $update_time;
-				// 		} // if
-				// 	} // if
-				// 	echo '.';
-				// 	echo '</div>';				
-				// } // if
 
 				/********************************************************************/
 				// End the header.
