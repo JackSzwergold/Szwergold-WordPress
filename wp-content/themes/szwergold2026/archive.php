@@ -55,7 +55,7 @@
 
 		/****************************************************************************/
 		// If there are posts, do something with them.
-		if (have_posts()) {
+		if (TRUE && have_posts()) {
 			while (have_posts()) {
 
 				/********************************************************************/
@@ -90,26 +90,6 @@
 			// Set the content array values.
 			$content[] = $temp;
 
-			/********************************************************************/
-			// Begin the container.
-			echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
-
-			/********************************************************************/
-			// Show the main area.
-			echo '<div class="text-georgia-regular small">';
-
-			/********************************************************************/
-			// Show the excerpt.
-			echo "Nothing found.";
-
-			/********************************************************************/
-			// End the header.
-			echo '</div>';
-
-			/********************************************************************/
-			// End the container.
-			echo '</div>';
-
 		} // else
 
 		/************************************************************************/
@@ -121,20 +101,16 @@
 			echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
 
 			/********************************************************************/
-			// Begin the header.
-			echo '<header class="col col-12 p-0 m-0">';
-
-			/********************************************************************/
 			// Show the title.
-			echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
-			echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
-			echo $value['title'];
-			echo '</a>';
-			echo '</div>';
-
-			/********************************************************************/
-			// End the header.
-			echo '</header>';
+			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
+				echo '<header class="col col-12 p-0 m-0">';
+				echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
+				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
+				echo $value['title'];
+				echo '</a>';
+				echo '</div>';
+				echo '</header>';
+			} // if
 
 			/********************************************************************/
 			// Show the main area.
