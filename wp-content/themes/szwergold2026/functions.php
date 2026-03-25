@@ -58,6 +58,14 @@ add_action('wp_enqueue_scripts', 'load_fontawesome_files', 10);
 add_post_type_support('page', 'excerpt');
 
 /********************************************************************************/
+// 2026-03-20: Attempting to sort posts by title instead of date.
+add_action('pre_get_posts', 'category_sort_order'); 
+function category_sort_order($query){
+	$query->set( 'order', 'ASC' );
+	$query->set( 'orderby', 'title' );
+};
+
+/********************************************************************************/
 // 2026-03-20: Adding widgets.
 function szwergold_widgets_init() {
 	register_sidebar(array(
