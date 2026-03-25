@@ -153,7 +153,7 @@
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
 				$title =
 					  '<span class="p-0 m-0 me-1 text-windsorpro-bold">'
-					. '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">'
+					. '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
 					. $value['title']
 					. '</a>'
 					. '</span>'
