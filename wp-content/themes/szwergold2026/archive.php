@@ -63,13 +63,15 @@
 				the_post();
 
 				/********************************************************************/
-				// Set the item info variables.
+				// Set the temp array values.
 				$temp = array();
 				$temp['permalink'] = get_the_permalink();
 				$temp['title'] = get_the_title();
 				$temp['title_attribute'] = the_title_attribute(array('echo' => false));
 				$temp['excerpt'] = get_the_excerpt();
 
+				/********************************************************************/
+				// Set the content array values.
 				$content[] = $temp;
 
 			} // while
@@ -98,6 +100,8 @@
 
 		} // else
 
+		/************************************************************************/
+		// Display the content.
 		foreach ($content as $value) {
 
 			/********************************************************************/
