@@ -49,7 +49,7 @@
 		// Arhcive info ends.
 		echo '</div>';
 
-		if (TRUE && have_posts()) {
+		if (have_posts()) {
 
 			while (have_posts()) {
 
@@ -134,6 +134,7 @@
 			echo '</div>';
 
 		} // else
+
 	?>
 </div>
 <?php
