@@ -134,7 +134,7 @@
 			// Show the title.
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
 				echo '<span class="p-0 m-0 me-1 text-windsorpro-bold">';
-				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
+				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none p-0 m-0">';
 				echo $value['title'];
 				echo '</a>';
 				echo '</span>';
@@ -143,7 +143,7 @@
 			/********************************************************************/
 			// Show the excerpt.
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
-				echo '<span class="text-georgia-regular small">';
+				echo '<span class="text-georgia-regular small bg-warning">';
 				if (!empty($value['permalink'])) {
 					echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
 				} // if
