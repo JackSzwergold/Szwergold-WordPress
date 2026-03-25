@@ -10,7 +10,7 @@
 
 		/****************************************************************************/
 		// Begin the archive info area.
-		echo '<div class="post_nav col col-12 p-0 m-0 bg-warning">';
+		echo '<div class="post_nav col col-12 p-0 m-0">';
 
 		/****************************************************************************/
 		// Header begins.
