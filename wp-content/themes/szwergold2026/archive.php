@@ -77,11 +77,11 @@
 
 				/********************************************************************/
 				// Begin the header.
-				echo '<header class="col col-12 p-0 m-0 pb-2">';
+				echo '<header class="col col-12 p-0 m-0">';
 
 				/********************************************************************/
 				// Show the title.
-				echo '<div class="h2 p-0 m-0 text-windsorpro-bold">';
+				echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
 				echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
 				echo $title;
 				echo '</a>';
