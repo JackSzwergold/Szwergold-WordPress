@@ -15,23 +15,29 @@
 		/****************************************************************************/
 		// Header begins.
 		echo '<div class="h2 text-windsorpro-bold p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
-		echo 'Posts for &ldquo;';
+		echo 'Posts for ';
 		if (is_category()) {
+			echo '&ldquo;';
 			single_cat_title();
+			echo '.&rdquo;';
 		} // if
 		else if (is_tag()) {
+			echo '&ldquo;';
 			echo single_tag_title();
+			echo '.&rdquo;';
 		} // else if
 		else if (is_year()) {
 			the_time('Y');
+			echo '.';
 		} // else if
 		else if (is_month()) {
 			the_time('F Y');
+			echo '.';
 		} // else if
 		else if (is_day()) {
 			the_time('l, F j, Y');
+			echo '.';
 		} // else if
-		echo '.&rdquo;';
 		echo '</div>';
 
 		/****************************************************************************/
@@ -42,23 +48,30 @@
 			echo strip_tags($category_description);
 		} // if
 		else {
-			echo 'You are currently browsing posts about <strong>&ldquo;';
+			echo 'You are currently browsing posts about <strong>';
 			if (is_category()) {
+				echo '&ldquo;';
 				single_cat_title();
+				echo '.&rdquo;';
 			} // if
 			else if (is_tag()) {
+				echo '&ldquo;';
 				echo single_tag_title();
+				echo '.&rdquo;';
 			} // else if
 			else if (is_year()) {
 				the_time('Y');
+				echo '.';
 			} // else if
 			else if (is_month()) {
 				the_time('F Y');
+				echo '.';
 			} // else if
 			else if (is_day()) {
 				the_time('l, F j, Y');
+				echo '.';
 			} // else if
-			echo '.&rdquo;</strong>';
+			echo '</strong>';
 		} // else
 		echo '</p>';
 
