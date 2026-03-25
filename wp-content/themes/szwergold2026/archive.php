@@ -112,6 +112,8 @@
 				$temp['title'] = get_the_title();
 				$temp['title_attribute'] = the_title_attribute(array('echo' => false));
 				$temp['excerpt'] = get_the_excerpt();
+				$temp['date'] = get_the_time('F j, Y');
+				$temp['time'] = get_the_time('g:i:sa');
 
 				/********************************************************************/
 				// Set the content array values.
@@ -128,6 +130,8 @@
 			$temp['title'] = null;
 			$temp['title_attribute'] = null;
 			$temp['excerpt'] = 'Nothing was found.';
+			$temp['date'] = null;
+			$temp['time'] = null;
 
 			/********************************************************************/
 			// Set the content array values.
@@ -178,12 +182,17 @@
 					;
 			} // if
 
+			$date = '<span class="text-windsorpro-regular">' . $value['date'] . '</span>';
+			$time = '<span class="text-windsorpro-regular">' . $value['time'] . '</span>';
+
 			/********************************************************************/
 			// Show the row.
 			echo '<div class="col col-12 p-0 m-0 mb-1">';
 			echo $title;
 			echo '<span class="text-windsorpro-regular"> &mdash; </span>';
 			echo $excerpt;
+			// echo '<span class="text-windsorpro-regular"> &mdash; </span>';
+			// echo $date;
 			echo '</div>';
 
 		} // foreach
