@@ -22,6 +22,15 @@
 		else if (is_tag()) {
 			echo single_tag_title();
 		} // else if
+		else if (is_year()) {
+			the_time('Y');
+		} // else if
+		else if (is_month()) {
+			the_time('F Y');
+		} // else if
+		else if (is_day()) {
+			the_time('l, F j, Y');
+		} // else if
 		echo '.&rdquo;';
 		echo '</div>';
 
@@ -40,6 +49,15 @@
 			} // if
 			else if (is_tag()) {
 				echo single_tag_title();
+			} // else if
+			else if (is_year()) {
+				the_time('Y');
+			} // else if
+			else if (is_month()) {
+				the_time('F Y');
+			} // else if
+			else if (is_day()) {
+				the_time('l, F j, Y');
 			} // else if
 			echo '.&rdquo;</strong>';
 		} // else
