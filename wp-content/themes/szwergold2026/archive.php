@@ -136,12 +136,13 @@
 
 			/********************************************************************/
 			// Init variables.
-			$row = null;
+			$title = null;
+			$excerpt = null;
 
 			/********************************************************************/
-			// Show the title.
+			// Set the title.
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
-				$row .=
+				$title =
 					  '<span class="p-0 m-0 me-1 text-windsorpro-bold">'
 					. '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">'
 					. $value['title']
@@ -151,23 +152,17 @@
 			} // if
 
 			/********************************************************************/
-			// Show the excerpt.
+			// Set the excerpt.
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
-				$excerpt = null;
-
-				if (!empty($value['excerpt'])) {
-					$excerpt .= $value['excerpt'];
-				} // if
-
+				$excerpt = !empty($value['excerpt']) ? $value['excerpt'] : null;
 				if (!empty($value['permalink'])) {
 					$excerpt =
-					  '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-					. $excerpt
-					. '</a>'
-					;
+						  '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
+						. $excerpt
+						. '</a>'
+						;
 				} // if
-
-				$row .=
+				$excerpt =
 					  '<span class="text-georgia-regular small">'
 					. $excerpt
 					. '</span>'
@@ -177,7 +172,8 @@
 			/********************************************************************/
 			// Show the row.
 			echo '<div class="col col-12 p-0 m-0 mb-1">';
-			echo $row;
+			echo $title;
+			echo $excerpt;
 			echo '</div>';
 
 		} // foreach
