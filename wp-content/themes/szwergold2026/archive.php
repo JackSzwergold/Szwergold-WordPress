@@ -84,6 +84,15 @@
 		/****************************************************************************/
 
 		/****************************************************************************/
+		// 2026-03-25: Sort posts by title instead of date.
+		global $wp_query;
+		$custom_criteria = array();
+		$custom_criteria['order'] = 'ASC';
+		$custom_criteria['orderby'] = 'title';
+		$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
+		query_posts($merged_criteria);
+
+		/****************************************************************************/
 		// Init variables.
 		$content = array();
 
