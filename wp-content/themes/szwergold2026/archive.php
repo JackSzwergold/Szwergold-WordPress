@@ -11,6 +11,9 @@
 		/********************************************************************************/
 		// Show the archive info.
 		echo '<div class="post_nav col col-12 p-0 m-0">';
+
+		/********************************************************************************/
+		// Header begins.
 		echo '<div class="h2 text-windsorpro-bold p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
 		echo 'Posts for &ldquo;';
 		if (is_category()) {
@@ -19,7 +22,11 @@
 		else if (is_tag()) {
 			echo single_tag_title();
 		} // else if
-		echo '.&rdquo;</div>';
+		echo '.&rdquo;';
+		echo '</div>';
+
+		/********************************************************************************/
+		// Header ends
 		echo '<p class="text-windsorpro-regular">';
 		$category_description = category_description();
 		if (!empty($category_description)) {
@@ -37,6 +44,9 @@
 			echo '.&rdquo;</strong>';
 		} // else
 		echo '</p>';
+
+		/********************************************************************************/
+		// Arhcive info ends.
 		echo '</div>';
 
 		if (have_posts()) {
