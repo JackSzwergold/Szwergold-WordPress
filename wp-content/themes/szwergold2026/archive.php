@@ -126,46 +126,54 @@
 
 		} // else
 
-		/****************************************************************************/
-		/****************************************************************************/
-		/****************************************************************************/
+		/************************************************************************/
+		/************************************************************************/
+		/************************************************************************/
 
 		/************************************************************************/
 		// Display the content.
 		foreach ($content as $value) {
 
 			/********************************************************************/
-			// Begin the container.
-			echo '<div class="col col-12 p-0 m-0 mb-1">';
+			// Init variables.
+			$row = null;
 
 			/********************************************************************/
 			// Show the title.
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
-				echo '<span class="p-0 m-0 me-1 text-windsorpro-bold">';
-				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
-				echo $value['title'];
-				echo '</a>';
-				echo '</span>';
+				$row .=
+					  '<span class="p-0 m-0 me-1 text-windsorpro-bold">'
+					. '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">'
+					. $value['title']
+					. '</a>'
+					. '</span>'
+					;
 			} // if
 
 			/********************************************************************/
 			// Show the excerpt.
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
-				echo '<span class="text-georgia-regular small">';
+				$excerpt = null;
 				if (!empty($value['permalink'])) {
-					echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+					$excerpt .= '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
 				} // if
 				if (!empty($value['excerpt'])) {
-					echo $value['excerpt'];
+					$excerpt .= $value['excerpt'];
 				} // if
 				if (!empty($value['permalink'])) {
-					echo '</a>';
+					$excerpt .= '</a>';
 				} // if
-				echo '</span>';
+				$row .=
+					  '<span class="text-georgia-regular small">'
+					. $excerpt
+					. '</span>'
+					;
 			} // if
 
 			/********************************************************************/
-			// End the container.
+			// Show the row.
+			echo '<div class="col col-12 p-0 m-0 mb-1">';
+			echo $row;
 			echo '</div>';
 
 		} // foreach
