@@ -61,9 +61,11 @@ add_post_type_support('page', 'excerpt');
 // 2026-03-25: Attempting to sort posts by title instead of date.
 add_action('pre_get_posts', 'category_sort_order'); 
 function category_sort_order($query){
-	$query->set( 'order', 'ASC' );
-	$query->set( 'orderby', 'title' );
-};
+	if (is_archive()) {
+		$query->set('order', 'ASC');
+		$query->set('orderby', 'title');
+	} // if
+} // category_sort_order
 
 /********************************************************************************/
 // 2026-03-20: Adding widgets.
