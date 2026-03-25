@@ -182,7 +182,7 @@
 			// Show the row.
 			echo '<div class="col col-12 p-0 m-0 mb-1">';
 			echo $title;
-			echo ' &mdash; ';
+			echo '<span class="text-georgia-regular"> &mdash; </span>';
 			echo $excerpt;
 			echo '</div>';
 
