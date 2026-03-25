@@ -19,10 +19,6 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
           $post_sidebar_1 = ob_get_contents();
           ob_end_clean();
 
-          /**************************************************************************************/
-          // Filter the content in the variable.
-          // $post_sidebar_1 = str_replace('<a href=', '<a class="text-decoration-none text-dark" href=', $post_sidebar_1);
-
 	} // if
 
 ?>
@@ -35,10 +31,10 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 <div class="p-0 m-0 mx-3 rounded-0">
 	<div class="categories list-group-item col col-12 m-0 p-0 mb-3 border-0">
 		<nav class="h5 p-0 m-0 mb-2 border-bottom border-dark">
-		  <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
-		    <button class="nav-link active text-decoration-none text-dark p-0 m-0 px-3 py-1 border border-bottom-0 " id="nav-categories-tab" data-bs-toggle="tab" data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories" aria-selected="true">Categories</button>
-		    <button class="nav-link text-decoration-none p-0 m-0 text-dark px-3 py-1 border border-bottom-0 ms-1" id="nav-archives-tab" data-bs-toggle="tab" data-bs-target="#nav-archives" type="button" role="tab" aria-controls="nav-archives" aria-selected="false">Archives</button>
-		  </div>
+			<div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+				<button class="nav-link active text-decoration-none text-dark p-0 m-0 px-3 py-1 border border-bottom-0 " id="nav-categories-tab" data-bs-toggle="tab" data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories" aria-selected="true">Categories</button>
+				<button class="nav-link text-decoration-none p-0 m-0 text-dark px-3 py-1 border border-bottom-0 ms-1" id="nav-archives-tab" data-bs-toggle="tab" data-bs-target="#nav-archives" type="button" role="tab" aria-controls="nav-archives" aria-selected="false">Archives</button>
+			</div>
 		</nav>
 		<div class="tab-content" id="nav-tabContent">
 		  <div class="tab-pane show active" id="nav-categories" role="tabpanel" aria-labelledby="nav-categories-tab">
