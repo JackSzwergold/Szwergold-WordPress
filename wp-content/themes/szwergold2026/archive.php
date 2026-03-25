@@ -14,7 +14,7 @@
 
 		/****************************************************************************/
 		// Header begins.
-		echo '<div class="h2 text-windsorpro-bold p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
+		echo '<div class="h2 text-windsorpro-bold p-0 m-0 pb-1 mb-2 border-bottom border-dark">';
 		echo 'Posts for ';
 		if (is_category()) {
 			echo '&ldquo;';
@@ -42,7 +42,7 @@
 
 		/****************************************************************************/
 		// Header ends
-		echo '<p class="text-windsorpro-regular">';
+		echo '<p class="text-windsorpro-regular m-0 p-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
 		$category_description = category_description();
 		if (!empty($category_description)) {
 			echo strip_tags($category_description);
@@ -128,7 +128,7 @@
 
 			/********************************************************************/
 			// Begin the container.
-			echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
+			echo '<div class="col col-12 p-0 m-0">';
 
 			/********************************************************************/
 			// Show the title.
