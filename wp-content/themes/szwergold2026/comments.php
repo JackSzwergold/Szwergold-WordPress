@@ -33,11 +33,11 @@
 		// NOTE: Reference.
 		// <li class="recent_stories ">
 		echo '<ul id="comments" class="commentlist list-group p-0 m-0 border-0 rounded-0">';
-		$wp_list_comments = str_replace(' class="comment even', ' class="comment even list-group-item col col-12 m-0 p-0 border-0 bg-transparent', $wp_list_comments);
-		$wp_list_comments = str_replace(' class="comment odd', ' class="comment odd list-group-item col col-12 m-0 p-0 border-0 bg-transparent', $wp_list_comments);
-		$wp_list_comments = str_replace(' class="comment byuser', ' class="comment byuser list-group-item col col-12 m-0 p-0 border-0 bg-transparent', $wp_list_comments);
-		$wp_list_comments = str_replace(' class="pingback even', ' class="pingback even list-group-item col col-12 m-0 p-0 border-0 bg-transparent', $wp_list_comments);
-		$wp_list_comments = str_replace(' class="pingback odd', ' class="pingback odd list-group-item col col-12 m-0 p-0 border-0 bg-transparent', $wp_list_comments);
+		$wp_list_comments = str_replace(' class="comment even', ' class="comment even list-group-item col col-12 p-0 m-0 border-0 bg-transparent', $wp_list_comments);
+		$wp_list_comments = str_replace(' class="comment odd', ' class="comment odd list-group-item col col-12 p-0 m-0 border-0 bg-transparent', $wp_list_comments);
+		$wp_list_comments = str_replace(' class="comment byuser', ' class="comment byuser list-group-item col col-12 p-0 m-0 border-0 bg-transparent', $wp_list_comments);
+		$wp_list_comments = str_replace(' class="pingback even', ' class="pingback even list-group-item col col-12 p-0 m-0 border-0 bg-transparent', $wp_list_comments);
+		$wp_list_comments = str_replace(' class="pingback odd', ' class="pingback odd list-group-item col col-12 p-0 m-0 border-0 bg-transparent', $wp_list_comments);
 		// $wp_list_comments = str_replace(' class="comment-body', ' class="comment-body row', $wp_list_comments);
 		$wp_list_comments = str_replace('<footer class="comment-meta', '<footer class="comment-meta col-12', $wp_list_comments);
 		$wp_list_comments = str_replace(' class="comment-author', ' class="comment-author d-inline-block', $wp_list_comments);

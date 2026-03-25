@@ -42,7 +42,7 @@
 
 		/****************************************************************************/
 		// Header ends
-		echo '<p class="text-windsorpro-regular m-0 p-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
+		echo '<p class="text-windsorpro-regular p-0 m-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
 		$category_description = category_description();
 		if (!empty($category_description)) {
 			echo strip_tags($category_description);
@@ -128,7 +128,7 @@
 
 			/********************************************************************/
 			// Begin the container.
-			echo '<div class="col col-12 p-0 m-0">';
+			echo '<div class="col col-12 p-0 m-0 mb-1 bg-info">';
 
 			/********************************************************************/
 			// Show the title.

@@ -4,7 +4,7 @@
 <!-- Content Core BEGIN -->
 <div class="container m-0 p-0">
   <div class="row m-0 p-0">
-    <div class="col col-12 col-lg-9 m-0 p-0 mb-3">
+    <div class="col col-12 col-lg-9 p-0 m-0 mb-3">
 
       <div class="row p-0 m-0 mx-3">
         <div class="col col-12 m-0 p-0">
@@ -34,7 +34,7 @@
 
                   echo '<header class="p-0 m-0">';
                   echo '<div class="p-0 m-0">';
-                  echo '<div class="container m-0 p-0 pb-2 mb-2 border-bottom border-dark">';
+                  echo '<div class="container p-0 m-0 pb-2 mb-2 border-bottom border-dark">';
                   echo '<div class="h4 p-0 m-0 fw-bold">';
                   echo '<a href="' . $permalink . '" rel="bookmark" title="Permanent Link to ' . $title . '" class="text-dark text-decoration-none">';
                   the_title();
@@ -66,10 +66,10 @@
                     echo 'Account information.';
                     echo '</div>';
                     echo '<ul class="list-group p-0 m-0 rounded-0">';
-                    echo '<li class="list-group-item col col-12 m-0 p-0 mb-1 border-0 bg-transparent"><strong>Name:</strong>  ' . $current_user->display_name . '</li>';
-                    echo '<li class="list-group-item col col-12 m-0 p-0 mb-1 border-0 bg-transparent"><strong>Website:</strong>  ' . $current_user->user_url . '</li>';
-                    echo '<li class="list-group-item col col-12 m-0 p-0 mb-1 border-0 bg-transparent"><strong>Email:</strong> ' . $current_user->user_email . '</li>';
-                    echo '<li class="list-group-item col col-12 m-0 p-0 mb-1 border-0 bg-transparent"><strong>Bio:</strong> ';
+                    echo '<li class="list-group-item col col-12 p-0 m-0 mb-1 border-0 bg-transparent"><strong>Name:</strong>  ' . $current_user->display_name . '</li>';
+                    echo '<li class="list-group-item col col-12 p-0 m-0 mb-1 border-0 bg-transparent"><strong>Website:</strong>  ' . $current_user->user_url . '</li>';
+                    echo '<li class="list-group-item col col-12 p-0 m-0 mb-1 border-0 bg-transparent"><strong>Email:</strong> ' . $current_user->user_email . '</li>';
+                    echo '<li class="list-group-item col col-12 p-0 m-0 mb-1 border-0 bg-transparent"><strong>Bio:</strong> ';
                     if (isset($current_user->description) && !empty($current_user->description)) {
                       // echo wpautop($current_user->description);
                       echo $current_user->description;
@@ -90,8 +90,8 @@
                       echo '<div class="h4">';
                       echo 'Your ratings.';
                       echo'</div>';
-                      echo '<div class="m-0 p-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
-                      echo '<table class="m-0 p-0 col col-12 table table-sm table-hover">';
+                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
+                      echo '<table class="p-0 m-0 col col-12 table table-sm table-hover">';
                       echo '<thead>';
                       echo '<tr>';
                       echo '<th scope="col"><span class="text-nowrap">Post Title</span></th>';
@@ -135,8 +135,8 @@
                       echo '<div class="h4">';
                       echo "Your pending stories.";
                       echo'</div>';
-                      echo '<div class="m-0 p-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
-                      echo '<table class="m-0 p-0 col col-12 table table-sm table-hover">';
+                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
+                      echo '<table class="p-0 m-0 col col-12 table table-sm table-hover">';
                       echo '<thead>';
                       echo '<tr>';
                       echo '<th scope="col"><span class="text-nowrap">Date</span></th>';
@@ -193,8 +193,8 @@
                       echo '<div class="h4">';
                       echo "Your published stories.";
                       echo'</div>';
-                      echo '<div class="m-0 p-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
-                      echo '<table class="m-0 p-0 col col-12 table table-sm table-hover">';
+                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
+                      echo '<table class="p-0 m-0 col col-12 table table-sm table-hover">';
                       echo '<thead>';
                       echo '<tr>';
                       echo '<th scope="col"><span class="text-nowrap">Post Title</span></th>';

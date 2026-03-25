@@ -4,7 +4,7 @@
 <!-- Content Core BEGIN -->
 <div class="container m-0 p-0">
   <div class="row m-0 p-0">
-    <div class="col col-12 col-lg-9 m-0 p-0 mb-3">
+    <div class="col col-12 col-lg-9 p-0 m-0 mb-3">
 
       <div class="row p-0 m-0 mx-3">
             <?php
@@ -21,7 +21,7 @@
                 /********************************************************************************/
                 // Set the opening header depending on if we have books or not.
                 if (function_exists('has_books') && has_books($author->ID)) {
-                    echo '<div class="col col-12 col-xl-9 m-0 p-0 pe-3">';
+                    echo '<div class="col col-12 col-xl-9 p-0 m-0 pe-3">';
                 } // if
                 else {
                     echo '<div class="col col-12 m-0 p-0">';
@@ -91,7 +91,7 @@
                             global $post;
                             global $authordata;
 
-                            echo '<li class="list-group-item col col-12 m-0 p-0 mb-3 border-0">';
+                            echo '<li class="list-group-item col col-12 p-0 m-0 mb-3 border-0">';
 
                             /********************************************************************************/
                             // Set the blog post info valiables.

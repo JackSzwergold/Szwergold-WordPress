@@ -27,7 +27,7 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 	echo $post_sidebar_1;
 ?></div>
 <div class="p-0 m-0 mx-0 rounded-0">
-	<div class="categories list-group-item col col-12 m-0 p-0 mb-3 border-0">
+	<div class="categories list-group-item col col-12 p-0 m-0 mb-3 border-0">
 		<nav class="h5 p-0 m-0 mb-2 border-bottom border-dark">
 			<div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
 				<button class="nav-link active text-decoration-none text-dark p-0 m-0 px-3 py-1 border border-bottom-0 " id="nav-categories-tab" data-bs-toggle="tab" data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories" aria-selected="true">Categories</button>
@@ -205,7 +205,7 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 
 						/**********************************************************************/
 						// Wrap it all up in LI tags.
-						$child_final = '<li class="list-group-item fw-normal col col-12 m-0 p-0 border-0">';
+						$child_final = '<li class="list-group-item fw-normal col col-12 p-0 m-0 border-0">';
 						$child_final .= $child_stuff;
 						$child_final .= '</li>';
 
@@ -218,14 +218,14 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 					/**************************************************************************/
 					// Wrap it all up in UL tags.
 					foreach ($child_li_items_array as $key => $value) {
-						$parent_stuff .= '<ul class="list-group-off m-0 p-0 ms-3 rounded-0">';
+						$parent_stuff .= '<ul class="list-group-off p-0 m-0 ms-3 rounded-0">';
 						$parent_stuff .= implode('', $value);
 						$parent_stuff .= '</ul>';
 					} // foreach
 
 					/**************************************************************************/
 					// Wrap it all up in LI tags.	
-					$parent_final = '<li class="list-group-item fw-bold col col-12 m-0 p-0 border-0">';
+					$parent_final = '<li class="list-group-item fw-bold col col-12 p-0 m-0 border-0">';
 					$parent_final .= $parent_stuff;
 					$parent_final .= '</li>';
 
@@ -260,7 +260,7 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 				// $archives_settings['day'] = 04;
 				// $archives_settings['w'] = 01;
 				$archives = wp_get_archives($archives_settings);
-				$archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 m-0 p-0 border-0">', $archives);
+				$archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">', $archives);
 				$archives = str_replace('<a href=', '<a class="text-decoration-none text-dark" href=', $archives);
 
 				/******************************************************************************/
