@@ -172,7 +172,7 @@
 						;
 				} // if
 				$excerpt =
-					  '<span class="text-georgia-regular small">'
+					  '<span class="text-georgia-regular">'
 					. $excerpt
 					. '</span>'
 					;
@@ -182,6 +182,7 @@
 			// Show the row.
 			echo '<div class="col col-12 p-0 m-0 mb-1">';
 			echo $title;
+			echo ' &mdash; ';
 			echo $excerpt;
 			echo '</div>';
 
