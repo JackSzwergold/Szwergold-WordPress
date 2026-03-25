@@ -79,6 +79,18 @@
 		else {
 
 			/********************************************************************/
+			// Set the temp array values.
+			$temp = array();
+			$temp['permalink'] = null;
+			$temp['title'] = null;
+			$temp['title_attribute'] = null;
+			$temp['excerpt'] = 'Nothing was found.';
+
+			/********************************************************************/
+			// Set the content array values.
+			$content[] = $temp;
+
+			/********************************************************************/
 			// Begin the container.
 			echo '<div class="col col-12 col-xl-4 p-0 m-0 pe-3 pb-3">';
 
