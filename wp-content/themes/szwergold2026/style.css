@@ -32,18 +32,18 @@ a:active {
 
 /******************************************************************************/
 pre {
-  background: #212529;
-  color: #00ff00;
-  padding: 1rem;
-  font-size: 0.75rem;
+  background: #212529 !important;
+  color: #00ff00 !important;
+  padding: 1rem !important;
+  font-size: 0.75rem !important;
 }
 
-code {
+/*code {
   background: #dddddd !important;
   color: #000000 !important;
   font-size: 0.75rem !important;
   padding: 0.125rem 0.25rem !important;
-}
+}*/
 
 /******************************************************************************/
 /* The background code stuff.
