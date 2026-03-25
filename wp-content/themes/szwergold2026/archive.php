@@ -134,7 +134,7 @@
 			// Show the title.
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
 				echo '<span class="p-0 m-0 me-1 text-windsorpro-bold">';
-				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none p-0 m-0">';
+				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
 				echo $value['title'];
 				echo '</a>';
 				echo '</span>';
