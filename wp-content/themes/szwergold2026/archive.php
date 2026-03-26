@@ -258,7 +258,7 @@
 			// Set the final row.
 			$final[] = 
 				  '<div class="col col-12 p-0 m-0 mb-1">'
-				. (!empty($prepend) ? $prepend . ' ' : null)
+				. (!empty($prepend) ? '<div class="h2 col col-12 p-0 m-0 mb-1">' . $prepend . '</div> ' : null)
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
