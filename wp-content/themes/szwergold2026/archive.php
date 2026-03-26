@@ -264,7 +264,7 @@
 		// Set a category name and category link.
 		$category_name = null;
 		$category_link = null;
-		if (isset($category_details[$parent_key])) {
+		if ((count($category_details) > 1) && isset($category_details[$parent_key])) {
 			$category_name = $category_details[$parent_key]['name'];
 			$category_link = get_category_link($category_details[$parent_key]['term_id']);
 		} // if
