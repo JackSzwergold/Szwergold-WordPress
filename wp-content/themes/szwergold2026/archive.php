@@ -120,9 +120,10 @@
 			/********************************************************************/
 			// Get the categories.
 			$categories = get_categories($category_settings);
-// echo '<pre>';
-// print_r($categories);
-// echo '</pre>';
+			// echo '<pre>';
+			// print_r($categories);
+			// echo '</pre>';
+
 			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
