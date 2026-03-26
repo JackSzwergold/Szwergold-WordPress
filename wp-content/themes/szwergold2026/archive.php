@@ -210,10 +210,14 @@
 		// Set a prepend category value if one exists.
 		if (isset($category_details[$parent_key])) {
 			$prepend = $category_details[$parent_key]['name'];
+			$category_link = get_category_link($parent_key);
 		} // if
 		else {
 			$prepend = null;
+			$category_link = null;
 		} // else
+
+		echo $category_link;
 
 		/************************************************************************/
 		// Display the child content.
@@ -235,6 +239,7 @@
 			} // if
 			else {
 				$prepend = null;
+				$category_link = null;
 			} // else
 
 			/********************************************************************/
