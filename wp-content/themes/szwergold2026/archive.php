@@ -117,17 +117,19 @@
 			// Set the title values.
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
-			$title_slug = strtolower($title);
-			$title_slug = str_replace(' ', '-', $title_slug);
+
+			/********************************************************************/
+			// Set the post name values.
+			$post_name = get_post_field('post_name');
 
 			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
 			$temp['categories'] = !empty($categories) ? $categories : null;
 			$temp['permalink'] = get_the_permalink();
+			$temp['post_name'] = $post_name;
 			$temp['title'] = $title;
 			$temp['title_attribute'] = $title_attribute;
-			$temp['title_slug'] = $title_slug;
 			$temp['excerpt'] = get_the_excerpt();
 			$temp['date'] = get_the_time('F j, Y');
 			$temp['time'] = get_the_time('g:i:sa');
@@ -145,9 +147,9 @@
 		$temp = array();
 		$temp['categories'] = null;
 		$temp['permalink'] = null;
+		$temp['post_name'] = null;
 		$temp['title'] = null;
 		$temp['title_attribute'] = null;
-		$temp['title_slug'] = null;
 		$temp['excerpt'] = 'Nothing was found.';
 		$temp['date'] = null;
 		$temp['time'] = null;
