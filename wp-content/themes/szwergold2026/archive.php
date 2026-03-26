@@ -104,6 +104,10 @@
 			the_post();
 
 			/********************************************************************/
+			// Set the post name values.
+			$post_name = get_post_field('post_name');
+
+			/********************************************************************/
 			// Set the category
 			$categories = get_the_category();
 
@@ -125,17 +129,13 @@
 				$subcategory = $subcategory_new;
 			} // if
 			else {
-				$subcategory_slug = 'default';				
+				$subcategory_slug = $post_name;				
 			} // else
 
 			/********************************************************************/
 			// Set the title values.
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
-
-			/********************************************************************/
-			// Set the post name values.
-			$post_name = get_post_field('post_name');
 
 			/********************************************************************/
 			// Set the temp array values.
