@@ -193,14 +193,6 @@
 	/****************************************************************************/
 
 	/****************************************************************************/
-	// Debugging.
-	// if ($content) {
-	// 	echo '<pre>';
-	// 	print_r($content);
-	// 	echo '</pre>';			
-	// } // if
-
-	/****************************************************************************/
 	// Init variables.
 	$final = array();
 	$prepend = null;
@@ -209,10 +201,6 @@
 	/****************************************************************************/
 	// Display the content.
 	foreach ($content as $parent_key => $parent_value) {
-
-		// $prepend = null;
-		// $prepend_shown = FALSE;
-
 		foreach ($parent_value as $child_key => $child_value) {
 
 			/********************************************************************/
@@ -222,14 +210,16 @@
 
 			/********************************************************************/
 			// Set a prepend category value if one exists.
-			if (isset($category_details[$parent_key]) && !$prepend_shown) {
-				$prepend = $parent_key;
-				$prepend_shown = TRUE;
+			if (isset($category_details[$parent_key])) {
+				if (!$prepend_shown) {
+					$prepend = $parent_key;
+					$prepend_shown = TRUE;
+				} // if
+				else {
+					$prepend = null;
+					$prepend_shown = FALSE;
+				} // else
 			} // if
-			else {
-				$prepend = null;
-				$prepend_shown = FALSE;
-			} // else
 
 			/********************************************************************/
 			// Set the title.
