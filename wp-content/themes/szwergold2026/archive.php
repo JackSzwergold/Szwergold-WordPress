@@ -209,12 +209,8 @@
 		foreach ($parent_value as $child_key => $child_value) {
 
 			/********************************************************************/
-			// Init variables.
-			$title = null;
-			$excerpt = null;
-
-			/********************************************************************/
 			// Set the title.
+			$title = null;
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
 				$title =
 					  '<span class="p-0 m-0 text-windsorpro-bold">'
@@ -227,6 +223,7 @@
 
 			/********************************************************************/
 			// Set the excerpt.
+			$excerpt = null;
 			if (!empty($child_value['permalink']) || !empty($child_value['excerpt'])) {
 				$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
 				if (!empty($child_value['permalink'])) {
@@ -249,11 +246,18 @@
 			$time = '<span class="text-windsorpro-regular">' . $child_value['time'] . '</span>';
 
 			/********************************************************************/
+			// Set the divider.
+			$divider = null;
+			if (!empty($title) && !empty($excerpt)) {
+				$divider = '<span class="text-windsorpro-regular">: </span>';
+			} // if
+
+			/********************************************************************/
 			// Set the final row.
 			$temp[] = 
 				  '<div class="col col-12 p-0 m-0 mb-2">'
-				. (!empty($title) ? $title : null)
-				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
+				. $title
+				. $divider
 				. $excerpt
 				. '</div>'
 				;
