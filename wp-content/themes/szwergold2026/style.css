@@ -294,24 +294,40 @@ main article a:active {
 /*
 /******************************************************************************/
 @media (min-width: 576px) {
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 3;
+  }
   div.archive_content {
     column-count: 1;
   }
 }
 
 @media (min-width: 768px) {
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 5;
+  }
   div.archive_content {
     column-count: 2;
   }
 }
 
 @media (min-width: 992px) {
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 6;
+  }
   div.archive_content {
     column-count: 3;
   }
 }
 
 @media (min-width: 1200px) {
+  ul.categories_sidebar,
+  ul.archives_sidebar {
+    column-count: 7;
+  }
   div.archive_content {
     column-count: 4;
   }
