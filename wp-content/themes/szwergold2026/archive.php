@@ -91,7 +91,8 @@
 	/****************************************************************************/
 	// Init variables.
 	$content = array();
-	$child_categories = array();
+	$subcategory = array();
+	$subcategory_slug = 'default';
 
 	/****************************************************************************/
 	// If there are posts, do something with them.
@@ -114,10 +115,11 @@
 				unset($categories[$key]);
 			} // foreach
 
+			/********************************************************************/
+			// Set the subcategory slug.
 			if (count($categories) > 0) {
-				echo '<pre>';
-				print_r(array_shift($categories));
-				echo '</pre>';
+				$subcategory = array_shift($categories);
+				$subcategory_slug = $subcategory['slug'];
 			} // if
 
 			/********************************************************************/
