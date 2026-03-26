@@ -120,6 +120,9 @@
 			if (count($categories) > 0) {
 				$subcategory = array_shift($categories);
 				$subcategory_slug = $subcategory['slug'];
+				$subcategory_new = array();
+				$subcategory_new[$subcategory_slug] = $subcategory;
+				$subcategory = $subcategory_new;
 			} // if
 
 			/********************************************************************/
@@ -134,7 +137,8 @@
 			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
-			$temp['categories'] = !empty($categories) ? $categories : null;
+			// $temp['categories'] = !empty($categories) ? $categories : null;
+			$temp['categories'] = !empty($subcategory) ? $subcategory : null;
 			$temp['permalink'] = get_the_permalink();
 			$temp['post_name'] = $post_name;
 			$temp['title'] = $title;
@@ -192,6 +196,10 @@
 			// Init variables.
 			$title = null;
 			$excerpt = null;
+
+			// echo '<pre>';
+			// print_r($child_value);
+			// echo '</pre>';
 
 			/********************************************************************/
 			// Set the title.
