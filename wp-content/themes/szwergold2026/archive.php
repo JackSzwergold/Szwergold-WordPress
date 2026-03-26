@@ -235,7 +235,7 @@
 
 			/********************************************************************/
 			// Set the prepend.
-			if (empty($prepend) && $count == (count($parent_value) - 1)) {
+			if (isset($category_details[$parent_key]) && $count == (count($parent_value) - 1)) {
 				$append = '<hr>';
 			} // if
 			else {
