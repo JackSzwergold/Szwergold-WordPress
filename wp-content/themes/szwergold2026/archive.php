@@ -290,14 +290,10 @@
 			/********************************************************************/
 			// Set the final row.
 			$temp[] = 
-				  '<div class="col col-12 p-0 m-0 mb-1 bg-warning">'
-				// . (!empty($category_prepend) ? $category_prepend : null)
+				  '<div class="col col-12 p-0 m-0 mb-1">'
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
-				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
-				// . $date
-				// . $category_append
 				. '</div>'
 				;
 
@@ -307,21 +303,31 @@
 
 		} // foreach
 
-		$final[] = $temp;
+		/************************************************************************/
+		// Set the final array value.
+		$final[] =
+			  $category_prepend
+			. implode('', $temp)
+			. $category_append
+			;
 
 	} // foreach
 
-	print_r($final);
+	// echo '<pre>';
+	// print_r($final);
+	// echo '</pre>';
 
-	// /****************************************************************************/
+	// /*************************************************************************/
 	// // Show the content.
 	// $final = $temp;
 
-	// /****************************************************************************/
-	// // Show the content.
-	// echo '<div class="archive_content p-0 m-0">';
-	// echo implode('', $final);
-	// echo '</div>';
+	/****************************************************************************/
+	// Show the content.
+	echo '<div class="archive_content p-0 m-0">';
+	foreach ($final as $key => $value) {
+		echo $value;
+	} // foreach
+	echo '</div>';
 
 	/****************************************************************************/
 	// Set the sidebar.
