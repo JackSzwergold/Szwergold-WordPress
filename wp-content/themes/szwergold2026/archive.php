@@ -210,16 +210,8 @@
 	// Display the content.
 	foreach ($content as $parent_key => $parent_value) {
 
-		/************************************************************************/
-		// Set a prepend category value if one exists.
-		if (isset($category_details[$parent_key]) && !$prepend_shown) {
-			$prepend = $parent_key;
-			$prepend_shown = TRUE;
-		} // if
-		else {
-			$prepend = null;
-			$prepend_shown = FALSE;
-		} // else
+		// $prepend = null;
+		// $prepend_shown = FALSE;
 
 		foreach ($parent_value as $child_key => $child_value) {
 
@@ -227,6 +219,17 @@
 			// Init variables.
 			$title = null;
 			$excerpt = null;
+
+			/********************************************************************/
+			// Set a prepend category value if one exists.
+			if (isset($category_details[$parent_key]) && !$prepend_shown) {
+				$prepend = $parent_key;
+				$prepend_shown = TRUE;
+			} // if
+			else {
+				$prepend = null;
+				$prepend_shown = FALSE;
+			} // else
 
 			/********************************************************************/
 			// Set the title.
