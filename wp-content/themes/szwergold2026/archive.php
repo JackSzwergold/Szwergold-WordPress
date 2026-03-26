@@ -227,7 +227,11 @@
 			/********************************************************************/
 			// Set the prepend.
 			if (!empty($prepend) && $count == 0) {
-				$prepend = '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">' . $prepend . '</div>';
+				$prepend =
+					  '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
+					. $prepend
+					. '</div>'
+					;
 			} // if
 			else {
 				$prepend = null;
