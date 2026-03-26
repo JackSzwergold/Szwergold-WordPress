@@ -114,12 +114,17 @@
 			} // foreach
 
 			/********************************************************************/
+			// Set the title values.
+			$title = get_the_title();
+			$title_attribute = the_title_attribute(array('echo' => false));
+
+			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
-			$temp['category'] = $categories;
+			$temp['categories'] = !empty($categories) ? $categories : null;
 			$temp['permalink'] = get_the_permalink();
-			$temp['title'] = get_the_title();
-			$temp['title_attribute'] = the_title_attribute(array('echo' => false));
+			$temp['title'] = $title;
+			$temp['title_attribute'] = $title_attribute;
 			$temp['excerpt'] = get_the_excerpt();
 			$temp['date'] = get_the_time('F j, Y');
 			$temp['time'] = get_the_time('g:i:sa');
@@ -135,7 +140,7 @@
 		/********************************************************************/
 		// Set the temp array values.
 		$temp = array();
-		$temp['category'] = null;
+		$temp['categories'] = null;
 		$temp['permalink'] = null;
 		$temp['title'] = null;
 		$temp['title_attribute'] = null;
@@ -166,11 +171,11 @@
 		$title = null;
 		$excerpt = null;
 
-		if ($key == 0) {
-			echo '<pre>';
-			print_r($value);
-			echo '</pre>';			
-		}
+		// if (!$value['categories']) {
+		// 	echo '<pre>';
+		// 	print_r($value);
+		// 	echo '</pre>';			
+		// } // if
 
 		/********************************************************************/
 		// Set the title.
