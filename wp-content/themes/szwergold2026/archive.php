@@ -171,11 +171,11 @@
 		$title = null;
 		$excerpt = null;
 
-		// if (!$value['categories']) {
-		// 	echo '<pre>';
-		// 	print_r($value);
-		// 	echo '</pre>';			
-		// } // if
+		if (!$value['categories']) {
+			echo '<pre>';
+			print_r($value);
+			echo '</pre>';			
+		} // if
 
 		/********************************************************************/
 		// Set the title.
