@@ -92,7 +92,7 @@
 	// Init variables.
 	$content = array();
 	$subcategory = array();
-	$subcategory_slug = 'default';
+	$subcategory_slug = null;
 
 	/****************************************************************************/
 	// If there are posts, do something with them.
@@ -124,6 +124,9 @@
 				$subcategory_new[$subcategory_slug] = $subcategory;
 				$subcategory = $subcategory_new;
 			} // if
+			else {
+				$subcategory_slug = 'default';				
+			} // else
 
 			/********************************************************************/
 			// Set the title values.
@@ -173,6 +176,10 @@
 
 	} // else
 
+	/****************************************************************************/
+	// Key sort the content.
+	ksort($content);
+
 	/************************************************************************/
 	/************************************************************************/
 	/************************************************************************/
@@ -196,6 +203,8 @@
 			// Init variables.
 			$title = null;
 			$excerpt = null;
+
+			// echo $parent_key . ' | ' . $child_value['title'] . '<br>';
 
 			// echo '<pre>';
 			// print_r($child_value);
