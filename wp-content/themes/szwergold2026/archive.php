@@ -101,33 +101,22 @@
 			// Get the post.
 			the_post();
 
-			// /********************************************************************/
-			// // Set the category array options.
-			// $category_settings = array();
-			// $category_settings['taxonomy'] = 'category';
-			// $category_settings['type'] = 'post';
-			// $category_settings['child_of'] = false;
-			// $category_settings['parent'] = '';
-			// $category_settings['orderby'] = 'name';
-			// $category_settings['order'] = 'ASC';
-			// $category_settings['hide_empty'] = true;
-			// $category_settings['hierarchical'] = true;
-			// $category_settings['exclude'] = '';
-			// $category_settings['include'] = '';
-			// $category_settings['number'] = false;
-			// $category_settings['pad_counts'] = false;
+			/********************************************************************/
+			// Set the category
+			$categories = get_the_category();
 
-			// /********************************************************************/
-			// // Get the categories.
-			// $categories = get_categories($category_settings);
-			// echo '<pre>';
-			// print_r($categories);
-			// echo '</pre>';
+			/********************************************************************/
+			// Process the categories to set the parent value as the key.
+			foreach ($categories as $key => $value) {
+				$new_key = $value->parent;
+				$categories[$new_key] = (array) $value;
+				unset($categories[$key]);
+			} // foreach
 
 			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
-			$temp['category'] = get_the_category();
+			$temp['category'] = $categories;
 			$temp['permalink'] = get_the_permalink();
 			$temp['title'] = get_the_title();
 			$temp['title_attribute'] = the_title_attribute(array('echo' => false));
