@@ -4,10 +4,6 @@
 	// Set the header.
 	get_header();
 
-?>
-<div class="archive_content row p-0 m-0">
-<?php
-
 	/****************************************************************************/
 	// Begin the archive info area.
 	echo '<div class="post_nav col col-12 p-0 m-0">';
@@ -143,6 +139,10 @@
 	/************************************************************************/
 	/************************************************************************/
 
+	/****************************************************************************/
+	// Init variables.
+	$final = array();
+
 	/************************************************************************/
 	// Display the content.
 	foreach ($content as $value) {
@@ -186,20 +186,23 @@
 		$time = '<span class="text-windsorpro-regular">' . $value['time'] . '</span>';
 
 		/********************************************************************/
-		// Show the row.
-		echo '<div class="col col-12 p-0 m-0 mb-1">';
-		echo $title;
-		echo '<span class="text-windsorpro-regular"> &mdash; </span>';
-		echo $excerpt;
-		// echo '<span class="text-windsorpro-regular"> &mdash; </span>';
-		// echo $date;
-		echo '</div>';
+		// Set the final row.
+		$final[] = '<div class="col col-12 p-0 m-0 mb-1">'
+				. $title
+				. '<span class="text-windsorpro-regular"> &mdash; </span>'
+				. $excerpt
+				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
+				// . $date
+				. '</div>'
+				;
 
 	} // foreach
 
-?>
-</div>
-<?php
+	/**********************************************************************/
+	// Show the content.
+	echo '<div class="archive_content p-0 m-0">';
+	echo implode('', $final);
+	echo '</div>';
 
 	/**********************************************************************/
 	// Set the sidebar.
