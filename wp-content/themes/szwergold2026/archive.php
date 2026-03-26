@@ -117,6 +117,7 @@
 			// Set the title values.
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
+			$title_slug = strtolower($title);
 
 			/********************************************************************/
 			// Set the temp array values.
@@ -125,6 +126,7 @@
 			$temp['permalink'] = get_the_permalink();
 			$temp['title'] = $title;
 			$temp['title_attribute'] = $title_attribute;
+			$temp['title_slug'] = $title_slug;
 			$temp['excerpt'] = get_the_excerpt();
 			$temp['date'] = get_the_time('F j, Y');
 			$temp['time'] = get_the_time('g:i:sa');
@@ -144,6 +146,7 @@
 		$temp['permalink'] = null;
 		$temp['title'] = null;
 		$temp['title_attribute'] = null;
+		$temp['title_slug'] = null;
 		$temp['excerpt'] = 'Nothing was found.';
 		$temp['date'] = null;
 		$temp['time'] = null;
