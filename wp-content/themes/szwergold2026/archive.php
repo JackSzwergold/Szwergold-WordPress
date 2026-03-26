@@ -118,6 +118,7 @@
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
 			$title_slug = strtolower($title);
+			$title_slug = str_replace(' ', '-', $title_slug);
 
 			/********************************************************************/
 			// Set the temp array values.
