@@ -203,10 +203,24 @@
 	/****************************************************************************/
 	// Init variables.
 	$final = array();
+	$prepend = null;
+	$prepend_shown = FALSE;
 
 	/****************************************************************************/
 	// Display the content.
 	foreach ($content as $parent_key => $parent_value) {
+
+		/************************************************************************/
+		// Set a prepend category value if one exists.
+		if (isset($category_details[$parent_key]) && !$prepend_shown) {
+			$prepend = $parent_key;
+			$prepend_shown = TRUE;
+		} // if
+		else {
+			$prepend = null;
+			$prepend_shown = FALSE;
+		} // else
+
 		foreach ($parent_value as $child_key => $child_value) {
 
 			/********************************************************************/
@@ -214,20 +228,12 @@
 			$title = null;
 			$excerpt = null;
 
-			// echo $parent_key . ' | ' . $child_value['title'] . '<br>';
-
-			// echo '<pre>';
-			// print_r($child_value);
-			// echo '</pre>';
-
 			/********************************************************************/
 			// Set the title.
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
 				$title =
 					  '<span class="p-0 m-0 text-windsorpro-bold">'
 					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-					. $parent_key
-					. ' | '
 					. $child_value['title']
 					. '</a>'
 					. '</span>'
@@ -259,6 +265,7 @@
 			// Set the final row.
 			$final[] = 
 				  '<div class="col col-12 p-0 m-0 mb-1">'
+				. (!empty($prepend) ? $prepend . ' ' : null)
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
