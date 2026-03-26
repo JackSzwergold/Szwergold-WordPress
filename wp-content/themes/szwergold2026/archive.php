@@ -5,7 +5,7 @@
 	get_header();
 
 ?>
-<div class="row p-0 m-0">
+<div class="archive_content row p-0 m-0">
 <?php
 
 	/****************************************************************************/

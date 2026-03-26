@@ -294,29 +294,25 @@ main article a:active {
 /*
 /******************************************************************************/
 @media (min-width: 576px) {
-  main > article div.column_list ul,
-  main > article div.column_list ol {
+  div.archive_content {
     column-count: 1;
   }
 }
 
 @media (min-width: 768px) {
-  main > article div.column_list ul,
-  main > article div.column_list ol {
+  div.archive_content {
     column-count: 2;
   }
 }
 
 @media (min-width: 992px) {
-  main > article div.column_list ul,
-  main > article div.column_list ol {
+  div.archive_content {
     column-count: 3;
   }
 }
 
 @media (min-width: 1200px) {
-  main > article div.column_list ul,
-  main > article div.column_list ol {
+  div.archive_content {
     column-count: 4;
   }
 }
