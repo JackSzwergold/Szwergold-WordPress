@@ -91,6 +91,7 @@
 	/****************************************************************************/
 	// Init variables.
 	$content = array();
+	$child_categories = array();
 
 	/****************************************************************************/
 	// If there are posts, do something with them.
@@ -112,6 +113,8 @@
 				$categories[$new_key] = (array) $value;
 				unset($categories[$key]);
 			} // foreach
+
+
 
 			/********************************************************************/
 			// Set the title values.
