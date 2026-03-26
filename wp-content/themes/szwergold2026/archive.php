@@ -195,8 +195,6 @@
 	/****************************************************************************/
 	// Init variables.
 	$final = array();
-	$category_prepend = null;
-	$category_append = null;
 
 	/****************************************************************************/
 	// Display the parent content.
@@ -204,19 +202,7 @@
 
 		/************************************************************************/
 		// Init variables.
-		$count = 0;
 		$temp = array();
-
-		/************************************************************************/
-		// Set a prepend category value if one exists.
-		if (isset($category_details[$parent_key])) {
-			$category_prepend = $category_details[$parent_key]['name'];
-			$category_link = get_category_link($category_details[$parent_key]['term_id']);
-		} // if
-		else {
-			$category_prepend = null;
-			$category_link = null;
-		} // else
 
 		/************************************************************************/
 		// Display the child content.
@@ -226,31 +212,6 @@
 			// Init variables.
 			$title = null;
 			$excerpt = null;
-
-			/********************************************************************/
-			// Set the prepend.
-			if (!empty($category_prepend) && $count == 0) {
-				$category_prepend =
-					  '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
-					. '<a href="' . $category_link . '">'
-					. $category_prepend
-					. '</a>'
-					. '</div>'
-					;
-			} // if
-			else {
-				$category_prepend = null;
-				$category_link = null;
-			} // else
-
-			/********************************************************************/
-			// Set the prepend.
-			if (isset($category_details[$parent_key]) && $count == (count($parent_value) - 1)) {
-				$category_append = '<hr class="border border-dark border-1 opacity-100 p-0 m-0 mt-2 mb-3">';
-			} // if
-			else {
-				$category_append = null;
-			} // else
 
 			/********************************************************************/
 			// Set the title.
@@ -290,36 +251,45 @@
 			/********************************************************************/
 			// Set the final row.
 			$temp[] = 
-				  '<div class="col col-12 p-0 m-0 mb-1">'
+				  '<div class="col col-12 p-0 m-0 mb-2">'
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
 				. '</div>'
 				;
 
-			/********************************************************************/
-			// Increment the counter.
-			$count++;
-
 		} // foreach
 
 		/************************************************************************/
+		// Set a category name and category link.
+		$category_name = null;
+		$category_link = null;
+		if (isset($category_details[$parent_key])) {
+			$category_name = $category_details[$parent_key]['name'];
+			$category_link = get_category_link($category_details[$parent_key]['term_id']);
+		} // if
+
+		/************************************************************************/
+		// Wrap the category block value.
+		$category_block = implode('', $temp);
+		if (!empty($category_name)) {
+			$category_block  =
+			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark">'
+				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
+				. '<a href="' . $category_link . '">'
+				. $category_name
+				. '</a>'
+				. '</div>'
+				. $category_block
+				. '</div>'
+				;
+		} // if
+
+		/************************************************************************/
 		// Set the final array value.
-		$final[] =
-			  $category_prepend
-			. implode('', $temp)
-			. $category_append
-			;
+		$final[] = $category_block;
 
 	} // foreach
-
-	// echo '<pre>';
-	// print_r($final);
-	// echo '</pre>';
-
-	// /*************************************************************************/
-	// // Show the content.
-	// $final = $temp;
 
 	/****************************************************************************/
 	// Show the content.
