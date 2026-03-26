@@ -205,15 +205,21 @@
 		/********************************************************************/
 		// Set a prepend category value if one exists.
 		if (isset($category_details[$parent_key])) {
-			if (!$prepend_shown) {
-				$prepend = $parent_key;
-				$prepend_shown = TRUE;
-			} // if
-			else {
-				$prepend = null;
-				$prepend_shown = FALSE;
-			} // else
+			$prepend = $parent_key;
+			$prepend_shown = TRUE;
+			// if (!$prepend_shown) {
+			// 	$prepend = $parent_key;
+			// 	$prepend_shown = TRUE;
+			// } // if
+			// else {
+			// 	$prepend = null;
+			// 	$prepend_shown = FALSE;
+			// } // else
 		} // if
+		else {
+			$prepend = null;
+			$prepend_shown = FALSE;
+		} // else
 
 		foreach ($parent_value as $child_key => $child_value) {
 
