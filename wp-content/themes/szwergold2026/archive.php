@@ -198,10 +198,14 @@
 	$prepend = null;
 
 	/****************************************************************************/
-	// Display the content.
+	// Display the parent content.
 	foreach ($content as $parent_key => $parent_value) {
 
-		/********************************************************************/
+		/************************************************************************/
+		// Init the counter.
+		$count = 0;
+
+		/************************************************************************/
 		// Set a prepend category value if one exists.
 		if (isset($category_details[$parent_key])) {
 			$prepend = $parent_key;
@@ -210,6 +214,8 @@
 			$prepend = null;
 		} // else
 
+		/************************************************************************/
+		// Display the child content.
 		foreach ($parent_value as $child_key => $child_value) {
 
 			/********************************************************************/
@@ -262,6 +268,10 @@
 				// . $date
 				. '</div>'
 				;
+
+			/********************************************************************/
+			// Increment the counter.
+			$count++;
 
 		} // foreach
 	} // foreach
