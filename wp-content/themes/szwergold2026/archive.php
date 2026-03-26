@@ -201,25 +201,26 @@
 	/****************************************************************************/
 	// Display the content.
 	foreach ($content as $parent_key => $parent_value) {
+
+		/********************************************************************/
+		// Set a prepend category value if one exists.
+		if (isset($category_details[$parent_key])) {
+			if (!$prepend_shown) {
+				$prepend = $parent_key;
+				$prepend_shown = TRUE;
+			} // if
+			else {
+				$prepend = null;
+				$prepend_shown = FALSE;
+			} // else
+		} // if
+
 		foreach ($parent_value as $child_key => $child_value) {
 
 			/********************************************************************/
 			// Init variables.
 			$title = null;
 			$excerpt = null;
-
-			/********************************************************************/
-			// Set a prepend category value if one exists.
-			if (isset($category_details[$parent_key])) {
-				if (!$prepend_shown) {
-					$prepend = $parent_key;
-					$prepend_shown = TRUE;
-				} // if
-				else {
-					$prepend = null;
-					$prepend_shown = FALSE;
-				} // else
-			} // if
 
 			/********************************************************************/
 			// Set the title.
@@ -258,7 +259,7 @@
 			// Set the final row.
 			$final[] = 
 				  '<div class="col col-12 p-0 m-0 mb-1">'
-				. (!empty($prepend) ? '<div class="h2 col col-12 p-0 m-0 mb-1">' . $prepend . '</div> ' : null)
+				. (!empty($prepend) ? '<div class="h2 col col-12 p-0 m-0 mb-1 bg-warning">' . $prepend . '</div> ' : null)
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
