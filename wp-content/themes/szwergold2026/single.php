@@ -23,7 +23,7 @@
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
 			$excerpt = get_the_excerpt();
-			$the_author = $authordata->user_nicename;
+			$the_author = $authordata->display_name;
 			$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 			$update_date = get_the_time('F j, Y');
 			$update_time = get_the_time('g:i:sa');
