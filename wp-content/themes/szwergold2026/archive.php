@@ -145,7 +145,7 @@
 
 			/********************************************************************/
 			// Set the content array values.
-			$content[$post_name] = $temp;
+			$content[$subcategory_slug][$post_name] = $temp;
 
 		} // while
 	} // if
@@ -165,7 +165,7 @@
 
 		/********************************************************************/
 		// Set the content array values.
-		$content[] = $temp;
+		$content[$subcategory_slug][] = $temp;
 
 	} // else
 
@@ -185,58 +185,60 @@
 
 	/************************************************************************/
 	// Display the content.
-	foreach ($content as $key => $value) {
+	foreach ($content as $parent_key => $parent_value) {
+		foreach ($parent_value as $child_key => $child_value) {
 
-		/********************************************************************/
-		// Init variables.
-		$title = null;
-		$excerpt = null;
+			/********************************************************************/
+			// Init variables.
+			$title = null;
+			$excerpt = null;
 
-		/********************************************************************/
-		// Set the title.
-		if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
-			$title =
-				  '<span class="p-0 m-0 text-windsorpro-bold">'
-				. '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-				. $value['title']
-				. '</a>'
-				. '</span>'
-				;
-		} // if
-
-		/********************************************************************/
-		// Set the excerpt.
-		if (!empty($value['permalink']) && !empty($value['excerpt'])) {
-			$excerpt = !empty($value['excerpt']) ? $value['excerpt'] : null;
-			if (!empty($value['permalink'])) {
-				$excerpt =
-					  '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-					. $excerpt
+			/********************************************************************/
+			// Set the title.
+			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
+				$title =
+					  '<span class="p-0 m-0 text-windsorpro-bold">'
+					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
+					. $child_value['title']
 					. '</a>'
+					. '</span>'
 					;
 			} // if
-			$excerpt =
-				  '<span class="text-windsorpro-regular">'
+
+			/********************************************************************/
+			// Set the excerpt.
+			if (!empty($child_value['permalink']) && !empty($child_value['excerpt'])) {
+				$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
+				if (!empty($child_value['permalink'])) {
+					$excerpt =
+						  '<a href="' . $child_value['permalink'] . '" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
+						. $excerpt
+						. '</a>'
+						;
+				} // if
+				$excerpt =
+					  '<span class="text-windsorpro-regular">'
+					. $excerpt
+					. '</span>'
+					;
+			} // if
+
+			$date = '<span class="text-windsorpro-regular">' . $child_value['date'] . '</span>';
+			$time = '<span class="text-windsorpro-regular">' . $child_value['time'] . '</span>';
+
+			/********************************************************************/
+			// Set the final row.
+			$final[] = 
+				  '<div class="col col-12 p-0 m-0 mb-1">'
+				. $title
+				. '<span class="text-windsorpro-regular">: </span>'
 				. $excerpt
-				. '</span>'
+				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
+				// . $date
+				. '</div>'
 				;
-		} // if
 
-		$date = '<span class="text-windsorpro-regular">' . $value['date'] . '</span>';
-		$time = '<span class="text-windsorpro-regular">' . $value['time'] . '</span>';
-
-		/********************************************************************/
-		// Set the final row.
-		$final[] = 
-			  '<div class="col col-12 p-0 m-0 mb-1">'
-			. $title
-			. '<span class="text-windsorpro-regular">: </span>'
-			. $excerpt
-			// . '<span class="text-windsorpro-regular"> &mdash; </span>'
-			// . $date
-			. '</div>'
-			;
-
+		} // foreach
 	} // foreach
 
 	/**********************************************************************/
