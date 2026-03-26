@@ -92,7 +92,7 @@
 	// Init variables.
 	$content = array();
 	$subcategory = array();
-	$subcategory_slug = null;
+	$subcategory_slug = 'default';				
 
 	/****************************************************************************/
 	// If there are posts, do something with them.
@@ -225,7 +225,7 @@
 
 			/********************************************************************/
 			// Set the excerpt.
-			if (!empty($child_value['permalink']) && !empty($child_value['excerpt'])) {
+			if (!empty($child_value['permalink']) || !empty($child_value['excerpt'])) {
 				$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
 				if (!empty($child_value['permalink'])) {
 					$excerpt =
@@ -248,8 +248,8 @@
 			// Set the final row.
 			$final[] = 
 				  '<div class="col col-12 p-0 m-0 mb-1">'
-				. $title
-				. '<span class="text-windsorpro-regular">: </span>'
+				. (!empty($title) ? $title : null)
+				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
 				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
 				// . $date
