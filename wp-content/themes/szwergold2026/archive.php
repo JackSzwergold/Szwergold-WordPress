@@ -102,6 +102,28 @@
 			the_post();
 
 			/********************************************************************/
+			// Set the category array options.
+			$category_settings = array();
+			$category_settings['taxonomy'] = 'category';
+			$category_settings['type'] = 'post';
+			$category_settings['child_of'] = false;
+			$category_settings['parent'] = '';
+			$category_settings['orderby'] = 'name';
+			$category_settings['order'] = 'ASC';
+			$category_settings['hide_empty'] = true;
+			$category_settings['hierarchical'] = true;
+			$category_settings['exclude'] = '';
+			$category_settings['include'] = '';
+			$category_settings['number'] = false;
+			$category_settings['pad_counts'] = false;
+
+			/********************************************************************/
+			// Get the categories.
+			$categories = get_categories($category_settings);
+// echo '<pre>';
+// print_r($categories);
+// echo '</pre>';
+			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
 			$temp['permalink'] = get_the_permalink();
