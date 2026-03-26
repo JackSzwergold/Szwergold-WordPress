@@ -146,6 +146,7 @@
 		/********************************************************************/
 		// Set the temp array values.
 		$temp = array();
+		$temp['category'] = null;
 		$temp['permalink'] = null;
 		$temp['title'] = null;
 		$temp['title_attribute'] = null;
@@ -159,10 +160,9 @@
 
 	} // else
 
-	echo '<pre>';
-	print_r($temp);
-	echo '</pre>';
-
+	// echo '<pre>';
+	// print_r($temp);
+	// echo '</pre>';
 
 	/************************************************************************/
 	/************************************************************************/
