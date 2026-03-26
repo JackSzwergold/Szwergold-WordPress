@@ -195,8 +195,8 @@
 	/****************************************************************************/
 	// Init variables.
 	$final = array();
-	$prepend = null;
-	$append = null;
+	$category_prepend = null;
+	$category_append = null;
 
 	/****************************************************************************/
 	// Display the parent content.
@@ -209,15 +209,13 @@
 		/************************************************************************/
 		// Set a prepend category value if one exists.
 		if (isset($category_details[$parent_key])) {
-			$prepend = $category_details[$parent_key]['name'];
-			$category_link = get_category_link($parent_key);
+			$category_prepend = $category_details[$parent_key]['name'];
+			$category_link = get_category_link($category_details[$parent_key]['term_id']);
 		} // if
 		else {
-			$prepend = null;
+			$category_prepend = null;
 			$category_link = null;
 		} // else
-
-		echo $category_link;
 
 		/************************************************************************/
 		// Display the child content.
@@ -230,25 +228,27 @@
 
 			/********************************************************************/
 			// Set the prepend.
-			if (!empty($prepend) && $count == 0) {
-				$prepend =
+			if (!empty($category_prepend) && $count == 0) {
+				$category_prepend =
 					  '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
-					. $prepend
+					. '<a href="' . $category_link . '">'
+					. $category_prepend
+					. '</a>'
 					. '</div>'
 					;
 			} // if
 			else {
-				$prepend = null;
+				$category_prepend = null;
 				$category_link = null;
 			} // else
 
 			/********************************************************************/
 			// Set the prepend.
 			if (isset($category_details[$parent_key]) && $count == (count($parent_value) - 1)) {
-				$append = '<hr class="border border-dark border-1 opacity-100 p-0 m-0 mt-2 mb-3">';
+				$category_append = '<hr class="border border-dark border-1 opacity-100 p-0 m-0 mt-2 mb-3">';
 			} // if
 			else {
-				$append = null;
+				$category_append = null;
 			} // else
 
 			/********************************************************************/
@@ -290,14 +290,14 @@
 			// Set the final row.
 			$final[] = 
 				  '<div class="col col-12 p-0 m-0 mb-1">'
-				. (!empty($prepend) ? $prepend : null)
+				. (!empty($category_prepend) ? $category_prepend : null)
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
 				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
 				// . $date
 				. '</div>'
-				. $append
+				. $category_append
 				;
 
 			/********************************************************************/
