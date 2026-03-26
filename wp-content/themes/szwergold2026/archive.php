@@ -203,8 +203,9 @@
 	foreach ($content as $parent_key => $parent_value) {
 
 		/************************************************************************/
-		// Init the counter.
+		// Init variables.
 		$count = 0;
+		$temp = array();
 
 		/************************************************************************/
 		// Set a prepend category value if one exists.
@@ -288,15 +289,15 @@
 
 			/********************************************************************/
 			// Set the final row.
-			$final[] = 
-				  '<div class="col col-12 p-0 m-0 mb-1">'
-				. (!empty($category_prepend) ? $category_prepend : null)
+			$temp[] = 
+				  '<div class="col col-12 p-0 m-0 mb-1 bg-warning">'
+				// . (!empty($category_prepend) ? $category_prepend : null)
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
 				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
 				// . $date
-				. $category_append
+				// . $category_append
 				. '</div>'
 				;
 
@@ -306,13 +307,21 @@
 
 		} // foreach
 
+		$final[] = $temp;
+
 	} // foreach
 
-	/****************************************************************************/
-	// Show the content.
-	echo '<div class="archive_content p-0 m-0">';
-	echo implode('', $final);
-	echo '</div>';
+	print_r($final);
+
+	// /****************************************************************************/
+	// // Show the content.
+	// $final = $temp;
+
+	// /****************************************************************************/
+	// // Show the content.
+	// echo '<div class="archive_content p-0 m-0">';
+	// echo implode('', $final);
+	// echo '</div>';
 
 	/****************************************************************************/
 	// Set the sidebar.
