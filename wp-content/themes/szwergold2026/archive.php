@@ -296,8 +296,8 @@
 				. $excerpt
 				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
 				// . $date
-				. '</div>'
 				. $category_append
+				. '</div>'
 				;
 
 			/********************************************************************/
