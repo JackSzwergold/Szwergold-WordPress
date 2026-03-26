@@ -216,7 +216,8 @@
 				$title =
 					  '<span class="p-0 m-0 text-windsorpro-bold">'
 					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-					// . $child_value['categories']
+					. $parent_key
+					. ' | '
 					. $child_value['title']
 					. '</a>'
 					. '</span>'
