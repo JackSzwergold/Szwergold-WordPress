@@ -104,8 +104,9 @@
 			the_post();
 
 			/********************************************************************/
-			// Set the post name values.
+			// Set the post related values.
 			$post_name = get_post_field('post_name');
+			$post_ID = get_the_ID();
 
 			/********************************************************************/
 			// Set the category
@@ -130,8 +131,12 @@
 				$subcategory = $subcategory_new;
 			} // if
 			else {
-				$subcategory_slug = $post_name;				
+				$subcategory_slug = $post_name;
 			} // else
+
+			/********************************************************************/
+			// Append '_category' to the slug to differentiate it from the posts.
+			$subcategory_slug = $subcategory_slug . '_category';
 
 			/********************************************************************/
 			// Set the title values.
@@ -154,6 +159,12 @@
 			/********************************************************************/
 			// Set the content array values.
 			$content[$subcategory_slug][$post_name] = $temp;
+			// if ($subcategory_slug == $post_name) {
+			// 	$content[$subcategory_slug][$post_ID] = $temp;
+			// }
+			// else {
+			// 	$content[$subcategory_slug][$post_name] = $temp;
+			// }
 
 		} // while
 	} // if
@@ -188,11 +199,11 @@
 
 	/****************************************************************************/
 	// Debugging.
-	// if ($content) {
-	// 	echo '<pre>';
-	// 	print_r($category_details);
-	// 	echo '</pre>';			
-	// } // if
+	if ($content) {
+		echo '<pre>';
+		print_r($content);
+		echo '</pre>';			
+	} // if
 
 	/****************************************************************************/
 	// Init variables.
