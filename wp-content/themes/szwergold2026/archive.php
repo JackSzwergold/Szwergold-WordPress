@@ -196,6 +196,7 @@
 	// Init variables.
 	$final = array();
 	$prepend = null;
+	$append = null;
 
 	/****************************************************************************/
 	// Display the parent content.
@@ -208,7 +209,7 @@
 		/************************************************************************/
 		// Set a prepend category value if one exists.
 		if (isset($category_details[$parent_key])) {
-			$prepend = $parent_key;
+			$prepend = $category_details[$parent_key]['name'];
 		} // if
 		else {
 			$prepend = null;
@@ -222,6 +223,24 @@
 			// Init variables.
 			$title = null;
 			$excerpt = null;
+
+			/********************************************************************/
+			// Set the prepend.
+			if (!empty($prepend) && $count == 0) {
+				$prepend = '<div class="h2 col col-12 p-0 m-0 mb-1 bg-warning">' . $prepend . '</div>';
+			} // if
+			else {
+				$prepend = null;
+			} // else
+
+			/********************************************************************/
+			// Set the prepend.
+			if (empty($prepend) && $count == (count($parent_value) - 1)) {
+				$append = '<hr>';
+			} // if
+			else {
+				$append = null;
+			} // else
 
 			/********************************************************************/
 			// Set the title.
@@ -253,6 +272,8 @@
 					;
 			} // if
 
+			/********************************************************************/
+			// Set the date and time.
 			$date = '<span class="text-windsorpro-regular">' . $child_value['date'] . '</span>';
 			$time = '<span class="text-windsorpro-regular">' . $child_value['time'] . '</span>';
 
@@ -260,13 +281,14 @@
 			// Set the final row.
 			$final[] = 
 				  '<div class="col col-12 p-0 m-0 mb-1">'
-				. (!empty($prepend) ? '<div class="h2 col col-12 p-0 m-0 mb-1 bg-warning">' . $prepend . '</div> ' : null)
+				. (!empty($prepend) ? $prepend : null)
 				. (!empty($title) ? $title : null)
 				. (!empty($title) ? '<span class="text-windsorpro-regular">: </span>' : null)
 				. $excerpt
 				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
 				// . $date
 				. '</div>'
+				. $append
 				;
 
 			/********************************************************************/
