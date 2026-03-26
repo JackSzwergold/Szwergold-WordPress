@@ -156,7 +156,7 @@
 		// Set the title.
 		if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
 			$title =
-				  '<span class="p-0 m-0 me-1 text-windsorpro-bold">'
+				  '<span class="p-0 m-0 text-windsorpro-bold">'
 				. '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
 				. $value['title']
 				. '</a>'
@@ -187,14 +187,15 @@
 
 		/********************************************************************/
 		// Set the final row.
-		$final[] = '<div class="col col-12 p-0 m-0 mb-1">'
-				. $title
-				. '<span class="text-windsorpro-regular"> &mdash; </span>'
-				. $excerpt
-				// . '<span class="text-windsorpro-regular"> &mdash; </span>'
-				// . $date
-				. '</div>'
-				;
+		$final[] = 
+			  '<div class="col col-12 p-0 m-0 mb-1">'
+			. $title
+			. '<span class="text-windsorpro-regular">: </span>'
+			. $excerpt
+			// . '<span class="text-windsorpro-regular"> &mdash; </span>'
+			// . $date
+			. '</div>'
+			;
 
 	} // foreach
 
