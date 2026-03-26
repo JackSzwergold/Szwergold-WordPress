@@ -141,7 +141,7 @@
 			// Set the temp array values.
 			$temp = array();
 			// $temp['categories'] = !empty($categories) ? $categories : null;
-			$temp['categories'] = !empty($subcategory) ? $subcategory : null;
+			// $temp['categories'] = !empty($subcategory) ? $subcategory : null;
 			$temp['permalink'] = get_the_permalink();
 			$temp['post_name'] = $post_name;
 			$temp['title'] = $title;
@@ -161,7 +161,7 @@
 		/********************************************************************/
 		// Set the temp array values.
 		$temp = array();
-		$temp['categories'] = null;
+		// $temp['categories'] = null;
 		$temp['permalink'] = null;
 		$temp['post_name'] = null;
 		$temp['title'] = null;
