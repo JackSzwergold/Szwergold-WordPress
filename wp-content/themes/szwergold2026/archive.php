@@ -227,7 +227,7 @@
 			/********************************************************************/
 			// Set the prepend.
 			if (!empty($prepend) && $count == 0) {
-				$prepend = '<div class="h2 col col-12 p-0 m-0 mb-1 bg-warning">' . $prepend . '</div>';
+				$prepend = '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">' . $prepend . '</div>';
 			} // if
 			else {
 				$prepend = null;
@@ -236,7 +236,7 @@
 			/********************************************************************/
 			// Set the prepend.
 			if (isset($category_details[$parent_key]) && $count == (count($parent_value) - 1)) {
-				$append = '<hr>';
+				$append = '<hr class="border border-dark border-1 opacity-100 p-0 m-0 mt-2 mb-3">';
 			} // if
 			else {
 				$append = null;
