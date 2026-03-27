@@ -81,7 +81,8 @@
 
 	/****************************************************************************/
 	// Get the current selected parent category ID and slug.
-	$page_category_parent = get_category(get_query_var('cat'));
+	$page_category_parent_id = get_query_var('cat');
+	$page_category_parent = get_category($page_category_parent_id);
 	$page_category_parent_id = $page_category_parent->cat_ID;
 	$page_category_parent_slug = $page_category_parent->slug;
 	if (!empty($page_category_parent->parent)) {
@@ -102,10 +103,6 @@
 	/********************************************************************/
 	// Set the category
 	$page_category_child = get_the_category();
-
-	echo '<pre>';
-	print_r($page_category_parent);
-	echo '</pre>';
 
 	/****************************************************************************/
 	// Get the current selected child category ID and slug.
@@ -129,9 +126,15 @@
 	$category_settings['hide_empty'] = true;
 	$category_settings['hierarchical'] = true;
 	$category_settings['exclude'] = $page_category_parent_id;
-	$category_settings['include'] = !empty($page_subcategory_id) ? $page_subcategory_id : null;
+	$category_settings['include'] = '';
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
+
+	// echo '<pre>';
+	// echo $page_category_parent_id. PHP_EOL;
+	// echo $page_category_parent_id . PHP_EOL;
+	// echo $page_subcategory_id . PHP_EOL;
+	// echo '</pre>';
 
 	/******************************************************************************/
 	// Get the categories.
@@ -145,6 +148,10 @@
 			$category_details[$value->slug] = $value->cat_ID;
 		} // foreach
 	} // if
+
+	echo '<pre>';
+	print_r($category_details);
+	echo '</pre>';
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
