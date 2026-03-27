@@ -105,6 +105,8 @@
 
 	/****************************************************************************/
 	// Get the current selected child category ID and slug.
+	$page_subcategory_id = null;
+	$page_subcategory_slug = null;
 	if (count($page_category_child) > 0) {
 		$page_subcategory = array_shift($page_category_child);
 		$page_subcategory_id = $page_subcategory->cat_ID;
