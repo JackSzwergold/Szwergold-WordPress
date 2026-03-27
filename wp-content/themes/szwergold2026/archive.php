@@ -130,7 +130,8 @@
 	$category_settings['pad_counts'] = false;
 
 	echo '<pre>';
-	echo $page_category_parent_id. PHP_EOL;
+	echo get_query_var('cat') . PHP_EOL;
+	echo $page_category_parent_id . PHP_EOL;
 	echo $page_subcategory_id . PHP_EOL;
 	echo '</pre>';
 
