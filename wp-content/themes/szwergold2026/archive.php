@@ -119,13 +119,16 @@
 
 	/******************************************************************************/
 	// If we have categories, do something.
-	$sorted_categories = array();
-	$parent_child_category_map = array();
+	$category_details = array();
 	if (!empty($categories_test)) {
-		echo '<pre>';
-		print_r($categories_test);
-		echo '</pre>';
+		foreach ($categories_test as $key => $value) {
+			$category_details[$value->slug] = $value->cat_ID;
+		} // foreach
 	} // if
+
+	echo '<pre>';
+	print_r($category_details);
+	echo '</pre>';
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
