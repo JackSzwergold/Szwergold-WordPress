@@ -108,6 +108,8 @@
 		$custom_criteria['orderby']['title'] = 'ASC';
 	} // else
 
+	/****************************************************************************/
+	// Run 'query_posts' and retrieve the items.
 	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
 	query_posts($merged_criteria);
 
