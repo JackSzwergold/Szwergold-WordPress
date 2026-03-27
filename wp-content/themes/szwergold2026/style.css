@@ -299,6 +299,9 @@ main article a:active {
     column-count: 3;
   }
   div.archive_content {
+    /*column-width: 20em;*/
+    column-gap: 1em;
+    /*column-rule: 1px solid #eee; */
     column-count: 1;
   }
 }
@@ -309,6 +312,9 @@ main article a:active {
     column-count: 5;
   }
   div.archive_content {
+    /*column-width: 20em;*/
+    column-gap: 1em;
+    /*column-rule: 1px solid #eee; */
     column-count: 2;
   }
 }
@@ -319,6 +325,9 @@ main article a:active {
     column-count: 6;
   }
   div.archive_content {
+    /*column-width: 20em;*/
+    column-gap: 1em;
+    /*column-rule: 1px solid #eee; */
     column-count: 3;
   }
 }
@@ -329,6 +338,9 @@ main article a:active {
     column-count: 7;
   }
   div.archive_content {
+    /*column-width: 20em;*/
+    column-gap: 1em;
+    /*column-rule: 1px solid #eee; */
     column-count: 4;
   }
 }
