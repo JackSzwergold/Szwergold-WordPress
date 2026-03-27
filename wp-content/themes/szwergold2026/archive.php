@@ -345,7 +345,7 @@
 		$category_block = implode('', $temp);
 		if (!empty($category_name)) {
 			$category_block  =
-			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark px-2 py1 mb-2 bg-warning">'
+			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark px-2 py-1 mb-2 bg-warning">'
 				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
 				. '<a href="' . $category_link . '">'
 				. $category_name
