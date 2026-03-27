@@ -124,8 +124,8 @@
 	$category_settings['order'] = 'ASC';
 	$category_settings['hide_empty'] = true;
 	$category_settings['hierarchical'] = true;
-	$category_settings['exclude'] = $page_category_parent_id;
-	$category_settings['include'] = '';
+	$category_settings['exclude'] = 2;
+	$category_settings['include'] = null;
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
 
