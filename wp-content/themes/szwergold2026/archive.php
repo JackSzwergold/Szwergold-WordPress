@@ -220,6 +220,7 @@
 
 			/********************************************************************/
 			// Set the subcategory slug.
+			$subcategory_slug = $post_name;
 			if (count($categories) > 0) {
 				$subcategory = array_shift($categories);
 				$subcategory_slug = $subcategory->slug;
@@ -227,9 +228,6 @@
 				$subcategory_new[$subcategory_slug] = $subcategory;
 				$subcategory = $subcategory_new;
 			} // if
-			else {
-				$subcategory_slug = $post_name;
-			} // else
 
 			/********************************************************************/
 			// Set the title values.
