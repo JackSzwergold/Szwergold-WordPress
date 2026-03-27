@@ -101,7 +101,7 @@
 	global $wp_query;
 	$custom_criteria = array();
 	if (in_array($page_category_selected_slug, array('tech'))) {
-		$custom_criteria['orderby']['title'] = 'ASC';	
+		$custom_criteria['orderby']['title'] = 'ASC';
 	} // if
 	else {
 		$custom_criteria['orderby']['modified'] = 'DESC';
@@ -212,7 +212,7 @@
 	// Key sort various items.
 	ksort($category_details);
 	if (in_array($page_category_selected_slug, array('tech'))) {
-		ksort($content);
+		// ksort($content);
 	} // if
 
 	/****************************************************************************/
