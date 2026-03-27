@@ -255,7 +255,7 @@
 			/********************************************************************/
 			// Set the final row.
 			$temp[] = 
-				  '<div class="col col-12 p-0 m-0 mb-2">'
+				  '<div class="d-inline-block col col-12 p-0 m-0 mb-2">'
 				. $title
 				. $divider
 				. $excerpt
