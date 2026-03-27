@@ -84,8 +84,8 @@
 	global $wp_query;
 	$custom_criteria = array();
 	$custom_criteria['order'] = 'ASC';
-	$custom_criteria['orderby'] = 'title';
-	// $custom_criteria['orderby'] = 'modified';
+	// $custom_criteria['orderby'] = 'title';
+	$custom_criteria['orderby'] = 'modified';
 	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
 	query_posts($merged_criteria);
 
@@ -187,7 +187,7 @@
 	/****************************************************************************/
 	// Key sort various items.
 	ksort($category_details);
-	ksort($content);
+	// ksort($content);
 
 	/****************************************************************************/
 	/****************************************************************************/
