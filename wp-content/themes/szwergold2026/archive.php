@@ -103,6 +103,10 @@
 	// Set the category
 	$page_category_child = get_the_category();
 
+	echo '<pre>';
+	print_r($page_category_parent);
+	echo '</pre>';
+
 	/****************************************************************************/
 	// Get the current selected child category ID and slug.
 	$page_subcategory_id = null;
@@ -129,10 +133,6 @@
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
 
-	echo '<pre>';
-	print_r($category_settings);
-	echo '</pre>';
-
 	/******************************************************************************/
 	// Get the categories.
 	$categories_test = get_categories($category_settings);
@@ -145,10 +145,6 @@
 			$category_details[$value->slug] = $value->cat_ID;
 		} // foreach
 	} // if
-
-	echo '<pre>';
-	print_r($category_details);
-	echo '</pre>';
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
