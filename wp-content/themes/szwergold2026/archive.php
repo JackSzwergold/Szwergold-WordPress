@@ -81,18 +81,18 @@
 
 	/****************************************************************************/
 	// Get the current selected main category slug.
-	$category_selected = get_category(get_query_var('cat'));
-	$category_selected_slug = $category_selected->slug;
-	if (!empty($category_selected->parent)) {
-		$category_selected_parent = get_category($category_selected->parent);
-		$category_selected_slug = $category_selected_parent->slug;		
+	$page_category_selected = get_category(get_query_var('cat'));
+	$page_category_selected_slug = $page_category_selected->slug;
+	if (!empty($page_category_selected->parent)) {
+		$page_category_selected_parent = get_category($page_category_selected->parent);
+		$page_category_selected_slug = $page_category_selected_parent->slug;		
 	} // if
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
 	global $wp_query;
 	$custom_criteria = array();
-	if (in_array($category_selected_slug, array('tech'))) {
+	if (in_array($page_category_selected_slug, array('tech'))) {
 		$custom_criteria['orderby']['title'] = 'ASC';	
 	} // if
 	else {
@@ -201,7 +201,7 @@
 	/****************************************************************************/
 	// Key sort various items.
 	ksort($category_details);
-	if (in_array($category_selected_slug, array('tech'))) {
+	if (in_array($page_category_selected_slug, array('tech'))) {
 		ksort($content);
 	} // if
 
