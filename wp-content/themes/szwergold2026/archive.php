@@ -85,6 +85,7 @@
 	$custom_criteria = array();
 	$custom_criteria['order'] = 'ASC';
 	$custom_criteria['orderby'] = 'title';
+	// $custom_criteria['orderby'] = 'modified';
 	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
 	query_posts($merged_criteria);
 
@@ -222,17 +223,23 @@
 			} // if
 
 			/********************************************************************/
-			// Set the excerpt.
-			$excerpt = null;
-			if (!empty($child_value['permalink']) || !empty($child_value['excerpt'])) {
-				$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
-				if (!empty($child_value['permalink'])) {
-					$excerpt =
-						  '<a href="' . $child_value['permalink'] . '" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-						. $excerpt
-						. '</a>'
-						;
-				} // if
+			// Set the excerpt and permalink.
+			$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
+			$permalink = !empty($child_value['permalink']) ? $child_value['permalink'] : null;
+
+			/********************************************************************/
+			// Link the excerpt.
+			if (!empty($excerpt) && !empty($permalink)) {
+				$excerpt =
+					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-dark">'
+					. $excerpt
+					. '</a>'
+					;
+			} // if
+
+			/********************************************************************/
+			// Wrap the excerpt.
+			if (!empty($excerpt)) {
 				$excerpt =
 					  '<span class="text-windsorpro-regular">'
 					. $excerpt
@@ -248,7 +255,7 @@
 			/********************************************************************/
 			// Set the divider.
 			$divider = null;
-			if (!empty($title) && !empty($excerpt)) {
+			if (!empty($excerpt)) {
 				$divider = '<span class="text-windsorpro-regular">: </span>';
 			} // if
 
