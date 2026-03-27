@@ -168,6 +168,11 @@
 	/****************************************************************************/
 
 	/****************************************************************************/
+	// Init variables.
+	$content = array();
+	$subcategory_slug = 'default';
+
+	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
 	global $wp_query;
 	$custom_criteria = array();
@@ -184,12 +189,7 @@
 	/****************************************************************************/
 	// Run 'query_posts' and retrieve the items.
 	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
-	query_posts($merged_criteria);
-
-	/****************************************************************************/
-	// Init variables.
-	$content = array();
-	$subcategory_slug = 'default';				
+	query_posts($merged_criteria);			
 
 	/****************************************************************************/
 	// If there are posts, do something with them.
