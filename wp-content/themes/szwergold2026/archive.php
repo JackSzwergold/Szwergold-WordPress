@@ -256,7 +256,7 @@
 			/********************************************************************/
 			// Set the divider.
 			$divider = null;
-			if (!empty($excerpt)) {
+			if (!empty($title) && !empty($excerpt)) {
 				$divider = '<span class="text-windsorpro-regular">: </span>';
 			} // if
 
