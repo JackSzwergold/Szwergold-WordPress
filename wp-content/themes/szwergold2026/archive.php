@@ -120,8 +120,9 @@
 	if (get_query_var('cat') == $page_category_id) {
 		$exclude = $page_category_id;
 	} // if
-	if (get_query_var('cat') == $page_category_id) {
+	if (get_query_var('cat') == $page_subcategory_id) {
 		$exclude = $page_category_id;
+		$include = $page_subcategory_id;
 	} // if
 
 	/******************************************************************************/
@@ -136,15 +137,9 @@
 	$category_settings['hide_empty'] = true;
 	$category_settings['hierarchical'] = true;
 	$category_settings['exclude'] = $exclude;
-	$category_settings['include'] = null;
+	$category_settings['include'] = $include;
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
-
-	echo '<pre>';
-	echo get_query_var('cat') . PHP_EOL;
-	echo $page_category_id . PHP_EOL;
-	echo $page_subcategory_id . PHP_EOL;
-	echo '</pre>';
 
 	/******************************************************************************/
 	// Get the categories.
@@ -155,13 +150,9 @@
 	$category_details = array();
 	if (!empty($categories_test)) {
 		foreach ($categories_test as $key => $value) {
-			$category_details[$value->slug] = $value->cat_ID;
+			$category_details[$value->slug] = (array) $value;
 		} // foreach
 	} // if
-
-	echo '<pre>';
-	print_r($category_details);
-	echo '</pre>';
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
@@ -183,7 +174,6 @@
 	/****************************************************************************/
 	// Init variables.
 	$content = array();
-	$category_details = array();
 	$subcategory_slug = 'default';				
 
 	/****************************************************************************/
@@ -218,7 +208,6 @@
 			if (count($categories) > 0) {
 				$subcategory = array_shift($categories);
 				$subcategory_slug = $subcategory['slug'];
-				$category_details[$subcategory_slug] = $subcategory;
 				$subcategory_new = array();
 				$subcategory_new[$subcategory_slug] = $subcategory;
 				$subcategory = $subcategory_new;
