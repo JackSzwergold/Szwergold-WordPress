@@ -96,6 +96,37 @@
 		} // else	
 	} // if
 
+
+	/******************************************************************************/
+	// Set the category array options.
+	$category_settings = array();
+	$category_settings['taxonomy'] = 'category';
+	$category_settings['type'] = 'post';
+	$category_settings['child_of'] = false;
+	$category_settings['parent'] = '';
+	$category_settings['orderby'] = 'name';
+	$category_settings['order'] = 'ASC';
+	$category_settings['hide_empty'] = true;
+	$category_settings['hierarchical'] = true;
+	$category_settings['exclude'] = '';
+	$category_settings['include'] = '';
+	$category_settings['number'] = false;
+	$category_settings['pad_counts'] = false;
+
+	/******************************************************************************/
+	// Get the categories.
+	$categories_test = get_categories($category_settings);
+
+	/******************************************************************************/
+	// If we have categories, do something.
+	$sorted_categories = array();
+	$parent_child_category_map = array();
+	if (!empty($categories_test)) {
+		echo '<pre>';
+		print_r($categories_test);
+		echo '</pre>';
+	} // if
+
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
 	global $wp_query;
