@@ -81,8 +81,7 @@
 
 	/****************************************************************************/
 	// Get the current selected parent category ID and slug.
-	$page_category_parent_id = get_query_var('cat');
-	$page_category_parent = get_category($page_category_parent_id);
+	$page_category_parent = get_category(get_query_var('cat'));
 	$page_category_parent_id = $page_category_parent->cat_ID;
 	$page_category_parent_slug = $page_category_parent->slug;
 	if (!empty($page_category_parent->parent)) {
@@ -130,11 +129,10 @@
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
 
-	// echo '<pre>';
-	// echo $page_category_parent_id. PHP_EOL;
-	// echo $page_category_parent_id . PHP_EOL;
-	// echo $page_subcategory_id . PHP_EOL;
-	// echo '</pre>';
+	echo '<pre>';
+	echo $page_category_parent_id. PHP_EOL;
+	echo $page_subcategory_id . PHP_EOL;
+	echo '</pre>';
 
 	/******************************************************************************/
 	// Get the categories.
