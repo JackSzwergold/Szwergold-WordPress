@@ -253,24 +253,24 @@
 
 		} // while
 	} // if
-	else {
+	// else {
 
-		/************************************************************************/
-		// Set the temp array values.
-		$temp = array();
-		$temp['permalink'] = null;
-		$temp['post_name'] = null;
-		$temp['title'] = null;
-		$temp['title_attribute'] = null;
-		$temp['excerpt'] = 'Nothing was found.';
-		$temp['date'] = null;
-		$temp['time'] = null;
+	// 	/************************************************************************/
+	// 	// Set the temp array values.
+	// 	$temp = array();
+	// 	$temp['permalink'] = null;
+	// 	$temp['post_name'] = null;
+	// 	$temp['title'] = null;
+	// 	$temp['title_attribute'] = null;
+	// 	$temp['excerpt'] = 'Nothing was found.';
+	// 	$temp['date'] = null;
+	// 	$temp['time'] = null;
 
-		/************************************************************************/
-		// Set the content array values.
-		$content[$subcategory_slug][] = $temp;
+	// 	/************************************************************************/
+	// 	// Set the content array values.
+	// 	$content[$subcategory_slug][] = $temp;
 
-	} // else
+	// } // else
 
 	/****************************************************************************/
 	// Catgeory loop end.
