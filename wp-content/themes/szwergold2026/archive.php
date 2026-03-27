@@ -125,9 +125,13 @@
 	$category_settings['hide_empty'] = true;
 	$category_settings['hierarchical'] = true;
 	$category_settings['exclude'] = $page_category_parent_id;
-	$category_settings['include'] = '';
+	$category_settings['include'] = !empty($page_subcategory_id) ? $page_subcategory_id : null;
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
+
+	echo '<pre>';
+	print_r($category_settings);
+	echo '</pre>';
 
 	/******************************************************************************/
 	// Get the categories.
