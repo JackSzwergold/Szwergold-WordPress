@@ -82,19 +82,19 @@
 	/****************************************************************************/
 	// Get the current selected parent category ID and slug.
 	$page_category_parent = get_category(get_query_var('cat'));
-	$page_category_parent_id = $page_category_parent->cat_ID;
-	$page_category_parent_slug = $page_category_parent->slug;
+	$page_category_id = $page_category_parent->cat_ID;
+	$page_category_slug = $page_category_parent->slug;
 	if (!empty($page_category_parent->parent)) {
-		$page_category_parent_parent = get_category($page_category_parent->parent);
-		if (empty($page_category_parent_parent->parent)) {
-			$page_category_parent_id = $page_category_parent_parent->cat_ID;
-			$page_category_parent_slug = $page_category_parent_parent->slug;
+		$page_category_parent = get_category($page_category_parent->parent);
+		if (empty($page_category_parent->parent)) {
+			$page_category_id = $page_category_parent->cat_ID;
+			$page_category_slug = $page_category_parent->slug;
 		} // if
 		else {
-			$page_category_parent_grandparent = get_category($page_category_parent_parent->parent);
-			if (empty($page_category_parent_grandparent->parent)) {
-				$page_category_parent_id = $page_category_parent_grandparent->cat_ID;
-				$page_category_parent_slug = $page_category_parent_grandparent->slug;
+			$page_category_grandparent = get_category($page_category_parent->parent);
+			if (empty($page_category_grandparent->parent)) {
+				$page_category_id = $page_category_grandparent->cat_ID;
+				$page_category_slug = $page_category_grandparent->slug;
 			} // if
 		} // else	
 	} // if
@@ -114,6 +114,17 @@
 	} // if
 
 	/******************************************************************************/
+	// Set what to exclude and to exlcude in the categories settings.
+	$exclude = null;
+	$include = null;
+	if (get_query_var('cat') == $page_category_id) {
+		$exclude = $page_category_id;
+	} // if
+	if (get_query_var('cat') == $page_category_id) {
+		$exclude = $page_category_id;
+	} // if
+
+	/******************************************************************************/
 	// Set the category array options.
 	$category_settings = array();
 	$category_settings['taxonomy'] = 'category';
@@ -124,14 +135,14 @@
 	$category_settings['order'] = 'ASC';
 	$category_settings['hide_empty'] = true;
 	$category_settings['hierarchical'] = true;
-	$category_settings['exclude'] = 2;
+	$category_settings['exclude'] = $exclude;
 	$category_settings['include'] = null;
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
 
 	echo '<pre>';
 	echo get_query_var('cat') . PHP_EOL;
-	echo $page_category_parent_id . PHP_EOL;
+	echo $page_category_id . PHP_EOL;
 	echo $page_subcategory_id . PHP_EOL;
 	echo '</pre>';
 
@@ -156,7 +167,7 @@
 	// 2026-03-25: Sort posts by title instead of date.
 	global $wp_query;
 	$custom_criteria = array();
-	if (in_array($page_category_parent_slug, array('tech'))) {
+	if (in_array($page_category_slug, array('tech'))) {
 		$custom_criteria['orderby']['title'] = 'ASC';
 	} // if
 	else {
@@ -260,7 +271,7 @@
 	/****************************************************************************/
 	// Key sort various items.
 	ksort($category_details);
-	if (in_array($page_category_parent_slug, array('tech'))) {
+	if (in_array($page_category_slug, array('tech'))) {
 		ksort($content);
 	} // if
 
