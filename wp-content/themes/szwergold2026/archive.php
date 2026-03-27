@@ -150,7 +150,7 @@
 	$category_details = array();
 	if (!empty($categories_test)) {
 		foreach ($categories_test as $key => $value) {
-			$category_details[$value->slug] = (array) $value;
+			$category_details[$value->slug] = $value;
 		} // foreach
 	} // if
 
@@ -199,7 +199,7 @@
 			// Process the categories to set the parent value as the key.
 			foreach ($categories as $key => $value) {
 				$new_key = $value->parent;
-				$categories[$new_key] = (array) $value;
+				$categories[$new_key] = $value;
 				unset($categories[$key]);
 			} // foreach
 
@@ -207,7 +207,7 @@
 			// Set the subcategory slug.
 			if (count($categories) > 0) {
 				$subcategory = array_shift($categories);
-				$subcategory_slug = $subcategory['slug'];
+				$subcategory_slug = $subcategory->slug;
 				$subcategory_new = array();
 				$subcategory_new[$subcategory_slug] = $subcategory;
 				$subcategory = $subcategory_new;
@@ -355,8 +355,8 @@
 		$category_name = null;
 		$category_link = null;
 		if ((count($category_details) > 1) && isset($category_details[$parent_key])) {
-			$category_name = $category_details[$parent_key]['name'];
-			$category_link = get_category_link($category_details[$parent_key]['term_id']);
+			$category_name = $category_details[$parent_key]->name;
+			$category_link = get_category_link($category_details[$parent_key]->term_id);
 		} // if
 
 		/************************************************************************/
