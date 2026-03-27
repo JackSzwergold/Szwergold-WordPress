@@ -80,17 +80,13 @@
 	/****************************************************************************/
 
 	/****************************************************************************/
-	// Get the current selected category slug.
+	// Get the current selected main category slug.
 	$category_selected = get_category(get_query_var('cat'));
 	$category_selected_slug = $category_selected->slug;
 	if (!empty($category_selected->parent)) {
 		$category_selected_parent = get_category($category_selected->parent);
 		$category_selected_slug = $category_selected_parent->slug;		
 	} // if
-
-	echo '<pre>';
-	print_r($category_selected_slug);
-	echo '</pre>';
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
