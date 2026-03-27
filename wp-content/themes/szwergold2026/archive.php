@@ -80,7 +80,7 @@
 	/****************************************************************************/
 
 	/****************************************************************************/
-	// Get the current selected main category slug.
+	// Get the current selected parent category ID and slug.
 	$page_category_parent = get_category(get_query_var('cat'));
 	$page_category_parent_id = $page_category_parent->cat_ID;
 	$page_category_parent_slug = $page_category_parent->slug;
@@ -97,6 +97,18 @@
 				$page_category_parent_slug = $page_category_parent_grandparent->slug;
 			} // if
 		} // else	
+	} // if
+
+	/********************************************************************/
+	// Set the category
+	$page_category_child = get_the_category();
+
+	/****************************************************************************/
+	// Get the current selected child category ID and slug.
+	if (count($page_category_child) > 0) {
+		$page_subcategory = array_shift($page_category_child);
+		$page_subcategory_id = $page_subcategory->cat_ID;
+		$page_subcategory_slug = $page_subcategory->slug;
 	} // if
 
 	/******************************************************************************/
