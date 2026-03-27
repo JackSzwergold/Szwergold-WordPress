@@ -155,10 +155,19 @@
 	} // if
 
 	/****************************************************************************/
+	// Debugging.
+	// echo '<pre>';
+	// echo $page_category_id;
+	// echo '</pre>';
+	// echo '<pre>';
+	// print_r($category_details);
+	// echo '</pre>';
+
+	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
 	global $wp_query;
 	$custom_criteria = array();
-	// $custom_criteria['cat'] = 2;
+	$custom_criteria['cat'] = $page_category_id;
 	$custom_criteria['post_type'] = 'post';
 	if (in_array($page_category_slug, array('tech'))) {
 		$custom_criteria['orderby']['title'] = 'ASC';
