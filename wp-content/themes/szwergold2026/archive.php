@@ -82,15 +82,18 @@
 	/****************************************************************************/
 	// Get the current selected main category slug.
 	$page_category_selected = get_category(get_query_var('cat'));
+	$page_category_selected_id = $page_category_selected->cat_ID;
 	$page_category_selected_slug = $page_category_selected->slug;
 	if (!empty($page_category_selected->parent)) {
 		$page_category_selected_parent = get_category($page_category_selected->parent);
 		if (empty($page_category_selected_parent->parent)) {
+			$page_category_selected_id = $page_category_selected_parent->cat_ID;
 			$page_category_selected_slug = $page_category_selected_parent->slug;
 		} // if
 		else {
 			$page_category_selected_grandparent = get_category($page_category_selected_parent->parent);
 			if (empty($page_category_selected_grandparent->parent)) {
+				$page_category_selected_id = $page_category_selected_grandparent->cat_ID;
 				$page_category_selected_slug = $page_category_selected_grandparent->slug;
 			} // if
 		} // else	
@@ -108,7 +111,7 @@
 	$category_settings['order'] = 'ASC';
 	$category_settings['hide_empty'] = true;
 	$category_settings['hierarchical'] = true;
-	$category_settings['exclude'] = '';
+	$category_settings['exclude'] = $page_category_selected_id;
 	$category_settings['include'] = '';
 	$category_settings['number'] = false;
 	$category_settings['pad_counts'] = false;
