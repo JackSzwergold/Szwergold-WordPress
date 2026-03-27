@@ -80,13 +80,23 @@
 	/****************************************************************************/
 
 	/****************************************************************************/
+	// Get the current selected category slug.
+	$category_selected = get_category(get_query_var('cat'));
+	// $category_selected = get_category_parents(get_query_var('cat'));
+	$category_selected_slug = $category_selected->slug;
+
+	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
 	global $wp_query;
 	$custom_criteria = array();
-	// $custom_criteria['order'] = 'DESC';
-	// $custom_criteria['orderby'] = 'modified';
-	$custom_criteria['order'] = 'ASC';
-	$custom_criteria['orderby'] = 'title';
+	if (in_array($category_selected_slug, array('tech'))) {
+		$custom_criteria['orderby']['title'] = 'ASC';	
+	} // if
+	else {
+		$custom_criteria['orderby']['modified'] = 'DESC';
+		$custom_criteria['orderby']['title'] = 'ASC';
+	} // else
+
 	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
 	query_posts($merged_criteria);
 
@@ -188,7 +198,9 @@
 	/****************************************************************************/
 	// Key sort various items.
 	ksort($category_details);
-	ksort($content);
+	if (in_array($category_selected_slug, array('tech'))) {
+		ksort($content);
+	} // if
 
 	/****************************************************************************/
 	/****************************************************************************/
