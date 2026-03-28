@@ -69,6 +69,10 @@ add_post_type_support('page', 'excerpt');
 // } // category_sort_order
 
 /********************************************************************************/
+// 2026-03-28: Remove the ridiculous 'Archives: ' prefix from archives pages.
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+
+/********************************************************************************/
 // 2026-03-20: Adding widgets.
 function szwergold_widgets_init() {
 	register_sidebar(array(
