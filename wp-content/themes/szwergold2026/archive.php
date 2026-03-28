@@ -1,14 +1,14 @@
 <?php
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Set the header.
 	get_header();
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Begin the archive info area.
 	echo '<div class="post_nav col col-12 p-0 m-0">';
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Header begins.
 	echo '<div class="h2 text-windsorpro-bold p-0 m-0 pb-1 mb-2 border-bottom border-dark">';
 	echo 'Posts for ';
@@ -36,7 +36,7 @@
 	} // else if
 	echo '</div>';
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Header ends
 	echo '<p class="text-windsorpro-regular p-0 m-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
 	$category_description = category_description();
@@ -71,144 +71,233 @@
 	} // else
 	echo '</p>';
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// End the archive info area.
 	echo '</div>';
 
-	/****************************************************************************/
-	/****************************************************************************/
-	/****************************************************************************/
+	/******************************************************************************/
+	/******************************************************************************/
+	/******************************************************************************/
 
-	/****************************************************************************/
-	// 2026-03-25: Sort posts by title instead of date.
+	/******************************************************************************/
+	// Get the current selected parent category ID and slug.
+	$page_category_parent = get_category(get_query_var('cat'));
+	$page_category_id = null;
+	$page_category_slug = null;
+	if (isset($page_category_parent->cat_ID)) {
+		$page_category_id = $page_category_parent->cat_ID;
+	} // if
+	if (isset($page_category_parent->cat_ID)) {
+		$page_category_slug = $page_category_parent->slug;
+	} // if
+	if (!empty($page_category_parent->parent)) {
+		$page_category_parent = get_category($page_category_parent->parent);
+		if (empty($page_category_parent->parent)) {
+			$page_category_id = $page_category_parent->cat_ID;
+			$page_category_slug = $page_category_parent->slug;
+		} // if
+		else {
+			$page_category_grandparent = get_category($page_category_parent->parent);
+			if (empty($page_category_grandparent->parent)) {
+				$page_category_id = $page_category_grandparent->cat_ID;
+				$page_category_slug = $page_category_grandparent->slug;
+			} // if
+		} // else	
+	} // if
+
+	/******************************************************************************/
+	// Set the category
+	$page_category_child = get_the_category();
+
+	/******************************************************************************/
+	// Get the current selected child category ID and slug.
+	$page_subcategory_id = null;
+	$page_subcategory_slug = null;
+	if (count($page_category_child) > 0) {
+		$page_subcategory = array_shift($page_category_child);
+		$page_subcategory_id = $page_subcategory->cat_ID;
+		$page_subcategory_slug = $page_subcategory->slug;
+	} // if
+
+	/******************************************************************************/
+	// Set what to exclude and to exlcude in the categories settings.
+	$exclude = null;
+	$include = null;
+	if (get_query_var('cat') == $page_category_id) {
+		$exclude = $page_category_id;
+	} // if
+	if (get_query_var('cat') == $page_subcategory_id) {
+		$exclude = $page_category_id;
+		$include = $page_subcategory_id;
+	} // if
+
+	/******************************************************************************/
+	// Set the category array options.
+	$category_args = array();
+	$category_args['taxonomy'] = 'category';
+	$category_args['type'] = 'post';
+	$category_args['child_of'] = false;
+	$category_args['parent'] = '';
+	$category_args['orderby'] = 'name';
+	$category_args['order'] = 'ASC';
+	$category_args['hide_empty'] = true;
+	$category_args['hierarchical'] = true;
+	$category_args['exclude'] = $exclude;
+	$category_args['include'] = $include;
+	$category_args['number'] = false;
+	$category_args['pad_counts'] = false;
+
+	/******************************************************************************/
+	// Get the categories.
+	$categories = get_categories($category_args);
+
+	/******************************************************************************/
+	// If we have categories, do something.
+	$category_details = array();
+	foreach ($categories as $key => $value) {
+		$category_details[$value->slug] = $value;
+	} // foreach
+
+	/******************************************************************************/
+	// Roll through the category details.
+	$category_details['default'] = $page_category_parent;
+
+	/******************************************************************************/
+	// Set the globals.
 	global $wp_query;
-	$custom_criteria = array();
-	$custom_criteria['order'] = 'ASC';
-	$custom_criteria['orderby'] = 'title';
-	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
-	query_posts($merged_criteria);
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Init variables.
 	$content = array();
-	$category_details = array();
-	$subcategory_slug = 'default';				
+	$query_vars = $wp_query->query_vars;
 
-	/****************************************************************************/
-	// If there are posts, do something with them.
-	if (TRUE && is_archive() && have_posts()) {
-		while (have_posts()) {
+	/******************************************************************************/
+	// If we are on a 'tech' page, do this.
+	if (in_array($page_category_slug, array('tech'))) {
 
-			/********************************************************************/
-			// Get the post.
-			the_post();
+		/**************************************************************************/
+		// Set the query variables, merge the content and roll through the category details.
+		foreach ($category_details as $category_slug => $category_data) {
+			$query_vars['category__in'] = $category_data->cat_ID;
+			$query_vars['orderby']['title'] = 'ASC';
+			$content = array_replace($content, render_archive_items($query_vars));
+		} // foreach
 
-			/********************************************************************/
-			// Set the post related values.
-			$post_name = get_post_field('post_name');
-			$post_ID = get_the_ID();
-			$post_name_slug = get_post_field('post_name') . '_' . $post_ID;
-
-			/********************************************************************/
-			// Set the category
-			$categories = get_the_category();
-
-			/********************************************************************/
-			// Process the categories to set the parent value as the key.
-			foreach ($categories as $key => $value) {
-				$new_key = $value->parent;
-				$categories[$new_key] = (array) $value;
-				unset($categories[$key]);
-			} // foreach
-
-			/********************************************************************/
-			// Set the subcategory slug.
-			if (count($categories) > 0) {
-				$subcategory = array_shift($categories);
-				$subcategory_slug = $subcategory['slug'];
-				$category_details[$subcategory_slug] = $subcategory;
-				$subcategory_new = array();
-				$subcategory_new[$subcategory_slug] = $subcategory;
-				$subcategory = $subcategory_new;
-			} // if
-			else {
-				$subcategory_slug = $post_name;
-			} // else
-
-			/********************************************************************/
-			// Append '_category' to the slug to differentiate it from the posts.
-			// $subcategory_slug = $subcategory_slug . '_category';
-
-			/********************************************************************/
-			// Set the title values.
-			$title = get_the_title();
-			$title_attribute = the_title_attribute(array('echo' => false));
-
-			/********************************************************************/
-			// Set the temp array values.
-			$temp = array();
-			// $temp['categories'] = !empty($categories) ? $categories : null;
-			// $temp['categories'] = !empty($subcategory) ? $subcategory : null;
-			$temp['permalink'] = get_the_permalink();
-			$temp['post_name'] = $post_name;
-			$temp['title'] = $title;
-			$temp['title_attribute'] = $title_attribute;
-			$temp['excerpt'] = get_the_excerpt();
-			$temp['date'] = get_the_time('F j, Y');
-			$temp['time'] = get_the_time('g:i:sa');
-
-			/********************************************************************/
-			// Set the content array values.
-			$content[$subcategory_slug][$post_name_slug] = $temp;
-
-		} // while
 	} // if
 	else {
 
-		/************************************************************************/
-		// Set the temp array values.
-		$temp = array();
-		// $temp['categories'] = null;
-		$temp['permalink'] = null;
-		$temp['post_name'] = null;
-		$temp['title'] = null;
-		$temp['title_attribute'] = null;
-		$temp['excerpt'] = 'Nothing was found.';
-		$temp['date'] = null;
-		$temp['time'] = null;
-
-		/************************************************************************/
-		// Set the content array values.
-		$content[$subcategory_slug][] = $temp;
+		/**************************************************************************/
+		// Set the query variables and merge the content.
+		$query_vars['orderby']['modified'] = 'DESC';
+		$query_vars['orderby']['title'] = 'ASC';
+		$content = array_replace($content, render_archive_items($query_vars));
 
 	} // else
 
-	/****************************************************************************/
-	// Key sort various items.
-	ksort($category_details);
-	ksort($content);
+	/******************************************************************************/
+	// Setting a common 'render_archive_items' function to be neat.
+	function render_archive_items($query_vars = array()) {
 
-	/****************************************************************************/
-	/****************************************************************************/
-	/****************************************************************************/
+		/**************************************************************************/
+		// Init variables.
+		$ret = array();
 
-	/****************************************************************************/
+		/**************************************************************************/
+		// If any of these items are empty, bail.
+		if (empty($query_vars)) {
+			return $ret;
+		} // if
+
+		/**************************************************************************/
+		// Run 'query_posts' and retrieve the items.
+		query_posts($query_vars);			
+
+		/**************************************************************************/
+		// If there are posts, do something with them.
+		if (have_posts()) {
+			while (have_posts()) {
+
+				/******************************************************************/
+				// Get the post.
+				the_post();
+
+				/******************************************************************/
+				// Set the post related values.
+				$post_name = get_post_field('post_name');
+				$post_ID = get_the_ID();
+				$post_name_slug = get_post_field('post_name') . '_' . $post_ID;
+
+				/******************************************************************/
+				// Set the category
+				$categories = get_the_category();
+
+				/******************************************************************/
+				// Process the categories to set the parent value as the key.
+				foreach ($categories as $key => $value) {
+					$new_key = $value->parent;
+					$categories[$new_key] = $value;
+					unset($categories[$key]);
+				} // foreach
+
+				/******************************************************************/
+				// Set the subcategory slug.
+				$subcategory_slug = $post_name;
+				if (count($categories) > 0) {
+					$subcategory = array_shift($categories);
+					$subcategory_slug = $subcategory->slug;
+				} // if
+
+				/******************************************************************/
+				// Set the title values.
+				$title = get_the_title();
+				$title_attribute = the_title_attribute(array('echo' => false));
+
+				/******************************************************************/
+				// Set the temp array values.
+				$temp = array();
+				$temp['permalink'] = get_the_permalink();
+				$temp['post_name'] = $post_name;
+				$temp['title'] = $title;
+				$temp['title_attribute'] = $title_attribute;
+				$temp['excerpt'] = get_the_excerpt();
+				$temp['date'] = get_the_time('F j, Y');
+				$temp['time'] = get_the_time('g:i:sa');
+
+				/******************************************************************/
+				// Set the content array values.
+				$ret[$subcategory_slug][$post_name_slug] = $temp;
+
+			} // while
+		} // if
+
+		/**************************************************************************/
+		// Return the final return value.
+		return $ret;
+
+	} // render_archive_items
+
+
+	/******************************************************************************/
+	/******************************************************************************/
+	/******************************************************************************/
+
+	/******************************************************************************/
 	// Init variables.
 	$final = array();
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Display the parent content.
 	foreach ($content as $parent_key => $parent_value) {
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Init variables.
 		$temp = array();
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Display the child content.
 		foreach ($parent_value as $child_key => $child_value) {
 
-			/********************************************************************/
+			/**********************************************************************/
 			// Set the title.
 			$title = null;
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
@@ -221,18 +310,24 @@
 					;
 			} // if
 
-			/********************************************************************/
-			// Set the excerpt.
-			$excerpt = null;
-			if (!empty($child_value['permalink']) || !empty($child_value['excerpt'])) {
-				$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
-				if (!empty($child_value['permalink'])) {
-					$excerpt =
-						  '<a href="' . $child_value['permalink'] . '" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
-						. $excerpt
-						. '</a>'
-						;
-				} // if
+			/**********************************************************************/
+			// Set the excerpt and permalink.
+			$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
+			$permalink = !empty($child_value['permalink']) ? $child_value['permalink'] : null;
+
+			/**********************************************************************/
+			// Link the excerpt.
+			if (!empty($excerpt) && !empty($permalink)) {
+				$excerpt =
+					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-dark">'
+					. $excerpt
+					. '</a>'
+					;
+			} // if
+
+			/**********************************************************************/
+			// Wrap the excerpt.
+			if (!empty($excerpt)) {
 				$excerpt =
 					  '<span class="text-windsorpro-regular">'
 					. $excerpt
@@ -240,22 +335,22 @@
 					;
 			} // if
 
-			/********************************************************************/
+			/**********************************************************************/
 			// Set the date and time.
 			$date = '<span class="text-windsorpro-regular">' . $child_value['date'] . '</span>';
 			$time = '<span class="text-windsorpro-regular">' . $child_value['time'] . '</span>';
 
-			/********************************************************************/
+			/**********************************************************************/
 			// Set the divider.
 			$divider = null;
 			if (!empty($title) && !empty($excerpt)) {
 				$divider = '<span class="text-windsorpro-regular">: </span>';
 			} // if
 
-			/********************************************************************/
+			/**********************************************************************/
 			// Set the final row.
 			$temp[] = 
-				  '<div class="col col-12 p-0 m-0 mb-2">'
+				  '<div class="d-inline-block col col-12 p-0 m-0 mb-2">'
 				. $title
 				. $divider
 				. $excerpt
@@ -264,16 +359,16 @@
 
 		} // foreach
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Set a category name and category link.
 		$category_name = null;
 		$category_link = null;
-		if ((count($category_details) > 1) && isset($category_details[$parent_key])) {
-			$category_name = $category_details[$parent_key]['name'];
-			$category_link = get_category_link($category_details[$parent_key]['term_id']);
+		if ((count($content) > 1) && isset($category_details[$parent_key])) {
+			$category_name = $category_details[$parent_key]->name;
+			$category_link = get_category_link($category_details[$parent_key]->term_id);
 		} // if
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Wrap the category block value.
 		$category_block = implode('', $temp);
 		if (!empty($category_name)) {
@@ -289,13 +384,13 @@
 				;
 		} // if
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Set the final array value.
 		$final[] = $category_block;
 
 	} // foreach
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Show the content.
 	echo '<div class="archive_content p-0 m-0">';
 	foreach ($final as $key => $value) {
@@ -303,11 +398,11 @@
 	} // foreach
 	echo '</div>';
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Set the sidebar.
 	get_sidebar();
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Set the footer.
 	get_footer();
 
