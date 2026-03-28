@@ -99,7 +99,7 @@
 		} // else	
 	} // if
 
-	/********************************************************************/
+	/****************************************************************************/
 	// Set the category
 	$page_category_child = get_the_category();
 
@@ -147,37 +147,33 @@
 
 	/******************************************************************************/
 	// If we have categories, do something.
-	$category_ids = array();
 	$category_details = array();
 	foreach ($categories as $key => $value) {
-		$category_ids[$value->slug] = $value->cat_ID;
 		$category_details[$value->slug] = $value;
 	} // foreach
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Roll through the category details.
 	$category_details['default'] = $page_category_parent;
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Set the globals.
 	global $wp_query;
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Init variables.
 	$content = array();
-	// $category_ids_numeric = array_values($category_ids);
 
-	/****************************************************************************/
+	/******************************************************************************/
 	// Roll through the category details.
 	foreach ($category_details as $category_slug => $category_data) {
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Set the query variables.
 		$query_vars = $wp_query->query_vars;
 		$query_vars['category__in'] = $category_data->cat_ID;
 		$query_vars['post_type'] = 'post';	
 		if (in_array($page_category_slug, array('tech'))) {
-			// $query_vars['category__not_in'] = $category_ids_numeric;
 			$query_vars['orderby']['title'] = 'ASC';
 		} // if
 		else {
@@ -185,30 +181,30 @@
 			$query_vars['orderby']['title'] = 'ASC';
 		} // else
 
-		/************************************************************************/
+		/**************************************************************************/
 		// Run 'query_posts' and retrieve the items.
 		query_posts($query_vars);			
 
-		/************************************************************************/
+		/**************************************************************************/
 		// If there are posts, do something with them.
 		if (TRUE && is_archive() && have_posts()) {
 			while (have_posts()) {
 
-				/****************************************************************/
+				/******************************************************************/
 				// Get the post.
 				the_post();
 
-				/****************************************************************/
+				/******************************************************************/
 				// Set the post related values.
 				$post_name = get_post_field('post_name');
 				$post_ID = get_the_ID();
 				$post_name_slug = get_post_field('post_name') . '_' . $post_ID;
 
-				/****************************************************************/
+				/******************************************************************/
 				// Set the category
 				$categories = get_the_category();
 
-				/****************************************************************/
+				/******************************************************************/
 				// Process the categories to set the parent value as the key.
 				foreach ($categories as $key => $value) {
 					$new_key = $value->parent;
@@ -216,7 +212,7 @@
 					unset($categories[$key]);
 				} // foreach
 
-				/****************************************************************/
+				/******************************************************************/
 				// Set the subcategory slug.
 				$subcategory_slug = $post_name;
 				if (count($categories) > 0) {
@@ -224,12 +220,12 @@
 					$subcategory_slug = $subcategory->slug;
 				} // if
 
-				/****************************************************************/
+				/******************************************************************/
 				// Set the title values.
 				$title = get_the_title();
 				$title_attribute = the_title_attribute(array('echo' => false));
 
-				/****************************************************************/
+				/******************************************************************/
 				// Set the temp array values.
 				$temp = array();
 				$temp['permalink'] = get_the_permalink();
@@ -240,30 +236,32 @@
 				$temp['date'] = get_the_time('F j, Y');
 				$temp['time'] = get_the_time('g:i:sa');
 
-				/****************************************************************/
+				/******************************************************************/
 				// Set the content array values.
 				$content[$subcategory_slug][$post_name_slug] = $temp;
 
 			} // while
 		} // if
-		// else {
+		else {
 
-		// 	/********************************************************************/
-		// 	// Set the temp array values.
-		// 	$temp = array();
-		// 	$temp['permalink'] = null;
-		// 	$temp['post_name'] = null;
-		// 	$temp['title'] = null;
-		// 	$temp['title_attribute'] = null;
-		// 	$temp['excerpt'] = 'Nothing was found.';
-		// 	$temp['date'] = null;
-		// 	$temp['time'] = null;
+			/**********************************************************************/
+			// Set the temp array values.
+			$temp = array();
+			$temp['permalink'] = null;
+			$temp['post_name'] = null;
+			$temp['title'] = null;
+			$temp['title_attribute'] = null;
+			$temp['excerpt'] = 'Nothing was found.';
+			$temp['date'] = null;
+			$temp['time'] = null;
 
-		// 	/********************************************************************/
-		// 	// Set the content array values.
-		// 	$content[$subcategory_slug][] = $temp;
+			/**********************************************************************/
+			// Set the content array values.
+			$content['default'][] = $temp;
 
-		// } // else
+			break;
+
+		} // else
 
 	} // foreach
 
