@@ -259,8 +259,6 @@
 			// Set the content array values.
 			$content['default'][] = $temp;
 
-			break;
-
 		} // else
 
 	} // foreach
