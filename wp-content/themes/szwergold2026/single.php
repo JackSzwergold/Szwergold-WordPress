@@ -35,6 +35,14 @@
 			$page_category_slug = $page_category_shifted->slug;
 
 			/**********************************************************************/
+			// Set the text CSS.
+			$text_css = null;
+			if (in_array($page_category_slug, array('notes'))) {
+				$text_css = 'display-6';
+				// $text_css = 'h5';
+			} // if
+
+			/**********************************************************************/
 			// Begin the header.
 			echo '<header class="col col-12 p-0 m-0 pb-2">';
 
@@ -79,7 +87,7 @@
 			// Show the main area.
 			echo '<main class="col col-12 p-0 m-0">';
 			echo '<article class="col col-12 p-0 m-0">';
-			echo '<div class="text-georgia-regular">';
+			echo sprintf('<div class="text-georgia-regular %s">', $text_css);
 
 			/**********************************************************************/
 			// Show the content.
