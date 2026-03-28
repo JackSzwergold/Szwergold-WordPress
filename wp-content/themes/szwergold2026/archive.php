@@ -158,6 +158,10 @@
 	// Set the globals.
 	global $wp_query;
 
+	// echo '<pre>';
+	// print_r($wp_query->query_vars);
+	// echo '</pre>';
+
 	/****************************************************************************/
 	// Init variables.
 	$content = array();
