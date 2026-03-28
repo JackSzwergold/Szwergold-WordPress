@@ -114,13 +114,19 @@
 	} // if
 
 	/******************************************************************************/
-	// Set the category
+	// Set the category.
 	$page_category_child = get_the_category();
 
-	$archive_link = get_post_type_archive_link('notes');
-	echo '<pre>';
-	print_r($archive_link);
-	echo '</pre>';
+	/******************************************************************************/
+	// Get the post type.
+	$post_type = get_post_type();
+
+	/******************************************************************************/
+	// Get the post type data.
+	$post_type_data = null;
+	if (!in_array($post_type, array('post'))) {
+	    $post_type_data = get_post_type_object( $post_type );
+	} // if
 
 	/******************************************************************************/
 	// Get the current selected child category ID and slug.
@@ -175,6 +181,11 @@
 	/******************************************************************************/
 	// Roll through the category details.
 	$category_details['default'] = $page_category_parent;
+
+	// echo '<pre>';
+	// print_r($post_type_data);
+	// print_r($post_type);
+	// echo '</pre>';
 
 	/******************************************************************************/
 	// Set the globals.
