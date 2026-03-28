@@ -155,21 +155,6 @@
 	} // if
 
 	/****************************************************************************/
-	// Debugging.
-	// echo '<pre>';
-	// echo $page_category_id;
-	// echo '</pre>';
-	// echo '<pre>';
-	// print_r($category_details);
-	// echo '</pre>';
-
-	/****************************************************************************/
-	/****************************************************************************/
-	/****************************************************************************/
-	// Catgeory loop begin.
-	/****************************************************************************/
-
-	/****************************************************************************/
 	// Set the globals.
 	global $wp_query;
 
@@ -179,13 +164,11 @@
 	$subcategory_slug = 'default';
 
 	foreach ($category_details as $category_slug => $category_data) {
-		// echo $category_slug . ' | ' . $category_data->cat_ID . '<br>';
-
 
 		/************************************************************************/
 		// 2026-03-25: Sort posts by title instead of date.
 		$custom_criteria = $wp_query->query_vars;
-		$custom_criteria['category__in'] = $page_category_id;
+		$custom_criteria['category__in'] = $category_data->cat_ID;
 		$custom_criteria['post_type'] = 'post';	
 		if (in_array($page_category_slug, array('tech'))) {
 			$custom_criteria['orderby']['title'] = 'ASC';
@@ -232,9 +215,6 @@
 				if (count($categories) > 0) {
 					$subcategory = array_shift($categories);
 					$subcategory_slug = $subcategory->slug;
-					$subcategory_new = array();
-					$subcategory_new[$subcategory_slug] = $subcategory;
-					$subcategory = $subcategory_new;
 				} // if
 
 				/****************************************************************/
@@ -259,42 +239,26 @@
 
 			} // while
 		} // if
-		else {
+		// else {
 
-			/********************************************************************/
-			// Set the temp array values.
-			$temp = array();
-			$temp['permalink'] = null;
-			$temp['post_name'] = null;
-			$temp['title'] = null;
-			$temp['title_attribute'] = null;
-			$temp['excerpt'] = 'Nothing was found.';
-			$temp['date'] = null;
-			$temp['time'] = null;
+		// 	/********************************************************************/
+		// 	// Set the temp array values.
+		// 	$temp = array();
+		// 	$temp['permalink'] = null;
+		// 	$temp['post_name'] = null;
+		// 	$temp['title'] = null;
+		// 	$temp['title_attribute'] = null;
+		// 	$temp['excerpt'] = 'Nothing was found.';
+		// 	$temp['date'] = null;
+		// 	$temp['time'] = null;
 
-			/********************************************************************/
-			// Set the content array values.
-			$content[$subcategory_slug][] = $temp;
+		// 	/********************************************************************/
+		// 	// Set the content array values.
+		// 	$content[$subcategory_slug][] = $temp;
 
-		} // else
+		// } // else
 
 	} // foreach
-
-	/****************************************************************************/
-	// Catgeory loop end.
-	/****************************************************************************/
-	/****************************************************************************/
-	/****************************************************************************/
-
-	/****************************************************************************/
-	// Key sort the content items.
-	if (in_array($page_category_slug, array('tech'))) {
-		ksort($content);
-	} // if
-
-	/****************************************************************************/
-	/****************************************************************************/
-	/****************************************************************************/
 
 	/****************************************************************************/
 	// Init variables.
