@@ -169,25 +169,92 @@
 	/******************************************************************************/
 	// Init variables.
 	$content = array();
+	$query_vars = $wp_query->query_vars;
 
 	/******************************************************************************/
-	// Roll through the category details.
-	// foreach ($category_details as $category_slug => $category_data) {
+	// If we are on a 'tech' page, do this.
+	if (in_array($page_category_slug, array('tech'))) {
+
+		/**************************************************************************/
+		// Roll through the category details.
+		foreach ($category_details as $category_slug => $category_data) {
+
+			/**********************************************************************/
+			// Set the query variables.
+			$query_vars['category__in'] = $category_data->cat_ID;
+			$query_vars['orderby']['title'] = 'ASC';
+
+			/**********************************************************************/
+			// Run 'query_posts' and retrieve the items.
+			query_posts($query_vars);			
+
+			/**********************************************************************/
+			// If there are posts, do something with them.
+			if (have_posts()) {
+				while (have_posts()) {
+
+					/**************************************************************/
+					// Get the post.
+					the_post();
+
+					/**************************************************************/
+					// Set the post related values.
+					$post_name = get_post_field('post_name');
+					$post_ID = get_the_ID();
+					$post_name_slug = get_post_field('post_name') . '_' . $post_ID;
+
+					/**************************************************************/
+					// Set the category
+					$categories = get_the_category();
+
+					/**************************************************************/
+					// Process the categories to set the parent value as the key.
+					foreach ($categories as $key => $value) {
+						$new_key = $value->parent;
+						$categories[$new_key] = $value;
+						unset($categories[$key]);
+					} // foreach
+
+					/**************************************************************/
+					// Set the subcategory slug.
+					$subcategory_slug = $post_name;
+					if (count($categories) > 0) {
+						$subcategory = array_shift($categories);
+						$subcategory_slug = $subcategory->slug;
+					} // if
+
+					/**************************************************************/
+					// Set the title values.
+					$title = get_the_title();
+					$title_attribute = the_title_attribute(array('echo' => false));
+
+					/**************************************************************/
+					// Set the temp array values.
+					$temp = array();
+					$temp['permalink'] = get_the_permalink();
+					$temp['post_name'] = $post_name;
+					$temp['title'] = $title;
+					$temp['title_attribute'] = $title_attribute;
+					$temp['excerpt'] = get_the_excerpt();
+					$temp['date'] = get_the_time('F j, Y');
+					$temp['time'] = get_the_time('g:i:sa');
+
+					/**************************************************************/
+					// Set the content array values.
+					$content[$subcategory_slug][$post_name_slug] = $temp;
+
+				} // while
+			} // if
+
+		} // foreach
+
+	} // if
+	else {
 
 		/**************************************************************************/
 		// Set the query variables.
-		$query_vars = $wp_query->query_vars;
-		if (isset($category_data->cat_ID)) {
-			$query_vars['category__in'] = $category_data->cat_ID;
-		} // if
-		$query_vars['post_type'] = 'post';	
-		if (in_array($page_category_slug, array('tech'))) {
-			$query_vars['orderby']['title'] = 'ASC';
-		} // if
-		else {
-			$query_vars['orderby']['modified'] = 'DESC';
-			$query_vars['orderby']['title'] = 'ASC';
-		} // else
+		$query_vars['orderby']['modified'] = 'DESC';
+		$query_vars['orderby']['title'] = 'ASC';
 
 		/**************************************************************************/
 		// Run 'query_posts' and retrieve the items.
@@ -195,7 +262,7 @@
 
 		/**************************************************************************/
 		// If there are posts, do something with them.
-		if (TRUE && is_archive() && have_posts()) {
+		if (have_posts()) {
 			while (have_posts()) {
 
 				/******************************************************************/
@@ -251,7 +318,7 @@
 			} // while
 		} // if
 
-	// } // foreach
+	} // else
 
 	/******************************************************************************/
 	// Init variables.
