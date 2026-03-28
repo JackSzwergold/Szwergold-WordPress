@@ -197,7 +197,7 @@
 
 	/******************************************************************************/
 	// If we are on a 'tech' page, do this.
-	if (in_array($page_category_slug, array('tech'))) {
+	if (in_array($page_category_slug, array('tech')) || in_array($post_type, array('tech'))) {
 
 		/**************************************************************************/
 		// Set the query variables, merge the content and roll through the category details.
