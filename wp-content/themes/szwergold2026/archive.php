@@ -160,14 +160,11 @@
 	// Set the globals.
 	global $wp_query;
 
-	echo '<pre>';
-	print_r(array_values($category_ids));
-	echo '</pre>';
-
 	/****************************************************************************/
 	// Init variables.
 	$content = array();
 	$subcategory_slug = 'default';
+	$category_ids_numeric = array_values($category_ids);
 
 	/****************************************************************************/
 	// Roll through the category details.
@@ -177,6 +174,7 @@
 		// Set the query variables.
 		$query_vars = $wp_query->query_vars;
 		$query_vars['category__in'] = $category_data->cat_ID;
+		// $query_vars['category__not_in'] = $category_ids_numeric;
 		$query_vars['post_type'] = 'post';	
 		if (in_array($page_category_slug, array('tech'))) {
 			$query_vars['orderby']['title'] = 'ASC';
