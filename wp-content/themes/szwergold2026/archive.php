@@ -148,9 +148,11 @@
 	/******************************************************************************/
 	// If we have categories, do something.
 	$category_details = array();
+	$category_ids = array();
 	if (!empty($categories_test)) {
 		foreach ($categories_test as $key => $value) {
 			$category_details[$value->slug] = $value;
+			$category_ids[$value->slug] = $value->cat_ID;
 		} // foreach
 	} // if
 
@@ -158,9 +160,9 @@
 	// Set the globals.
 	global $wp_query;
 
-	// echo '<pre>';
-	// print_r($wp_query->query_vars);
-	// echo '</pre>';
+	echo '<pre>';
+	print_r(array_values($category_ids));
+	echo '</pre>';
 
 	/****************************************************************************/
 	// Init variables.
