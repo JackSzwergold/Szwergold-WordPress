@@ -168,7 +168,7 @@
 	foreach ($category_details as $category_slug => $category_data) {
 
 		/************************************************************************/
-		// 2026-03-25: Sort posts by title instead of date.
+		// Set the query variables.
 		$query_vars = $wp_query->query_vars;
 		$query_vars['category__in'] = $category_data->cat_ID;
 		$query_vars['post_type'] = 'post';	
