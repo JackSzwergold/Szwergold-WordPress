@@ -178,101 +178,107 @@
 	$content = array();
 	$subcategory_slug = 'default';
 
-	/****************************************************************************/
-	// 2026-03-25: Sort posts by title instead of date.
-	$custom_criteria = $wp_query->query_vars;
-	$custom_criteria['category__in'] = $page_category_id;
-	$custom_criteria['post_type'] = 'post';	
-	if (in_array($page_category_slug, array('tech'))) {
-		$custom_criteria['orderby']['title'] = 'ASC';
-	} // if
-	else {
-		$custom_criteria['orderby']['modified'] = 'DESC';
-		$custom_criteria['orderby']['title'] = 'ASC';
-	} // else
+	foreach ($category_details as $category_slug => $category_data) {
+		// echo $category_slug . ' | ' . $category_data->cat_ID . '<br>';
 
-	/****************************************************************************/
-	// Run 'query_posts' and retrieve the items.
-	query_posts($custom_criteria);			
 
-	/****************************************************************************/
-	// If there are posts, do something with them.
-	if (TRUE && is_archive() && have_posts()) {
-		while (have_posts()) {
+		/************************************************************************/
+		// 2026-03-25: Sort posts by title instead of date.
+		$custom_criteria = $wp_query->query_vars;
+		$custom_criteria['category__in'] = $page_category_id;
+		$custom_criteria['post_type'] = 'post';	
+		if (in_array($page_category_slug, array('tech'))) {
+			$custom_criteria['orderby']['title'] = 'ASC';
+		} // if
+		else {
+			$custom_criteria['orderby']['modified'] = 'DESC';
+			$custom_criteria['orderby']['title'] = 'ASC';
+		} // else
 
-			/********************************************************************/
-			// Get the post.
-			the_post();
+		/************************************************************************/
+		// Run 'query_posts' and retrieve the items.
+		query_posts($custom_criteria);			
 
-			/********************************************************************/
-			// Set the post related values.
-			$post_name = get_post_field('post_name');
-			$post_ID = get_the_ID();
-			$post_name_slug = get_post_field('post_name') . '_' . $post_ID;
+		/************************************************************************/
+		// If there are posts, do something with them.
+		if (TRUE && is_archive() && have_posts()) {
+			while (have_posts()) {
 
-			/********************************************************************/
-			// Set the category
-			$categories = get_the_category();
+				/****************************************************************/
+				// Get the post.
+				the_post();
 
-			/********************************************************************/
-			// Process the categories to set the parent value as the key.
-			foreach ($categories as $key => $value) {
-				$new_key = $value->parent;
-				$categories[$new_key] = $value;
-				unset($categories[$key]);
-			} // foreach
+				/****************************************************************/
+				// Set the post related values.
+				$post_name = get_post_field('post_name');
+				$post_ID = get_the_ID();
+				$post_name_slug = get_post_field('post_name') . '_' . $post_ID;
 
-			/********************************************************************/
-			// Set the subcategory slug.
-			$subcategory_slug = $post_name;
-			if (count($categories) > 0) {
-				$subcategory = array_shift($categories);
-				$subcategory_slug = $subcategory->slug;
-				$subcategory_new = array();
-				$subcategory_new[$subcategory_slug] = $subcategory;
-				$subcategory = $subcategory_new;
-			} // if
+				/****************************************************************/
+				// Set the category
+				$categories = get_the_category();
 
-			/********************************************************************/
-			// Set the title values.
-			$title = get_the_title();
-			$title_attribute = the_title_attribute(array('echo' => false));
+				/****************************************************************/
+				// Process the categories to set the parent value as the key.
+				foreach ($categories as $key => $value) {
+					$new_key = $value->parent;
+					$categories[$new_key] = $value;
+					unset($categories[$key]);
+				} // foreach
+
+				/****************************************************************/
+				// Set the subcategory slug.
+				$subcategory_slug = $post_name;
+				if (count($categories) > 0) {
+					$subcategory = array_shift($categories);
+					$subcategory_slug = $subcategory->slug;
+					$subcategory_new = array();
+					$subcategory_new[$subcategory_slug] = $subcategory;
+					$subcategory = $subcategory_new;
+				} // if
+
+				/****************************************************************/
+				// Set the title values.
+				$title = get_the_title();
+				$title_attribute = the_title_attribute(array('echo' => false));
+
+				/****************************************************************/
+				// Set the temp array values.
+				$temp = array();
+				$temp['permalink'] = get_the_permalink();
+				$temp['post_name'] = $post_name;
+				$temp['title'] = $title;
+				$temp['title_attribute'] = $title_attribute;
+				$temp['excerpt'] = get_the_excerpt();
+				$temp['date'] = get_the_time('F j, Y');
+				$temp['time'] = get_the_time('g:i:sa');
+
+				/****************************************************************/
+				// Set the content array values.
+				$content[$subcategory_slug][$post_name_slug] = $temp;
+
+			} // while
+		} // if
+		else {
 
 			/********************************************************************/
 			// Set the temp array values.
 			$temp = array();
-			$temp['permalink'] = get_the_permalink();
-			$temp['post_name'] = $post_name;
-			$temp['title'] = $title;
-			$temp['title_attribute'] = $title_attribute;
-			$temp['excerpt'] = get_the_excerpt();
-			$temp['date'] = get_the_time('F j, Y');
-			$temp['time'] = get_the_time('g:i:sa');
+			$temp['permalink'] = null;
+			$temp['post_name'] = null;
+			$temp['title'] = null;
+			$temp['title_attribute'] = null;
+			$temp['excerpt'] = 'Nothing was found.';
+			$temp['date'] = null;
+			$temp['time'] = null;
 
 			/********************************************************************/
 			// Set the content array values.
-			$content[$subcategory_slug][$post_name_slug] = $temp;
+			$content[$subcategory_slug][] = $temp;
 
-		} // while
-	} // if
-	// else {
+		} // else
 
-	// 	/************************************************************************/
-	// 	// Set the temp array values.
-	// 	$temp = array();
-	// 	$temp['permalink'] = null;
-	// 	$temp['post_name'] = null;
-	// 	$temp['title'] = null;
-	// 	$temp['title_attribute'] = null;
-	// 	$temp['excerpt'] = 'Nothing was found.';
-	// 	$temp['date'] = null;
-	// 	$temp['time'] = null;
-
-	// 	/************************************************************************/
-	// 	// Set the content array values.
-	// 	$content[$subcategory_slug][] = $temp;
-
-	// } // else
+	} // foreach
 
 	/****************************************************************************/
 	// Catgeory loop end.
