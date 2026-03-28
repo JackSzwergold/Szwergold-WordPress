@@ -169,20 +169,20 @@
 
 		/************************************************************************/
 		// 2026-03-25: Sort posts by title instead of date.
-		$custom_criteria = $wp_query->query_vars;
-		$custom_criteria['category__in'] = $category_data->cat_ID;
-		$custom_criteria['post_type'] = 'post';	
+		$query_vars = $wp_query->query_vars;
+		$query_vars['category__in'] = $category_data->cat_ID;
+		$query_vars['post_type'] = 'post';	
 		if (in_array($page_category_slug, array('tech'))) {
-			$custom_criteria['orderby']['title'] = 'ASC';
+			$query_vars['orderby']['title'] = 'ASC';
 		} // if
 		else {
-			$custom_criteria['orderby']['modified'] = 'DESC';
-			$custom_criteria['orderby']['title'] = 'ASC';
+			$query_vars['orderby']['modified'] = 'DESC';
+			$query_vars['orderby']['title'] = 'ASC';
 		} // else
 
 		/************************************************************************/
 		// Run 'query_posts' and retrieve the items.
-		query_posts($custom_criteria);			
+		query_posts($query_vars);			
 
 		/************************************************************************/
 		// If there are posts, do something with them.
