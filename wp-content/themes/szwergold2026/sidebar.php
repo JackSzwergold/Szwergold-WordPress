@@ -40,23 +40,23 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 
 				/******************************************************************************/
 				// Set the category array options.
-				$category_settings = array();
-				$category_settings['taxonomy'] = 'category';
-				$category_settings['type'] = 'post';
-				$category_settings['child_of'] = false;
-				$category_settings['parent'] = '';
-				$category_settings['orderby'] = 'name';
-				$category_settings['order'] = 'ASC';
-				$category_settings['hide_empty'] = true;
-				$category_settings['hierarchical'] = true;
-				$category_settings['exclude'] = '';
-				$category_settings['include'] = '';
-				$category_settings['number'] = false;
-				$category_settings['pad_counts'] = false;
+				$category_args = array();
+				$category_args['taxonomy'] = 'category';
+				$category_args['type'] = 'post';
+				$category_args['child_of'] = false;
+				$category_args['parent'] = '';
+				$category_args['orderby'] = 'name';
+				$category_args['order'] = 'ASC';
+				$category_args['hide_empty'] = true;
+				$category_args['hierarchical'] = true;
+				$category_args['exclude'] = '';
+				$category_args['include'] = '';
+				$category_args['number'] = false;
+				$category_args['pad_counts'] = false;
 
 				/******************************************************************************/
 				// Get the categories.
-				$categories = get_categories($category_settings);
+				$categories = get_categories($category_args);
 
 				/******************************************************************************/
 				// If we have categories, do something.
