@@ -82,8 +82,14 @@
 	/******************************************************************************/
 	// Get the current selected parent category ID and slug.
 	$page_category_parent = get_category(get_query_var('cat'));
-	$page_category_id = $page_category_parent->cat_ID;
-	$page_category_slug = $page_category_parent->slug;
+	$page_category_id = null;
+	$page_category_slug = null;
+	if (isset($page_category_parent->cat_ID)) {
+		$page_category_id = $page_category_parent->cat_ID;
+	} // if
+	if (isset($page_category_parent->cat_ID)) {
+		$page_category_slug = $page_category_parent->slug;
+	} // if
 	if (!empty($page_category_parent->parent)) {
 		$page_category_parent = get_category($page_category_parent->parent);
 		if (empty($page_category_parent->parent)) {
@@ -171,7 +177,9 @@
 		/**************************************************************************/
 		// Set the query variables.
 		$query_vars = $wp_query->query_vars;
-		$query_vars['category__in'] = $category_data->cat_ID;
+		if (isset($category_data->cat_ID)) {
+			$query_vars['category__in'] = $category_data->cat_ID;
+		} // if
 		$query_vars['post_type'] = 'post';	
 		if (in_array($page_category_slug, array('tech'))) {
 			$query_vars['orderby']['title'] = 'ASC';
