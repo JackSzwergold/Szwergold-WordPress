@@ -31,13 +31,17 @@
 			/**********************************************************************/
 			// Get the current selected category slug.
 			$page_category = get_the_category();
-			$page_category_shifted = array_shift($page_category);
-			$page_category_slug = $page_category_shifted->slug;
+			$page_category_shifted = null;
+			$page_category_slug = null;
+			if (!empty($page_category )) {
+				$page_category_shifted = array_shift($page_category);
+				$page_category_slug = $page_category_shifted->slug;				
+			} // if
 
 			/**********************************************************************/
 			// Set the text CSS.
 			$text_css = null;
-			if (in_array($page_category_slug, array('notes'))) {
+			if (!empty($page_category_slug) && in_array($page_category_slug, array('notes'))) {
 				$text_css = 'display-6';
 				// $text_css = 'h5';
 			} // if
