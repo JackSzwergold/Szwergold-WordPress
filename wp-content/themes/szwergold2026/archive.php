@@ -117,6 +117,11 @@
 	// Set the category
 	$page_category_child = get_the_category();
 
+	$archive_link = get_post_type_archive_link('notes');
+	echo '<pre>';
+	print_r($archive_link);
+	echo '</pre>';
+
 	/******************************************************************************/
 	// Get the current selected child category ID and slug.
 	$page_subcategory_id = null;
@@ -138,6 +143,7 @@
 		$exclude = $page_category_id;
 		$include = $page_subcategory_id;
 	} // if
+
 
 	/******************************************************************************/
 	// Set the category array options.
