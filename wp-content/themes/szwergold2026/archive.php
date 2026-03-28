@@ -150,7 +150,6 @@
 		$include = $page_subcategory_id;
 	} // if
 
-
 	/******************************************************************************/
 	// Set the category array options.
 	$category_args = array();
@@ -213,7 +212,7 @@
 
 		/**************************************************************************/
 		// Set the query variables and merge the content.
-		$query_vars['orderby']['modified'] = 'DESC';
+		$query_vars['orderby']['date'] = 'DESC';
 		$query_vars['orderby']['title'] = 'ASC';
 		$content = array_replace($content, render_archive_items($query_vars));
 
