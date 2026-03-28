@@ -170,13 +170,16 @@
 	/****************************************************************************/
 
 	/****************************************************************************/
+	// Set the globals.
+	global $wp_query;
+
+	/****************************************************************************/
 	// Init variables.
 	$content = array();
 	$subcategory_slug = 'default';
 
 	/****************************************************************************/
 	// 2026-03-25: Sort posts by title instead of date.
-	global $wp_query;
 	$custom_criteria = $wp_query->query_vars;
 	$custom_criteria['category__in'] = $page_category_id;
 	$custom_criteria['post_type'] = 'post';	
@@ -190,8 +193,7 @@
 
 	/****************************************************************************/
 	// Run 'query_posts' and retrieve the items.
-	$merged_criteria = array_merge($wp_query->query_vars, $custom_criteria);
-	query_posts($merged_criteria);			
+	query_posts($custom_criteria);			
 
 	/****************************************************************************/
 	// If there are posts, do something with them.
