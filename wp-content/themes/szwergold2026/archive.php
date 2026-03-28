@@ -163,6 +163,8 @@
 	$content = array();
 	$subcategory_slug = 'default';
 
+	/****************************************************************************/
+	// Roll through the category details.
 	foreach ($category_details as $category_slug => $category_data) {
 
 		/************************************************************************/
