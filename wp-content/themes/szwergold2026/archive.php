@@ -143,18 +143,16 @@
 
 	/******************************************************************************/
 	// Get the categories.
-	$categories_test = get_categories($category_args);
+	$categories = get_categories($category_args);
 
 	/******************************************************************************/
 	// If we have categories, do something.
 	$category_ids = array();
 	$category_details = array();
-	if (!empty($categories_test)) {
-		foreach ($categories_test as $key => $value) {
-			$category_ids[$value->slug] = $value->cat_ID;
-			$category_details[$value->slug] = $value;
-		} // foreach
-	} // if
+	foreach ($categories as $key => $value) {
+		$category_ids[$value->slug] = $value->cat_ID;
+		$category_details[$value->slug] = $value;
+	} // foreach
 
 	/****************************************************************************/
 	// Roll through the category details.
@@ -269,10 +267,6 @@
 
 	} // foreach
 
-	// echo '<pre>';
-	// print_r($content);
-	// echo '</pre>';
-
 	/****************************************************************************/
 	// Init variables.
 	$final = array();
@@ -355,7 +349,7 @@
 		// Set a category name and category link.
 		$category_name = null;
 		$category_link = null;
-		if ((count($category_details) > 1) && isset($category_details[$parent_key])) {
+		if ((count($content) > 1) && isset($category_details[$parent_key])) {
 			$category_name = $category_details[$parent_key]->name;
 			$category_link = get_category_link($category_details[$parent_key]->term_id);
 		} // if
