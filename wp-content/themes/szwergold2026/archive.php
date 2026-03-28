@@ -12,11 +12,16 @@
 	// Header begins.
 	echo '<div class="h2 text-windsorpro-bold p-0 m-0 pb-1 mb-2 border-bottom border-dark">';
 	echo 'Posts for ';
-	if (is_category()) {
+	if (is_archive()) {
 		echo '&ldquo;';
 		single_cat_title();
 		echo '.&rdquo;';
 	} // if
+	else if (is_category()) {
+		echo '&ldquo;';
+		single_cat_title();
+		echo '.&rdquo;';
+	}  // else if
 	else if (is_tag()) {
 		echo '&ldquo;';
 		echo single_tag_title();
