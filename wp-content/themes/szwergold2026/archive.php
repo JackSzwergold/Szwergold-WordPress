@@ -172,7 +172,7 @@
 
 	/******************************************************************************/
 	// Roll through the category details.
-	foreach ($category_details as $category_slug => $category_data) {
+	// foreach ($category_details as $category_slug => $category_data) {
 
 		/**************************************************************************/
 		// Set the query variables.
@@ -251,7 +251,7 @@
 			} // while
 		} // if
 
-	} // foreach
+	// } // foreach
 
 	/******************************************************************************/
 	// Init variables.
