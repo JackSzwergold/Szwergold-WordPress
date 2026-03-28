@@ -147,12 +147,12 @@
 
 	/******************************************************************************/
 	// If we have categories, do something.
-	$category_details = array();
 	$category_ids = array();
+	$category_details = array();
 	if (!empty($categories_test)) {
 		foreach ($categories_test as $key => $value) {
-			$category_details[$value->slug] = $value;
 			$category_ids[$value->slug] = $value->cat_ID;
+			$category_details[$value->slug] = $value;
 		} // foreach
 	} // if
 
@@ -163,8 +163,12 @@
 	/****************************************************************************/
 	// Init variables.
 	$content = array();
-	$subcategory_slug = 'default';
+	// $subcategory_slug = 'default';
 	$category_ids_numeric = array_values($category_ids);
+
+	/****************************************************************************/
+	// Roll through the category details.
+	$category_details['default'] = $page_category_parent;
 
 	/****************************************************************************/
 	// Roll through the category details.
@@ -174,9 +178,9 @@
 		// Set the query variables.
 		$query_vars = $wp_query->query_vars;
 		$query_vars['category__in'] = $category_data->cat_ID;
-		// $query_vars['category__not_in'] = $category_ids_numeric;
 		$query_vars['post_type'] = 'post';	
 		if (in_array($page_category_slug, array('tech'))) {
+			// $query_vars['category__not_in'] = $category_ids_numeric;
 			$query_vars['orderby']['title'] = 'ASC';
 		} // if
 		else {
