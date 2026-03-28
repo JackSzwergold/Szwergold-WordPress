@@ -14,7 +14,7 @@
 	echo 'Posts for ';
 	if (is_archive()) {
 		echo '&ldquo;';
-		single_cat_title();
+		echo get_the_archive_title();
 		echo '.&rdquo;';
 	} // if
 	else if (is_category()) {
@@ -44,10 +44,13 @@
 	/******************************************************************************/
 	// Header ends
 	echo '<p class="text-windsorpro-regular p-0 m-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
-	$category_description = category_description();
-	if (!empty($category_description)) {
-		echo strip_tags($category_description);
+	if ($page_description = get_the_archive_description()) {
+		echo strip_tags($page_description);
 	} // if
+
+	else if ($page_description = category_description()) {
+		echo strip_tags($page_description);
+	} // else if
 	else {
 		echo 'You are currently browsing posts about <strong>';
 		if (is_category()) {
