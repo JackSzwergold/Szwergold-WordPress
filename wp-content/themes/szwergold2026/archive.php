@@ -184,10 +184,6 @@
 	} // foreach
 
 	/******************************************************************************/
-	// Roll through the category details.
-	$category_details['default'] = $page_category_parent;
-
-	/******************************************************************************/
 	// Set the globals.
 	global $wp_query;
 
@@ -266,7 +262,6 @@
 				foreach ($categories as $key => $value) {
 					$new_key = $value->parent;
 					$categories[$new_key] = $value;
-					unset($categories[$key]);
 				} // foreach
 
 				/******************************************************************/
