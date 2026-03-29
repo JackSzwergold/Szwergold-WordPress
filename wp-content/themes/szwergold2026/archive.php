@@ -203,6 +203,7 @@
 		/**************************************************************************/
 		// Set the query variables, merge the content and roll through the category details.
 		foreach ($category_details as $category_slug => $category_data) {
+			// echo $category_slug . ' | ' . $category_data->cat_ID . '<br>';
 			if (!isset($page_category_parent->errors['invalid_term'])) {
 				$query_vars['category__in'] = $category_data->cat_ID;
 			} // if
