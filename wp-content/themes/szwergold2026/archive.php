@@ -205,7 +205,7 @@
 			} // if
 			$query_vars['orderby']['title'] = 'ASC';
 			$archive_content = render_archive_items($query_vars);
-			$content = array_replace($content, $archive_content);
+			$content[$category_slug] = $archive_content[$category_slug];
 		} // foreach
 
 	} // if
@@ -397,7 +397,7 @@
 		$category_block = implode('', $temp);
 		if (!empty($category_name)) {
 			$category_block  =
-			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark bg-warning">'
+			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark">'
 				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
 				. '<a href="' . $category_link . '">'
 				. $category_name
