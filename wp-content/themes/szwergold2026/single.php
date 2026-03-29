@@ -42,8 +42,7 @@
 			// Set the text CSS.
 			$text_css = null;
 			if (!empty($page_category_slug) && in_array($page_category_slug, array('notes'))) {
-				$text_css = 'display-6';
-				// $text_css = 'h5';
+				$text_css = 'fs-3';
 			} // if
 
 			/**********************************************************************/
