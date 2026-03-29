@@ -90,6 +90,12 @@
 	/******************************************************************************/
 	// Get the current selected parent category ID and slug.
 	$page_category_parent = get_category(get_query_var('cat'));
+
+	// echo '<pre>';
+	// echo $post_type . PHP_EOL;
+	// print_r($page_category_parent->errors['invalid_term']);
+	// echo '</pre>';
+
 	$page_category_id = null;
 	$page_category_slug = null;
 	if (isset($page_category_parent->cat_ID)) {
@@ -181,11 +187,6 @@
 	// Roll through the category details.
 	$category_details['default'] = $page_category_parent;
 
-	// echo '<pre>';
-	// print_r($post_type_data);
-	// print_r($post_type);
-	// echo '</pre>';
-
 	/******************************************************************************/
 	// Set the globals.
 	global $wp_query;
@@ -202,7 +203,9 @@
 		/**************************************************************************/
 		// Set the query variables, merge the content and roll through the category details.
 		foreach ($category_details as $category_slug => $category_data) {
-			$query_vars['category__in'] = $category_data->cat_ID;
+			if (!isset($page_category_parent->errors['invalid_term'])) {
+				$query_vars['category__in'] = $category_data->cat_ID;
+			} // if
 			$query_vars['orderby']['title'] = 'ASC';
 			$content = array_replace($content, render_archive_items($query_vars));
 		} // foreach
