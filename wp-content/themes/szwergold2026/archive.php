@@ -205,7 +205,9 @@
 			} // if
 			$query_vars['orderby']['title'] = 'ASC';
 			$archive_content = render_archive_items($query_vars);
-			$content[$category_slug] = $archive_content[$category_slug];
+			if (isset($archive_content[$category_slug])) {
+				$content[$category_slug] = $archive_content[$category_slug];
+			} // if
 		} // foreach
 
 	} // if
