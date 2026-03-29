@@ -207,7 +207,8 @@
 				$query_vars['category__in'] = $category_data->cat_ID;
 			} // if
 			$query_vars['orderby']['title'] = 'ASC';
-			$content = array_replace($content, render_archive_items($query_vars));
+			$archive_content = render_archive_items($query_vars);
+			$content = array_replace($content, $archive_content);
 		} // foreach
 
 	} // if
@@ -217,7 +218,8 @@
 		// Set the query variables and merge the content.
 		$query_vars['orderby']['date'] = 'DESC';
 		$query_vars['orderby']['title'] = 'ASC';
-		$content = array_replace($content, render_archive_items($query_vars));
+		$archive_content = render_archive_items($query_vars);
+		$content = array_replace($content, $archive_content);
 
 	} // else
 
@@ -303,7 +305,6 @@
 
 	} // render_archive_items
 
-
 	/******************************************************************************/
 	/******************************************************************************/
 	/******************************************************************************/
@@ -311,10 +312,6 @@
 	/******************************************************************************/
 	// Init variables.
 	$final = array();
-
-	echo '<pre>';
-	// print_r(array_keys($content));
-	echo '</pre>';
 
 	/******************************************************************************/
 	// Display the parent content.
