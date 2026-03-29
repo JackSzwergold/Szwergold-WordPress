@@ -73,6 +73,13 @@ add_post_type_support('page', 'excerpt');
 add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 
 /********************************************************************************/
+// 2026-03-28: Remove the post_type from 'Breadcrumb NavXT' stuff. 
+// add_filter('bcn_add_post_type_arg', 'my_add_post_type_arg_filt', 10, 3);
+// function my_add_post_type_arg_filt($add_query_arg, $type, $taxonomy) {
+// 	return false;
+// }
+
+/********************************************************************************/
 // 2026-03-20: Adding widgets.
 function szwergold_widgets_init() {
 	register_sidebar(array(
