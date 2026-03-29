@@ -123,16 +123,16 @@
 	// Set the category.
 	$page_category_child = get_the_category();
 
-	/******************************************************************************/
-	// Get the post type.
-	$post_type = get_post_type();
+	// /******************************************************************************/
+	// // Get the post type.
+	// $post_type = get_post_type();
 
-	/******************************************************************************/
-	// Get the post type data.
-	$post_type_data = null;
-	if (!in_array($post_type, array('post'))) {
-	    $post_type_data = get_post_type_object( $post_type );
-	} // if
+	// /******************************************************************************/
+	// // Get the post type data.
+	// $post_type_data = null;
+	// if (!in_array($post_type, array('post'))) {
+	//     $post_type_data = get_post_type_object( $post_type );
+	// } // if
 
 	/******************************************************************************/
 	// Get the current selected child category ID and slug.
