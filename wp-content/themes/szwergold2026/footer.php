@@ -187,26 +187,26 @@
                         $child_li_items_array = array();
                         foreach ($child  as $key => $value) {
 
-                          /**********************************************************************/
+                          /************************************************************************/
                           // Set the parent value.
                           $parent = isset($value['parent']) ? $value['parent'] : array();
 
-                          /**********************************************************************/
-                          // The child stuff.
-                          $child_stuff = null;
-                          if (isset($parent['link']) && !empty($parent['link'])) {
-                            $child_stuff .= 
-                                '<a href="' . $parent['link']  .'" class="text-decoration-none text-dark">'
-                              . (isset($parent['name']) ? $parent['name'] : null)
+                          /************************************************************************/
+                          // Set the parent stuff.
+                          $child_name = (isset($parent['name']) ? $parent['name'] : null);
+                          $child_count = (isset($parent['count']) && !empty($parent['count']) ? ' (' . $parent['count'] . ')' : null);
+                          $child_link = (isset($parent['link']) ? $parent['link'] : null);
+                          $child_stuff = $child_name;
+
+                          /************************************************************************/
+                          // Set the parent stuff.
+                          if (!empty($child_link)) {
+                            $child_stuff = 
+                                '<a href="' . $child_link  .'" class="text-decoration-none text-dark">'
+                              . $child_name
+                              . ($show_counts && !empty($child_count) ? $child_count : null)
                               . '</a>'
-                              ; 
-                          } // if
-                          else {
-                            $child_stuff .= isset($parent['name']) ? $parent['name'] : null;
-                          } // else
-                          if ($show_counts && (isset($parent['count']) && $parent['count'] > 0)) {
-                            $child_stuff .= ' ';
-                            $child_stuff .= '(' . $parent['count'] . ')';                       
+                              ;  
                           } // if
 
                           /**********************************************************************/
