@@ -11,7 +11,7 @@
                     <?php
 
                       /******************************************************************************/
-                      // Set the category array options.
+                      // Set the category arguments.
                       $category_args = array();
                       $category_args['taxonomy'] = 'category';
                       $category_args['type'] = 'post';
@@ -220,18 +220,26 @@
                     <div class="tab-pane" id="nav-archives" role="tabpanel" aria-labelledby="nav-archives-tab">
                     <?php
 
-                      $archives_settings = array();
-                      $archives_settings['format'] = 'html';
-                      $archives_settings['show_post_count'] = false;
-                      $archives_settings['echo'] = false;
-                      $archives_settings['type'] = 'monthly';
-                      // $archives_settings['type'] = 'yearly';
-                      // $archives_settings['type'] = 'daily';
-                      // $archives_settings['year'] = 2024;
-                      // $archives_settings['monthnum'] = 07;
-                      // $archives_settings['day'] = 04;
-                      // $archives_settings['w'] = 01;
-                      $archives = wp_get_archives($archives_settings);
+                      /******************************************************************************/
+                      // Set the category arguments.
+                      $archive_args = array();
+                      $archive_args['format'] = 'html';
+                      $archive_args['show_post_count'] = false;
+                      $archive_args['echo'] = false;
+                      $archive_args['type'] = 'monthly';
+                      // $archive_args['type'] = 'yearly';
+                      // $archive_args['type'] = 'daily';
+                      // $archive_args['year'] = 2024;
+                      // $archive_args['monthnum'] = 07;
+                      // $archive_args['day'] = 04;
+                      // $archive_args['w'] = 01;
+
+                      /******************************************************************************/
+                      // Get the archives.
+                      $archives = wp_get_archives($archive_args);
+
+                      /******************************************************************************/
+                      // Do stuff with the archives content.
                       $archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">', $archives);
                       $archives = str_replace('<a href=', '<a class="text-decoration-none text-dark" href=', $archives);
 
