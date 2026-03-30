@@ -220,34 +220,34 @@
                     <div class="tab-pane" id="nav-archives" role="tabpanel" aria-labelledby="nav-archives-tab">
                     <?php
 
-                      /******************************************************************************/
-                      // Set the category arguments.
-                      $archive_args = array();
-                      $archive_args['format'] = 'html';
-                      $archive_args['show_post_count'] = false;
-                      $archive_args['echo'] = false;
-                      $archive_args['type'] = 'monthly';
-                      // $archive_args['type'] = 'yearly';
-                      // $archive_args['type'] = 'daily';
-                      // $archive_args['year'] = 2024;
-                      // $archive_args['monthnum'] = 07;
-                      // $archive_args['day'] = 04;
-                      // $archive_args['w'] = 01;
+                      // /******************************************************************************/
+                      // // Set the category arguments.
+                      // $archive_args = array();
+                      // $archive_args['format'] = 'html';
+                      // $archive_args['show_post_count'] = false;
+                      // $archive_args['echo'] = false;
+                      // $archive_args['type'] = 'monthly';
+                      // // $archive_args['type'] = 'yearly';
+                      // // $archive_args['type'] = 'daily';
+                      // // $archive_args['year'] = 2024;
+                      // // $archive_args['monthnum'] = 07;
+                      // // $archive_args['day'] = 04;
+                      // // $archive_args['w'] = 01;
 
-                      /******************************************************************************/
-                      // Get the archives.
-                      $archives = wp_get_archives($archive_args);
+                      // /******************************************************************************/
+                      // // Get the archives.
+                      // $archives = wp_get_archives($archive_args);
 
-                      /******************************************************************************/
-                      // Do stuff with the archives content.
-                      $archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">', $archives);
-                      $archives = str_replace('<a href=', '<a class="text-decoration-none text-dark" href=', $archives);
+                      // /******************************************************************************/
+                      // // Do stuff with the archives content.
+                      // $archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">', $archives);
+                      // $archives = str_replace('<a href=', '<a class="text-decoration-none text-dark" href=', $archives);
 
-                      /******************************************************************************/
-                      // Wrap it all up in UL tags.
-                      echo '<ul id="archives" class="archives_sidebar small list-group-off p-0 m-0 rounded-0">';
-                      echo $archives;
-                      echo '</ul>';
+                      // /******************************************************************************/
+                      // // Wrap it all up in UL tags.
+                      // echo '<ul id="archives" class="archives_sidebar small list-group-off p-0 m-0 rounded-0">';
+                      // echo $archives;
+                      // echo '</ul>';
 
                     ?>
                     </div>
