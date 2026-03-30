@@ -162,7 +162,7 @@
                         if (isset($parent['link']) && !empty($parent['link'])) {
                           $parent_stuff .= 
                               '<a href="' . $parent['link']  .'" class="text-decoration-none text-dark">'
-                            . isset($parent['name']) ? $parent['name'] : null
+                            . (isset($parent['name']) ? $parent['name'] : null)
                             . '</a>'
                             ;  
                         } // if
@@ -188,7 +188,7 @@
                           if (isset($parent['link']) && !empty($parent['link'])) {
                             $child_stuff .= 
                                 '<a href="' . $parent['link']  .'" class="text-decoration-none text-dark">'
-                              . isset($parent['name']) ? $parent['name'] : null
+                              . (isset($parent['name']) ? $parent['name'] : null)
                               . '</a>'
                               ; 
                           } // if
