@@ -12,11 +12,16 @@
 	// Header begins.
 	echo '<div class="h2 text-windsorpro-bold p-0 m-0 pb-1 mb-2 border-bottom border-dark">';
 	echo 'Posts for ';
-	if (is_category()) {
+	if (is_archive()) {
+		echo '&ldquo;';
+		echo get_the_archive_title();
+		echo '.&rdquo;';
+	} // if
+	else if (is_category()) {
 		echo '&ldquo;';
 		single_cat_title();
 		echo '.&rdquo;';
-	} // if
+	}  // else if
 	else if (is_tag()) {
 		echo '&ldquo;';
 		echo single_tag_title();
@@ -39,10 +44,13 @@
 	/******************************************************************************/
 	// Header ends
 	echo '<p class="text-windsorpro-regular p-0 m-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
-	$category_description = category_description();
-	if (!empty($category_description)) {
-		echo strip_tags($category_description);
+	if ($page_description = get_the_archive_description()) {
+		echo strip_tags($page_description);
 	} // if
+
+	else if ($page_description = category_description()) {
+		echo strip_tags($page_description);
+	} // else if
 	else {
 		echo 'You are currently browsing posts about <strong>';
 		if (is_category()) {
@@ -82,6 +90,12 @@
 	/******************************************************************************/
 	// Get the current selected parent category ID and slug.
 	$page_category_parent = get_category(get_query_var('cat'));
+
+	// echo '<pre>';
+	// echo $post_type . PHP_EOL;
+	// print_r($page_category_parent->errors['invalid_term']);
+	// echo '</pre>';
+
 	$page_category_id = null;
 	$page_category_slug = null;
 	if (isset($page_category_parent->cat_ID)) {
@@ -106,8 +120,19 @@
 	} // if
 
 	/******************************************************************************/
-	// Set the category
+	// Set the category.
 	$page_category_child = get_the_category();
+
+	// /******************************************************************************/
+	// // Get the post type.
+	// $post_type = get_post_type();
+
+	// /******************************************************************************/
+	// // Get the post type data.
+	// $post_type_data = null;
+	// if (!in_array($post_type, array('post'))) {
+	//     $post_type_data = get_post_type_object( $post_type );
+	// } // if
 
 	/******************************************************************************/
 	// Get the current selected child category ID and slug.
@@ -159,10 +184,6 @@
 	} // foreach
 
 	/******************************************************************************/
-	// Roll through the category details.
-	$category_details['default'] = $page_category_parent;
-
-	/******************************************************************************/
 	// Set the globals.
 	global $wp_query;
 
@@ -173,14 +194,20 @@
 
 	/******************************************************************************/
 	// If we are on a 'tech' page, do this.
-	if (in_array($page_category_slug, array('tech'))) {
+	if (in_array($page_category_slug, array('tech')) || in_array($post_type, array('tech'))) {
 
 		/**************************************************************************/
 		// Set the query variables, merge the content and roll through the category details.
 		foreach ($category_details as $category_slug => $category_data) {
-			$query_vars['category__in'] = $category_data->cat_ID;
+			// echo $category_slug . ' | ' . $category_data->cat_ID . '<br>';
+			if (!isset($page_category_parent->errors['invalid_term'])) {
+				$query_vars['category__in'] = $category_data->cat_ID;
+			} // if
 			$query_vars['orderby']['title'] = 'ASC';
-			$content = array_replace($content, render_archive_items($query_vars));
+			$archive_content = render_archive_items($query_vars);
+			if (isset($archive_content[$category_slug])) {
+				$content[$category_slug] = $archive_content[$category_slug];
+			} // if
 		} // foreach
 
 	} // if
@@ -188,9 +215,10 @@
 
 		/**************************************************************************/
 		// Set the query variables and merge the content.
-		$query_vars['orderby']['modified'] = 'DESC';
+		$query_vars['orderby']['date'] = 'DESC';
 		$query_vars['orderby']['title'] = 'ASC';
-		$content = array_replace($content, render_archive_items($query_vars));
+		$archive_content = render_archive_items($query_vars);
+		$content = array_replace($content, $archive_content);
 
 	} // else
 
@@ -236,7 +264,6 @@
 				foreach ($categories as $key => $value) {
 					$new_key = $value->parent;
 					$categories[$new_key] = $value;
-					unset($categories[$key]);
 				} // foreach
 
 				/******************************************************************/
@@ -275,7 +302,6 @@
 		return $ret;
 
 	} // render_archive_items
-
 
 	/******************************************************************************/
 	/******************************************************************************/
