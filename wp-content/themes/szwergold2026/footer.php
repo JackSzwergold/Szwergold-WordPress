@@ -181,9 +181,11 @@
                           // The child stuff.
                           $child_stuff = null;
                           if (isset($parent['link']) && !empty($parent['link'])) {
-                            $child_stuff .= '<a href="' . $parent['link']  .'" class="text-decoration-none text-dark">';
-                            $child_stuff .= isset($parent['name']) ? $parent['name'] : null;
-                            $child_stuff .= '</a>'; 
+                            $child_stuff .= 
+                                '<a href="' . $parent['link']  .'" class="text-decoration-none text-dark">'
+                              . isset($parent['name']) ? $parent['name'] : null
+                              . '</a>'
+                              ; 
                           } // if
                           else {
                             $child_stuff .= isset($parent['name']) ? $parent['name'] : null;
