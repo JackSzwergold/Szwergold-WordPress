@@ -29,6 +29,10 @@
                     <?php
 
                       /******************************************************************************/
+                      // Init variables.
+                      $show_counts = TRUE;
+
+                      /******************************************************************************/
                       // Set the category arguments.
                       $category_args = array();
                       $category_args['taxonomy'] = 'category';
@@ -163,7 +167,7 @@
                         else {
                           $parent_stuff .= isset($parent['name']) ? $parent['name'] : null;
                         } // else
-                        if (FALSE && (isset($parent['count']) && $parent['count'] > 0)) {
+                        if ($show_counts && (isset($parent['count']) && $parent['count'] > 0)) {
                           $parent_stuff .= ' ';
                           $parent_stuff .= '(' . $parent['count'] . ')';                        
                         } // if
@@ -190,7 +194,7 @@
                           else {
                             $child_stuff .= isset($parent['name']) ? $parent['name'] : null;
                           } // else
-                          if (FALSE && (isset($parent['count']) && $parent['count'] > 0)) {
+                          if ($show_counts && (isset($parent['count']) && $parent['count'] > 0)) {
                             $child_stuff .= ' ';
                             $child_stuff .= '(' . $parent['count'] . ')';                       
                           } // if
