@@ -50,17 +50,17 @@
 
                       /******************************************************************************/
                       // Get the categories.
-                      $categories = get_categories($category_args);
+                      $categories_array = get_categories($category_args);
 
                       /******************************************************************************/
                       // If we have categories, do something.
                       $sorted_categories = array();
                       $parent_child_category_map = array();
-                      if (!empty($categories)) {
+                      if (!empty($categories_array)) {
 
                         /**************************************************************************/
                         // Sort the categories.
-                        foreach ($categories as $key => $value) {
+                        foreach ($categories_array as $key => $value) {
                           $sorted_categories[$value->term_id] = (array) $value;
                           $parent_child_category_map[$value->category_parent][$value->term_id] = $value->slug;
                         } // foreach
@@ -236,15 +236,17 @@
 
                       /******************************************************************************/
                       // Wrap it all up in UL tags.
-                      $catergories_output = '<ul class="categories_sidebar small col col-12 list-group-off p-0 m-0 rounded-0">';
-                      foreach ($parent_li_items_array as $key => $value) {
-                        $catergories_output .= implode('', $value);
-                      } // foreach
-                      $catergories_output .= '</ul>';
+                      if (!empty($parent_li_items_array)) {
+                        $catergories = '<ul class="categories_sidebar small col col-12 list-group-off p-0 m-0 rounded-0">';
+                        foreach ($parent_li_items_array as $key => $value) {
+                          $catergories .= implode('', $value);
+                        } // foreach
+                        $catergories .= '</ul>';
+                      } // if
 
                       /******************************************************************************/
                       // Render the archives.
-                      echo $catergories_output;
+                      echo $catergories;
 
                     ?>
                     </div>
