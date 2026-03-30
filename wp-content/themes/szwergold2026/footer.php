@@ -17,7 +17,7 @@
             <div class="col py-3 py-md-4 text-left">
 
               <div class="p-0 m-0 mx-0 rounded-0">
-                <div class="col col-12 p-0 m-0 mb-3 border-0">
+                <div class="categories list-group-item col col-12 m-0 p-0 mb-3 border-0">
                   <nav class="h5 p-0 m-0 mb-2 border-bottom border-dark">
                     <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
                       <button class="nav-link active text-decoration-none text-dark p-0 m-0 px-3 py-1 border border-bottom-0 " id="nav-categories-tab" data-bs-toggle="tab" data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories" aria-selected="true">Categories</button>
