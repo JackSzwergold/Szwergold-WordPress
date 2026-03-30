@@ -173,6 +173,14 @@
                           $parent_stuff .= ' (' . $parent['count'] . ')';                        
                         } // if
 
+                          /**********************************************************************/
+                          // Wrap it all up in LI tags.
+                          $parent_stuff =
+                              '<li class="list-group-item fw-bold fs-7 col col-12 p-0 m-0 border-0">'
+                            . $parent_stuff
+                            . '</li>'
+                            ;
+
                         /**************************************************************************/
                         // The child stuff.
                         $child_li_items_array = array();
@@ -203,7 +211,7 @@
                           /**********************************************************************/
                           // Wrap it all up in LI tags.
                           $child_stuff =
-                              '<li class="list-group-item fw-normal col col-12 p-0 m-0 border-0">'
+                              '<li class="list-group-item fw-regular fs-7 col col-12 p-0 m-0 border-0">'
                             . $child_stuff
                             . '</li>'
                             ;
@@ -217,16 +225,16 @@
                         /**************************************************************************/
                         // Wrap it all up in UL tags.
                         foreach ($child_li_items_array as $key => $value) {
-                          $parent_stuff .= '<ul class="list-group-off p-0 m-0 ms-3 rounded-0">';
-                          $parent_stuff .= implode('', $value);
-                          $parent_stuff .= '</ul>';
+                          $parent_stuff .=
+                              '<ul class="list-group-off p-0 m-0 ms-3 rounded-0">'
+                            . implode('', $value)
+                            . '</ul>'
+                            ;
                         } // foreach
 
                         /**************************************************************************/
                         // Wrap it all up in LI tags. 
-                        $parent_final = '<li class="list-group-item fw-bold col col-12 p-0 m-0 border-0">';
-                        $parent_final .= $parent_stuff;
-                        $parent_final .= '</li>';
+                        $parent_final = $parent_stuff;
 
                         /**************************************************************************/
                         // Set the final parent items array item.
