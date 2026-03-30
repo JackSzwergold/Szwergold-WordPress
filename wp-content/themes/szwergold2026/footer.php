@@ -145,7 +145,7 @@
                         else {
                           $parent_stuff .= isset($parent['name']) ? $parent['name'] : null;
                         } // else
-                        if (TRUE && (isset($parent['count']) && $parent['count'] > 0)) {
+                        if (FALSE && (isset($parent['count']) && $parent['count'] > 0)) {
                           $parent_stuff .= ' ';
                           $parent_stuff .= '(' . $parent['count'] . ')';                        
                         } // if
@@ -170,7 +170,7 @@
                           else {
                             $child_stuff .= isset($parent['name']) ? $parent['name'] : null;
                           } // else
-                          if (TRUE && (isset($parent['count']) && $parent['count'] > 0)) {
+                          if (FALSE && (isset($parent['count']) && $parent['count'] > 0)) {
                             $child_stuff .= ' ';
                             $child_stuff .= '(' . $parent['count'] . ')';                       
                           } // if
