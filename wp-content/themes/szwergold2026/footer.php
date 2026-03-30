@@ -236,11 +236,15 @@
 
                       /******************************************************************************/
                       // Wrap it all up in UL tags.
-                      echo '<ul class="categories_sidebar small col col-12 list-group-off p-0 m-0 rounded-0">';
+                      $catergories_output = '<ul class="categories_sidebar small col col-12 list-group-off p-0 m-0 rounded-0">';
                       foreach ($parent_li_items_array as $key => $value) {
-                        echo implode('', $value);
+                        $catergories_output .= implode('', $value);
                       } // foreach
-                      echo '</ul>';
+                      $catergories_output .= '</ul>';
+
+                      /******************************************************************************/
+                      // Render the archives.
+                      echo $catergories_output;
 
                     ?>
                     </div>
@@ -272,9 +276,11 @@
 
                       /******************************************************************************/
                       // Wrap it all up in UL tags.
-                      echo '<ul id="archives" class="archives_sidebar small list-group-off p-0 m-0 rounded-0">';
+                      $archives = '<ul id="archives" class="archives_sidebar small list-group-off p-0 m-0 rounded-0">' . $archives . '</ul>';
+
+                      /******************************************************************************/
+                      // Render the archives.
                       echo $archives;
-                      echo '</ul>';
 
                     ?>
                     </div>
