@@ -152,13 +152,10 @@
                       foreach ($merged as $key => $value) {
 
                         /**************************************************************************/
-                        // Set the parent and childvalue.
-                        $parent = isset($value['parent']) ? $value['parent'] : array();
-
-                        /**************************************************************************/
                         // Set the parent stuff.
                         $parent_count = (isset($value['parent']['count']) && !empty($value['parent']['count']) ? ' (' . $value['parent']['count'] . ')' : null);
                         $parent_link = (isset($value['parent']['link']) ? $value['parent']['link'] : null);
+                        $parent_slug = (isset($value['parent']['slug']) ? $value['parent']['slug'] : null);
                         $parent_name = (isset($value['parent']['name']) ? $value['parent']['name'] : null);
                         $parent_stuff = $parent_name . ($show_counts && !empty($child_count) ? $child_count : null);
 
@@ -191,6 +188,7 @@
                             // Set the parent stuff.
                             $child_count = (isset($value['parent']['count']) && !empty($value['parent']['count']) ? ' (' . $value['parent']['count'] . ')' : null);
                             $child_link = (isset($value['parent']['link']) ? $value['parent']['link'] : null);
+                            $child_slug = (isset($value['parent']['slug']) ? $value['parent']['slug'] : null);
                             $child_name = (isset($value['parent']['name']) ? $value['parent']['name'] : null);
                             $child_stuff = $child_name . ($show_counts && !empty($child_count) ? $child_count : null);
 
@@ -214,7 +212,7 @@
 
                             /**********************************************************************/
                             // Set the final child items array item.
-                            $child_li_items_array[$value['parent']['slug']][] = $child_stuff;
+                            $child_li_items_array[$parent_slug][] = $child_stuff;
 
                           } // foreach
                         } // if
@@ -235,7 +233,7 @@
 
                         /**************************************************************************/
                         // Set the final parent items array item.
-                        $parent_li_items_array[$parent['slug']][] = $parent_final;
+                        $parent_li_items_array[$parent_slug][] = $parent_final;
 
                       } // foreach
 
