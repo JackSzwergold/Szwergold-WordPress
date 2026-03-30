@@ -1,32 +1,15 @@
+<!-- Sidebar BEGIN -->
 <?php
 
-/************************************************************************************************/
-// Init variables.
-$post_sidebar_1 = null;
+/**********************************************************************************************/
+// If we have a widget sidebar, show the widget sidebar.
+if (is_active_sidebar('widget-sidebar-1')) {
+	echo '<div class="p-0 m-0 mx-0">';
+	dynamic_sidebar('widget-sidebar-1');
+	echo '</div>';
+} // if
 
-/************************************************************************************************/
-// NOTE: Not too sure what this 'dynamic_sidebar' stuff is about.
-if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
-
-	/********************************************************************************************/
-	// Post sidebar 1 stuff.
-	if (is_active_sidebar('post-sidebar-1')) {
-
-          /**************************************************************************************/
-          // Capture the content and set it in a variable so we can tweak the links.
-          ob_start();
-          dynamic_sidebar('post-sidebar-1');
-          $post_sidebar_1 = ob_get_contents();
-          ob_end_clean();
-
-	} // if
-
-?>
-<!-- Sidebar BEGIN -->
-<div class="p-0 m-0 mx-0"><?php
-	echo $post_sidebar_1;
-?></div>
-<div class="p-0 m-0 mx-0 rounded-0">
+?><div class="p-0 m-0 mx-0 rounded-0">
 	<div class="categories list-group-item col col-12 p-0 m-0 mb-3 border-0">
 		<nav class="h5 p-0 m-0 mb-2 border-bottom border-dark">
 			<div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
@@ -274,9 +257,4 @@ if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
 		</div>
 	</div>
 </div>
-<?php
-
-	}
-
-?>
 <!-- Sidebar END -->
