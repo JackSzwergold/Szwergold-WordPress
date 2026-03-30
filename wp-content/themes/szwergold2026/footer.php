@@ -154,13 +154,12 @@
                         /**************************************************************************/
                         // Set the parent and childvalue.
                         $parent = isset($value['parent']) ? $value['parent'] : array();
-                        $child = isset($value['child']) ? $value['child'] : array();
 
                         /**************************************************************************/
                         // Set the parent stuff.
-                        $parent_count = (isset($parent['count']) && !empty($parent['count']) ? ' (' . $parent['count'] . ')' : null);
-                        $parent_link = (isset($parent['link']) ? $parent['link'] : null);
-                        $parent_name = (isset($parent['name']) ? $parent['name'] : null);
+                        $parent_count = (isset($value['parent']['count']) && !empty($value['parent']['count']) ? ' (' . $value['parent']['count'] . ')' : null);
+                        $parent_link = (isset($value['parent']['link']) ? $value['parent']['link'] : null);
+                        $parent_name = (isset($value['parent']['name']) ? $value['parent']['name'] : null);
                         $parent_stuff = $parent_name . ($show_counts && !empty($child_count) ? $child_count : null);
 
                         /**************************************************************************/
@@ -185,42 +184,40 @@
                         /**************************************************************************/
                         // The child stuff.
                         $child_li_items_array = array();
-                        foreach ($child  as $key => $value) {
+                        if (isset($value['child'])) {
+                          foreach ($value['child'] as $key => $value) {
 
-                          /************************************************************************/
-                          // Set the parent value.
-                          $parent = isset($value['parent']) ? $value['parent'] : array();
+                            /************************************************************************/
+                            // Set the parent stuff.
+                            $child_count = (isset($value['parent']['count']) && !empty($value['parent']['count']) ? ' (' . $value['parent']['count'] . ')' : null);
+                            $child_link = (isset($value['parent']['link']) ? $value['parent']['link'] : null);
+                            $child_name = (isset($value['parent']['name']) ? $value['parent']['name'] : null);
+                            $child_stuff = $child_name . ($show_counts && !empty($child_count) ? $child_count : null);
 
-                          /************************************************************************/
-                          // Set the parent stuff.
-                          $child_count = (isset($parent['count']) && !empty($parent['count']) ? ' (' . $parent['count'] . ')' : null);
-                          $child_link = (isset($parent['link']) ? $parent['link'] : null);
-                          $child_name = (isset($parent['name']) ? $parent['name'] : null);
-                          $child_stuff = $child_name . ($show_counts && !empty($child_count) ? $child_count : null);
+                            /************************************************************************/
+                            // Set the parent stuff.
+                            if (!empty($child_link)) {
+                              $child_stuff = 
+                                  '<a href="' . $child_link  .'" class="text-decoration-none text-dark">'
+                                . $child_stuff
+                                . '</a>'
+                                ;  
+                            } // if
 
-                          /************************************************************************/
-                          // Set the parent stuff.
-                          if (!empty($child_link)) {
-                            $child_stuff = 
-                                '<a href="' . $child_link  .'" class="text-decoration-none text-dark">'
+                            /**********************************************************************/
+                            // Wrap it all up in LI tags.
+                            $child_stuff =
+                                '<li class="list-group-item fw-regular fs-7 col col-12 p-0 m-0 border-0">'
                               . $child_stuff
-                              . '</a>'
-                              ;  
-                          } // if
+                              . '</li>'
+                              ;
 
-                          /**********************************************************************/
-                          // Wrap it all up in LI tags.
-                          $child_stuff =
-                              '<li class="list-group-item fw-regular fs-7 col col-12 p-0 m-0 border-0">'
-                            . $child_stuff
-                            . '</li>'
-                            ;
+                            /**********************************************************************/
+                            // Set the final child items array item.
+                            $child_li_items_array[$value['parent']['slug']][] = $child_stuff;
 
-                          /**********************************************************************/
-                          // Set the final child items array item.
-                          $child_li_items_array[$parent['slug']][] = $child_stuff;
-
-                        } // foreach
+                          } // foreach
+                        } // if
 
                         /**************************************************************************/
                         // Wrap it all up in UL tags.
