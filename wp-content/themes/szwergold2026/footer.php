@@ -173,13 +173,13 @@
                           $parent_stuff .= ' (' . $parent['count'] . ')';                        
                         } // if
 
-                          /**********************************************************************/
-                          // Wrap it all up in LI tags.
-                          $parent_stuff =
-                              '<li class="list-group-item fw-bold fs-7 col col-12 p-0 m-0 border-0">'
-                            . $parent_stuff
-                            . '</li>'
-                            ;
+                        /*************************************************************************/
+                        // Wrap it all up in LI tags.
+                        $parent_stuff =
+                            '<li class="list-group-item fw-bold fs-7 col col-12 p-0 m-0 border-0">'
+                          . $parent_stuff
+                          . '</li>'
+                          ;
 
                         /**************************************************************************/
                         // The child stuff.
