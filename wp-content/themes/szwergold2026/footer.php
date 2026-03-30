@@ -202,7 +202,7 @@
 
                           /**********************************************************************/
                           // Wrap it all up in LI tags.
-                          $child_final =
+                          $child_stuff =
                               '<li class="list-group-item fw-normal col col-12 p-0 m-0 border-0">'
                             . $child_stuff
                             . '</li>'
@@ -210,7 +210,7 @@
 
                           /**********************************************************************/
                           // Set the final child items array item.
-                          $child_li_items_array[$parent['slug']][] = $child_final;
+                          $child_li_items_array[$parent['slug']][] = $child_stuff;
 
                         } // foreach
 
