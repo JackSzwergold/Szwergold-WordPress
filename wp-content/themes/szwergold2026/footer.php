@@ -173,7 +173,7 @@
                         /*************************************************************************/
                         // Wrap it all up in LI tags.
                         $parent_stuff =
-                            '<li class="list-group-item fw-bold fs-7 col col-12 p-0 m-0 border-0">'
+                            '<li class="list-group-item fw-bold col col-12 p-0 m-0 border-0">'
                           . $parent_stuff
                           . '</li>'
                           ;
@@ -205,7 +205,7 @@
                             /**********************************************************************/
                             // Wrap it all up in LI tags.
                             $child_stuff =
-                                '<li class="list-group-item fw-regular fs-7 col col-12 p-0 m-0 border-0">'
+                                '<li class="list-group-item fw-regular col col-12 p-0 m-0 border-0">'
                               . $child_stuff
                               . '</li>'
                               ;
