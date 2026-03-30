@@ -195,9 +195,11 @@
 
                           /**********************************************************************/
                           // Wrap it all up in LI tags.
-                          $child_final = '<li class="list-group-item fw-normal col col-12 p-0 m-0 border-0">';
-                          $child_final .= $child_stuff;
-                          $child_final .= '</li>';
+                          $child_final =
+                              '<li class="list-group-item fw-normal col col-12 p-0 m-0 border-0">'
+                            . $child_stuff
+                            . '</li>'
+                            ;
 
                           /**********************************************************************/
                           // Set the final child items array item.
