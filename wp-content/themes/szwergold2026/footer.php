@@ -158,17 +158,17 @@
 
                         /**************************************************************************/
                         // Set the parent stuff.
-                        $parent_name = (isset($parent['name']) ? $parent['name'] : null);
                         $parent_count = (isset($parent['count']) && !empty($parent['count']) ? ' (' . $parent['count'] . ')' : null);
                         $parent_link = (isset($parent['link']) ? $parent['link'] : null);
-                        $parent_stuff = $parent_name;
+                        $parent_name = (isset($parent['name']) ? $parent['name'] : null);
+                        $parent_stuff = $parent_name . ($show_counts && !empty($child_count) ? $child_count : null);
 
                         /**************************************************************************/
                         // Set the parent stuff.
                         if (!empty($parent_link)) {
                           $parent_stuff = 
                               '<a href="' . $parent_link  .'" class="text-decoration-none text-dark">'
-                            . $parent_name
+                            . $parent_stuff
                             . ($show_counts && !empty($parent_count) ? $parent_count : null)
                             . '</a>'
                             ;  
@@ -193,18 +193,17 @@
 
                           /************************************************************************/
                           // Set the parent stuff.
-                          $child_name = (isset($parent['name']) ? $parent['name'] : null);
                           $child_count = (isset($parent['count']) && !empty($parent['count']) ? ' (' . $parent['count'] . ')' : null);
                           $child_link = (isset($parent['link']) ? $parent['link'] : null);
-                          $child_stuff = $child_name;
+                          $child_name = (isset($parent['name']) ? $parent['name'] : null);
+                          $child_stuff = $child_name . ($show_counts && !empty($child_count) ? $child_count : null);
 
                           /************************************************************************/
                           // Set the parent stuff.
                           if (!empty($child_link)) {
                             $child_stuff = 
                                 '<a href="' . $child_link  .'" class="text-decoration-none text-dark">'
-                              . $child_name
-                              . ($show_counts && !empty($child_count) ? $child_count : null)
+                              . $child_stuff
                               . '</a>'
                               ;  
                           } // if
