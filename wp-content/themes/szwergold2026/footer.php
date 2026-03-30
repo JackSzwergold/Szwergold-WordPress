@@ -160,9 +160,11 @@
                         // The parent stuff.
                         $parent_stuff = null;
                         $parent_name = (isset($parent['name']) ? $parent['name'] : null);
-                        if (isset($parent['link']) && !empty($parent['link'])) {
+                        $parent_count = (isset($parent['count']) ? $parent['count'] : null);
+                        $parent_link = (isset($parent['link']) ? $parent['link'] : null);
+                        if (!empty($parent_link)) {
                           $parent_stuff .= 
-                              '<a href="' . $parent['link']  .'" class="text-decoration-none text-dark">'
+                              '<a href="' . $parent_link  .'" class="text-decoration-none text-dark">'
                             . $parent_name
                             . '</a>'
                             ;  
@@ -171,9 +173,8 @@
                           $parent_stuff .= $parent_name;
                         } // else
 
-
-                        if ($show_counts && (isset($parent['count']) && $parent['count'] > 0)) {
-                          $parent_stuff .= ' (' . $parent['count'] . ')';                        
+                        if ($show_counts && !empty($parent_count)) {
+                          $parent_stuff .= ' (' . $parent_count . ')';                        
                         } // if
 
                         /*************************************************************************/
