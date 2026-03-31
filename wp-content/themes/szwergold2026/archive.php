@@ -11,35 +11,32 @@
 	/******************************************************************************/
 	// Header begins.
 	echo '<div class="h1 text-railroadgothic p-0 m-0">';
-	echo 'Posts for ';
+	echo 'Posts for the ';
 	if (is_archive()) {
 		echo '&ldquo;';
 		echo get_the_archive_title();
-		echo '.&rdquo;';
+		echo '&rdquo;';
 	} // if
 	else if (is_category()) {
 		echo '&ldquo;';
 		single_cat_title();
-		echo '.&rdquo;';
+		echo '&rdquo;';
 	}  // else if
 	else if (is_tag()) {
 		echo '&ldquo;';
 		echo single_tag_title();
-		echo '.&rdquo;';
+		echo '&rdquo;';
 	} // else if
 	else if (is_year()) {
 		the_time('Y');
-		echo '.';
 	} // else if
 	else if (is_month()) {
 		the_time('F Y');
-		echo '.';
 	} // else if
 	else if (is_day()) {
 		the_time('l, F j, Y');
-		echo '.';
 	} // else if
-	echo '</div>';
+	echo ' category&hellip;</div>';
 	echo '<hr class="p-0 m-0 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
