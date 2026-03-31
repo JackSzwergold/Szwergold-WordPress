@@ -120,21 +120,21 @@
 
 			echo '<div class="row mb-3">';
 			echo '<div class="col col-12 col-xl-6">';
-			echo '<input type="text" class="form-control border border-dark" id="author" name="author" value="' . $comment_author . '" ' . $aria_required . '>';
+			echo '<input type="text" class="form-control border border-darkblue" id="author" name="author" value="' . $comment_author . '" ' . $aria_required . '>';
 			echo '</div>';
 			echo '<label for="author" class="col col-12 col-xl-5 px-xl-0 col-form-label small"><strong>Name</strong> ' . $required_text . '</label>';
 			echo '</div>';
 
 			echo '<div class="row mb-3">';
 			echo '<div class="col col-12 col-xl-6">';
-			echo '<input type="text" class="form-control border border-dark" id="email" name="email" value="' . $comment_author_email . '" ' . $aria_required . '>';
+			echo '<input type="text" class="form-control border border-darkblue" id="email" name="email" value="' . $comment_author_email . '" ' . $aria_required . '>';
 			echo '</div>';
 			echo '<label for="email" class="col col-12 col-xl-5 px-xl-0 col-form-label small"><strong>Mail</strong> <small>(will not be published)</small> ' . $required_text . '</label>';
 			echo '</div>';
 
 			echo '<div class="row mb-3">';
 			echo '<div class="col col-12 col-xl-6">';
-			echo '<input type="text" class="form-control border border-dark" id="url" name="url" value="' . $comment_author_url . '">';
+			echo '<input type="text" class="form-control border border-darkblue" id="url" name="url" value="' . $comment_author_url . '">';
 			echo '</div>';
 			echo '<label for="url" class="col col-12 col-xl-5 px-xl-0 col-form-label small"><strong>Website</strong> </label>';
 			echo '</div>';
@@ -148,12 +148,12 @@
 
 		echo '<div class="row mb-3">';
 		echo '<div class="col col-12">';
-		echo '<textarea class="form-control w-100 border border-dark" name="comment" id="comment" rows="10"></textarea>';
+		echo '<textarea class="form-control w-100 border border-darkblue" name="comment" id="comment" rows="10"></textarea>';
 		echo '</div>';
 		echo '</div>';
 
 		echo '<div class=" mb-3">';
-		echo '<button type="submit" id="submit" name="submit" class="btn btn-outline-dark bg-white col col-12 col-xl-12">Submit Comment</button>';
+		echo '<button type="submit" id="submit" name="submit" class="btn btn-outline-dark bg-offwhite col col-12 col-xl-12">Submit Comment</button>';
 		echo '</div>';
 
 		comment_id_fields();

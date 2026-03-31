@@ -54,7 +54,7 @@
 	<!-- Content Core BEGIN -->
 	<div class="container">
 		<div class="row">
-			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-white shadow-lg border border-dark">
+			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-offwhite shadow-lg border border-2 border-darkblue rounded">
 
 				<div class="container">
 					<div class="row">
