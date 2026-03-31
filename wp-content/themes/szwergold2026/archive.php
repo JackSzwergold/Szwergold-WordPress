@@ -44,7 +44,7 @@
 
 	/******************************************************************************/
 	// Header ends
-	echo '<p class="h4 text-georgia-regular pt-1 pb-2">';
+	echo '<div class="h4 text-georgia-regular py-1">';
 	if ($page_description = get_the_archive_description()) {
 		echo strip_tags($page_description);
 	} // if
@@ -78,7 +78,7 @@
 		} // else if
 		echo '</strong>';
 	} // else
-	echo '</p>';
+	echo '</div>';
 
 	/******************************************************************************/
 	// End the archive info area.
