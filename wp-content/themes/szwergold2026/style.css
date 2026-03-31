@@ -150,6 +150,25 @@ code {
 }
 
 /******************************************************************************/
+
+@font-face {
+    font-family: 'ChunkFive';
+    src: url('fonts/ChunkFive/chunkfive-webfont.woff2') format('woff2'),
+         url('fonts/ChunkFive/chunkfive-webfont.woff') format('woff'),
+         url('fonts/ChunkFive/chunkfive-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/******************************************************************************/
+/* Setting ChunkFive tags.
+/******************************************************************************/
+.text-chunkfive {
+  font-family: "ChunkFive", Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+}
+
+/******************************************************************************/
 /* Setting WindsorPro tags.
 /******************************************************************************/
 .text-windsorpro-regular {
