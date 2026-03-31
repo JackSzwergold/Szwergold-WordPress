@@ -44,7 +44,7 @@
 
 	/******************************************************************************/
 	// Header ends
-	echo '<p class="text-georgia-regular p-0 m-0">';
+	echo '<p class="h4 text-georgia-regular p-0 m-0">';
 	if ($page_description = get_the_archive_description()) {
 		echo strip_tags($page_description);
 	} // if
