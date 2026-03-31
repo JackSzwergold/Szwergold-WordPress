@@ -62,23 +62,16 @@
 
 							<?php
 
-
 								/**********************************************************************************************/
 								// If we have a widget header, show the widget header.
 								if (is_active_sidebar('widget-header-1')) {
-									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
 									dynamic_sidebar('widget-header-1');
-									echo '</div>';
 								} // if
-
 
 								/**********************************************************************************************/
 								// If we have a widget header, show the widget header.
 								if (is_active_sidebar('widget-header-2')) {
-									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
 									dynamic_sidebar('widget-header-2');
-									echo '</div>';
 								} // if
-
 
 							?>
