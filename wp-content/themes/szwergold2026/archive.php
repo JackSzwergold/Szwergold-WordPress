@@ -403,7 +403,7 @@
 			$category_block  =
 			      '<div class="col col-12 p-0 m-0">'
 				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
-				. '<a href="' . $category_link . '">'
+				. '<a href="' . $category_link . '" class="text-decoration-none text-darkblue">'
 				. $category_name
 				. '</a>'
 				. '</div>'
