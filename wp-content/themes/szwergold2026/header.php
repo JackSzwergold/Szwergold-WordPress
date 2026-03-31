@@ -62,28 +62,23 @@
 
 							<?php
 
-								/**********************************************************************************/
-								// Show widget header 1 if it is set.
-								ob_start();
-								dynamic_sidebar('widget-header-1');
-								$widget_header_1 = ob_get_contents();
-								ob_end_clean();
-								if (!empty($widget_header_1) && is_active_sidebar('widget-header-1')) {
+
+								/**********************************************************************************************/
+								// If we have a widget header, show the widget header.
+								if (is_active_sidebar('widget-header-1')) {
 									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
-									echo $widget_header_1;
+									dynamic_sidebar('widget-header-1');
 									echo '</div>';
 								} // if
 
-								/**********************************************************************************/
-								// Show widget header 2 if it is set.
-								ob_start();
-								dynamic_sidebar('widget-header-2');
-								$widget_header_2 = ob_get_contents();
-								ob_end_clean();
+
+								/**********************************************************************************************/
+								// If we have a widget header, show the widget header.
 								if (is_active_sidebar('widget-header-2')) {
 									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
-									echo $widget_header_2;
+									dynamic_sidebar('widget-header-2');
 									echo '</div>';
 								} // if
+
 
 							?>
