@@ -163,7 +163,7 @@
                         // Set the parent stuff.
                         if (!empty($parent_link)) {
                           $parent_stuff = 
-                              '<a href="' . $parent_link  .'" class="text-decoration-none text-dark">'
+                              '<a href="' . $parent_link  .'" class="text-decoration-none text-darkblue">'
                             . $parent_stuff
                             . ($show_counts && !empty($parent_count) ? $parent_count : null)
                             . '</a>'
@@ -196,7 +196,7 @@
                             // Set the parent stuff.
                             if (!empty($child_link)) {
                               $child_stuff = 
-                                  '<a href="' . $child_link  .'" class="text-decoration-none text-dark">'
+                                  '<a href="' . $child_link  .'" class="text-decoration-none text-darkblue">'
                                 . $child_stuff
                                 . '</a>'
                                 ;  

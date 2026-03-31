@@ -331,7 +331,7 @@
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
 				$title =
 					  '<span class="p-0 m-0 text-windsorpro-bold">'
-					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
+					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $child_value['title']
 					. '</a>'
 					. '</span>'
@@ -347,7 +347,7 @@
 			// Link the excerpt.
 			if (!empty($excerpt) && !empty($permalink)) {
 				$excerpt =
-					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-dark">'
+					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $excerpt
 					. '</a>'
 					;
