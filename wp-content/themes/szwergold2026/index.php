@@ -34,8 +34,8 @@
 
       /********************************************************************************/
       // Show the title.
-      echo '<div class="h1 text-railroadgothic p-0 m-0">';
-      echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
+      echo '<div class="h1 p-0 m-0 text-railroadgothic">';
+      echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
       echo $title;
       echo '</a>';
       echo '</div>';
@@ -43,7 +43,7 @@
       /********************************************************************************/
       // Show the excerpt.    
       if (is_front_page() && !empty($excerpt)) {
-        echo '<div class="h4 text-georgia-regular p-0 m-0">';
+        echo '<div class="h4 p-0 m-0 text-georgia-regular">';
         echo $excerpt;
         echo '</div>';        
       } // if
