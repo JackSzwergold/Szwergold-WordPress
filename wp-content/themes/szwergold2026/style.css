@@ -25,7 +25,10 @@ body > * {
 
 .text-darkblue {
   color: rgb(64, 63, 123) !important;
-  /*border-color: rgb(64, 63, 123) !important;*/
+}
+
+.border .border-darkblue {
+  border-color: rgb(64, 63, 123) !important;
 }
 
 /******************************************************************************/

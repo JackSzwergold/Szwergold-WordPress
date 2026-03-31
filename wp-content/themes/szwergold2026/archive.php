@@ -44,7 +44,7 @@
 
 	/******************************************************************************/
 	// Header ends
-	echo '<p class="text-windsorpro-regular p-0 m-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
+	echo '<p class="text-windsorpro-regular p-0 m-0">';
 	if ($page_description = get_the_archive_description()) {
 		echo strip_tags($page_description);
 	} // if
@@ -83,6 +83,7 @@
 	/******************************************************************************/
 	// End the archive info area.
 	echo '</div>';
+	echo '<hr class="p-0 m-0 mt-1 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	/******************************************************************************/
@@ -400,7 +401,7 @@
 		$category_block = implode('', $temp);
 		if (!empty($category_name)) {
 			$category_block  =
-			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark">'
+			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-2 border-darkblue">'
 				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
 				. '<a href="' . $category_link . '">'
 				. $category_name
