@@ -74,7 +74,7 @@
 				} // if
 			} // if
 
-			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
+			echo '<hr class="p-0 m-0 my-2 border border-darkblue border-1 opacity-100">';
 
 			/**********************************************************************/
 			// End the header.
