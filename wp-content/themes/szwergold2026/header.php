@@ -11,6 +11,36 @@
 	$url = get_bloginfo('url');
 	$pingback_url = get_bloginfo('pingback_url');
 
+    global $post;
+
+	/**********************************************************************/
+	// Get the current selected post slug.
+    $post_slug = $post->post_name;
+
+	/**********************************************************************/
+	// Get the current selected category slug.
+	$page_category = get_the_category();
+	$page_category_shifted = null;
+	$page_category_slug = null;
+	if (!empty($page_category )) {
+		$page_category_shifted = array_shift($page_category);
+		$page_category_slug = $page_category_shifted->slug;				
+	} // if
+
+	/**********************************************************************/
+	// Set the page slugs string.
+	$page_slugs_array = array();
+	$page_slugs_string = null;
+	if (!empty($post_slug)) {
+		$page_slugs_array[] = $page_category_slug;
+	} // if
+	if (!empty($post_slug)) {
+		$page_slugs_array[] = $post_slug;
+	} // if
+	if (!empty($page_slugs_array)) {
+		$page_slugs_string = implode(' ', $page_slugs_array);
+	} // if
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +72,7 @@
 
 	?>
 </head>
-<body id="top" class="p-0 m-0">
+<body id="top" class="p-0 m-0 <?php echo $page_slugs_string; ?>">
 
 	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 py-1">
