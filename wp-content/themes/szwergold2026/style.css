@@ -264,7 +264,7 @@ main article h4,
 main article h5,
 main article h6 {
   font-family: "WindsorProRegular", Georgia, "New York", "Times New Roman", Times, serif;
-  color: #333333;
+  color: rgb(64, 63, 123);
 }
 
 main article h1 a,
@@ -287,7 +287,7 @@ main article h4 a:link,
 main article h4 a:visited,
 main article h4 a:hover,
 main article h4 a:active {
-  color: #333333;
+  color: rgb(64, 63, 123);
 }
 
 /******************************************************************************/
@@ -297,11 +297,11 @@ main article a:link,
 main article a:visited,
 main article a:hover,
 main article a:active {
-  color: #333333;
-  background-image: linear-gradient(#333333 50%, #333333 50%);
-  background-repeat: repeat-x;
-  background-position: 0 90%;
-  background-size: 1px 1px;
+  color: rgb(64, 63, 123);
+  /*background-image: linear-gradient(#333333 50%, #333333 50%);*/
+  /*background-repeat: repeat-x;*/
+  /*background-position: 0 90%;*/
+  /*background-size: 1px 1px;*/
 }
 
 /******************************************************************************/
