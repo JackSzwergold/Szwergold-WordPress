@@ -161,11 +161,14 @@ code {
 }
 
 /******************************************************************************/
-/* Setting ChunkFive tags.
-/******************************************************************************/
-.text-chunkfive {
-  font-family: "ChunkFive", Georgia, "New York", "Times New Roman", Times, serif !important;
-  font-weight: 400 !important;
+
+@font-face {
+    font-family: 'RailroadGothic';
+    src: url('fonts/RailroadGothic/railroadgothic-webfont.woff2') format('woff2'),
+         url('fonts/RailroadGothic/railroadgothic-webfont.woff') format('woff'),
+         url('fonts/RailroadGothic/railroadgothic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /******************************************************************************/
@@ -179,6 +182,22 @@ code {
 .text-windsorpro-bold {
   font-family: "WindsorProBold", Georgia, "New York", "Times New Roman", Times, serif !important;
   font-weight: 700 !important;
+}
+
+/******************************************************************************/
+/* Setting ChunkFive tags.
+/******************************************************************************/
+.text-chunkfive {
+  font-family: "ChunkFive", Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+}
+
+/******************************************************************************/
+/* Setting RailroadGothic tags.
+/******************************************************************************/
+.text-railroadgothic {
+  font-family: "RailroadGothic", Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
 }
 
 /******************************************************************************/
