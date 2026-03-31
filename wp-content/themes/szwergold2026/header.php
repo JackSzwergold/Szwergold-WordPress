@@ -46,8 +46,8 @@
 
 	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 py-1">
-		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $name; ?></span></a></h1>
-		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $description; ?></span></a></h2>
+		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></h1>
+		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></h2>
 		</div>
 	</nav>
 
