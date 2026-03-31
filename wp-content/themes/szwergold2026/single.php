@@ -42,7 +42,7 @@
 			// Set the text CSS.
 			$text_css = null;
 			if (!empty($page_category_slug) && in_array($page_category_slug, array('notes'))) {
-				$text_css = 'fs-3 lh-base';
+				$text_css = 'fs-4 lh-base';
 			} // if
 
 			/**********************************************************************/
@@ -51,24 +51,16 @@
 
 			/**********************************************************************/
 			// Show the title.
-			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
+			echo '<div class="h1 p-0 m-0 text-railroadgothic">';
 			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
 
 			/**********************************************************************/
-			// Show the excerpt.		
-			if (FALSE && !empty($excerpt)) {
-				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
-				echo $excerpt;
-				echo '</div>';				
-			} // if
-
-			/**********************************************************************/
 			// Show the author, date and time.
 			if (!empty($the_author)) {
-				echo '<div class="h5 p-0 m-0 text-windsorpro-regular">';
+				echo '<div class="h5 p-0 m-0 text-georgia-regular">';
 				echo 'By ' . $the_author;
 				if (!empty($update_date)) {
 					echo ' on ' . $update_date;
