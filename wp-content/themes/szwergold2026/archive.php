@@ -40,7 +40,7 @@
 		echo '.';
 	} // else if
 	echo '</div>';
-	echo '<hr class="p-0 m-0 mb-1 border border-darkblue border-1 opacity-100">';
+	echo '<hr class="p-0 m-0 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	// Header ends
@@ -83,7 +83,7 @@
 	/******************************************************************************/
 	// End the archive info area.
 	echo '</div>';
-	echo '<hr class="p-0 m-0 mt-1 mb-2 border border-darkblue border-1 opacity-100">';
+	echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	/******************************************************************************/
