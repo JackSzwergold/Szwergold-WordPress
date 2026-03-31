@@ -42,7 +42,7 @@
 			// Set the text CSS.
 			$text_css = null;
 			if (!empty($page_category_slug) && in_array($page_category_slug, array('notes'))) {
-				$text_css = 'fs-4 lh-base';
+				$text_css = 'fs-3 lh-base fst-italic';
 			} // if
 
 			/**********************************************************************/
@@ -84,7 +84,7 @@
 			// Show the main area.
 			echo '<main class="col col-12 p-0 m-0">';
 			echo '<article class="col col-12 p-0 m-0">';
-			echo sprintf('<div class="text-georgia-regular %s">', $text_css);
+			echo '<div class="text-georgia-regular ' . $text_css . '">';
 
 			/**********************************************************************/
 			// Show the content.
