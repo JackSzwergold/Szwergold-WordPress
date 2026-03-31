@@ -27,7 +27,8 @@ body > * {
   color: rgb(64, 63, 123) !important;
 }
 
-.border.border-darkblue {
+.border.border-darkblue,
+.border-bottom.border-darkblue {
   border-color: rgb(64, 63, 123) !important;
 }
 
