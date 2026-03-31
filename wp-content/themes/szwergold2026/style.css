@@ -379,6 +379,7 @@ main article a:active {
     /*column-rule: 1px solid #eee; */
     column-count: 1;
   }
+  body.resume main article,
   body.bookmarks main article ul {
     /*column-width: 20em;*/
     column-gap: 1em;
@@ -398,6 +399,7 @@ main article a:active {
     /*column-rule: 1px solid #eee; */
     column-count: 2;
   }
+  body.resume main article,
   body.bookmarks main article ul {
     /*column-width: 20em;*/
     column-gap: 1em;
@@ -417,6 +419,7 @@ main article a:active {
     /*column-rule: 1px solid #eee; */
     column-count: 3;
   }
+  body.resume main article,
   body.bookmarks main article ul {
     /*column-width: 20em;*/
     column-gap: 1em;
@@ -436,6 +439,7 @@ main article a:active {
     /*column-rule: 1px solid #eee; */
     column-count: 4;
   }
+  body.resume main article,
   body.bookmarks main article ul {
     /*column-width: 20em;*/
     column-gap: 1em;
