@@ -11,6 +11,36 @@
 	$url = get_bloginfo('url');
 	$pingback_url = get_bloginfo('pingback_url');
 
+    global $post;
+
+	/**********************************************************************/
+	// Get the current selected post slug.
+    $post_slug = $post->post_name;
+
+	/**********************************************************************/
+	// Get the current selected category slug.
+	$page_category = get_the_category();
+	$page_category_shifted = null;
+	$page_category_slug = null;
+	if (!empty($page_category )) {
+		$page_category_shifted = array_shift($page_category);
+		$page_category_slug = $page_category_shifted->slug;				
+	} // if
+
+	/**********************************************************************/
+	// Set the page slugs string.
+	$page_slugs_array = array();
+	$page_slugs_string = null;
+	if (!empty($post_slug)) {
+		$page_slugs_array[] = $page_category_slug;
+	} // if
+	if (!empty($post_slug)) {
+		$page_slugs_array[] = $post_slug;
+	} // if
+	if (!empty($page_slugs_array)) {
+		$page_slugs_string = implode(' ', $page_slugs_array);
+	} // if
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,12 +72,12 @@
 
 	?>
 </head>
-<body id="top" class="p-0 m-0">
+<body id="top" class="p-0 m-0<?php echo $page_slugs_string; ?>">
 
 	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
-		<div class="col col-12 p-0 m-0 px-2 py-1">
-		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></h1>
-		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></h2>
+		<div class="col col-12 p-0 m-0 px-2 pt-1 pb-3">
+			<div class="h1 text-railroadgothic p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></div>
+			<div class="h4 text-georgia-regular p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></div>
 		</div>
 	</nav>
 

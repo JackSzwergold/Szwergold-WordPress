@@ -42,7 +42,7 @@
 			// Set the text CSS.
 			$text_css = null;
 			if (!empty($page_category_slug) && in_array($page_category_slug, array('notes'))) {
-				$text_css = 'fs-3 lh-base';
+				$text_css = 'fs-3 lh-base fst-italic';
 			} // if
 
 			/**********************************************************************/
@@ -51,36 +51,30 @@
 
 			/**********************************************************************/
 			// Show the title.
-			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
+			echo '<div class="h1 p-0 m-0 text-railroadgothic">';
 			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
 
 			/**********************************************************************/
-			// Show the excerpt.		
-			if (FALSE && !empty($excerpt)) {
-				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
-				echo $excerpt;
-				echo '</div>';				
-			} // if
-
-			/**********************************************************************/
 			// Show the author, date and time.
 			if (!empty($the_author)) {
-				echo '<div class="h5 p-0 m-0 text-windsorpro-regular">';
+				echo '<div class="h5 p-0 m-0 text-georgia-regular">';
 				echo 'By ' . $the_author;
+				echo '</div>';
 				if (!empty($update_date)) {
-					echo ' on ' . $update_date;
-					if (!empty($update_time)) {
-						echo ' at ' . $update_time;
-					} // if
+					echo '<div class="h6 p-0 m-0 mt-1 text-georgia-regular">';
+					echo '<span class="me-2 fa fa-calendar"></span>';
+					echo $update_date;
+					// if (!empty($update_time)) {
+					// 	echo ' at ' . $update_time;
+					// } // if
+					echo '</div>';
 				} // if
-				echo '.';
-				echo '</div>';				
 			} // if
 
-			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
+			echo '<hr class="p-0 m-0 my-2 border border-darkblue border-1 opacity-100">';
 
 			/**********************************************************************/
 			// End the header.
@@ -90,11 +84,11 @@
 			// Show the main area.
 			echo '<main class="col col-12 p-0 m-0">';
 			echo '<article class="col col-12 p-0 m-0">';
-			echo sprintf('<div class="text-georgia-regular %s">', $text_css);
+			echo '<div class="text-georgia-regular ' . $text_css . '">';
 
 			/**********************************************************************/
 			// Show the content.
-			the_content('Read more &raquo;');
+			the_content();
 
 			/**********************************************************************/
 			// End the header.

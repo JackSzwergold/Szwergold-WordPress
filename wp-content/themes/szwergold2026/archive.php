@@ -10,41 +10,38 @@
 
 	/******************************************************************************/
 	// Header begins.
-	echo '<div class="h2 text-windsorpro-bold p-0 m-0">';
-	echo 'Posts for ';
+	echo '<div class="h1 text-railroadgothic p-0 m-0">';
+	echo 'Posts for the ';
 	if (is_archive()) {
 		echo '&ldquo;';
 		echo get_the_archive_title();
-		echo '.&rdquo;';
+		echo '&rdquo;';
 	} // if
 	else if (is_category()) {
 		echo '&ldquo;';
 		single_cat_title();
-		echo '.&rdquo;';
+		echo '&rdquo;';
 	}  // else if
 	else if (is_tag()) {
 		echo '&ldquo;';
 		echo single_tag_title();
-		echo '.&rdquo;';
+		echo '&rdquo;';
 	} // else if
 	else if (is_year()) {
 		the_time('Y');
-		echo '.';
 	} // else if
 	else if (is_month()) {
 		the_time('F Y');
-		echo '.';
 	} // else if
 	else if (is_day()) {
 		the_time('l, F j, Y');
-		echo '.';
 	} // else if
-	echo '</div>';
+	echo ' category&hellip;</div>';
 	echo '<hr class="p-0 m-0 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	// Header ends
-	echo '<p class="text-windsorpro-regular p-0 m-0">';
+	echo '<div class="h4 text-georgia-regular py-1">';
 	if ($page_description = get_the_archive_description()) {
 		echo strip_tags($page_description);
 	} // if
@@ -78,7 +75,7 @@
 		} // else if
 		echo '</strong>';
 	} // else
-	echo '</p>';
+	echo '</div>';
 
 	/******************************************************************************/
 	// End the archive info area.
@@ -330,7 +327,7 @@
 			$title = null;
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
 				$title =
-					  '<span class="p-0 m-0 text-windsorpro-bold">'
+					  '<span class="p-0 m-0 text-railroadgothic">'
 					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $child_value['title']
 					. '</a>'
@@ -357,7 +354,7 @@
 			// Wrap the excerpt.
 			if (!empty($excerpt)) {
 				$excerpt =
-					  '<span class="text-windsorpro-regular">'
+					  '<span class="text-georgia-regular small">'
 					. $excerpt
 					. '</span>'
 					;
@@ -365,8 +362,8 @@
 
 			/**********************************************************************/
 			// Set the date and time.
-			$date = '<span class="text-windsorpro-regular">' . $child_value['date'] . '</span>';
-			$time = '<span class="text-windsorpro-regular">' . $child_value['time'] . '</span>';
+			$date = '<span class="text-georgia-regular">' . $child_value['date'] . '</span>';
+			$time = '<span class="text-georgia-regular">' . $child_value['time'] . '</span>';
 
 			/**********************************************************************/
 			// Set the divider.
@@ -402,7 +399,7 @@
 		if (!empty($category_name)) {
 			$category_block  =
 			      '<div class="col col-12 p-0 m-0">'
-				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
+				. '<div class="h3 text-railroadgothic col col-12 p-0 m-0 mb-1">'
 				. '<a href="' . $category_link . '" class="text-decoration-none text-darkblue">'
 				. $category_name
 				. '</a>'

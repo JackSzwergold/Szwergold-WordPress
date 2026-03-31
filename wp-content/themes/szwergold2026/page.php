@@ -23,7 +23,7 @@
 			$title = get_the_title();
 			$title_attribute = the_title_attribute(array('echo' => false));
 			$excerpt = get_the_excerpt();
-			$the_author = $authordata->user_nicename;
+			$the_author = $authordata->display_name;
 			$the_author_url = esc_url(get_author_posts_url($authordata->ID, $authordata->user_nicename));
 			$update_date = get_the_time('F j, Y');
 			$update_time = get_the_time('g:i:sa');
@@ -34,19 +34,18 @@
 
 			/********************************************************************************/
 			// Show the title.
-			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
+			echo '<div class="h1 p-0 m-0 text-railroadgothic">';
 			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
 
 			/********************************************************************************/
-			// Show the excerpt.		
-			// if (is_front_page() && !empty($excerpt)) {
-			if (!empty($excerpt)) {
-				echo '<div class="h2 p-0 m-0 text-windsorpro-regular">';
+			// Show the excerpt.    
+			if (is_front_page() && !empty($excerpt)) {
+				echo '<div class="h4 text-georgia-regular py-1">';
 				echo $excerpt;
-				echo '</div>';				
+				echo '</div>';        
 			} // if
 
 			/********************************************************************************/
@@ -78,7 +77,7 @@
 
 			/********************************************************************/
 			// Show the content.
-			the_content('Read more &raquo;');
+			the_content();
 
 			/********************************************************************************/
 			// End the header.
