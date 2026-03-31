@@ -15,8 +15,16 @@
 
 body {
   font-family: Arial, "Arial Unicode MS", Helvetica, Verdana, sans-serif;
-/*  background: transparent;*/
-  background-image: linear-gradient(-45deg, #ff5858 0%, #f09819 100%);
+  /*background-image: linear-gradient(-45deg, #ff5858 0%, #f09819 100%);*/
+  background-color: rgb(241, 223, 113) !important;
+}
+
+body > * {
+  color: rgb(64, 63, 123) !important;
+}
+
+body > .border-darkblue {
+  border-color: rgb(64, 63, 123) !important;
 }
 
 /******************************************************************************/
@@ -26,7 +34,7 @@ a:visited,
 a:hover,
 a:active {
   text-decoration: none;
-  color: #000000;
+  color: rgb(64, 63, 123) !important;
   transition: all 600ms ease;
 }
 

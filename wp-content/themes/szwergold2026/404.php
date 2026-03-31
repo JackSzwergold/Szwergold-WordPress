@@ -10,7 +10,7 @@
 		<div class="h2 p-0 m-0 text-windsorpro-regular">
 			Something was not found. You sure you got the right URL?
 		</div>
-	<hr class="border border-dark border-1 opacity-100">
+	<hr class="border border-darkblue border-1 opacity-100">
 </header>
 
 

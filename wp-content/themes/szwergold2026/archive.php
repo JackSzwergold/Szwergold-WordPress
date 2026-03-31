@@ -10,7 +10,7 @@
 
 	/******************************************************************************/
 	// Header begins.
-	echo '<div class="h2 text-windsorpro-bold p-0 m-0 pb-1 mb-2 border-bottom border-dark">';
+	echo '<div class="h2 text-windsorpro-bold p-0 m-0">';
 	echo 'Posts for ';
 	if (is_archive()) {
 		echo '&ldquo;';
@@ -40,6 +40,7 @@
 		echo '.';
 	} // else if
 	echo '</div>';
+	echo '<hr class="p-0 m-0 mb-1 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	// Header ends
