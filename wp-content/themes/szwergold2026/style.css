@@ -23,6 +23,10 @@ body > * {
   color: rgb(64, 63, 123) !important;
 }
 
+.bg-darkblue {
+  background-color: rgb(64, 63, 123) !important;
+}
+
 .text-darkblue {
   color: rgb(64, 63, 123) !important;
 }

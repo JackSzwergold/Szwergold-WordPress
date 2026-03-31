@@ -44,7 +44,7 @@
 </head>
 <body id="top" class="p-0 m-0">
 
-	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-dark border-bottom border-dark">
+	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 py-1">
 		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $name; ?></span></a></h1>
 		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $description; ?></span></a></h2>
