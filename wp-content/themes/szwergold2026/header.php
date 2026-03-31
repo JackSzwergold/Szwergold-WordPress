@@ -46,8 +46,8 @@
 
 	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 py-1">
-			<div class="h1 p-0 m-0 text-railroadgothic"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></div>
-			<div class="h4 p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></div>
+			<div class="h1 text-railroadgothic p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></div>
+			<div class="h4 text-windsorpro-regular p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></div>
 		</div>
 	</nav>
 
