@@ -90,7 +90,7 @@
                       echo '<div class="h4">';
                       echo 'Your ratings.';
                       echo'</div>';
-                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
+                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-offwhite">';
                       echo '<table class="p-0 m-0 col col-12 table table-sm table-hover">';
                       echo '<thead>';
                       echo '<tr>';
@@ -135,7 +135,7 @@
                       echo '<div class="h4">';
                       echo "Your pending stories.";
                       echo'</div>';
-                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
+                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-offwhite">';
                       echo '<table class="p-0 m-0 col col-12 table table-sm table-hover">';
                       echo '<thead>';
                       echo '<tr>';
@@ -193,7 +193,7 @@
                       echo '<div class="h4">';
                       echo "Your published stories.";
                       echo'</div>';
-                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-white">';
+                      echo '<div class="p-0 m-0 mt-1 col col-12 container-fluid table-responsive border border-bottom-0 bg-offwhite">';
                       echo '<table class="p-0 m-0 col col-12 table table-sm table-hover">';
                       echo '<thead>';
                       echo '<tr>';

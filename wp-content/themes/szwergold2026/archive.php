@@ -10,7 +10,7 @@
 
 	/******************************************************************************/
 	// Header begins.
-	echo '<div class="h2 text-windsorpro-bold p-0 m-0 pb-1 mb-2 border-bottom border-dark">';
+	echo '<div class="h2 text-windsorpro-bold p-0 m-0">';
 	echo 'Posts for ';
 	if (is_archive()) {
 		echo '&ldquo;';
@@ -40,10 +40,11 @@
 		echo '.';
 	} // else if
 	echo '</div>';
+	echo '<hr class="p-0 m-0 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	// Header ends
-	echo '<p class="text-windsorpro-regular p-0 m-0 pb-1 mb-2 border-bottom border-secondary-subtle">';
+	echo '<p class="text-windsorpro-regular p-0 m-0">';
 	if ($page_description = get_the_archive_description()) {
 		echo strip_tags($page_description);
 	} // if
@@ -82,6 +83,7 @@
 	/******************************************************************************/
 	// End the archive info area.
 	echo '</div>';
+	echo '<hr class="p-0 m-0 mt-1 mb-2 border border-darkblue border-1 opacity-100">';
 
 	/******************************************************************************/
 	/******************************************************************************/
@@ -329,7 +331,7 @@
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
 				$title =
 					  '<span class="p-0 m-0 text-windsorpro-bold">'
-					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">'
+					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $child_value['title']
 					. '</a>'
 					. '</span>'
@@ -345,7 +347,7 @@
 			// Link the excerpt.
 			if (!empty($excerpt) && !empty($permalink)) {
 				$excerpt =
-					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-dark">'
+					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $excerpt
 					. '</a>'
 					;
@@ -399,14 +401,15 @@
 		$category_block = implode('', $temp);
 		if (!empty($category_name)) {
 			$category_block  =
-			      '<div class="col col-12 p-0 m-0 mb-3 border-bottom border-dark">'
+			      '<div class="col col-12 p-0 m-0">'
 				. '<div class="h3 text-windsorpro-bold col col-12 p-0 m-0 mb-1">'
-				. '<a href="' . $category_link . '">'
+				. '<a href="' . $category_link . '" class="text-decoration-none text-darkblue">'
 				. $category_name
 				. '</a>'
 				. '</div>'
 				. $category_block
 				. '</div>'
+				. '<hr class="p-0 m-0 mt-1 mb-2 border border-darkblue border-1 opacity-100">'
 				;
 		} // if
 

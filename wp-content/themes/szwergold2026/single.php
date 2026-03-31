@@ -52,7 +52,7 @@
 			/**********************************************************************/
 			// Show the title.
 			echo '<div class="h1 p-0 m-0 text-windsorpro-bold">';
-			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-dark text-decoration-none">';
+			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
@@ -80,7 +80,7 @@
 				echo '</div>';				
 			} // if
 
-			echo '<hr class="border border-dark border-1 opacity-100">';
+			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
 
 			/**********************************************************************/
 			// End the header.

@@ -44,17 +44,17 @@
 </head>
 <body id="top" class="p-0 m-0">
 
-	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-dark border-bottom border-dark">
+	<nav class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 py-1">
-		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $name; ?></span></a></h1>
-		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>"><span class="text-white"><?php echo $description; ?></span></a></h2>
+		  <h1 class="p-0 m-0 text-windsorpro-bold"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></h1>
+		  <h2 class="p-0 m-0 text-windsorpro-regular"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></h2>
 		</div>
 	</nav>
 
 	<!-- Content Core BEGIN -->
 	<div class="container">
 		<div class="row">
-			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-white shadow-lg border border-dark">
+			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-offwhite shadow-lg border border-2 border-darkblue rounded">
 
 				<div class="container">
 					<div class="row">
@@ -62,28 +62,16 @@
 
 							<?php
 
-								/**********************************************************************************/
-								// Show widget header 1 if it is set.
-								ob_start();
-								dynamic_sidebar('widget-header-1');
-								$widget_header_1 = ob_get_contents();
-								ob_end_clean();
-								if (!empty($widget_header_1) && is_active_sidebar('widget-header-1')) {
-									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
-									echo $widget_header_1;
-									echo '</div>';
+								/**********************************************************************************************/
+								// If we have a widget header, show the widget header.
+								if (is_active_sidebar('widget-header-1')) {
+									dynamic_sidebar('widget-header-1');
 								} // if
 
-								/**********************************************************************************/
-								// Show widget header 2 if it is set.
-								ob_start();
-								dynamic_sidebar('widget-header-2');
-								$widget_header_2 = ob_get_contents();
-								ob_end_clean();
+								/**********************************************************************************************/
+								// If we have a widget header, show the widget header.
 								if (is_active_sidebar('widget-header-2')) {
-									echo '<div class="p-0 m-0 px-2 py-1 mb-1 rounded-pill text-windsorpro-regular bg-light">';
-									echo $widget_header_2;
-									echo '</div>';
+									dynamic_sidebar('widget-header-2');
 								} // if
 
 							?>
