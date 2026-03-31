@@ -38,7 +38,7 @@ a:visited,
 a:hover,
 a:active {
   text-decoration: none;
-  color: rgb(64, 63, 123) !important;
+  color: #000000;
   transition: all 600ms ease;
 }
 
