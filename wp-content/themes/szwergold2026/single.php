@@ -62,14 +62,16 @@
 			if (!empty($the_author)) {
 				echo '<div class="h5 p-0 m-0 text-georgia-regular">';
 				echo 'By ' . $the_author;
+				echo '</div>';
 				if (!empty($update_date)) {
-					echo ' on ' . $update_date;
-					if (!empty($update_time)) {
-						echo ' at ' . $update_time;
-					} // if
+					echo '<div class="h6 p-0 m-0 mt-1 text-georgia-regular">';
+					echo '<span class="me-2 fa fa-calendar"></span>';
+					echo $update_date;
+					// if (!empty($update_time)) {
+					// 	echo ' at ' . $update_time;
+					// } // if
+					echo '</div>';
 				} // if
-				echo '.';
-				echo '</div>';				
 			} // if
 
 			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
