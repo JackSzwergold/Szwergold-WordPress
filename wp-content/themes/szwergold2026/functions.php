@@ -116,7 +116,7 @@ function szwergold_widgets_init() {
 	));
 	register_sidebar(array(
 		'name'          => __('Home Featured 1'),
-		'id'            => 'widget-home-featured-1',
+		'id'            => 'home-featured-1',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
@@ -125,7 +125,7 @@ function szwergold_widgets_init() {
 	));
 	register_sidebar(array(
 		'name'          => __('Home Featured 2'),
-		'id'            => 'widget-home-featured-2',
+		'id'            => 'home-featured-2',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',

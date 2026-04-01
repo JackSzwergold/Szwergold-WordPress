@@ -85,11 +85,11 @@
 
 				/****************************************************************************/
 				// Home featured 1 stuff.
-				if (is_active_sidebar('widget-home-featured-1')) {
+				if (is_active_sidebar('home-featured-1')) {
 					echo '<div class="col col-12 col-xl-6 m-0 p-0 mb-3">';
 					echo '<div class="container">';
 					echo '<div class="row"> ';
-					dynamic_sidebar('widget-home-featured-1');
+					dynamic_sidebar('home-featured-1');
 					echo '</div>';
 					echo '</div>';
 					echo '</div>';
@@ -97,11 +97,11 @@
 
 				/****************************************************************************/
 				// Home featured 2 stuff.
-				if (is_active_sidebar('widget-home-featured-2')) {
+				if (is_active_sidebar('home-featured-2')) {
 					echo '<div class="col col-12 col-xl-6 m-0 p-0 mb-3">';
 					echo '<div class="container">';
 					echo '<div class="row"> ';
-					dynamic_sidebar('widget-home-featured-2');
+					dynamic_sidebar('home-featured-2');
 					echo '</div>';
 					echo '</div>';
 					echo '</div>';
