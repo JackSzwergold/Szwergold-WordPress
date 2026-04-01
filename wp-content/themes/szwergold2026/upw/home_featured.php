@@ -203,7 +203,7 @@
         /******************************************************************************/
         // Custom cointainer begins.
         $final[] =
-            '<div class="col col-12 m-0 p-0 pe-md-3 pe-xl-0 pb-3">'
+            '<div class="col col-12 m-0 p-0 pe-md-3 pe-xl-0">'
           // . '<div class="container">'
           // . '<div class="row">'
           . '<div class="' . implode(' ' , get_post_class($post_class))  . ' p-0 m-0">'

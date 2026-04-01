@@ -165,7 +165,7 @@
 ?>
 
 		<div class="row p-0 m-0 me-xl-3">
-			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
+			<div class="col col-12 col-xl-4 m-0 p-0 mb-3">
 				<div class="container">
 					<div class="row"> 
 			        <?php
@@ -174,7 +174,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
+			<div class="col col-12 col-xl-4 m-0 p-0 mb-3">
 				<div class="container">
 					<div class="row"> 
 			        <?php
@@ -183,7 +183,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
+			<div class="col col-12 col-xl-4 m-0 p-0 mb-3">
 				<div class="container">
 					<div class="row"> 
 			        <?php
@@ -192,16 +192,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
-				<div class="container">
-					<div class="row"> 
-			        <?php
-			          echo $widget_home_featured_4;
-			        ?>
-					</div>
-				</div>
-			</div>
-		</div>
 
 <?php
 
