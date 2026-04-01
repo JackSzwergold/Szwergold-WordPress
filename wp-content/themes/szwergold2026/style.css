@@ -423,6 +423,14 @@ main article a:active {
 }
 
 /******************************************************************************/
+/* Setting columns for the category sidebar. */
+ul.categories_sidebar,
+ul.archives_sidebar {
+  column-count: 2;
+  column-width: auto;
+}
+
+/******************************************************************************/
 /*
 /*  __  __          _ _          ___                  _
 /* |  \/  | ___  __| (_) __ _   / _ \ _   _  ___ _ __(_) ___  ___
