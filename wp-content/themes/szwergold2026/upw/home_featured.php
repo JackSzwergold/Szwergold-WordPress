@@ -125,7 +125,7 @@
           } // if
           $core =
             '<div class="p-0 m-0 mb-3">'
-          . '<div class="small">'
+          . '<div class="small ">'
           . $core
           . '</div>'
           . '</div>'

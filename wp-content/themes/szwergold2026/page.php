@@ -92,7 +92,6 @@
         $widget_home_featured_1 = null;
         $widget_home_featured_2 = null;
         $widget_home_featured_3 = null;
-        $widget_home_featured_4 = null;
 
         /**********************************************************************************/
         // Home featured 1 stuff.
@@ -137,23 +136,6 @@
           ob_start();
           dynamic_sidebar('widget-home-featured-3');
           $widget_home_featured_3 = ob_get_contents();
-          ob_end_clean();
-
-          /********************************************************************************/
-          // Filter the content in the variable.
-          // $home_featured_2 = str_replace('<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a href=', '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a class="text-decoration-none text-dark" href=', $home_featured_2);
-
-        } // if
-
-        /**********************************************************************************/
-        // Home featured 3 stuff.
-        if (is_active_sidebar('widget-home-featured-4')) {
- 
-          /********************************************************************************/
-          // Capture the content and set it in a variable so we can tweak the links.
-          ob_start();
-          dynamic_sidebar('widget-home-featured-4');
-          $widget_home_featured_4 = ob_get_contents();
           ob_end_clean();
 
           /********************************************************************************/
