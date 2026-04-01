@@ -323,7 +323,7 @@
 
 ?>
 
-  <footer class="navbar p-0 m-0 px-2 sticky-top navbar-light bg-darkblue">
+  <footer class="footer p-0 m-0 px-2 bg-darkblue">
     <div class="col col-12 p-0 m-0 px-2 py-3">
       <div class="h6 text-georgia-regular p-0 m-0">
         <?php
