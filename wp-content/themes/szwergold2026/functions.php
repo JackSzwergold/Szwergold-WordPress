@@ -150,6 +150,24 @@ function szwergold_widgets_init() {
 		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
 		'after_title'   => '</div>',
 	));
+	register_sidebar(array(
+		'name'          => __('Widget Home Featured 3'),
+		'id'            => 'widget-home-featured-3',
+		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	));
+	register_sidebar(array(
+		'name'          => __('Widget Home Featured 4'),
+		'id'            => 'widget-home-featured-4',
+		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
+		'after_title'   => '</div>',
+	));
 } // szwergold_widgets_init
 add_action( 'widgets_init', 'szwergold_widgets_init' );
 
