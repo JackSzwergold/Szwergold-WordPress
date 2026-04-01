@@ -302,11 +302,58 @@
   </div>
   <!-- Footer Content END -->
 
+<?php
+
+  /**************************************************************************************************/
+  // Set the footer array items.
+  $footer_items_array = array();
+  $footer_items_array[] = '<a href="/" title="Home" class="text-offwhite m-0 p-0"><span property="name" class="text-offwhite fa fa-home"></span></a>';
+  $footer_items_array[] = '<a href="/about" title="About" class="text-offwhite m-0 p-0">About</a>';
+  $footer_items_array[] = '<a href="/notes" title="Notes feed" class="text-offwhite m-0 p-0">Notes</a>';
+  $footer_items_array[] = '<a href="/tech" title="Tech" class="text-offwhite m-0 p-0">Tech</a>';
+  $footer_items_array[] = '<a href="/contact" title="Contact" class="text-offwhite m-0 p-0">Contact</a>';
+  $footer_items_array[] = '<a href="/resume" title="Résumé" class="text-offwhite m-0 p-0">Résumé</a>';
+  $footer_items_array[] = '<a href="/bookmarks" title="Bookmarks" class="text-offwhite m-0 p-0">Bookmarks</a>';
+  // $footer_items_array[] = '<a href="#" title="top of page" class="text-offwhite m-0 p-0">Top of Page</a>';
+  $footer_items_array[] = '<span class="text-offwhite m-0 p-0">Site design and contents &copy; ' . date('Y') . ' Jack Szwergold</span>';
+
+  /**************************************************************************************************/
+  // Set the footer divider item.
+  $footer_divider = '<span class="text-offwhite m-0 p-0 px-2">&bull;</span>';
+
+  /**************************************************************************************************/
+  // Set the footer array items.
+  foreach ($footer_items_array as $key => $value) {
+    $footer_items_array[$key] =
+        '<li class="list-group-item bg-transparent fw-normal text-nowrap p-0 m-0 border-0 rounded-0">'
+      . $value
+      . '</li>'
+      ;
+  } // foreach
+
+  /**************************************************************************************************/
+  // Set the footer string.
+  $footer_items_string = implode($footer_divider, $footer_items_array);
+
+?>
+
+  <footer class="footer p-0 m-0 px-2 bg-darkblue">
+    <div class="col col-12 p-0 m-0 px-2 py-3">
+      <div class="h6 text-georgia-regular p-0 m-0">
+        <ul id="footer_links" class="footer_links list-group list-group-horizontal list-group-flush p-0 m-0 rounded-0">
+          <?php
+            echo $footer_items_string;
+          ?>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 <?php
 
-  /****************************************************************************************/
+  /**************************************************************************************************/
   // This 'wp_footer' call sets all of the JavaScript and related stuff that WordPress needs to insert in the page.
   wp_footer();
 

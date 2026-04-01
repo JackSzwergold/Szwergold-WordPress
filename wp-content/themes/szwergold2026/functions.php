@@ -4,7 +4,7 @@
 // 2025-11-20: Adding HTML5 support.
 function register_html_support() {
     add_theme_support('html5', array('script', 'style'));
-}
+} // register_html_support
 add_action('after_setup_theme', 'register_html_support');
 
 /********************************************************************************/
@@ -42,7 +42,7 @@ function load_bootstrap_files() {
 	wp_enqueue_style('bootstrap-53');
 	wp_register_script('bootstrap-53', get_template_directory_uri() . '/script/bootstrap-5.3.8/bootstrap.bundle.min.js', array('jquery'), '5.3.8');
 	wp_enqueue_script('bootstrap-53');
-}
+} // load_bootstrap_files
 add_action('wp_enqueue_scripts', 'load_bootstrap_files', 10);
 
 /********************************************************************************/
@@ -50,7 +50,7 @@ add_action('wp_enqueue_scripts', 'load_bootstrap_files', 10);
 function load_fontawesome_files() {
 	wp_register_style('fontawesome', get_template_directory_uri() . '/fonts/font-awesome-4.7.0/css/font-awesome.min.css', array(), '4.7.0');
 	wp_enqueue_style('fontawesome');
-}
+} // load_fontawesome_files
 add_action('wp_enqueue_scripts', 'load_fontawesome_files', 10);
 
 /********************************************************************************/
@@ -80,44 +80,22 @@ add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 // }
 
 /********************************************************************************/
+// 2026-03-31: Adjust the block heading CSS.
+function adjust_block_heading_css($content, $block) {
+    if (isset($block['blockName']) && str_starts_with($block['blockName'], 'core/heading')) {
+    	$pattern = '/\sclass="[^"]*\bwp-block-heading\b[^"]*"/';
+    	$replacement = ' class="wp-block-heading p-0 m-0"';
+		$pattern = '/<(h[1-6])\s+class="wp-block-heading"(.*?)>/i';
+		$replacement = '<$1 class="wp-block-heading p-0 m-0" $2>';
+		$content = preg_replace($pattern, $replacement, $content);
+    } // if
+    return $content;
+} // adjust_block_heading_css
+add_filter('render_block', 'adjust_block_heading_css', 10, 2 );
+
+/********************************************************************************/
 // 2026-03-20: Adding widgets.
 function szwergold_widgets_init() {
-	// register_sidebar(array(
-	// 	'name'          => __('Home Latest'),
-	// 	'id'            => 'home-latest',
-	// 	'description'   => __('Widget placed here will display the latest items on the homepage.', 'szwergold'),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	// 	'after_widget'  => '</div>',
-	// 	'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-	// 	'after_title'   => '</div>',
-	// ));
-	// register_sidebar(array(
-	// 	'name'          => __('Home Featured Main'),
-	// 	'id'            => 'home-featured-main',
-	// 	'description'   => __('Widget placed here will display the main featured item on the homepage.', 'szwergold'),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	// 	'after_widget'  => '</div>',
-	// 	'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-	// 	'after_title'   => '</div>',
-	// ));
-	// register_sidebar(array(
-	// 	'name'          => __('Home Featured 1'),
-	// 	'id'            => 'home-featured-1',
-	// 	'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s p-0 m-0 col col-12 col-md-6 col-xl-12 pe-md-3">',
-	// 	'after_widget'  => '</div>',
-	// 	'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-	// 	'after_title'   => '</div>',
-	// ));
-	// register_sidebar(array(
-	// 	'name'          => __('Home Featured 2'),
-	// 	'id'            => 'home-featured-2',
-	// 	'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s p-0 m-0 col col-12 col-md-6 pe-md-3">',
-	// 	'after_widget'  => '</div>',
-	// 	'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-	// 	'after_title'   => '</div>',
-	// ));
 	register_sidebar(array(
 		'name'          => __('Widget Header 1'),
 		'id'            => 'widget-header-1',
@@ -154,25 +132,7 @@ function szwergold_widgets_init() {
 		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
 		'after_title'   => '</div>',
 	));
-	// register_sidebar(array(
-	// 	'name'          => __('Widget Sidebar 1'),
-	// 	'id'            => 'widget-sidebar-1',
-	// 	'description'   => __('Add widgets here to appear in your post sidebar.', 'szwergold'),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s col col-12">',
-	// 	'after_widget'  => '</div>',
-	// 	'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-	// 	'after_title'   => '</div>',
-	// ));
-	// register_sidebar(array(
-	// 	'name'          => __('Widget Sidebar 2'),
-	// 	'id'            => 'widget-sidebar-2',
-	// 	'description'   => __('Add widgets here to appear in your post sidebar.', 'szwergold'),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s col col-12">',
-	// 	'after_widget'  => '</div>',
-	// 	'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-	// 	'after_title'   => '</div>',
-	// ));
-}
+} // szwergold_widgets_init
 add_action( 'widgets_init', 'szwergold_widgets_init' );
 
 ?>

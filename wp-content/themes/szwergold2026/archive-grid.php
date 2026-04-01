@@ -42,7 +42,7 @@
 
 		/****************************************************************************/
 		// Header ends
-		echo '<p class="text-windsorpro-regular">';
+		echo '<p class="text-railroadgothic">';
 		$category_description = category_description();
 		if (!empty($category_description)) {
 			echo strip_tags($category_description);
