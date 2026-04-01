@@ -74,7 +74,7 @@
 </head>
 <body id="top" class="p-0 m-0<?php echo $page_slugs_string; ?>">
 
-	<nav class="header p-0 m-0 px-2 sticky-top bg-darkblue">
+	<nav class="header sticky-top p-0 m-0 px-2 bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 pt-1 pb-3">
 			<div class="h1 text-railroadgothic p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></div>
 			<div class="h4 text-georgia-regular p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></div>

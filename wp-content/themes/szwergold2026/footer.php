@@ -8,13 +8,13 @@
   <!-- Content Core END -->
 
   <!-- Footer Content BEGIN -->
-  <div class="container">
+  <div class="container mb-3 mb-md-4">
     <div class="row">
-      <div class="col px-3 px-md-4 mx-3 mx-md-0 mb-4 bg-offwhite border border-2 border-darkblue rounded-3">
+      <div class="col px-3 px-md-4 mx-3 mx-md-0 mb-2 mb-md-5 bg-offwhite border border-2 border-darkblue rounded-3">
 
         <div class="container">
           <div class="row">
-            <div class="col py-3 py-md-4 text-left">
+            <div class="col py-3 py-md-4">
 
               <div class="p-0 m-0 mx-0 rounded-0">
                 <div class="categories list-group-item col col-12 m-0 p-0 mb-3 border-0">
@@ -337,7 +337,7 @@
 
 ?>
 
-  <footer class="footer p-0 m-0 px-2 bg-darkblue">
+  <footer class="footerr fixed-bottom p-0 m-0 px-2 bg-darkblue">
     <div class="col col-12 p-0 m-0 px-2 py-3">
       <div class="h6 text-georgia-regular p-0 m-0">
         <ul id="footer_links" class="footer_links list-group list-group-horizontal list-group-flush p-0 m-0 rounded-0">
