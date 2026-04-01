@@ -1,15 +1,15 @@
 <?php
 
-	/**********************************************************************/
+	/************************************************************************************/
 	// Set the header.
 	get_header();
 
-	/**********************************************************************/
+	/************************************************************************************/
 	// Set the post content if we have post content.
 	if (have_posts()) {
 		while (have_posts()) {
 
-			/********************************************************************/
+			/********************************************************************************/
 			// Get the post.
 			the_post();
 
@@ -75,7 +75,7 @@
 			echo '<article class="col col-12 p-0 m-0">';
 			echo '<div class="text-georgia-regular">';
 
-			/********************************************************************/
+			/********************************************************************************/
 			// Show the content.
 			the_content();
 
@@ -87,96 +87,52 @@
 
 		} // while
 
-        /**********************************************************************************/
-        // Init variables.
-        $widget_home_featured_1 = null;
-        $widget_home_featured_2 = null;
-        $widget_home_featured_3 = null;
+    /**********************************************************************************/
+    // Init variables.
+    $widget_home_featured_1 = null;
+    $widget_home_featured_2 = null;
+    $widget_home_featured_3 = null;
 
-        /**********************************************************************************/
-        // Home featured 1 stuff.
-        if (is_active_sidebar('widget-home-featured-1')) {
+    echo '<div class="row p-0 m-0 me-xl-3">';
 
-          /********************************************************************************/
-          // Capture the content and set it in a variable so we can tweak the links.
-          ob_start();
-          dynamic_sidebar('widget-home-featured-1');
-          $widget_home_featured_1 = ob_get_contents();
-          ob_end_clean();
+    /**********************************************************************************/
+    // Home featured 1 stuff.
+    if (is_active_sidebar('widget-home-featured-1')) {
+			echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
+			echo '<div class="container">';
+			echo '<div class="row"> ';
+			dynamic_sidebar('widget-home-featured-1');
+			echo '</div>';
+			echo '</div>';
+			echo '</div>';
+    } // if
 
-          /********************************************************************************/
-          // Filter the content in the variable.
-          // $home_featured_1 = str_replace('<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a href=', '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a class="text-decoration-none text-dark" href=', $home_featured_1);
+    /**********************************************************************************/
+    // Home featured 2 stuff.
+		if (is_active_sidebar('widget-home-featured-2')) {
+			echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
+			echo '<div class="container">';
+			echo '<div class="row"> ';
+			dynamic_sidebar('widget-home-featured-2');
+			echo '</div>';
+			echo '</div>';
+			echo '</div>';
+    } // if
 
-        } // if
 
-        /**********************************************************************************/
-        // Home featured 2 stuff.
-        if (is_active_sidebar('widget-home-featured-2')) {
- 
-          /********************************************************************************/
-          // Capture the content and set it in a variable so we can tweak the links.
-          ob_start();
-          dynamic_sidebar('widget-home-featured-2');
-          $widget_home_featured_2 = ob_get_contents();
-          ob_end_clean();
+    /**********************************************************************************/
+    // Home featured 3 stuff.
+		if (is_active_sidebar('widget-home-featured-3')) {
+			echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
+			echo '<div class="container">';
+			echo '<div class="row"> ';
+			dynamic_sidebar('widget-home-featured-3');
+			echo '</div>';
+			echo '</div>';
+			echo '</div>';
+    } // if
 
-          /********************************************************************************/
-          // Filter the content in the variable.
-          // $home_featured_2 = str_replace('<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a href=', '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a class="text-decoration-none text-dark" href=', $home_featured_2);
-
-        } // if
-
-        /**********************************************************************************/
-        // Home featured 3 stuff.
-        if (is_active_sidebar('widget-home-featured-3')) {
- 
-          /********************************************************************************/
-          // Capture the content and set it in a variable so we can tweak the links.
-          ob_start();
-          dynamic_sidebar('widget-home-featured-3');
-          $widget_home_featured_3 = ob_get_contents();
-          ob_end_clean();
-
-          /********************************************************************************/
-          // Filter the content in the variable.
-          // $home_featured_2 = str_replace('<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a href=', '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark"><a class="text-decoration-none text-dark" href=', $home_featured_2);
-
-        } // if
-
-?>
-
-		<div class="row p-0 m-0 me-xl-3">
-			<div class="col col-12 col-xl-4 m-0 p-0 mb-3">
-				<div class="container">
-					<div class="row"> 
-			        <?php
-			          echo $widget_home_featured_1;
-			        ?>
-					</div>
-				</div>
-			</div>
-			<div class="col col-12 col-xl-4 m-0 p-0 mb-3">
-				<div class="container">
-					<div class="row"> 
-			        <?php
-			          echo $widget_home_featured_2;
-			        ?>
-					</div>
-				</div>
-			</div>
-			<div class="col col-12 col-xl-4 m-0 p-0 mb-3">
-				<div class="container">
-					<div class="row"> 
-			        <?php
-			          echo $widget_home_featured_3;
-			        ?>
-					</div>
-				</div>
-			</div>
-		</div>
-
-<?php
+		echo '<div>';
 
 	} // if
 	else {
@@ -187,11 +143,11 @@
 
 	} // else
 
-	/**********************************************************************/
+	/************************************************************************************/
 	// Set the sidebar.
 	// get_sidebar();
 
-	/**********************************************************************/
+	/************************************************************************************/
 	// Set the footer.
 	get_footer();
 
