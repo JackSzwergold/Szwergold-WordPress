@@ -60,39 +60,37 @@
         if (get_the_title() && $instance['show_title']) {
           $header =
               '<div class="h5 p-0 m-0 fw-bold" id="featured_post_' . $the_ID . '">'
-            . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">'
+            . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $title
             . '</a>'
             . '</div>'
             ;
         } // if
 
-        if ($instance['show_date'] || $instance['show_author'] || $instance['show_comments']) {
-          if ($instance['show_author']) {
+        if ($instance['show_author']) {
+          $header .=
+              '<div class="small p-0 m-0">'
+            . 'By '
+            . '<a href="' . $the_author_url . '" title="Posts by ' . $the_author . '" class="text-decoration-none text-darkblue">'
+            . $the_author
+            . '</a>'
+            . '</div>'
+            ;
+          if ($instance['show_date'] && $instance['show_author']) {
             $header .=
-                '<div class="small p-0 m-0">'
-              . 'By '
-              . '<a href="' . $the_author_url . '" title="Posts by ' . $the_author . '" class="text-decoration-none text-dark">'
-              . $the_author
+                '<div class="small m-0 p-0 text-darkblue">'
+              . $display_date
+              . '</div>'
+              ;
+          } // if
+          if ($instance['show_comments']) {
+            $header .=
+                '<div class="small m-0 p-0">'
+              . '<a class="comments text-secondary" href="' . $comments_link . '">'
+              . $comments_number
               . '</a>'
               . '</div>'
               ;
-            if ($instance['show_date'] && $instance['show_author']) {
-              $header .=
-                  '<div class="small m-0 p-0 text-secondary">'
-                . $display_date
-                . '</div>'
-                ;
-            } // if
-            if ($instance['show_comments']) {
-              $header .=
-                  '<div class="small m-0 p-0">'
-                . '<a class="comments text-secondary" href="' . $comments_link . '">'
-                . $comments_number
-                . '</a>'
-                . '</div>'
-                ;
-            } // if
           } // if
         } // if
 
@@ -100,10 +98,10 @@
         // Core content stuff.
         if ($instance['show_excerpt'] && !empty($excerpt)) {
           $core = null;
-          if (isset($article_image) && !empty($article_image)) {
+          if (FALSE && isset($article_image) && !empty($article_image)) {
             $core .=
                 '<div class="col col-12 col-md-6 m-0 p-0 pb-2 ps-md-3 float-end">'
-              . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">'
+              . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
               . '<img src="' . $article_image . '" alt="' . $title . '" class="img-fluid">'
               . '</a>'
               . '</div>'
@@ -113,14 +111,14 @@
             $excerpt = substr($excerpt, 0, -3);
           } // if
           $core .=
-              '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">'
+              '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $excerpt
             . '</a>'
             ;
           if ($instance['show_readmore']) {
             $core .=
                 ' '
-              . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-dark">'
+              . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
               . $instance['excerpt_readmore']
               . '</a>'
               ;
