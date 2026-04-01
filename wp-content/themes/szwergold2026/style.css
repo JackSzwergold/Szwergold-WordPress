@@ -437,9 +437,7 @@ main article a:active {
     column-count: 3;
   }
   div.archive_content {
-    /*column-width: 20em;*/
     column-gap: 1em;
-    /*column-rule: 1px solid #eee; */
     column-count: 1;
   }
   body.hello main article,
