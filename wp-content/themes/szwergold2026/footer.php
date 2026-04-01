@@ -325,7 +325,7 @@
   // Set the footer array items.
   foreach ($footer_items_array as $key => $value) {
     $footer_items_array[$key] =
-        '<li class="list-group-item bg-transparent fw-normal text-nowrap p-0 m-0 mb-3 border-0 rounded-0">'
+        '<li class="list-group-item bg-transparent fw-normal text-nowrap p-0 m-0 border-0 rounded-0">'
       . $value
       . '</li>'
       ;
@@ -340,11 +340,11 @@
   <footer class="footer p-0 m-0 px-2 bg-darkblue">
     <div class="col col-12 p-0 m-0 px-2 py-3">
       <div class="h6 text-georgia-regular p-0 m-0">
-      <ul id="footer_links" class="footer_links list-group list-group-horizontal list-group-flush p-0 m-0 rounded-0">
-        <?php
-          echo $footer_items_string;
-        ?>
-      </ul>
+        <ul id="footer_links" class="footer_links list-group list-group-horizontal list-group-flush p-0 m-0 rounded-0">
+          <?php
+            echo $footer_items_string;
+          ?>
+        </ul>
       </div>
     </div>
   </footer>
