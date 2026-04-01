@@ -90,13 +90,13 @@
 			// Show the divider.
 			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
 
-	    /********************************************************************************/
-	    // Row BEGIN
-	    echo '<div class="row">';
+			/********************************************************************************/
+			// Row BEGIN
+			echo '<div class="row">';
 
-	    /********************************************************************************/
-	    // Home featured 1 stuff.
-	    if (is_active_sidebar('widget-home-featured-1')) {
+			/********************************************************************************/
+			// Home featured 1 stuff.
+			if (is_active_sidebar('widget-home-featured-1')) {
 				echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
 				echo '<div class="container">';
 				echo '<div class="row"> ';
@@ -104,10 +104,10 @@
 				echo '</div>';
 				echo '</div>';
 				echo '</div>';
-	    } // if
+			} // if
 
-	    /********************************************************************************/
-	    // Home featured 2 stuff.
+			/********************************************************************************/
+			// Home featured 2 stuff.
 			if (is_active_sidebar('widget-home-featured-2')) {
 				echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
 				echo '<div class="container">';
@@ -116,11 +116,10 @@
 				echo '</div>';
 				echo '</div>';
 				echo '</div>';
-	    } // if
+			} // if
 
-
-	    /********************************************************************************/
-	    // Home featured 3 stuff.
+			/********************************************************************************/
+			// Home featured 3 stuff.
 			if (is_active_sidebar('widget-home-featured-3')) {
 				echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
 				echo '<div class="container">';
@@ -129,10 +128,10 @@
 				echo '</div>';
 				echo '</div>';
 				echo '</div>';
-	    } // if
+			} // if
 
-	    /********************************************************************************/
-	    // Row END
+			/********************************************************************************/
+			// Row END
 			echo '<div>';
 
 			echo '</main>';
