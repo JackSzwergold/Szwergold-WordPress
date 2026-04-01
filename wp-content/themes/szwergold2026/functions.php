@@ -80,6 +80,20 @@ add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 // }
 
 /********************************************************************************/
+// 2026-03-31: Adjust the block heading CSS.
+function adjust_block_heading_css($content, $block) {
+    if (isset($block['blockName']) && str_starts_with($block['blockName'], 'core/heading')) {
+    	$pattern = '/\sclass="[^"]*\bwp-block-heading\b[^"]*"/';
+    	$replacement = ' class="wp-block-heading p-0 m-0"';
+		$pattern = '/<(h[1-6])\s+class="wp-block-heading"(.*?)>/i';
+		$replacement = '<$1 class="wp-block-heading p-0 m-0" $2>';
+		$content = preg_replace($pattern, $replacement, $content);
+    } // if
+    return $content;
+} // adjust_block_heading_css
+add_filter('render_block', 'adjust_block_heading_css', 10, 2 );
+
+/********************************************************************************/
 // 2026-03-20: Adding widgets.
 function szwergold_widgets_init() {
 	// register_sidebar(array(
