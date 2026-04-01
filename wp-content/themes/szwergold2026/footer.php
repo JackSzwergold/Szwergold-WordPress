@@ -163,7 +163,7 @@
                         // Set the parent stuff.
                         if (!empty($parent_link)) {
                           $parent_stuff = 
-                              '<a href="' . $parent_link  .'" class="text-decoration-none text-darkblue">'
+                              '<a href="' . $parent_link  .'" class="text-decoration-none text-darkblue text-georgia-bold">'
                             . $parent_stuff
                             . ($show_counts && !empty($parent_count) ? $parent_count : null)
                             . '</a>'
@@ -196,7 +196,7 @@
                             // Set the parent stuff.
                             if (!empty($child_link)) {
                               $child_stuff = 
-                                  '<a href="' . $child_link  .'" class="text-decoration-none text-darkblue">'
+                                  '<a href="' . $child_link  .'" class="text-decoration-none text-darkblue text-georgia-regular">'
                                 . $child_stuff
                                 . '</a>'
                                 ;  
@@ -277,7 +277,7 @@
                       /******************************************************************************/
                       // Do stuff with the archives content.
                       $archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">', $archives);
-                      $archives = str_replace('<a href=', '<a class="text-decoration-none text-darkblue" href=', $archives);
+                      $archives = str_replace('<a href=', '<a class="text-decoration-none text-darkblue text-georgia-regular" href=', $archives);
 
                       /******************************************************************************/
                       // Wrap it all up in UL tags.
