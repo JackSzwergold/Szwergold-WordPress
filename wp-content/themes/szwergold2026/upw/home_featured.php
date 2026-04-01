@@ -9,8 +9,8 @@
     $final = array();
 
     $header = null;
+    $divider = null;
     $content = null;
-    $footer = null;
 
     /*********************************************************************************/
     // Set the before stuff.
@@ -59,11 +59,11 @@
         // Header stuff.
         if (get_the_title() && $instance['show_title']) {
           $header =
-              '<div class="h5 p-0 m-0 text-railroadgothic" id="featured_post_' . $the_ID . '">'
+              '<span class="h5 p-0 m-0 text-railroadgothic" id="home_featured_' . $the_ID . '">'
             . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $title
             . '</a>'
-            . '</div>'
+            . '</span>'
             ;
         } // if
 
@@ -83,30 +83,12 @@
               . '</div>'
               ;
           } // if
-          if ($instance['show_comments']) {
-            $header .=
-                '<div class="small m-0 p-0">'
-              . '<a class="comments text-secondary" href="' . $comments_link . '">'
-              . $comments_number
-              . '</a>'
-              . '</div>'
-              ;
-          } // if
         } // if
 
         /******************************************************************************/
         // Content stuff.
         if ($instance['show_excerpt'] && !empty($excerpt)) {
           $content = null;
-          if (FALSE && isset($article_image) && !empty($article_image)) {
-            $content .=
-                '<div class="col col-12 col-md-6 m-0 p-0 pb-2 ps-md-3 float-end">'
-              . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
-              . '<img src="' . $article_image . '" alt="' . $title . '" class="img-fluid">'
-              . '</a>'
-              . '</div>'
-              ;
-          } // if
           if ($instance['show_readmore']) {
             $excerpt = substr($excerpt, 0, -3);
           } // if
@@ -115,83 +97,20 @@
             . $excerpt
             . '</a>'
             ;
-          if ($instance['show_readmore']) {
-            $content .=
-                ' '
-              . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
-              . $instance['excerpt_readmore']
-              . '</a>'
-              ;
-          } // if
+          // if ($instance['show_readmore']) {
+          //   $content .=
+          //       ' '
+          //     . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
+          //     . $instance['excerpt_readmore']
+          //     . '</a>'
+          //     ;
+          // } // if
           $content =
               '<span class="small text-georgia-regular">'
-            // . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $content
-            // . '</a>'
             . '</span>'
             ;
         } // if
-
-        /******************************************************************************/
-        // Footer stuff.
-        // $footer = '<footer>';
-
-        // if ($instance['show_cats'] && $categories) {
-        //   $footer .=
-        //       '<div class="entry-categories">'
-        //     . '<strong class="entry-cats-label">'
-        //     . __('Posted in', 'upw')
-        //     . ': '
-        //     . '</strong>'
-        //     . '<span class="entry-cats-list">'
-        //     . $categories
-        //     . '</span>'
-        //     . '</div>'
-        //     ;
-        // } // if
-
-        // if ($instance['show_tags'] && $tags) {
-        //   $footer .=
-        //       '<div class="entry-tags">'
-        //     . '<strong class="entry-tags-label">'
-        //     . __('Tagged', 'upw')
-        //     . ': '
-        //     . '</strong>'
-        //     . '<span class="entry-tags-list">'
-        //     . $tags
-        //     . '</span>'
-        //     . '</div>'
-        //     ;
-        // } // if
-
-        // if ($custom_fields) {
-        //   $custom_field_name = explode(',', $custom_fields);
-        //   $footer .= '<div class="entry-custom-fields">';
-        //   foreach ($custom_field_name as $name) {
-        //     $name = trim($name);
-        //     $custom_field_values = get_post_meta($post->ID, $name, true);
-        //     if ($custom_field_values) { 
-        //       $footer .= '<div class="custom-field custom-field-' . $name . '">';
-        //       if (!is_array($custom_field_values)) {
-        //         echo $custom_field_values;
-        //       } // if
-        //       else {
-        //         $last_value = end($custom_field_values);
-        //         foreach ($custom_field_values as $value) {
-        //           echo $value;
-        //           if ($value != $last_value){
-        //             echo ', ';
-        //           } // if
-        //         } // foreach
-        //       } // else
-        //     $footer .= '</div>';
-        //     } // if
-        //   } // foreach
-        //   $footer .= '</div>';
-        // } // if
-
-        // $footer .= '</footer>';
-
 
         /******************************************************************************/
         // Set the divider.
@@ -206,8 +125,8 @@
             '<div class="col col-12 m-0 p-0 pe-md-3 pe-xl-0">'
           . '<div class="' . implode(' ' , get_post_class($post_class))  . ' p-0 m-0">'
           . $header
+          . $divider
           . $content
-          . $footer
           . '</div>'
           . '</div>'
           ;
