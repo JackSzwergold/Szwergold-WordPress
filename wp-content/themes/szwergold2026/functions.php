@@ -115,30 +115,12 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Footer 1'),
-		'id'            => 'widget-footer-1',
-		'description'   => __('Add widgets here to appear on your page footer.', 'szwergold'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-		'after_title'   => '</div>',
-	));
-	register_sidebar(array(
-		'name'          => __('Footer 2'),
-		'id'            => 'widget-footer-2',
-		'description'   => __('Add widgets here to appear on your page footer.', 'szwergold'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
-		'after_title'   => '</div>',
-	));
-	register_sidebar(array(
 		'name'          => __('Home Featured 1'),
 		'id'            => 'widget-home-featured-1',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<div class="h3 text-railroadgothic text-darkblue text-decoration-none col col-12 p-0 m-0 mb-1">',
+		'before_title'  => '<div class="h3 text-railroadgothic col col-12 p-0 m-0 mb-1">',
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
@@ -147,7 +129,7 @@ function szwergold_widgets_init() {
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<div class="h3 text-railroadgothic text-darkblue text-decoration-none col col-12 p-0 m-0 mb-1">',
+		'before_title'  => '<div class="h3 text-railroadgothic col col-12 p-0 m-0 mb-1">',
 		'after_title'   => '</div>',
 	));
 } // szwergold_widgets_init
