@@ -55,14 +55,6 @@
           $article_image = wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), $instance['thumb_size']);     
         } // if
 
-
-        /******************************************************************************/
-        // Set the divider.
-        $divider = null;
-        if (!empty($title) && !empty($excerpt)) {
-          $divider = '<span class="text-railroadgothic">: </span>';
-        } // if
-
         /******************************************************************************/
         // Header stuff.
         if (get_the_title() && $instance['show_title']) {
@@ -200,19 +192,23 @@
 
         // $footer .= '</footer>';
 
+
+        /******************************************************************************/
+        // Set the divider.
+        $divider = null;
+        if (!empty($title) && !empty($excerpt)) {
+          $divider = '<span class="text-railroadgothic">: </span>';
+        } // if
+
         /******************************************************************************/
         // Custom cointainer begins.
         $final[] =
             '<div class="col col-12 m-0 p-0 pe-md-3 pe-xl-0">'
-          // . '<div class="container">'
-          // . '<div class="row">'
           . '<div class="' . implode(' ' , get_post_class($post_class))  . ' p-0 m-0">'
           . $header
           . $core
           . $footer
           . '</div>'
-          // . '</div>'
-          // . '</div>'
           . '</div>'
           ;
 
