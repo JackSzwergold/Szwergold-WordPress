@@ -333,61 +333,67 @@ main > article div.column_list ol {
 /* Article list style none.
 /******************************************************************************/
 
-main > article div.list_style_none ul,
+/*main > article div.list_style_none ul,
 main > article div.list_style_none ol {
   margin: 0;
   padding: 0 1rem 0 1rem;
   list-style: none;
-}
+}*/
 
 /******************************************************************************/
 
-main article h1,
-main article h2,
-main article h3,
-main article h4,
-main article h5,
-main article h6 {
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   /*font-family: "WindsorProRegular", Georgia, "New York", "Times New Roman", Times, serif;*/
   font-family: "RailroadGothic", Georgia, "New York", "Times New Roman", Times, serif !important;
   color: rgb(64, 63, 123);
 }
 
-main article h1 a,
-main article h1 a:link,
-main article h1 a:visited,
-main article h1 a:hover,
-main article h1 a:active,
-main article h2 a,
-main article h2 a:link,
-main article h2 a:visited,
-main article h2 a:hover,
-main article h2 a:active,
-main article h3 a,
-main article h3 a:link,
-main article h3 a:visited,
-main article h3 a:hover,
-main article h3 a:active,
-main article h4 a,
-main article h4 a:link,
-main article h4 a:visited,
-main article h4 a:hover,
-main article h4 a:active {
+main h1 a,
+main h1 a:link,
+main h1 a:visited,
+main h1 a:hover,
+main h1 a:active,
+main h2 a,
+main h2 a:link,
+main h2 a:visited,
+main h2 a:hover,
+main h2 a:active,
+main h3 a,
+main h3 a:link,
+main h3 a:visited,
+main h3 a:hover,
+main h3 a:active,
+main h4 a,
+main h4 a:link,
+main h4 a:visited,
+main h4 a:hover,
+main h4 a:active,
+main h5 a,
+main h5 a:link,
+main h5 a:visited,
+main h5 a:hover,
+main h5 a:active,
+main h6 a,
+main h6 a:link,
+main h6 a:visited,
+main h6 a:hover,
+main h6 a:active {
   color: rgb(64, 63, 123);
 }
 
 /******************************************************************************/
 
-main article a,
-main article a:link,
-main article a:visited,
-main article a:hover,
-main article a:active {
+main a,
+main a:link,
+main a:visited,
+main a:hover,
+main a:active {
   color: rgb(64, 63, 123);
-  /*background-image: linear-gradient(#333333 50%, #333333 50%);*/
-  /*background-repeat: repeat-x;*/
-  /*background-position: 0 90%;*/
-  /*background-size: 1px 1px;*/
 }
 
 /******************************************************************************/
