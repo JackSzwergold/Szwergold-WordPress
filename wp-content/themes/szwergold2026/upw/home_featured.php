@@ -59,7 +59,7 @@
         // Header stuff.
         if (get_the_title() && $instance['show_title']) {
           $header =
-              '<div class="h5 p-0 m-0 fw-bold" id="featured_post_' . $the_ID . '">'
+              '<div class="h5 p-0 m-0 text-railroadgothic" id="featured_post_' . $the_ID . '">'
             . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $title
             . '</a>'
