@@ -10,7 +10,7 @@
   <!-- Footer Content BEGIN -->
   <div class="container">
     <div class="row">
-      <div class="col px-3 px-md-4 mx-3 mx-md-0 mb-4 bg-offwhite shadow-lg border border-2 border-darkblue rounded">
+      <div class="col px-3 px-md-4 mx-3 mx-md-0 mb-4 bg-offwhite shadow border border-2 border-darkblue rounded-3">
 
         <div class="container">
           <div class="row">
