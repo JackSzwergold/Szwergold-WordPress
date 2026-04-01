@@ -1,15 +1,15 @@
 <?php
 
-	/**********************************************************************/
+	/****************************************************************************************/
 	// Set the header.
 	get_header();
 
-	/**********************************************************************/
+	/****************************************************************************************/
 	// Set the post content if we have post content.
 	if (have_posts()) {
 		while (have_posts()) {
 
-			/********************************************************************/
+			/********************************************************************************/
 			// Get the post.
 			the_post();
 
@@ -49,20 +49,7 @@
 			} // if
 
 			/********************************************************************************/
-			// Show the author, date and time.
-			// if (!empty($the_author)) {
-			// 	echo '<div class="h5 p-0 m-0 text-railroadgothic">';
-			// 	echo 'By ' . $the_author;
-			// 	if (!empty($update_date)) {
-			// 		echo ' on ' . $update_date;
-			// 		if (!empty($update_time)) {
-			// 			echo ' at ' . $update_time;
-			// 		} // if
-			// 	} // if
-			// 	echo '.';
-			// 	echo '</div>';				
-			// } // if
-
+			// Show the divider.
 			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
 
 			/********************************************************************************/
@@ -75,7 +62,7 @@
 			echo '<article class="col col-12 p-0 m-0">';
 			echo '<div class="text-georgia-regular">';
 
-			/********************************************************************/
+			/********************************************************************************/
 			// Show the content.
 			the_content();
 
@@ -83,6 +70,48 @@
 			// End the header.
 			echo '</div>';
 			echo '</article>';
+
+			/********************************************************************************/
+			// If we are on the frontpage, show these widgets.
+			if (is_front_page()) {
+
+				/****************************************************************************/
+				// Show the divider.
+				echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
+
+				/****************************************************************************/
+				// Row BEGIN
+				echo '<div class="row">';
+
+				/****************************************************************************/
+				// Home featured 1 stuff.
+				if (is_active_sidebar('home-featured-1')) {
+					echo '<div class="col col-12 col-xl-6 m-0 p-0 mb-3">';
+					echo '<div class="container">';
+					echo '<div class="row"> ';
+					dynamic_sidebar('home-featured-1');
+					echo '</div>';
+					echo '</div>';
+					echo '</div>';
+				} // if
+
+				/****************************************************************************/
+				// Home featured 2 stuff.
+				if (is_active_sidebar('home-featured-2')) {
+					echo '<div class="col col-12 col-xl-6 m-0 p-0 mb-3">';
+					echo '<div class="container">';
+					echo '<div class="row"> ';
+					dynamic_sidebar('home-featured-2');
+					echo '</div>';
+					echo '</div>';
+					echo '</div>';
+				} // if
+
+				/****************************************************************************/
+				// Row END
+				echo '<div>';
+			} // if
+
 			echo '</main>';
 
 		} // while
@@ -96,11 +125,11 @@
 
 	} // else
 
-	/**********************************************************************/
+	/****************************************************************************************/
 	// Set the sidebar.
 	// get_sidebar();
 
-	/**********************************************************************/
+	/****************************************************************************************/
 	// Set the footer.
 	get_footer();
 

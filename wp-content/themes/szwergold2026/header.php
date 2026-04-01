@@ -84,7 +84,7 @@
 	<!-- Content Core BEGIN -->
 	<div class="container">
 		<div class="row">
-			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-offwhite shadow-lg border border-2 border-darkblue rounded">
+			<div class="col px-3 px-md-4 mx-3 mx-md-0 my-3 my-md-4 bg-offwhite border border-2 border-darkblue rounded-3">
 
 				<div class="container">
 					<div class="row">
@@ -94,14 +94,14 @@
 
 								/**********************************************************************************************/
 								// If we have a widget header, show the widget header.
-								if (is_active_sidebar('widget-header-1')) {
-									dynamic_sidebar('widget-header-1');
+								if (is_active_sidebar('header-1')) {
+									dynamic_sidebar('header-1');
 								} // if
 
 								/**********************************************************************************************/
 								// If we have a widget header, show the widget header.
-								if (is_active_sidebar('widget-header-2')) {
-									dynamic_sidebar('widget-header-2');
+								if (is_active_sidebar('header-2')) {
+									dynamic_sidebar('header-2');
 								} // if
 
 							?>
