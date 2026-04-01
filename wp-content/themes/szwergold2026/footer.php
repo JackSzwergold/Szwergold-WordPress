@@ -307,16 +307,19 @@
   /**************************************************************************************************/
   // Set the items in the footer array.
   $footer_items_array = array();
+  $footer_items_array[] = '<a href="/" title="Home" class="text-offwhite m-0 p-0"><span property="name" class="text-offwhite fa fa-home"></span></a>';
   $footer_items_array[] = '<a href="/about" title="About" class="text-offwhite m-0 p-0">About</a>';
-  $footer_items_array[] = '<a href="/tech" title="What’s this?" class="text-offwhite m-0 p-0">Tech?</a>';
-  $footer_items_array[] = '<a href="/notes" title="RSS feed" class="text-offwhite m-0 p-0">Notes</a>';
-  $footer_items_array[] = '<a href="/contact" title="RSS feed" class="text-offwhite m-0 p-0">Contact</a>';
+  $footer_items_array[] = '<a href="/notes" title="Notes feed" class="text-offwhite m-0 p-0">Notes</a>';
+  $footer_items_array[] = '<a href="/tech" title="Tech" class="text-offwhite m-0 p-0">Tech</a>';
+  $footer_items_array[] = '<a href="/contact" title="Contact" class="text-offwhite m-0 p-0">Contact</a>';
+  $footer_items_array[] = '<a href="/resume" title="Résumé" class="text-offwhite m-0 p-0">Résumé</a>';
+  $footer_items_array[] = '<a href="/bookmarks" title="Bookmarks" class="text-offwhite m-0 p-0">Bookmarks</a>';
   // $footer_items_array[] = '<a href="#" title="top of page" class="text-offwhite m-0 p-0">Top of Page</a>';
   $footer_items_array[] = '<span class="text-offwhite m-0 p-0">Site and contents &copy; ' . date('Y') . ' Jack Szwergold</span>';
 
   /**************************************************************************************************/
   // Set the footer string.
-  $footer_items_string = implode('<span class="text-offwhite m-0 p-0 px-1">&bull;</span>', $footer_items_array);
+  $footer_items_string = implode('<span class="text-offwhite m-0 p-0 px-2">&bull;</span>', $footer_items_array);
 
 ?>
 
