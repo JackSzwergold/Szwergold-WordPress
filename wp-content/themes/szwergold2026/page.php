@@ -1,10 +1,10 @@
 <?php
 
-	/************************************************************************************/
+	/****************************************************************************************/
 	// Set the header.
 	get_header();
 
-	/************************************************************************************/
+	/****************************************************************************************/
 	// Set the post content if we have post content.
 	if (have_posts()) {
 		while (have_posts()) {
@@ -72,60 +72,61 @@
 			echo '</article>';
 
 			/********************************************************************************/
-			// Show the divider.
-			echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
+			// If we are on the frontpage, show these widgets.
+			if (is_front_page()) {
 
-			/********************************************************************************/
-			// Row BEGIN
-			echo '<div class="row">';
+				/****************************************************************************/
+				// Show the divider.
+				echo '<hr class="p-0 m-0 mt-2 mb-2 border border-darkblue border-1 opacity-100">';
 
-			/********************************************************************************/
-			// Home featured 1 stuff.
-			if (is_active_sidebar('widget-home-featured-1')) {
-				echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
-				echo '<div class="container">';
-				echo '<div class="row"> ';
-				dynamic_sidebar('widget-home-featured-1');
-				echo '</div>';
-				echo '</div>';
-				echo '</div>';
+				/****************************************************************************/
+				// Row BEGIN
+				echo '<div class="row">';
+
+				/****************************************************************************/
+				// Home featured 1 stuff.
+				if (is_active_sidebar('widget-home-featured-1')) {
+					echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
+					echo '<div class="container">';
+					echo '<div class="row"> ';
+					dynamic_sidebar('widget-home-featured-1');
+					echo '</div>';
+					echo '</div>';
+					echo '</div>';
+				} // if
+
+				/****************************************************************************/
+				// Home featured 2 stuff.
+				if (is_active_sidebar('widget-home-featured-2')) {
+					echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
+					echo '<div class="container">';
+					echo '<div class="row"> ';
+					dynamic_sidebar('widget-home-featured-2');
+					echo '</div>';
+					echo '</div>';
+					echo '</div>';
+				} // if
+
+				/****************************************************************************/
+				// Home featured 3 stuff.
+				if (is_active_sidebar('widget-home-featured-3')) {
+					echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
+					echo '<div class="container">';
+					echo '<div class="row"> ';
+					dynamic_sidebar('widget-home-featured-3');
+					echo '</div>';
+					echo '</div>';
+					echo '</div>';
+				} // if
+
+				/****************************************************************************/
+				// Row END
+				echo '<div>';
 			} // if
-
-			/********************************************************************************/
-			// Home featured 2 stuff.
-			if (is_active_sidebar('widget-home-featured-2')) {
-				echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
-				echo '<div class="container">';
-				echo '<div class="row"> ';
-				dynamic_sidebar('widget-home-featured-2');
-				echo '</div>';
-				echo '</div>';
-				echo '</div>';
-			} // if
-
-			/********************************************************************************/
-			// Home featured 3 stuff.
-			if (is_active_sidebar('widget-home-featured-3')) {
-				echo '<div class="col col-12 col-xl-4 m-0 p-0 mb-3">';
-				echo '<div class="container">';
-				echo '<div class="row"> ';
-				dynamic_sidebar('widget-home-featured-3');
-				echo '</div>';
-				echo '</div>';
-				echo '</div>';
-			} // if
-
-			/********************************************************************************/
-			// Row END
-			echo '<div>';
 
 			echo '</main>';
 
 		} // while
-
-    /**********************************************************************************/
-    /**********************************************************************************/
-    /**********************************************************************************/
 
 	} // if
 	else {
@@ -136,11 +137,11 @@
 
 	} // else
 
-	/************************************************************************************/
+	/****************************************************************************************/
 	// Set the sidebar.
 	// get_sidebar();
 
-	/************************************************************************************/
+	/****************************************************************************************/
 	// Set the footer.
 	get_footer();
 
