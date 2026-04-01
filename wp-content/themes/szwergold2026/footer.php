@@ -325,8 +325,7 @@
   // Set the footer array items.
   foreach ($footer_items_array as $key => $value) {
     $footer_items_array[$key] =
-        '<li class="list-group-item fw-normal text-nowrap p-0 m-0 mb-3 border-0 rounded-0">'
-      // . $footer_divider
+        '<li class="list-group-item bg-transparent fw-normal text-nowrap p-0 m-0 mb-3 border-0 rounded-0">'
       . $value
       . '</li>'
       ;
