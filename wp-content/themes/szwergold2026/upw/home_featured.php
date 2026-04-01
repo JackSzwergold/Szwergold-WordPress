@@ -1,6 +1,6 @@
 <?php
 
-    /******************************************************************************/
+    /*********************************************************************************/
     // Init some variables.
     $ret = null;
 
@@ -12,7 +12,7 @@
     $core = null;
     $footer = null;
 
-    /******************************************************************************/
+    /*********************************************************************************/
     // Set the before stuff.
     if ($instance['before_posts']) {
       $before =
@@ -48,11 +48,19 @@
         $categories = get_the_term_list($post->ID, 'category', '', ', ');
         $tags = get_the_term_list($post->ID, 'post_tag', '', ', ');
 
-        /**************************************************************************/
+        /******************************************************************************/
         // The article image stuff.
         $article_image = null;
         if ($instance['show_thumbnail']) {
           $article_image = wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), $instance['thumb_size']);     
+        } // if
+
+
+        /******************************************************************************/
+        // Set the divider.
+        $divider = null;
+        if (!empty($title) && !empty($excerpt)) {
+          $divider = '<span class="text-railroadgothic">: </span>';
         } // if
 
         /******************************************************************************/
@@ -134,63 +142,63 @@
 
         /******************************************************************************/
         // Footer stuff.
-        $footer = '<footer>';
+        // $footer = '<footer>';
 
-        if ($instance['show_cats'] && $categories) {
-          $footer .=
-              '<div class="entry-categories">'
-            . '<strong class="entry-cats-label">'
-            . __('Posted in', 'upw')
-            . ': '
-            . '</strong>'
-            . '<span class="entry-cats-list">'
-            . $categories
-            . '</span>'
-            . '</div>'
-            ;
-        } // if
+        // if ($instance['show_cats'] && $categories) {
+        //   $footer .=
+        //       '<div class="entry-categories">'
+        //     . '<strong class="entry-cats-label">'
+        //     . __('Posted in', 'upw')
+        //     . ': '
+        //     . '</strong>'
+        //     . '<span class="entry-cats-list">'
+        //     . $categories
+        //     . '</span>'
+        //     . '</div>'
+        //     ;
+        // } // if
 
-        if ($instance['show_tags'] && $tags) {
-          $footer .=
-              '<div class="entry-tags">'
-            . '<strong class="entry-tags-label">'
-            . __('Tagged', 'upw')
-            . ': '
-            . '</strong>'
-            . '<span class="entry-tags-list">'
-            . $tags
-            . '</span>'
-            . '</div>'
-            ;
-        } // if
+        // if ($instance['show_tags'] && $tags) {
+        //   $footer .=
+        //       '<div class="entry-tags">'
+        //     . '<strong class="entry-tags-label">'
+        //     . __('Tagged', 'upw')
+        //     . ': '
+        //     . '</strong>'
+        //     . '<span class="entry-tags-list">'
+        //     . $tags
+        //     . '</span>'
+        //     . '</div>'
+        //     ;
+        // } // if
 
-        if ($custom_fields) {
-          $custom_field_name = explode(',', $custom_fields);
-          $footer .= '<div class="entry-custom-fields">';
-          foreach ($custom_field_name as $name) {
-            $name = trim($name);
-            $custom_field_values = get_post_meta($post->ID, $name, true);
-            if ($custom_field_values) { 
-              $footer .= '<div class="custom-field custom-field-' . $name . '">';
-              if (!is_array($custom_field_values)) {
-                echo $custom_field_values;
-              } // if
-              else {
-                $last_value = end($custom_field_values);
-                foreach ($custom_field_values as $value) {
-                  echo $value;
-                  if ($value != $last_value){
-                    echo ', ';
-                  } // if
-                } // foreach
-              } // else
-            $footer .= '</div>';
-            } // if
-          } // foreach
-          $footer .= '</div>';
-        } // if
+        // if ($custom_fields) {
+        //   $custom_field_name = explode(',', $custom_fields);
+        //   $footer .= '<div class="entry-custom-fields">';
+        //   foreach ($custom_field_name as $name) {
+        //     $name = trim($name);
+        //     $custom_field_values = get_post_meta($post->ID, $name, true);
+        //     if ($custom_field_values) { 
+        //       $footer .= '<div class="custom-field custom-field-' . $name . '">';
+        //       if (!is_array($custom_field_values)) {
+        //         echo $custom_field_values;
+        //       } // if
+        //       else {
+        //         $last_value = end($custom_field_values);
+        //         foreach ($custom_field_values as $value) {
+        //           echo $value;
+        //           if ($value != $last_value){
+        //             echo ', ';
+        //           } // if
+        //         } // foreach
+        //       } // else
+        //     $footer .= '</div>';
+        //     } // if
+        //   } // foreach
+        //   $footer .= '</div>';
+        // } // if
 
-        $footer .= '</footer>';
+        // $footer .= '</footer>';
 
         /******************************************************************************/
         // Custom cointainer begins.
@@ -221,7 +229,7 @@
  
     } // else
  
-    /******************************************************************************/
+    /*********************************************************************************/
     // Set the after stuff.
     if ($instance['after_posts']) {
       $after =
@@ -231,7 +239,7 @@
         ;
         } // if
 
-    /******************************************************************************/
+    /*********************************************************************************/
     // If we hvae stuff to output, set the final output value.
     if (!empty($before) || !empty($final) || !empty($after)) {
         $ret = 
@@ -243,8 +251,7 @@
           ;
     } // if
 
-
-    /******************************************************************************/
+    /*********************************************************************************/
     // Output the final value.
     echo $ret;
 
