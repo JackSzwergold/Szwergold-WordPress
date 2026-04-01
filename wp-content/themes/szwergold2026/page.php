@@ -129,17 +129,31 @@
 ?>
 
 		<div class="row p-0 m-0 me-xl-3">
-			<div class="col col-12 col-xl-3 m-0 p-0 mb-3 order-2 order-xl-first">
+			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
 				<div class="container">
 					<div class="row"> 
-					One
+						One
 					</div>
 				</div>
 			</div>
-			<div class="col col-12 col-xl-9 m-0 p-0 mb-3 order-1 order-xl-last">
+			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
 				<div class="container">
 					<div class="row"> 
-					Two
+						Two
+					</div>
+				</div>
+			</div>
+			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
+				<div class="container">
+					<div class="row"> 
+						Three
+					</div>
+				</div>
+			</div>
+			<div class="col col-12 col-xl-3 m-0 p-0 mb-3">
+				<div class="container">
+					<div class="row"> 
+						Four
 					</div>
 				</div>
 			</div>
