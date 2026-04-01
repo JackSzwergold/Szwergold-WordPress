@@ -59,30 +59,12 @@
         // Header stuff.
         if (get_the_title() && $instance['show_title']) {
           $header =
-              '<span class="h5 p-0 m-0 text-railroadgothic" id="home_featured_' . $the_ID . '">'
-            . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
+              '<span class="text-railroadgothic" id="home_featured_' . $the_ID . '">'
+            . '<a href="' . $permalink . '" rel="bookmark" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $title
             . '</a>'
             . '</span>'
             ;
-        } // if
-
-        if ($instance['show_author']) {
-          $header .=
-              '<div class="small p-0 m-0">'
-            . 'By '
-            . '<a href="' . $the_author_url . '" title="Posts by ' . $the_author . '" class="text-decoration-none text-darkblue">'
-            . $the_author
-            . '</a>'
-            . '</div>'
-            ;
-          if ($instance['show_date'] && $instance['show_author']) {
-            $header .=
-                '<div class="small m-0 p-0 text-darkblue">'
-              . $display_date
-              . '</div>'
-              ;
-          } // if
         } // if
 
         /******************************************************************************/
@@ -93,20 +75,12 @@
             $excerpt = substr($excerpt, 0, -3);
           } // if
           $content .=
-              '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
+              '<a href="' . $permalink . '" rel="bookmark" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $excerpt
             . '</a>'
             ;
-          // if ($instance['show_readmore']) {
-          //   $content .=
-          //       ' '
-          //     . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
-          //     . $instance['excerpt_readmore']
-          //     . '</a>'
-          //     ;
-          // } // if
           $content =
-              '<span class="small text-georgia-regular">'
+              '<span class="text-georgia-regular small">'
             . $content
             . '</span>'
             ;
