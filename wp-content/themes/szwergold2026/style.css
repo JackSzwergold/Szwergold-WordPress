@@ -409,6 +409,20 @@ main article a:active {
 }
 
 /******************************************************************************/
+
+.nav-link {
+  font-family: "RailroadGothic", Georgia, "New York", "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+  color: rgb(239, 232, 219) !important;
+  background-color: rgb(64, 63, 123) !important;
+}
+
+.nav-link.active {
+  color: rgb(64, 63, 123) !important;
+  background-color: rgb(239, 232, 219) !important;
+}
+
+/******************************************************************************/
 /*
 /*  __  __          _ _          ___                  _
 /* |  \/  | ___  __| (_) __ _   / _ \ _   _  ___ _ __(_) ___  ___
