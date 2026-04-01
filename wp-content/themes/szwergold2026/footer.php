@@ -305,7 +305,7 @@
 <?php
 
   /**************************************************************************************************/
-  // Set the items in the footer array.
+  // Set the footer array items.
   $footer_items_array = array();
   $footer_items_array[] = '<a href="/" title="Home" class="text-offwhite m-0 p-0"><span property="name" class="text-offwhite fa fa-home"></span></a>';
   $footer_items_array[] = '<a href="/about" title="About" class="text-offwhite m-0 p-0">About</a>';
@@ -318,17 +318,34 @@
   $footer_items_array[] = '<span class="text-offwhite m-0 p-0">Site design and contents &copy; ' . date('Y') . ' Jack Szwergold</span>';
 
   /**************************************************************************************************/
+  // Set the footer divider item.
+  $footer_divider = '<span class="text-offwhite m-0 p-0 px-2">&bull;</span>';
+
+  /**************************************************************************************************/
+  // Set the footer array items.
+  foreach ($footer_items_array as $key => $value) {
+    $footer_items_array[$key] =
+        '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">'
+      // . $footer_divider
+      . $value
+      . '</li>'
+      ;
+  } // foreach
+
+  /**************************************************************************************************/
   // Set the footer string.
-  $footer_items_string = implode('<span class="text-offwhite m-0 p-0 px-2">&bull;</span>', $footer_items_array);
+  $footer_items_string = implode($footer_divider, $footer_items_array);
 
 ?>
 
   <footer class="footer p-0 m-0 px-2 bg-darkblue">
     <div class="col col-12 p-0 m-0 px-2 py-3">
       <div class="h6 text-georgia-regular p-0 m-0">
+      <ul id="footer_links" class="footer_links list-group-off p-0 m-0 rounded-0">
         <?php
           echo $footer_items_string;
         ?>
+      </ul>
       </div>
     </div>
   </footer>
