@@ -9,7 +9,7 @@
     $final = array();
 
     $header = null;
-    $core = null;
+    $content = null;
     $footer = null;
 
     /*********************************************************************************/
@@ -95,11 +95,11 @@
         } // if
 
         /******************************************************************************/
-        // Core content stuff.
+        // Content stuff.
         if ($instance['show_excerpt'] && !empty($excerpt)) {
-          $core = null;
+          $content = null;
           if (FALSE && isset($article_image) && !empty($article_image)) {
-            $core .=
+            $content .=
                 '<div class="col col-12 col-md-6 m-0 p-0 pb-2 ps-md-3 float-end">'
               . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
               . '<img src="' . $article_image . '" alt="' . $title . '" class="img-fluid">'
@@ -110,26 +110,26 @@
           if ($instance['show_readmore']) {
             $excerpt = substr($excerpt, 0, -3);
           } // if
-          $core .=
+          $content .=
               '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
             . $excerpt
             . '</a>'
             ;
           if ($instance['show_readmore']) {
-            $core .=
+            $content .=
                 ' '
               . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
               . $instance['excerpt_readmore']
               . '</a>'
               ;
           } // if
-          $core =
-            '<div class="p-0 m-0 mb-3">'
-          . '<div class="small ">'
-          . $core
-          . '</div>'
-          . '</div>'
-          ;
+          $content =
+              '<span class="small text-georgia-regular">'
+            // . '<a href="' . $permalink . '" title="' . $title . '" class="text-decoration-none text-darkblue">'
+            . $content
+            // . '</a>'
+            . '</span>'
+            ;
         } // if
 
         /******************************************************************************/
@@ -206,7 +206,7 @@
             '<div class="col col-12 m-0 p-0 pe-md-3 pe-xl-0">'
           . '<div class="' . implode(' ' , get_post_class($post_class))  . ' p-0 m-0">'
           . $header
-          . $core
+          . $content
           . $footer
           . '</div>'
           . '</div>'
