@@ -97,43 +97,43 @@ add_filter('render_block', 'adjust_block_heading_css', 10, 2 );
 // 2026-03-20: Adding widgets.
 function szwergold_widgets_init() {
 	register_sidebar(array(
-		'name'          => __('Widget Header 1'),
+		'name'          => __('Header 1'),
 		'id'            => 'widget-header-1',
-		'description'   => __('Add widgets here to appear in your post header.', 'szwergold'),
+		'description'   => __('Add widgets here to appear on your page header.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3"><div class="p-0 m-0 text-georgia-regular">',
 		'after_widget'  => '</div></div>',
 		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Header 2'),
+		'name'          => __('Header 2'),
 		'id'            => 'widget-header-2',
-		'description'   => __('Add widgets here to appear in your post header.', 'szwergold'),
+		'description'   => __('Add widgets here to appear on your page header.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3"><div class="p-0 m-0 px-2 text-georgia-regular">',
 		'after_widget'  => '</div></div>',
 		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Footer 1'),
+		'name'          => __('Footer 1'),
 		'id'            => 'widget-footer-1',
-		'description'   => __('Add widgets here to appear in your post footer.', 'szwergold'),
+		'description'   => __('Add widgets here to appear on your page footer.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Footer 2'),
+		'name'          => __('Footer 2'),
 		'id'            => 'widget-footer-2',
-		'description'   => __('Add widgets here to appear in your post footer.', 'szwergold'),
+		'description'   => __('Add widgets here to appear on your page footer.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="widget-title h5 text-capitalize p-0 m-0 pb-1 mb-2 border-bottom border-dark">',
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Home Featured 1'),
+		'name'          => __('Home Featured 1'),
 		'id'            => 'widget-home-featured-1',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
@@ -142,7 +142,7 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Home Featured 2'),
+		'name'          => __('Home Featured 2'),
 		'id'            => 'widget-home-featured-2',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
@@ -151,7 +151,7 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Home Featured 3'),
+		'name'          => __('Home Featured 3'),
 		'id'            => 'widget-home-featured-3',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
@@ -160,7 +160,7 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 	register_sidebar(array(
-		'name'          => __('Widget Home Featured 4'),
+		'name'          => __('Home Featured 4'),
 		'id'            => 'widget-home-featured-4',
 		'description'   => __('Add widgets here to appear on your homepage.', 'szwergold'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-12 pe-md-3">',
