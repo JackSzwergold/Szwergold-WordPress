@@ -169,6 +169,6 @@ function szwergold_widgets_init() {
 		'after_title'   => '</div>',
 	));
 } // szwergold_widgets_init
-add_action( 'widgets_init', 'szwergold_widgets_init' );
+add_action('widgets_init', 'szwergold_widgets_init');
 
 ?>
