@@ -20,8 +20,8 @@
                 <div class="categories list-group-item col col-12 m-0 p-0 mb-3 border-0">
                   <nav class="h5 p-0 m-0 mb-2 border-bottom border-darkblue border-2">
                     <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
-                      <button class="nav-link active text-decoration-none text-darkblue p-0 m-0 px-3 py-1 border border-bottom-0 border-darkblue" id="nav-categories-tab" data-bs-toggle="tab" data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories" aria-selected="true">Categories</button>
-                      <button class="nav-link text-decoration-none p-0 m-0 text-darkblue px-3 py-1 border border-bottom-0 border-darkblue ms-1" id="nav-archives-tab" data-bs-toggle="tab" data-bs-target="#nav-archives" type="button" role="tab" aria-controls="nav-archives" aria-selected="false">Archives</button>
+                      <button class="nav-link active text-decoration-none text-darkblue p-0 m-0 px-3 py-1 border border-2 border-bottom-0 border-darkblue" id="nav-categories-tab" data-bs-toggle="tab" data-bs-target="#nav-categories" type="button" role="tab" aria-controls="nav-categories" aria-selected="true">Categories</button>
+                      <button class="nav-link text-decoration-none p-0 m-0 text-darkblue px-3 py-1 border border-2 border-bottom-0 border-darkblue ms-1" id="nav-archives-tab" data-bs-toggle="tab" data-bs-target="#nav-archives" type="button" role="tab" aria-controls="nav-archives" aria-selected="false">Archives</button>
                     </div>
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
@@ -277,7 +277,7 @@
                       /******************************************************************************/
                       // Do stuff with the archives content.
                       $archives = str_replace('<li>', '<li class="list-group-item fw-bold text-nowrap col col-12 p-0 m-0 border-0">', $archives);
-                      $archives = str_replace('<a href=', '<a class="text-decoration-none text-dark" href=', $archives);
+                      $archives = str_replace('<a href=', '<a class="text-decoration-none text-darkblue" href=', $archives);
 
                       /******************************************************************************/
                       // Wrap it all up in UL tags.
