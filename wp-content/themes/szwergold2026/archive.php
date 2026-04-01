@@ -327,7 +327,7 @@
 			$title = null;
 			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
 				$title =
-					  '<span class="p-0 m-0 text-railroadgothic">'
+					  '<span class="text-railroadgothic">'
 					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $child_value['title']
 					. '</a>'
@@ -369,7 +369,7 @@
 			// Set the divider.
 			$divider = null;
 			if (!empty($title) && !empty($excerpt)) {
-				$divider = '<span class="text-windsorpro-regular">: </span>';
+				$divider = '<span class="text-railroadgothic">: </span>';
 			} // if
 
 			/**********************************************************************/

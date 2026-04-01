@@ -51,7 +51,7 @@
       /********************************************************************************/
       // Show the author, date and time.
       // if (!empty($the_author)) {
-      //  echo '<div class="h5 p-0 m-0 text-windsorpro-regular">';
+      //  echo '<div class="h5 p-0 m-0 text-railroadgothic">';
       //  echo 'By ' . $the_author;
       //  if (!empty($update_date)) {
       //    echo ' on ' . $update_date;
