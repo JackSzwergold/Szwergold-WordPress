@@ -394,6 +394,15 @@ main a:visited,
 main a:hover,
 main a:active {
   color: rgb(64, 63, 123);
+}
+
+
+main article a,
+main article a:link,
+main article a:visited,
+main article a:hover,
+main article a:active {
+  color: rgb(64, 63, 123);
   background-image: linear-gradient(#333333 50%, #333333 50%);
   background-repeat: repeat-x;
   background-position: 0 90%;
