@@ -8,9 +8,9 @@
   <!-- Content Core END -->
 
   <!-- Footer Content BEGIN -->
-  <div class="container mb-3 mb-md-4">
+  <div class="container mb-3">
     <div class="row">
-      <div class="col px-3 px-md-4 mx-3 mx-md-0 mb-2 mb-md-5 bg-offwhite border border-2 border-darkblue rounded-3">
+      <div class="col px-3 px-md-4 mx-3 mx-md-0 mb-5 bg-offwhite border border-2 border-darkblue rounded-3">
 
         <div class="container">
           <div class="row">
