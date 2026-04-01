@@ -315,7 +315,7 @@
   $footer_items_array[] = '<a href="/resume" title="Résumé" class="text-offwhite m-0 p-0">Résumé</a>';
   $footer_items_array[] = '<a href="/bookmarks" title="Bookmarks" class="text-offwhite m-0 p-0">Bookmarks</a>';
   // $footer_items_array[] = '<a href="#" title="top of page" class="text-offwhite m-0 p-0">Top of Page</a>';
-  $footer_items_array[] = '<span class="text-offwhite m-0 p-0">Site and contents &copy; ' . date('Y') . ' Jack Szwergold</span>';
+  $footer_items_array[] = '<span class="text-offwhite m-0 p-0">Site design and contents &copy; ' . date('Y') . ' Jack Szwergold</span>';
 
   /**************************************************************************************************/
   // Set the footer string.
