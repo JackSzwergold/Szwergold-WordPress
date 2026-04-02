@@ -5,14 +5,11 @@ set :application, 'szwergold.com'
 set :short_name, 'szwergold.com'
 set :repo_url, 'git@github.com:JackSzwergold/Szwergold-WordPress.git'
 
-# Default value for :scm is :git
-# set :scm, :git
-
 # Default value for :format is :pretty
 set :format, :pretty
 
 # Default value for :log_level is :debug
-set :log_level, :debug
+set :log_level, :info
 
 # Default value for :pty is false
 set :pty, false
@@ -22,28 +19,19 @@ set :pty, false
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :linked_dirs, fetch(:linked_dirs, []).push('cache')
+set :linked_dirs, fetch(:linked_dirs, []).push('wp-content/uploads', 'wp-content/upgrade')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# Default value for keep_releases is 5
-set :keep_releases, 3
-
-# Disable warnings about the absence of the styleseheets, javscripts & images directories.
+# Disable warnings about the absence of the stylesheets, javscripts & images directories.
 set :normalize_asset_timestamps, false
 
-# Set the root deployment path.
-set :root_deploy_path, "/home/jackgold"
-
 # The directory on the server into which the actual source code will deployed.
-set :web_builds, "#{fetch(:root_deploy_path)}/builds"
+set :code_builds, "/home/jackgold/builds"
 
-# The directory on the server that stores content related data.
-set :content_data_path, "#{fetch(:root_deploy_path)}/content"
-
-# Set the site short name.
-set :parent_site_path, 'szwergold.com'
+# Set the code root path. Can be overridden in individual stages.
+set :code_root_path, "/home/jackgold"
 
 namespace :deploy do
 
@@ -56,19 +44,48 @@ namespace :deploy do
     end
   end
 
-  # Create the 'create_symlink' task to create symbolic links and other related items.
-  desc "Set the symbolic links."
-  task :create_symlink do
+  # Echo the current path to a file. Needed for WordPress deployments.
+  desc "Echo the current path."
+  task :echo_current_path do
     on roles(:app) do
 
-      # info "If there is no directory & no symbolic link to '#{fetch(:parent_site_path)}' then create a directory named '#{fetch(:parent_site_path)}'."
-      execute "cd #{fetch(:live_root)} && if [ ! -d #{fetch(:parent_site_path)} ]; then if [ ! -h #{fetch(:parent_site_path)} ]; then mkdir -p ./#{fetch(:parent_site_path)}; fi; fi"
+        execute "echo #{release_path} > #{release_path}/CURRENT_PATH"
 
-      # info "If there is a symbolic link to '#{fetch(:parent_site_path)}' then create a symbolic link called '#{fetch(:parent_site_path)}'."
-      execute "cd #{fetch(:live_root)} && if [ ! -h #{fetch(:parent_site_path)} ]; then if [ ! -d #{fetch(:parent_site_path)} ]; then ln -sf #{current_path} ./#{fetch(:parent_site_path)}; fi; fi"
+    end
+  end
 
-      # info "If there is a symbolic link to '#{fetch(:parent_site_path)}/#{fetch(:short_name)}', delete it. Irregardless, create a new symbolic link to '#{fetch(:parent_site_path)}/#{fetch(:short_name)}'."
-      execute "cd #{fetch(:live_root)} && if [ -h #{fetch(:parent_site_path)}/#{fetch(:short_name)} ]; then rm #{fetch(:parent_site_path)}/#{fetch(:short_name)}; fi && ln -sf #{current_path} ./#{fetch(:parent_site_path)}/#{fetch(:short_name)}"
+  # Create the 'create_symlinks' task to create symbolic links and other related items.
+  desc "Set the symbolic links."
+  task :create_symlinks do
+    on roles(:app) do
+
+      # info "Link the 'local.php' config to 'local.php' in the working directory."
+      execute "cd #{current_path} && ln -sf #{fetch(:configs_path)}/wp-config.php wp-config.php"
+
+      # info "If there isn’t a symbolic link to '#{fetch(:short_name)}' then create a symbolic link called '#{fetch(:short_name)}'."
+      execute "cd #{fetch(:code_root_path)} && if [ ! -h #{fetch(:short_name)} ]; then if [ ! -d #{fetch(:short_name)} ]; then ln -sf #{current_path} ./#{fetch(:short_name)}; fi; fi"
+
+    end
+  end
+
+  # Remove repository cruft from the deployment.
+  desc "Remove cruft from the deployment."
+  task :remove_cruft do
+    on roles(:app) do
+
+      # Remove files and directories that aren’t needed on a deployed install.
+      execute "cd #{current_path} && if [ -f robots.txt ]; then mv -f robots.txt robots.temp; fi && rm -rf {development_dbs,config,Capfile,*.html,*.txt,*.md,*.sql,.gitignore} && if [ -f 'robots.temp' ]; then mv -f robots.temp robots.txt; fi"
+
+    end
+  end
+
+  # Set group write permissions to the deployment.
+  desc "Set group write permissions to the deployment."
+  task :set_group_write do
+    on roles(:app) do
+
+      # Set group write permissions to the deployment.
+      execute "cd #{current_path} && chmod -R g+w ."
 
     end
   end
@@ -84,4 +101,3 @@ after "deploy:finishing", "deploy:remove_cruft"
 # Load Rake tasks.
 load "config/tasks/database.rake"
 load "config/tasks/files.rake"
-
