@@ -24,7 +24,10 @@ set :linked_dirs, fetch(:linked_dirs, []).push('wp-content/uploads', 'wp-content
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# Disable warnings about the absence of the stylesheets, javscripts & images directories.
+# Default value for keep_releases is 5
+set :keep_releases, 3
+
+# Disable warnings about the absence of the styleseheets, javscripts & images directories.
 set :normalize_asset_timestamps, false
 
 # The directory on the server into which the actual source code will deployed.
