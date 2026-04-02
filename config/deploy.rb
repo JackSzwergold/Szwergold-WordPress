@@ -3,7 +3,7 @@ lock ['>= 3.17.0', '<= 3.20.0']
 
 set :application, 'szwergold.com'
 set :short_name, 'szwergold.com'
-set :repo_url, 'git@github.com:JackSzwergold/Szwergold-Main.git'
+set :repo_url, 'git@github.com:JackSzwergold/Szwergold-WordPress.git'
 
 # Default value for :format is :pretty
 set :format, :pretty
@@ -26,6 +26,21 @@ set :linked_dirs, fetch(:linked_dirs, []).push('wp-content/uploads', 'wp-content
 
 # Disable warnings about the absence of the stylesheets, javscripts & images directories.
 set :normalize_asset_timestamps, false
+
+# # The the root deployment path.
+# set :root_deploy_path, "/home/jackgold"
+
+# # The directory on the server into which the actual source code will deployed.
+# set :web_builds, "#{fetch(:root_deploy_path)}/builds"
+
+# # The directory on the server that stores content related data.
+# set :content_data_path, "#{fetch(:root_deploy_path)}/content"
+
+# # The path where projects get deployed.
+# set :projects_path, "projects_base"
+
+# # The path where markdown items get deployed.
+# set :markdown_path, "markdown"
 
 # The directory on the server into which the actual source code will deployed.
 set :code_builds, "/var/www/builds"
