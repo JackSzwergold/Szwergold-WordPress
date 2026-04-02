@@ -76,25 +76,19 @@
 	/**********************************************************************/
 	// Get the current selected category info.
 	$page_category_ID = get_query_var('cat');
-	// $page_category = get_category($page_category_ID);
-	$page_category = get_the_category();
-	// echo '<pre>';
-	// print_r($page_category);
-	// echo '</pre>';
-	$page_category_shifted = array();
+	$page_category = get_category($page_category_ID);
 	$page_category_parent = null;
 	$page_category_slug = null;
 	$page_category_name = null;
 	if (!empty($page_category)) {
-		$page_category_shifted = array_shift($page_category);
-		$page_category_parent = isset($page_category_shifted->parent) ? $page_category_shifted->parent : null;
-		$page_category_slug = isset($page_category_shifted->slug) ? $page_category_shifted->slug : null;
-		$page_category_name = isset($page_category_shifted->name) ? $page_category_shifted->name : null;
+		$page_category_parent_ID = isset($page_category->parent) ? $page_category->parent : null;
+		$page_category_slug = isset($page_category->slug) ? $page_category->slug : null;
+		$page_category_name = isset($page_category->name) ? $page_category->name : null;
 	} // if
 
 	/**********************************************************************/
 	// Get the current selected parent category info.
-	$page_parent_category = get_category($page_category_parent);
+	$page_parent_category = get_category($page_category_parent_ID);
 	// echo '<pre>';
 	// print_r($page_parent_category);
 	// echo '</pre>';
