@@ -53,7 +53,7 @@
 	// Set the page slugs string.
 	$page_slugs_array = array();
 	$page_slugs_string = null;
-	if (!empty($post_slug)) {
+	if (!empty($page_category_slug)) {
 		$page_slugs_array[] = $page_category_slug;
 	} // if
 	if (!empty($post_slug)) {
@@ -61,6 +61,20 @@
 	} // if
 	if (!empty($page_slugs_array)) {
 		$page_slugs_string = implode(' ', $page_slugs_array);
+	} // if
+
+	/**********************************************************************/
+	// Set the page title string.
+	$page_title_array = array();
+	$page_title_string = null;
+	if (!empty($title)) {
+		$page_title_array[] = $title;
+	} // if
+	if (!empty($name)) {
+		$page_title_array[] = $name;
+	} // if
+	if (!empty($page_title_array)) {
+		$page_title_string = implode(' | ', $page_title_array);
 	} // if
 
 ?><!DOCTYPE html>
@@ -74,8 +88,8 @@
 	<?php
 
 		/****************************************************************************************/
-		// Render the title/name.
-		echo '<title>' . $name . '</title>';
+		// Render the page title.
+		echo '<title>' . $page_title_string . '</title>';
 
 		/****************************************************************************************/
 		// Render the different 'link' items.
