@@ -1,6 +1,28 @@
 <?php
 
 	/****************************************************************************************/
+	// Set the page title.
+	$title = null;
+	if (is_archive()) {
+		$title = get_the_archive_title();
+	} // if
+	else if (is_category()) {
+		$title = single_cat_title();
+	}  // else if
+	else if (is_tag()) {
+		$title = single_tag_title();
+	} // else if
+	else if (is_year()) {
+		$title = the_time('Y');
+	} // else if
+	else if (is_month()) {
+		$title = the_time('F Y');
+	} // else if
+	else if (is_day()) {
+		$title = the_time('l, F j, Y');
+	} // else if
+
+	/****************************************************************************************/
 	// Set the template directory and related blog info valiables.
 	$template_directory = get_bloginfo('template_directory');
 	$stylesheet_url = get_bloginfo('stylesheet_url');
