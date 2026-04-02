@@ -29,6 +29,12 @@
 	} // else if
 
 	/****************************************************************************************/
+	// If we are on the front page, no need for the page title.
+	if (is_front_page()) {
+		$title = null;
+	} // if
+
+	/****************************************************************************************/
 	// Set the template directory and related blog info valiables.
 	$template_directory = get_bloginfo('template_directory');
 	$stylesheet_url = get_bloginfo('stylesheet_url');
@@ -123,13 +129,18 @@
 		echo '<title>' . $page_title_string . '</title>';
 
 		/****************************************************************************************/
+		// Set the different 'link' items.
+		$link_array = array();
+		$link_array[] = '<link rel="stylesheet" href="' . $stylesheet_url . '?version=1.1.20" media="screen">';
+		$link_array[] = '<link rel="alternate" type="application/atom+xml" title="' . $name . ' Atom" href="' . $atom_url . '">';
+		$link_array[] = '<link rel="alternate" type="application/rss+xml" title="' . $name . ' RSS" href="' . $rss2_url . '">';
+		$link_array[] = '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . $url . '/xmlrpc.php?rsd">';
+		$link_array[] = '<link rel="pingback" href="' . $pingback_url . '">';
+		$link_array[] = '<link rel="shortcut icon" href="' . $url . '/favicon.ico">';
+
+		/****************************************************************************************/
 		// Render the different 'link' items.
-		echo '<link rel="stylesheet" href="' . $stylesheet_url . '?version=1.1.20" media="screen">';
-		echo '<link rel="alternate" type="application/atom+xml" title="' . $name . ' Atom" href="' . $atom_url . '">';
-		echo '<link rel="alternate" type="application/rss+xml" title="' . $name . ' RSS" href="' . $rss2_url . '">';
-		echo '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . $url . '/xmlrpc.php?rsd">';
-		echo '<link rel="pingback" href="' . $pingback_url . '">';
-		echo '<link rel="shortcut icon" href="' . $url . '/favicon.ico">';
+		echo implode('', $link_array);
 
 		/****************************************************************************************/
 		// This 'wp_head' call sets all of the JavaScript and metadata that WordPress needs to insert in the page.
