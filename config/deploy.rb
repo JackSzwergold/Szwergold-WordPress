@@ -27,26 +27,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push('wp-content/uploads', 'wp-content
 # Disable warnings about the absence of the stylesheets, javscripts & images directories.
 set :normalize_asset_timestamps, false
 
-# # The the root deployment path.
-# set :root_deploy_path, "/home/jackgold"
-
-# # The directory on the server into which the actual source code will deployed.
-# set :web_builds, "#{fetch(:root_deploy_path)}/builds"
-
-# # The directory on the server that stores content related data.
-# set :content_data_path, "#{fetch(:root_deploy_path)}/content"
-
-# # The path where projects get deployed.
-# set :projects_path, "projects_base"
-
-# # The path where markdown items get deployed.
-# set :markdown_path, "markdown"
+# Set the root deployment path.
+set :root_deploy_path, "/home/jackgold"
 
 # The directory on the server into which the actual source code will deployed.
-set :code_builds, "/var/www/builds"
+set :web_builds, "#{fetch(:root_deploy_path)}/builds"
 
-# Set the code root path. Can be overridden in individual stages.
-set :code_root_path, "/var/www/html"
+# The directory on the server that stores content related data.
+set :content_data_path, "#{fetch(:root_deploy_path)}/content"
+
+# Set the site short name.
+set :parent_site_path, 'szwergold.com'
 
 namespace :deploy do
 
