@@ -75,15 +75,16 @@
 
 	/**********************************************************************/
 	// Get the current selected category info.
+	// if (is_archive() || is_single()) {
 	if (is_single()) {
 		$page_category = get_the_category();
 		$page_category_shifted = array();
-		$page_category_parent = null;
+		$page_category_parent_ID = null;
 		$page_category_slug = null;
 		$page_category_name = null;
 		if (!empty($page_category)) {
 			$page_category = array_shift($page_category);
-			$page_category_parent = isset($page_category->parent) ? $page_category->parent : null;
+			$page_category_parent_ID = isset($page_category->parent) ? $page_category->parent : null;
 			$page_category_slug = isset($page_category->slug) ? $page_category->slug : null;
 			$page_category_name = isset($page_category->name) ? $page_category->name : null;
 		} // if
@@ -91,7 +92,7 @@
 	else {
 		$page_category_ID = get_query_var('cat');
 		$page_category = get_category($page_category_ID);
-		$page_category_parent = null;
+		$page_category_parent_ID = null;
 		$page_category_slug = null;
 		$page_category_name = null;
 		if (!empty($page_category)) {
@@ -103,9 +104,8 @@
 
 	/**********************************************************************/
 	// Get the current selected parent category info.
-	$page_parent_category = get_category($page_category_parent);
+	$page_parent_category = get_category($page_category_parent_ID);
 	$page_parent_category_shifted = array();
-	$page_parent_category_parent = null;
 	$page_parent_category_slug = null;
 	$page_parent_category_name = null;
 	if (!empty($page_parent_category)) {
@@ -149,8 +149,6 @@
 	if (!empty($page_title_array)) {
 		$page_title_string = implode(' | ', $page_title_array);
 	} // if
-
-	echo $page_title_string;
 
 ?><!DOCTYPE html>
 <html lang="en">
