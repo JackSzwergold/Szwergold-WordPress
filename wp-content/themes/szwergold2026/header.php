@@ -45,14 +45,20 @@
 	/**********************************************************************/
 	// Get the current selected category slug.
 	$page_category = get_the_category();
-	$page_category_shifted = null;
+	$page_category_shifted = array();
+	$page_category_parent = null;
 	$page_category_slug = null;
 	$page_category_name = null;
 	if (!empty($page_category)) {
 		$page_category_shifted = array_shift($page_category);
+		$page_category_parent = $page_category_shifted->parent;				
 		$page_category_slug = $page_category_shifted->slug;				
 		$page_category_name = $page_category_shifted->name;				
 	} // if
+
+	// echo '<pre>';
+	// print_r(get_the_category($page_category_parent));
+	// echo '</pre>';
 
 	/**********************************************************************/
 	// Set the page slugs string.
