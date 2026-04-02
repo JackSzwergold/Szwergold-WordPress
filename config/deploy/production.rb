@@ -21,12 +21,12 @@ set :deployment_type, "production"
 set :deploy_to, "#{fetch(:code_builds)}/#{fetch(:application)}/#{fetch(:deployment_type)}"
 
 # Set the 'configs_path' directory for this task.
-set :configs_path, "/var/www/configs/#{fetch(:application)}/#{fetch(:deployment_type)}"
+set :configs_path, "/home/jackgold/configs/#{fetch(:application)}/#{fetch(:deployment_type)}"
 # set :configs_path, "/var/www/configs/#{fetch(:deployment_type)}"
 # set :configs_path, "/var/www/configs"
 
 # Set the code root path. Can be overridden in individual stages.
-set :code_root_path, "/var/www/html"
+set :code_root_path, "/home/jackgold"
 
 # Set the MySQL database paths and patterns.
 set :db_dir_local, "development_dbs/"

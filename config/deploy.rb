@@ -3,7 +3,7 @@ lock ['>= 3.17.0', '<= 3.20.0']
 
 set :application, 'szwergold.com'
 set :short_name, 'szwergold.com'
-set :repo_url, 'git@github.com:JackSzwergold/Szwergold-Main.git'
+set :repo_url, 'git@github.com:JackSzwergold/Szwergold-WordPress.git'
 
 # Default value for :format is :pretty
 set :format, :pretty
@@ -24,14 +24,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push('wp-content/uploads', 'wp-content
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# Disable warnings about the absence of the stylesheets, javscripts & images directories.
+# Default value for keep_releases is 5
+set :keep_releases, 3
+
+# Disable warnings about the absence of the styleseheets, javscripts & images directories.
 set :normalize_asset_timestamps, false
 
 # The directory on the server into which the actual source code will deployed.
-set :code_builds, "/var/www/builds"
+set :code_builds, "/home/jackgold/builds"
 
 # Set the code root path. Can be overridden in individual stages.
-set :code_root_path, "/var/www/html"
+set :code_root_path, "/home/jackgold"
 
 namespace :deploy do
 
@@ -101,4 +104,3 @@ after "deploy:finishing", "deploy:remove_cruft"
 # Load Rake tasks.
 load "config/tasks/database.rake"
 load "config/tasks/files.rake"
-
