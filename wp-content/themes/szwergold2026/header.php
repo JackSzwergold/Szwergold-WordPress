@@ -176,7 +176,10 @@
 		$link_array[] = '<link rel="alternate" type="application/rss+xml" title="' . $name . ' RSS" href="' . $rss2_url . '">';
 		$link_array[] = '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . $url . '/xmlrpc.php?rsd">';
 		$link_array[] = '<link rel="pingback" href="' . $pingback_url . '">';
+		// $link_array[] = '<link rel="shortcut icon" type="image/png" href="' . $template_directory . '/favicons/favicon.ico">';
 		$link_array[] = '<link rel="shortcut icon" href="' . $template_directory . '/favicons/favicon.ico">';
+		$link_array[] = '<link rel="apple-touch-icon-precomposed" href="' . $template_directory . '/favicons/apple-touch-icon-precomposed.png">';
+		$link_array[] = '<link rel="apple-touch-icon" sizes="300x300" href="' . $template_directory . '/favicons/apple-touch-icon.png">';
 
 		/****************************************************************************************/
 		// Render the different 'link' items.
