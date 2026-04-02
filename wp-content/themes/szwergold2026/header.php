@@ -46,8 +46,14 @@
 	else if (is_front_page()) {
 		$description = get_bloginfo('description');
 	} // else if
+	else if (is_archive()) {
+		$description = get_the_archive_description();
+	} // else if
+	else if (is_category()) {
+		$description = category_description();
+	}  // else if
 
-	echo $description;
+	// echo $description;
 
 	/****************************************************************************************/
 	// Set the template directory and related blog info valiables.
