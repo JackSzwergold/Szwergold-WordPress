@@ -150,7 +150,7 @@
 
 	?>
 </head>
-<body id="top" class="p-0 m-0<?php echo $page_slugs_string; ?>">
+<body id="top" class="p-0 m-0 <?php echo $page_slugs_string; ?>">
 
 	<nav class="header sticky-top p-0 m-0 px-2 bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 pt-1 pb-3">
