@@ -2,65 +2,66 @@
 
 	/****************************************************************************************/
 	// Set the page title.
-	$title = null;
+	$page_title = null;
 	if (is_single()) {
-		$title = get_the_title();
+		$page_title = get_the_title();
 	} // if
 	else if (is_page()) {
-		$title = get_the_title();
+		$page_title = get_the_title();
 	} // else if
 	else if (is_archive()) {
-		$title = get_the_archive_title();
+		$page_title = get_the_archive_title();
 	} // else if
 	else if (is_category()) {
-		$title = single_cat_title();
+		$page_title = single_cat_title();
 	}  // else if
 	else if (is_tag()) {
-		$title = single_tag_title();
+		$page_title = single_tag_title();
 	} // else if
 	else if (is_year()) {
-		$title = the_time('Y');
+		$page_title = the_time('Y');
 	} // else if
 	else if (is_month()) {
-		$title = the_time('F Y');
+		$page_title = the_time('F Y');
 	} // else if
 	else if (is_day()) {
-		$title = the_time('l, F j, Y');
+		$page_title = the_time('l, F j, Y');
 	} // else if
 
 	/****************************************************************************************/
 	// If we are on the front page, no need for the page title.
-	if (is_front_page() && !empty($title)) {
-		$title = null;
+	if (is_front_page() && !empty($page_title)) {
+		$page_title = null;
 	} // if
 
 	/****************************************************************************************/
 	// Set the page description.
-	$description = null;
+	$page_description = null;
 	if (is_single()) {
-		$description = get_the_excerpt();
+		$page_description = get_the_excerpt();
 	} // if
 	else if (is_page() && !is_front_page()) {
-		$description = get_the_excerpt();
+		$page_description = get_the_excerpt();
 	} // else if
 	else if (is_front_page()) {
-		$description = get_bloginfo('description');
+		$page_description = get_bloginfo('description');
 	} // else if
 	else if (is_archive()) {
-		$description = get_the_archive_description();
+		$page_description = get_the_archive_description();
 	} // else if
 	else if (is_category()) {
-		$description = category_description();
+		$page_description = category_description();
 	}  // else if
 
-	// echo $description;
+	/****************************************************************************************/
+	// Set the template directory and related blog info valiables.
+	$blog_name = get_bloginfo('name');
+	$blog_description = get_bloginfo('description');
 
 	/****************************************************************************************/
 	// Set the template directory and related blog info valiables.
 	$template_directory = get_bloginfo('template_directory');
 	$stylesheet_url = get_bloginfo('stylesheet_url');
-	$name = get_bloginfo('name');
-	$description = get_bloginfo('description');
 	$atom_url = get_bloginfo('atom_url');
 	$rss2_url = get_bloginfo('rss2_url');
 	$url = get_bloginfo('url');
@@ -119,8 +120,8 @@
 	// Set the page title string.
 	$page_title_array = array();
 	$page_title_string = null;
-	if (!empty($title)) {
-		$page_title_array[] = $title;
+	if (!empty($page_title)) {
+		$page_title_array[] = $page_title;
 	} // if
 	if (!empty($page_category_name)) {
 		$page_title_array[] = $page_category_name;
@@ -128,7 +129,7 @@
 	if (!empty($page_parent_category_name)) {
 		$page_title_array[] = $page_parent_category_name;
 	} // if
-	if (!empty($name)) {
+	if (!empty($blog_name)) {
 		$page_title_array[] = $name;
 	} // if
 	if (!empty($page_title_array)) {
@@ -144,6 +145,10 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<?php
+
+		/****************************************************************************************/
+		// Render the page description.
+		echo '<meta name="description" content="' . $page_description . '">';
 
 		/****************************************************************************************/
 		// Render the page title.
@@ -175,8 +180,8 @@
 
 	<nav class="header sticky-top p-0 m-0 px-2 bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 pt-1 pb-3">
-			<div class="h1 text-railroadgothic p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $name; ?></a></div>
-			<div class="h4 text-georgia-regular p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $description; ?></a></div>
+			<div class="h1 text-railroadgothic p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $blog_name; ?></a></div>
+			<div class="h4 text-georgia-regular p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $blog_description; ?></a></div>
 		</div>
 	</nav>
 
