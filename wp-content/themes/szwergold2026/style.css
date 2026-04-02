@@ -488,6 +488,9 @@ ul.archives_sidebar {
     column-gap: 1em;
     column-count: 2;
   }
+  body.bookmarks {
+    background-color: #f00;
+  }
 }
 
 @media (min-width: 1200px) {

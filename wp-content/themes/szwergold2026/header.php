@@ -30,7 +30,7 @@
 
 	/****************************************************************************************/
 	// If we are on the front page, no need for the page title.
-	if (is_front_page()) {
+	if (is_front_page() && !empty($title)) {
 		$title = null;
 	} // if
 
