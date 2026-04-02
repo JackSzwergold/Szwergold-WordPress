@@ -13,7 +13,6 @@
 			// Get the post.
 			the_post();
 
-			global $post;
 			global $authordata;
 
 			/********************************************************************************/
@@ -106,6 +105,16 @@
 					echo '</div>';
 					echo '</div>';
 				} // if
+
+				/****************************************************************************/
+				// Blank space
+				// echo '<div class="col col-12 col-md-4 m-0 p-0 bg-darkblue">';
+				// echo '<div class="container">';
+				// echo '<div class="row"> ';
+				// echo '&nbsp;';
+				// echo '</div>';
+				// echo '</div>';
+				// echo '</div>';
 
 				/****************************************************************************/
 				// Row END
