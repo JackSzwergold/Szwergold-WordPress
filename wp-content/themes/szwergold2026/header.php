@@ -35,6 +35,21 @@
 	} // if
 
 	/****************************************************************************************/
+	// Set the page description.
+	$description = null;
+	if (is_single()) {
+		$description = get_the_excerpt();
+	} // if
+	else if (is_page() && !is_front_page()) {
+		$description = get_the_excerpt();
+	} // else if
+	else if (is_front_page()) {
+		$description = get_bloginfo('description');
+	} // else if
+
+	echo $description;
+
+	/****************************************************************************************/
 	// Set the template directory and related blog info valiables.
 	$template_directory = get_bloginfo('template_directory');
 	$stylesheet_url = get_bloginfo('stylesheet_url');
