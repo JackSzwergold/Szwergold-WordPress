@@ -176,7 +176,7 @@
 		$link_array[] = '<link rel="alternate" type="application/rss+xml" title="' . $name . ' RSS" href="' . $rss2_url . '">';
 		$link_array[] = '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . $url . '/xmlrpc.php?rsd">';
 		$link_array[] = '<link rel="pingback" href="' . $pingback_url . '">';
-		$link_array[] = '<link rel="shortcut icon" href="' . $url . '/favicon.ico">';
+		$link_array[] = '<link rel="shortcut icon" href="' . $template_directory . '/favicons/favicon.ico">';
 
 		/****************************************************************************************/
 		// Render the different 'link' items.
