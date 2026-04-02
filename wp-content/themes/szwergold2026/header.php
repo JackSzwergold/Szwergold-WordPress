@@ -67,13 +67,13 @@
 	$url = get_bloginfo('url');
 	$pingback_url = get_bloginfo('pingback_url');
 
-    global $post;
+	global $post;
 
 	/**********************************************************************/
 	// Get the current selected post slug.
 	$post_slug = null;
 	if (!empty($post)) {
-	    $post_slug = $post->post_name;
+		$post_slug = $post->post_name;
 	} // if
 
 	/**********************************************************************/
