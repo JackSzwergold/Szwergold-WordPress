@@ -3,9 +3,12 @@
 	/****************************************************************************************/
 	// Set the page title.
 	$title = null;
-	if (is_archive()) {
-		$title = get_the_archive_title();
+	if (is_single()) {
+		$title = get_the_title();
 	} // if
+	else if (is_archive()) {
+		$title = get_the_archive_title();
+	} // else if
 	else if (is_category()) {
 		$title = single_cat_title();
 	}  // else if
