@@ -75,7 +75,12 @@
 
 	/**********************************************************************/
 	// Get the current selected category info.
+	$page_category_ID = get_query_var('cat');
+	// $page_category = get_category($page_category_ID);
 	$page_category = get_the_category();
+	// echo '<pre>';
+	// print_r($page_category);
+	// echo '</pre>';
 	$page_category_shifted = array();
 	$page_category_parent = null;
 	$page_category_slug = null;
@@ -90,6 +95,9 @@
 	/**********************************************************************/
 	// Get the current selected parent category info.
 	$page_parent_category = get_category($page_category_parent);
+	// echo '<pre>';
+	// print_r($page_parent_category);
+	// echo '</pre>';
 	$page_parent_category_shifted = array();
 	$page_parent_category_parent = null;
 	$page_parent_category_slug = null;
