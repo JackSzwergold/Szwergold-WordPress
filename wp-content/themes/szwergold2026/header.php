@@ -130,7 +130,7 @@
 		$page_title_array[] = $page_parent_category_name;
 	} // if
 	if (!empty($blog_name)) {
-		$page_title_array[] = $name;
+		$page_title_array[] = $blog_name;
 	} // if
 	if (!empty($page_title_array)) {
 		$page_title_string = implode(' | ', $page_title_array);
