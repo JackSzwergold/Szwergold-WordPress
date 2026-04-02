@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock ['>= 3.17.0', '<= 3.20.0']
 
-set :application, 'szwergold.com'
+set :application, 'szwergold.com-TEST'
 set :short_name, 'szwergold.com'
 set :repo_url, 'git@github.com:JackSzwergold/Szwergold-WordPress.git'
 
@@ -65,11 +65,14 @@ namespace :deploy do
   task :create_symlinks do
     on roles(:app) do
 
-      # info "Link the 'local.php' config to 'local.php' in the working directory."
-      execute "cd #{current_path} && ln -sf #{fetch(:configs_path)}/wp-config.php wp-config.php"
+      # info "If there is no directory & no symbolic link to '#{fetch(:parent_site_path)}' then create a directory named '#{fetch(:parent_site_path)}'."
+      execute "cd #{fetch(:live_root)} && if [ ! -d #{fetch(:parent_site_path)} ]; then if [ ! -h #{fetch(:parent_site_path)} ]; then mkdir -p ./#{fetch(:parent_site_path)}; fi; fi"
 
-      # info "If there isn’t a symbolic link to '#{fetch(:short_name)}' then create a symbolic link called '#{fetch(:short_name)}'."
-      execute "cd #{fetch(:code_root_path)} && if [ ! -h #{fetch(:short_name)} ]; then if [ ! -d #{fetch(:short_name)} ]; then ln -sf #{current_path} ./#{fetch(:short_name)}; fi; fi"
+      # info "If there is a symbolic link to '#{fetch(:parent_site_path)}' then create a symbolic link called '#{fetch(:parent_site_path)}'."
+      execute "cd #{fetch(:live_root)} && if [ ! -h #{fetch(:parent_site_path)} ]; then if [ ! -d #{fetch(:parent_site_path)} ]; then ln -sf #{current_path} ./#{fetch(:parent_site_path)}; fi; fi"
+
+      # info "If there is a symbolic link to '#{fetch(:parent_site_path)}/#{fetch(:short_name)}', delete it. Irregardless, create a new symbolic link to '#{fetch(:parent_site_path)}/#{fetch(:short_name)}'."
+      execute "cd #{fetch(:live_root)} && if [ -h #{fetch(:parent_site_path)}/#{fetch(:short_name)} ]; then rm #{fetch(:parent_site_path)}/#{fetch(:short_name)}; fi && ln -sf #{current_path} ./#{fetch(:parent_site_path)}/#{fetch(:short_name)}"
 
     end
   end
