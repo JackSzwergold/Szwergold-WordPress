@@ -6,6 +6,9 @@
 	if (is_single()) {
 		$title = get_the_title();
 	} // if
+	else if (is_page()) {
+		$title = get_the_title();
+	} // else if
 	else if (is_archive()) {
 		$title = get_the_archive_title();
 	} // else if
