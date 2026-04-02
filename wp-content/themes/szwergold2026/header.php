@@ -126,7 +126,7 @@
 	if (!empty($page_category_name)) {
 		$page_title_array[] = $page_category_name;
 	} // if
-	if (!empty($page_parent_category_name) && (is_category() || is_archive())) {
+	if (!empty($page_parent_category_name)) {
 		$page_title_array[] = $page_parent_category_name;
 	} // if
 	if (!empty($blog_name)) {
@@ -136,9 +136,7 @@
 		$page_title_string = implode(' | ', $page_title_array);
 	} // if
 
-// echo $page_title . '1';
-// echo $page_category_name . '2';
-// echo $page_parent_category_name . '3';
+	echo $page_title_string;
 
 ?><!DOCTYPE html>
 <html lang="en">
