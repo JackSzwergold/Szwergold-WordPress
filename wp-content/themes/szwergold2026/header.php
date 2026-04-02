@@ -120,13 +120,13 @@
 	// Set the page title string.
 	$page_title_array = array();
 	$page_title_string = null;
-	if (!empty($page_title)) {
+	if (!empty($page_title) && (is_page() || is_single())) {
 		$page_title_array[] = $page_title;
 	} // if
 	if (!empty($page_category_name)) {
 		$page_title_array[] = $page_category_name;
 	} // if
-	if (!empty($page_parent_category_name)) {
+	if (!empty($page_parent_category_name) && (is_category() || is_archive())) {
 		$page_title_array[] = $page_parent_category_name;
 	} // if
 	if (!empty($blog_name)) {
@@ -135,6 +135,10 @@
 	if (!empty($page_title_array)) {
 		$page_title_string = implode(' | ', $page_title_array);
 	} // if
+
+// echo $page_title . '1';
+// echo $page_category_name . '2';
+// echo $page_parent_category_name . '3';
 
 ?><!DOCTYPE html>
 <html lang="en">
