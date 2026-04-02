@@ -71,7 +71,10 @@
 
 	/**********************************************************************/
 	// Get the current selected post slug.
-    $post_slug = $post->post_name;
+	$post_slug = null;
+	if (!empty($post_slug)) {
+	    $post_slug = $post->post_name;
+	} // if
 
 	/**********************************************************************/
 	// Get the current selected category info.
