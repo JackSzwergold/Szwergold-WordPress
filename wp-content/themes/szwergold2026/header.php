@@ -43,7 +43,7 @@
     $post_slug = $post->post_name;
 
 	/**********************************************************************/
-	// Get the current selected category slug.
+	// Get the current selected category info.
 	$page_category = get_the_category();
 	$page_category_shifted = array();
 	$page_category_parent = null;
@@ -51,14 +51,22 @@
 	$page_category_name = null;
 	if (!empty($page_category)) {
 		$page_category_shifted = array_shift($page_category);
-		$page_category_parent = $page_category_shifted->parent;				
-		$page_category_slug = $page_category_shifted->slug;				
-		$page_category_name = $page_category_shifted->name;				
+		$page_category_parent = isset($page_category_shifted->parent) ? $page_category_shifted->parent : null;
+		$page_category_slug = isset($page_category_shifted->slug) ? $page_category_shifted->slug : null;
+		$page_category_name = isset($page_category_shifted->name) ? $page_category_shifted->name : null;
 	} // if
 
-	// echo '<pre>';
-	// print_r(get_the_category($page_category_parent));
-	// echo '</pre>';
+	/**********************************************************************/
+	// Get the current selected parent category info.
+	$page_parent_category = get_category($page_category_parent);
+	$page_parent_category_shifted = array();
+	$page_parent_category_parent = null;
+	$page_parent_category_slug = null;
+	$page_parent_category_name = null;
+	if (!empty($page_parent_category)) {
+		$page_parent_category_slug = isset($page_parent_category->slug) ? $page_parent_category->slug : null;
+		$page_parent_category_name = isset($page_parent_category->name) ? $page_parent_category->name : null;
+	} // if
 
 	/**********************************************************************/
 	// Set the page slugs string.
@@ -66,6 +74,9 @@
 	$page_slugs_string = null;
 	if (!empty($page_category_slug)) {
 		$page_slugs_array[] = $page_category_slug;
+	} // if
+	if (!empty($page_parent_category_slug)) {
+		$page_slugs_array[] = $page_parent_category_slug;
 	} // if
 	if (!empty($post_slug)) {
 		$page_slugs_array[] = $post_slug;
@@ -83,6 +94,9 @@
 	} // if
 	if (!empty($page_category_name)) {
 		$page_title_array[] = $page_category_name;
+	} // if
+	if (!empty($page_parent_category_name)) {
+		$page_title_array[] = $page_parent_category_name;
 	} // if
 	if (!empty($name)) {
 		$page_title_array[] = $name;
