@@ -47,9 +47,11 @@
 	$page_category = get_the_category();
 	$page_category_shifted = null;
 	$page_category_slug = null;
-	if (!empty($page_category )) {
+	$page_category_name = null;
+	if (!empty($page_category)) {
 		$page_category_shifted = array_shift($page_category);
 		$page_category_slug = $page_category_shifted->slug;				
+		$page_category_name = $page_category_shifted->name;				
 	} // if
 
 	/**********************************************************************/
@@ -72,6 +74,9 @@
 	$page_title_string = null;
 	if (!empty($title)) {
 		$page_title_array[] = $title;
+	} // if
+	if (!empty($page_category_name)) {
+		$page_title_array[] = $page_category_name;
 	} // if
 	if (!empty($name)) {
 		$page_title_array[] = $name;

@@ -32,7 +32,7 @@
 			$page_category = get_the_category();
 			$page_category_shifted = null;
 			$page_category_slug = null;
-			if (!empty($page_category )) {
+			if (!empty($page_category)) {
 				$page_category_shifted = array_shift($page_category);
 				$page_category_slug = $page_category_shifted->slug;				
 			} // if
