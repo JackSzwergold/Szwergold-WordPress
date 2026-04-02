@@ -13,7 +13,7 @@ namespace :database do
   desc "Trigger the MySQL database backup process."
   task :trigger_backup do
     puts "    \e[1m\e[34mRAKE TASK\e[0m\e[22m Triggering the MySQL backup process on \e[33m#{fetch(:mysql_host_remote)}\e[0m."
-    system("ssh #{fetch(:deploy_user)}@#{fetch(:mysql_host_remote)} 'cd /opt/server_scripts/ && ./mysql_dumps.sh >/dev/null 2>&1;'")
+    system("ssh #{fetch(:deploy_user)}@#{fetch(:mysql_host_remote)} 'cd #{fetch(:code_root_path)} && ./mysql_dumps.sh >/dev/null 2>&1;'")
   end
 
   # Call as 'cap [stage name] database:import_mamp'.

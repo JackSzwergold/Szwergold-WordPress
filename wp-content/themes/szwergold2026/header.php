@@ -72,7 +72,7 @@
 	/**********************************************************************/
 	// Get the current selected post slug.
 	$post_slug = null;
-	if (!empty($post_slug)) {
+	if (!empty($post)) {
 	    $post_slug = $post->post_name;
 	} // if
 

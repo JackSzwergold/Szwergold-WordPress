@@ -30,7 +30,7 @@ set :code_root_path, "/home/jackgold"
 
 # Set the MySQL database paths and patterns.
 set :db_dir_local, "development_dbs/"
-set :db_dir_remote, "/opt/mysql_backup/"
+set :db_dir_remote, "/home/jackgold/zzz_mysql_backups/"
 set :db_file_pattern, "szwergold_wp_db"
 
 # Set the MySQL database stuff.
