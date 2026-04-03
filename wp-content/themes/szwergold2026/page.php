@@ -34,7 +34,7 @@
 			/********************************************************************************/
 			// Show the title.
 			echo '<div class="h1 p-0 m-0 text-railroadgothic">';
-			echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
+			echo '<a href="' . $permalink . '" rel="bookmark" title="Go to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
 			echo $title;
 			echo '</a>';
 			echo '</div>';
@@ -87,7 +87,7 @@
 				if (is_active_sidebar('home-featured-1')) {
 					echo '<div class="col col-12 col-md-6 m-0 p-0 mb-3">';
 					echo '<div class="container">';
-					echo '<div class="row"> ';
+					echo '<div class="row">';
 					dynamic_sidebar('home-featured-1');
 					echo '</div>';
 					echo '</div>';
@@ -99,7 +99,7 @@
 				if (is_active_sidebar('home-featured-2')) {
 					echo '<div class="col col-12 col-md-6 m-0 p-0 mb-3">';
 					echo '<div class="container">';
-					echo '<div class="row"> ';
+					echo '<div class="row">';
 					dynamic_sidebar('home-featured-2');
 					echo '</div>';
 					echo '</div>';
@@ -108,10 +108,9 @@
 
 				/****************************************************************************/
 				// Blank space
-				// echo '<div class="col col-12 col-md-4 m-0 p-0 bg-darkblue">';
+				// echo '<div class="col col-12 col-md-4 m-0 p-0">';
 				// echo '<div class="container">';
-				// echo '<div class="row"> ';
-				// echo '&nbsp;';
+				// echo '<div class="row">';
 				// echo '</div>';
 				// echo '</div>';
 				// echo '</div>';

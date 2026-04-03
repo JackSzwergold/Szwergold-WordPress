@@ -309,8 +309,8 @@
   $footer_items_array = array();
   $footer_items_array[] = '<a href="/" title="Home" class="text-offwhite m-0 p-0"><span property="name" class="text-offwhite fa fa-home"></span></a>';
   $footer_items_array[] = '<a href="/about" title="About" class="text-offwhite m-0 p-0">About</a>';
-  $footer_items_array[] = '<a href="/notes" title="Notes feed" class="text-offwhite m-0 p-0">Personal Notes</a>';
-  $footer_items_array[] = '<a href="/tech" title="Tech" class="text-offwhite m-0 p-0">Tech Notes</a>';
+  $footer_items_array[] = '<a href="/tech" title="Tech Notes" class="text-offwhite m-0 p-0">Tech Notes</a>';
+  $footer_items_array[] = '<a href="/notes" title="Personal Notes" class="text-offwhite m-0 p-0">Personal Notes</a>';
   $footer_items_array[] = '<a href="/contact" title="Contact" class="text-offwhite m-0 p-0">Contact</a>';
   $footer_items_array[] = '<a href="/resume" title="Résumé" class="text-offwhite m-0 p-0">Résumé</a>';
   $footer_items_array[] = '<a href="/bookmarks" title="Bookmarks" class="text-offwhite m-0 p-0">Bookmarks</a>';
@@ -325,8 +325,13 @@
   // Set the footer array items.
   foreach ($footer_items_array as $key => $value) {
     $footer_items_array[$key] =
-        '<li class="list-group-item bg-transparent fw-normal text-nowrap p-0 m-0 border-0 rounded-0">'
+        '<li class="list-inline-item text-nowrap p-0 m-0">'
+      . '<span class="fst-italic d-none d-md-block">'
       . $value
+      . '</span>'
+      . '<span class="small fst-italic d-md-none">'
+      . $value
+      . '</span>'
       . '</li>'
       ;
   } // foreach
@@ -337,10 +342,10 @@
 
 ?>
 
-  <footer class="footerr fixed-bottom p-0 m-0 px-2 bg-darkblue">
+  <footer class="footer fixed-bottom p-0 m-0 px-3 bg-darkblue">
     <div class="col col-12 p-0 m-0 px-2 py-3">
       <div class="h6 text-georgia-regular p-0 m-0">
-        <ul id="footer_links" class="footer_links list-group list-group-horizontal list-group-flush p-0 m-0 rounded-0">
+        <ul id="footer_links" class="footer_links list-inline p-0 m-0">
           <?php
             echo $footer_items_string;
           ?>
