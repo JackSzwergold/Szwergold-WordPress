@@ -227,13 +227,13 @@
 </head>
 <body id="top" class="p-0 m-0 <?php echo $page_slugs_string; ?>">
 
-	<nav class="header p-0 m-0 px-2 bg-darkblue">
-		<div class="sticky-top col col-12 p-0 m-0 px-2 pt-1 bg-darkblue">
+	<nav class="header p-0 m-0 px-2 pt-2 pb-3 bg-darkblue">
+		<div class="sticky-top col col-12 p-0 m-0 px-3 bg-darkblue">
 			<?php
 				echo $blog_name;
 			?>
 		</div>
-		<div class="sticky-top col col-12 p-0 m-0 px-2 pb-3 bg-darkblue">
+		<div class="sticky-top col col-12 p-0 m-0 px-3 bg-darkblue">
 			<?php
 				echo $blog_description;
 			?>

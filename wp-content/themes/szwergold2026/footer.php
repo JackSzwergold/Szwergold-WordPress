@@ -342,7 +342,7 @@
 
 ?>
 
-  <footer class="footer fixed-bottom p-0 m-0 px-2 bg-darkblue">
+  <footer class="footer fixed-bottom p-0 m-0 px-3 bg-darkblue">
     <div class="col col-12 p-0 m-0 px-2 py-3">
       <div class="h6 text-georgia-regular p-0 m-0">
         <ul id="footer_links" class="footer_links list-inline p-0 m-0">
