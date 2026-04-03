@@ -334,7 +334,7 @@
 			if (!empty($permalink) && !empty($title) && !empty($title_attribute)) {
 				$title =
 					  '<span class="text-railroadgothic">'
-					. '<a href="' . $excerpt . '" rel="bookmark" title="Go to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
+					. '<a href="' . $permalink . '" rel="bookmark" title="Go to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $title
 					. '</a>'
 					. '</span>'
