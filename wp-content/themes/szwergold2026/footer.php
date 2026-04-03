@@ -326,7 +326,9 @@
   foreach ($footer_items_array as $key => $value) {
     $footer_items_array[$key] =
         '<li class="list-inline-item fw-normal text-nowrap p-0 m-0">'
+      . '<em>'
       . $value
+      . '</em>'
       . '</li>'
       ;
   } // foreach
