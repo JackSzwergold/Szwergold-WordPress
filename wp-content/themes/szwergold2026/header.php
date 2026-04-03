@@ -194,14 +194,38 @@
 		wp_head();
 		echo '<!-- WordPress HEADER STUFF END -->';
 
+		/****************************************************************************************/
+		// Set the blog name.
+		$blog_name =
+			  '<div class="h1 text-railroadgothic p-0 m-0">'
+			. '<a href="' . $url . '" class="text-offwhite">'
+			. $blog_name
+			. '</a>'
+			. '</div>'
+			;
+
+		/****************************************************************************************/
+		// Set the blog description.
+		$blog_description =
+			  '<div class="h4 text-georgia-regular p-0 m-0">'
+			. '<a href="' . $url . '" class="text-offwhite">'
+			. '<span class="small fst-italic">'
+			. $blog_description
+			. '</span>'
+			. '</a>'
+			. '</div>'
+			;
+
 	?>
 </head>
 <body id="top" class="p-0 m-0 <?php echo $page_slugs_string; ?>">
 
 	<nav class="header sticky-top p-0 m-0 px-2 bg-darkblue">
 		<div class="col col-12 p-0 m-0 px-2 pt-1 pb-3">
-			<div class="h1 text-railroadgothic p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $blog_name; ?></a></div>
-			<div class="h4 text-georgia-regular p-0 m-0"><a href="<?php echo $url; ?>" class="text-offwhite"><?php echo $blog_description; ?></a></div>
+			<?php
+				echo $blog_name;
+				echo $blog_description;
+			?>
 		</div>
 	</nav>
 
