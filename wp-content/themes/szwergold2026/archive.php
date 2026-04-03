@@ -401,7 +401,7 @@
 			$category_block  =
 			      '<div class="col col-12 p-0 m-0">'
 				. '<div class="h3 text-railroadgothic col col-12 p-0 m-0 mb-1">'
-				. '<a href="' . $category_link . '" class="text-decoration-none text-darkblue">'
+				. '<a href="' . $category_link . '" title="Go to the &ldquo;' . $category_name . '&rdquo; category." class="text-decoration-none text-darkblue">'
 				. $category_name
 				. '</a>'
 				. '</div>'
