@@ -323,28 +323,29 @@
 		foreach ($parent_value as $child_key => $child_value) {
 
 			/**********************************************************************/
+			// Set different array values.
+			$title = !empty($child_value['title']) ? $child_value['title'] : null;
+			$title_attribute = !empty($child_value['title_attribute']) ? $child_value['title_attribute'] : null;
+			$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
+			$permalink = !empty($child_value['permalink']) ? $child_value['permalink'] : null;
+
+			/**********************************************************************/
 			// Set the title.
-			$title = null;
-			if (!empty($child_value['permalink']) && !empty($child_value['title_attribute']) && !empty($child_value['title'])) {
+			if (!empty($permalink) && !empty($title) && !empty($title_attribute)) {
 				$title =
 					  '<span class="text-railroadgothic">'
-					. '<a href="' . $child_value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $child_value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-darkblue">'
-					. $child_value['title']
+					. '<a href="' . $excerpt . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
+					. $title
 					. '</a>'
 					. '</span>'
 					;
 			} // if
 
 			/**********************************************************************/
-			// Set the excerpt and permalink.
-			$excerpt = !empty($child_value['excerpt']) ? $child_value['excerpt'] : null;
-			$permalink = !empty($child_value['permalink']) ? $child_value['permalink'] : null;
-
-			/**********************************************************************/
 			// Link the excerpt.
-			if (!empty($excerpt) && !empty($permalink)) {
+			if (!empty($permalink) && !empty($excerpt) && !empty($title_attribute)) {
 				$excerpt =
-					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $permalink . '.&rdquo;" class="text-decoration-none text-darkblue">'
+					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $excerpt
 					. '</a>'
 					;
