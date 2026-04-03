@@ -54,6 +54,15 @@ function load_fontawesome_files() {
 add_action('wp_enqueue_scripts', 'load_fontawesome_files', 10);
 
 /********************************************************************************/
+// 2026-04-03: Properly setting the font specific CSS.
+function load_font_specific_files() {
+	wp_register_style('font_specific', get_template_directory_uri() . '/style_fonts.css', array(), null);
+	wp_enqueue_style('font_specific');
+} // load_font_specific_files
+add_action('wp_enqueue_scripts', 'load_font_specific_files', 10);
+
+
+/********************************************************************************/
 // 2026-03-19: Enabling excerpts on all pages.
 add_post_type_support('page', 'excerpt');
 
