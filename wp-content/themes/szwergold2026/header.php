@@ -214,12 +214,10 @@
 			. '</span>'
 			. '</a>'
 			. '</div>'
-			. '<div class="h4 text-georgia-regular p-0 m-0 d-md-none">'
+			. '<div class="h5 text-georgia-regular p-0 m-0 d-md-none">'
 			. '<a href="' . $url . '" class="text-offwhite">'
 			. '<span class="small fst-italic">'
-			. '<small>'
 			. $blog_description
-			. '</small>'
 			. '</span>'
 			. '</a>'
 			. '</div>'
