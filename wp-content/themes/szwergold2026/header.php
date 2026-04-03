@@ -200,6 +200,9 @@
 			  '<div class="h1 text-railroadgothic p-0 m-0">'
 			. '<a href="' . $url . '" class="text-offwhite">'
 			. $blog_name
+			// . '<div class="spinner-border text-offwhite p-0 m-0 ms-2" role="status">'
+			// . '<span class="visually-hidden">Loading...</span>'
+			// . '</div>'
 			. '</a>'
 			. '</div>'
 			;
