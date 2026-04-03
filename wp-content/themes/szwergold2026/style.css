@@ -67,10 +67,8 @@ pre {
   font-size: 0.75rem !important;
 }
 
-code {
-  /*background: #dddddd !important;*/
-  /*color: #000000 !important;*/
-  /*font-size: 0.75rem !important;*/
+pre > code {
+  margin: 0;
   padding: 0.125rem 0.125rem 0.125rem 0 !important;
 }
 
