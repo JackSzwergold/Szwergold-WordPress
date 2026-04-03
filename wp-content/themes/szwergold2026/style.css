@@ -60,6 +60,7 @@ a:active {
 }
 
 /******************************************************************************/
+/* 2026-04-03: Something is wonky here; I think? */
 pre {
   background: #212529 !important;
   color: #00ff00 !important;
@@ -68,7 +69,6 @@ pre {
 }
 
 pre > code {
-  margin: 0;
   padding: 0.125rem 0.125rem 0.125rem 0 !important;
 }
 
