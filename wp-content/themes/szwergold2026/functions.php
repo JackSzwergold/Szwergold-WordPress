@@ -61,7 +61,6 @@ function load_font_specific_files() {
 } // load_font_specific_files
 add_action('wp_enqueue_scripts', 'load_font_specific_files', 10);
 
-
 /********************************************************************************/
 // 2026-03-19: Enabling excerpts on all pages.
 add_post_type_support('page', 'excerpt');
