@@ -16,11 +16,16 @@
 		// Header begins.
 		echo '<div class="h2 text-windsorpro-bold p-0 m-0 fw-bold pb-1 mb-2 border-bottom border-dark">';
 		echo 'Posts for ';
-		if (is_category()) {
+		if (is_archive()) {
+			echo '&ldquo;';
+			echo get_the_archive_title();
+			echo '&rdquo;';
+		} // if
+		else if (is_category()) {
 			echo '&ldquo;';
 			single_cat_title();
 			echo '.&rdquo;';
-		} // if
+		} // else if
 		else if (is_tag()) {
 			echo '&ldquo;';
 			echo single_tag_title();
@@ -135,7 +140,7 @@
 			if (!empty($value['permalink']) && !empty($value['title_attribute']) && !empty($value['title'])) {
 				echo '<header class="col col-12 p-0 m-0">';
 				echo '<div class="h5 p-0 m-0 text-windsorpro-bold">';
-				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
+				echo '<a href="' . $value['permalink'] . '" rel="bookmark" title="Go to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-dark text-decoration-none">';
 				echo $value['title'];
 				echo '</a>';
 				echo '</div>';
@@ -147,7 +152,7 @@
 			if (!empty($value['permalink']) && !empty($value['excerpt'])) {
 				echo '<div class="text-georgia-regular small">';
 				if (!empty($value['permalink'])) {
-					echo '<a href="' . $value['permalink'] . '" title="A link to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
+					echo '<a href="' . $value['permalink'] . '" title="Go to &ldquo;' . $value['title_attribute'] . '.&rdquo;" class="text-decoration-none text-dark">';
 				} // if
 				if (!empty($value['excerpt'])) {
 					echo $value['excerpt'];

@@ -35,7 +35,7 @@
       /********************************************************************************/
       // Show the title.
       echo '<div class="h1 p-0 m-0 text-railroadgothic">';
-      echo '<a href="' . $permalink . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
+      echo '<a href="' . $permalink . '" rel="bookmark" title="Go to &ldquo;' . $title_attribute . '.&rdquo;" class="text-darkblue text-decoration-none">';
       echo $title;
       echo '</a>';
       echo '</div>';

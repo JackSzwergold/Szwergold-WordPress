@@ -334,7 +334,7 @@
 			if (!empty($permalink) && !empty($title) && !empty($title_attribute)) {
 				$title =
 					  '<span class="text-railroadgothic">'
-					. '<a href="' . $excerpt . '" rel="bookmark" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
+					. '<a href="' . $excerpt . '" rel="bookmark" title="Go to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $title
 					. '</a>'
 					. '</span>'
@@ -345,7 +345,7 @@
 			// Link the excerpt.
 			if (!empty($permalink) && !empty($excerpt) && !empty($title_attribute)) {
 				$excerpt =
-					  '<a href="' . $permalink . '" title="A link to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
+					  '<a href="' . $permalink . '" title="Go to &ldquo;' . $title_attribute . '.&rdquo;" class="text-decoration-none text-darkblue">'
 					. $excerpt
 					. '</a>'
 					;
