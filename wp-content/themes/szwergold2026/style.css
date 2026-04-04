@@ -24,6 +24,13 @@ body > * {
 }
 
 /******************************************************************************/
+/* 2026-04-03: Apparently, this is a fix for pre and code blocks not respecting width. */
+/* Source: https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow */
+div {
+    min-width: 0; 
+}
+
+/******************************************************************************/
 
 .bg-darkblue {
   background-color: rgb(64, 63, 123) !important;
