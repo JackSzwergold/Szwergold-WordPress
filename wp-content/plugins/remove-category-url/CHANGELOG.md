@@ -1,3 +1,7 @@
+#####   Version 1.2.2 (2026-04-09)
+
+- Updated dependencies
+
 #####   Version 1.2.1 (2026-01-12)
 
 - Improved experience by flushing permalinks on uninstall

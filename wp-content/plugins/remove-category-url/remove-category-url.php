@@ -3,7 +3,7 @@
  * Plugin Name: Remove Category URL
  * Plugin URI: https://wordpress.org/plugins/remove-category-url/
  * Description: This plugin removes '/category' from your category URLs. (e.g. `/category/my-category/` to `/my-category/`)
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: Themeisle
  * Author URI: https://themeisle.com
  * Text Domain: remove-category-url
@@ -127,6 +127,30 @@ add_filter( 'themeisle_sdk_products', function ( $products ) {
 	$products[] = __FILE__;
 
 	return $products;
+} );
+
+/**
+ * Filters Themeisle SDK Black Friday / promotional notice data for this product.
+ *
+ * @param array<string, array<string, mixed>> $configs Configurations keyed by product slug.
+ * @return array<string, array<string, mixed>> Modified configs with Remove Category URL–specific notice data.
+ */
+add_filter( 'themeisle_sdk_blackfriday_data', function ( $configs ) {
+	$config = isset( $configs['default'] ) ? $configs['default'] : array();
+
+	if ( defined( 'NEVE_VERSION' ) ) {
+		return $configs;
+	}
+
+	// translators: 1. Number of free licenses, 2. The price of the product.
+	$config['message'] = sprintf( __( 'You\'re using Remove Category URL, and the team behind it is celebrating Black Friday by giving away %1$s licences of Neve Pro. A premium WordPress theme worth %2$s, packed with starter sites, a header builder, and WooCommerce layouts. Claim yours before they run out.', 'remove-category-url' ), 100, '$69' );
+	$config['cta_label'] = __( 'Get Neve Pro free', 'remove-category-url' );
+	$config['plugin_meta_message'] = __( 'Black Friday Sale - Get Neve Pro free', 'remove-category-url' );
+	$config['sale_url']  = tsdk_translate_link( tsdk_utmify( 'https://themeisle.link/neve-claim-bf', 'bfcm', 'remove-cat-url' ) );
+
+	$configs[ basename( dirname( __FILE__ ) ) ] = $config;
+
+	return $configs;
 } );
 
 /**
