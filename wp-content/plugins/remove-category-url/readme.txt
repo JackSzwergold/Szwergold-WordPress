@@ -3,7 +3,7 @@ Contributors: themeisle
 Tags: remove category url, remove category base, remove category prefix, permalinks, custom permalinks
 Requires at least: 3.1
 Tested up to: 6.9
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2
 Donate link: 
 
@@ -77,6 +77,13 @@ Note that after deactivation, links pointing to the shortened URLs will no longe
 You'll need to manually refresh your permalinks. Go to **Settings → Permalinks** and click **Save Changes**. This will restore the default `/category/` base.
 
 == Changelog ==
+
+#####   Version 1.2.2 (2026-04-09)
+
+- Updated dependencies
+
+
+
 
 #####   Version 1.2.1 (2026-01-12)
 
